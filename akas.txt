@@ -1,0 +1,2 @@
+mappingtool https://mapper1024.github.io
+mappingtoolnews ../blog/tags#mappingtool
