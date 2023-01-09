@@ -21,13 +21,32 @@ th, td {
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-} h1 {font-size: 1.75em;}
+}
+
+h2.experience {
+    font-size: 1em;
+    display: inline;
+}
+
+h2.experience + h3 {
+    font-size: 0.9em;
+    font-style: italic;
+    display: inline;
+}
+
+h2.experience + h3::before {
+    content: "(";
+}
+
+h2.experience + h3::after {
+    content: ")";
+}
 
 .tag {
     margin-left: 1em;
 
     font: bold 1.5em;
-    background-color: #EEEEEE;
+    background-color: #DDD;
     padding: 2px 6px 2px 6px;
     border-top: 1px solid #CCCCCC;
     border-right: 1px solid #333333;
@@ -50,4 +69,68 @@ h1, h2, h3, h4, h5, h6 {
 
 .subtitle {
     font-style: italic;
+}
+
+p {
+    text-indent: 1em;
+}
+
+footer {
+    font-style: italic;
+    font-size: 0.75em;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill {
+    background-color: #DDD;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+}
+
+.skill.min {
+    font-size: 0.75em;
+}
+
+.skill.max {
+    font-size: 1.5em;
+}
+
+.skill.paradigm::before {
+    content: "🖧";
+    padding-right: 0.5em;
+    color: #777;
+}
+
+.skill.lang::before {
+    content: "⌨";
+    padding-right: 0.5em;
+    color: #777;
+}
+
+.skill.framework::before {
+    content: "🖥";
+    padding-right: 0.5em;
+    color: #777;
+}
+
+.skill.personal::before {
+    content: "❤";
+    padding-right: 0.5em;
+    color: #777;
+}
+
+.uparrow {
+    font-size: 2em;
 }

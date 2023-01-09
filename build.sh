@@ -78,7 +78,7 @@ source blog.in/posts.sh
 echo "</ul>" >> blog/_major.in.html
 echo "<li><a href='blog'>More...</a></li></ul>" >> blog/_minor.in.html
 
-(sed -e '/__BLOGMINOR__/rblog/_minor.in.html' | sed 's/__BLOGMINOR__//g') < templates/index.in.html > index.html
+(sed -e '/__BLOGMINOR__/rblog/_minor.in.html' | sed 's/__BLOGMINOR__//g' | sed "s/__DATE__/"$(TZ=UTC date -I)"/g") < templates/index.in.html > index.html
 
 (sed -e '/__BLOGMAJOR__/rblog/_major.in.html' | sed 's/__BLOGMAJOR__//g') < templates/blog.in.html > blog/index.html
 
