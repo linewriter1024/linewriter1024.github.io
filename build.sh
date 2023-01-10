@@ -22,6 +22,9 @@ done < akas.txt
 
 alltags=""
 
+# Maximum blog posts in the "minor" list, i.e. on the front page
+BMMAX=3
+
 post() {
 	name="$1"
 	title="$2"
@@ -55,7 +58,7 @@ post() {
 
 	BN=$((BN+1))
 
-	if [ $BN -le 3 ]; then
+	if [ $BN -le $BMMAX ]; then
 		echo "<li class='postlisting'><a href='blog/$name'>$title</a> [$date] $minortaghtml</li>" >> blog/_minor.in.html
 	fi
 
@@ -76,7 +79,9 @@ echo "<ul>" > blog/_minor.in.html
 source blog.in/posts.sh
 
 echo "</ul>" >> blog/_major.in.html
-echo "<li><a href='blog'>More...</a></li></ul>" >> blog/_minor.in.html
+if [ $BN -gt $BMMAX ]; then
+	echo "<li><a href='blog'>$((BN - BMMAX)) more...</a></li></ul>" >> blog/_minor.in.html
+fi
 
 (sed -e '/__BLOGMINOR__/rblog/_minor.in.html' | sed 's/__BLOGMINOR__//g' | sed "s/__DATE__/"$(TZ=UTC date -I)"/g") < templates/index.in.html > index.html
 
