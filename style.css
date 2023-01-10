@@ -150,3 +150,7 @@ footer {
 .uparrow {
     font-size: 2em;
 }
+
+a.unimportant {
+    font-size: 0.75em;
+}
