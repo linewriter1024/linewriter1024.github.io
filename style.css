@@ -123,24 +123,28 @@ footer {
     content: "🖧";
     padding-right: 0.5em;
     color: #777;
+    filter: grayscale(100%);
 }
 
 .skill.lang::before {
     content: "⌨";
     padding-right: 0.5em;
     color: #777;
+    filter: grayscale(100%);
 }
 
 .skill.framework::before {
     content: "🖥";
     padding-right: 0.5em;
     color: #777;
+    filter: grayscale(100%);
 }
 
 .skill.personal::before {
     content: "❤";
     padding-right: 0.5em;
     color: #777;
+    filter: grayscale(100%);
 }
 
 .uparrow {
