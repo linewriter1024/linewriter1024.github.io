@@ -80,8 +80,10 @@ source blog.in/posts.sh
 
 echo "</ul>" >> blog/_major.in.html
 if [ $BN -gt $BMMAX ]; then
-	echo "<li><a href='blog'>$((BN - BMMAX)) more...</a></li></ul>" >> blog/_minor.in.html
+	echo "<li><a href='blog'>$((BN - BMMAX)) more...</a></li>" >> blog/_minor.in.html
 fi
+
+echo "</ul>" >> blog/_minor.in.html
 
 (sed -e '/__BLOGMINOR__/rblog/_minor.in.html' | sed 's/__BLOGMINOR__//g' | sed "s/__DATE__/"$(TZ=UTC date -I)"/g") < templates/index.in.html > index.html
 
