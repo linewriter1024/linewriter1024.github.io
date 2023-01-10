@@ -42,6 +42,18 @@ h2.experience + h3::after {
     content: ")";
 }
 
+h2.experience.project::before {
+    content: "🔨";
+    padding-right: 0.5em;
+    filter: grayscale(100%);
+}
+
+h2.experience.job::before {
+    content: "📈";
+    padding-right: 0.5em;
+    filter: grayscale(100%);
+}
+
 .tag {
     margin-left: 1em;
 
