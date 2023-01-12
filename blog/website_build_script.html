@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" context="Ben Leskey">
+		<title>Ben Leskey | benleskey.com build script</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<h1>benleskey.com build script</h1>
+		<span class="subtitle">2023-01-12</span>
+		<span class="tags"> <a class='tag' href='tags#software'>#software</a> <a class='tag' href='tags#website'>#website</a></span>
+		<hr>
+		
+<p>
+This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script---as of writing---that compiles the website is fully commented and included below, along with the data file listing all the blog posts.
+<ul>
+	<li><a href="#build">build.sh</a></li>
+	<li><a href="#posts">posts.sh</a></li>
+</ul>
+</p>
+
+<h2 id="build">build.sh</h2>
+<p>
+<pre>
+<code class="language-bash">
+#!/bin/bash
+
+# Akas are permanent names that redirect to various resources. If the location of the resource changes, the aka can simply be updated.
+# Due to being hosted on Github pages we do not have direct control over redirects, so we must use meta refresh directives.
+echo &quot;Akas...&quot;
+
+# Each line in akas.txt has the format:
+# &lt;name of redirect&gt; &lt;url of redirect&gt;
+while read line; do
+	# Split the aka line into the name and url
+	name=&quot;$(echo &quot;$line&quot; | cut -d&#x27; &#x27; -f1)&quot;
+	url=&quot;$(echo &quot;$line&quot; | cut -d&#x27; &#x27; -f2-)&quot;
+
+	file=&quot;aka/$name.html&quot;
+
+	echo &quot;&lt;!DOCTYPE html&gt;&quot; &gt; $file
+	echo &quot;&lt;title&gt;Redirecting to $url&lt;/title&gt;&quot; &gt;&gt; $file
+
+	# Refresh the page immediately to the desired URL.
+	echo &quot;&lt;meta http-equiv=&#x27;refresh&#x27; content=&#x27;0; URL=$url&#x27;&gt;&quot; &gt;&gt; $file
+
+	# However, we don&#x27;t want any caching, so if we update the URL it will be immediately reflected in the redirect.
+	echo &#x27;&lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache, no-store, must-revalidate&quot; /&gt;&#x27; &gt;&gt; $file
+	echo &#x27;&lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot; /&gt;&#x27; &gt;&gt; $file
+	echo &#x27;&lt;meta http-equiv=&quot;Expires&quot; content=&quot;0&quot; /&gt;&#x27; &gt;&gt; $file
+
+	# Additional links to the URL.
+	echo &quot;&lt;link rel=&#x27;canonical&#x27; href=&#x27;$url&#x27;&gt;&quot; &gt;&gt; $file
+	echo &quot;Redirecting to &lt;a href=&#x27;$url&#x27;&gt;$url&lt;/a&gt;...&quot; &gt;&gt; $file # The user can click this one if their browser doesn&#x27;t redirect them.
+
+	echo &quot; Wrote $name -&gt; $url&quot;
+done &lt; akas.txt
+
+# replacetext &lt;placeholder&gt; &lt;text to insert&gt;
+# A pipeline function to replace a placeholder with text
+replacetext() {
+	placeholder=&quot;$1&quot;
+	text=&quot;$2&quot;
+
+	sed &quot;s^$placeholder^$text^&quot;
+}
+
+# replacefile &lt;placeholder&gt; &lt;path to file&gt;
+# A pipeline function to replace a placeholder with the contents of a file
+replacefile() {
+	placeholder=&quot;$1&quot;
+	path=&quot;$2&quot;
+
+	sed -e &quot;/$placeholder/r$path&quot; | sed &quot;s/$placeholder//g&quot;
+}
+
+# The list of all tags, to be built up as posts are processed.
+alltags=&quot;&quot;
+
+# Maximum blog posts in the &quot;minor&quot; list, i.e. on the front page.
+BMMAX=3
+
+# Number of blog posts so far.
+BN=0
+
+# The post function is called from the posts.sh list of posts; it is responsible for processing each blog post.
+# A post has four components, reflected in the arguments:
+# post &lt;human-redable identifier name&gt; &lt;human-readable, pretty title of post&gt; &lt;date YYYY-MM-DD&gt; &lt;space-delimited list of tags&gt;
+post() {
+	name=&quot;$1&quot;
+	title=&quot;$2&quot;
+	date=&quot;$3&quot;
+	tags=&quot;$4&quot;
+
+	# We&#x27;ll be reading the text of the blog post from an input HTML file and generating the full HTML page.
+	infile=&quot;blog.in/$name.in.html&quot;
+	outfile=&quot;blog/$name.html&quot;
+
+	echo &quot; $name: $title [$date]&quot;
+
+	# We will collect all the tags and build a list of hyperlinks to insert into the HTML.
+	# HTML for the tag lists are generated for each different place they must be used with different styling and URLs (since sometimes we need blog/tags#tag and sometimes just tags/#tag if we are within the blog itself).
+
+	taghtml=&quot;&quot; # The list of tags to be used within the blog posts.
+	smalltaghtml=&quot;&quot; # The list of tags to be used within the &quot;major&quot; blog post list, on the dedicated blog page.
+	minortaghtml=&quot;&quot; # The list of tags to be used within the &quot;minor&quot; blog post list, on the main page.
+
+	while read tag; do
+		taghtml=&quot;$taghtml &lt;a class=&#x27;tag&#x27; href=&#x27;tags#$tag&#x27;&gt;#$tag&lt;/a&gt;&quot;
+		minortaghtml=&quot;$minortaghtml &lt;a class=&#x27;smalltag&#x27; href=&#x27;blog/tags#$tag&#x27;&gt;#$tag&lt;/a&gt;&quot;
+		smalltaghtml=&quot;$smalltaghtml &lt;a class=&#x27;smalltag&#x27; href=&#x27;tags#$tag&#x27;&gt;#$tag&lt;/a&gt;&quot;
+
+		# If we haven&#x27;t seen this tag yet in any post, record it and clear away any old file built from this tag.
+		if ! echo &quot;$alltags&quot; | grep -w &quot;$tag&quot; &gt; /dev/null; then
+			echo &quot; New tag: $tag&quot;
+			alltags=&quot;$alltags $tag&quot;
+			rm -f &quot;blog/_tag_$tag.html&quot;
+		fi
+
+	done &lt; &lt;(echo &quot;$tags&quot; | xargs -n1)
+
+	# Now we will write a link to this post to the each of its tags&#x27; pages.
+	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
+	while read tag; do
+		echo &quot;&lt;li class=&#x27;postlisting&#x27;&gt;&lt;a href=&#x27;$name&#x27;&gt;$title&lt;/a&gt; [$date] $smalltaghtml&lt;/li&gt;&quot; &gt;&gt; &quot;blog/_tag_$tag.html&quot;
+	done &lt; &lt;(echo &quot;$tags&quot; | xargs -n1)
+
+	# Record that another post was processed.
+	BN=$((BN+1))
+
+	# If we haven&#x27;t reached the limit for &quot;minor&quot; posts, add a link to the minor blog post listing HTML, this is for the &quot;recent posts&quot; section of the main page.
+	if [ $BN -le $BMMAX ]; then
+		echo &quot;&lt;li class=&#x27;postlisting&#x27;&gt;&lt;a href=&#x27;blog/$name&#x27;&gt;$title&lt;/a&gt; [$date] $minortaghtml&lt;/li&gt;&quot; &gt;&gt; blog/_minor.in.html
+	fi
+
+	# Always add a link to the &quot;major&quot; blog post listing HTML, this is for the dedicated blog page.
+	echo &quot;&lt;li class=&#x27;postlisting&#x27;&gt;&lt;a href=&#x27;$name&#x27;&gt;$title&lt;/a&gt; [$date] $smalltaghtml&lt;/li&gt;&quot; &gt;&gt; blog/_major.in.html
+
+	# Build the blog post HTML.
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;__DATE__&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;&quot; &quot;$infile&quot;) &lt; templates/post.in.html &gt; &quot;$outfile&quot;
+}
+
+echo &quot;Blog...&quot;
+
+# Begin the major and minor blog post lists.
+echo &quot;&lt;ul&gt;&quot; &gt; blog/_major.in.html
+echo &quot;&lt;ul&gt;&quot; &gt; blog/_minor.in.html
+
+# Include the list of posts via source, so it can call the post function.
+source blog.in/posts.sh
+
+# If there are more posts than can be displayed in the minor list (on the main page) then add a &quot;More...&quot; link to the minor list.
+if [ $BN -gt $BMMAX ]; then
+	echo &quot;&lt;li&gt;&lt;a href=&#x27;blog&#x27;&gt;$((BN - BMMAX)) more...&lt;/a&gt;&lt;/li&gt;&quot; &gt;&gt; blog/_minor.in.html
+fi
+
+# Cap off the lists.
+echo &quot;&lt;/ul&gt;&quot; &gt;&gt; blog/_minor.in.html
+echo &quot;&lt;/ul&gt;&quot; &gt;&gt; blog/_major.in.html
+
+# Build the main page.
+(
+	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
+	# The date of generation is included on the main page.
+	replacetext &quot;__DATE__&quot; &quot;$(TZ=UTC date -I)&quot;
+) &lt; templates/index.in.html &gt; index.html
+
+# Build the dedicated blog index page.
+(replacefile &quot;__BLOGMAJOR__&quot; &quot;blog/_major.in.html&quot;) &lt; templates/blog.in.html &gt; blog/index.html
+
+
+# Uniquify and sort the list of all tags.
+alltags=&quot;$(echo &quot;$alltags&quot; | xargs -n1 | sort | uniq | xargs)&quot;
+
+# The tag index page consist of all the tags with every post categorized under their tag/tags.
+echo &gt; blog/_tags.in.html
+
+# For each tag, just append the previously generated list of posts HTML for that tag.
+while read tag; do
+	echo &quot;&lt;h1&gt;$tag&lt;/h1&gt;&quot; &gt;&gt; blog/_tags.in.html
+	echo &quot;&lt;ul&gt;&quot; &gt;&gt; blog/_tags.in.html
+	cat &quot;blog/_tag_$tag.html&quot; &gt;&gt; blog/_tags.in.html
+	echo &quot;&lt;/ul&gt;&quot; &gt;&gt; blog/_tags.in.html
+done &lt; &lt;(echo &quot;$alltags&quot; | xargs -n1)
+
+# Generate the full tag index page.
+(replacefile &quot;__TAGS__&quot; &quot;blog/_tags.in.html&quot;) &lt; templates/tags.in.html &gt; blog/tags.html
+</code>
+</pre>
+<p>
+
+<h2 id="posts">posts.sh</h2>
+<p>
+<pre>
+<code class="language-bash">
+post website_build_script &quot;benleskey.com build script&quot; 2023-01-12 &quot;software website&quot;
+post mapper0_4 &quot;Mapping tool 0.4 release&quot; 2023-01-04 &quot;mappingtool software&quot;
+post mapper0_3 &quot;Mapping tool 0.3 release&quot; 2022-10-26 &quot;mappingtool software&quot;
+post mapper0_1 &quot;Mapping tool 0.1 release&quot; 2022-08-01 &quot;mappingtool software&quot;
+</code>
+</pre>
+</p>
+		<hr>
+	</body>
+</html>
