@@ -21,6 +21,7 @@ th, td {
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
+    clear: both;
 }
 
 h2.experience {
@@ -85,6 +86,7 @@ h2.experience.job::before {
 
 p {
     text-indent: 1em;
+    clear: both;
 }
 
 footer {
@@ -153,4 +155,16 @@ footer {
 
 a.unimportant {
     font-size: 0.75em;
+}
+
+img.right {
+    float: right;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+img.left {
+    float: left;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
 }

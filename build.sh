@@ -160,3 +160,24 @@ done < <(echo "$alltags" | xargs -n1)
 
 # Generate the full tag index page.
 (replacefile "__TAGS__" "blog/_tags.in.html") < templates/tags.in.html > blog/tags.html
+
+echo "Downloading images..."
+while read line; do
+	output="$(echo "$line" | cut -d' ' -f1)"
+	input="$(echo "$line" | cut -d' ' -f2-)"
+
+	echo " Downloading $input -> $output"
+
+	curl -sSL "$input" > "images/$output" &
+done < images.txt
+
+echo " Waiting..."
+wait
+
+echo "Processing images..."
+find images -name "*.png" -prune | while read n; do
+	n="$(basename "$n")"
+	echo " Processing $n"
+	convert -resize 10% "images/$n" "thumbs/${n%.*}.10.png"
+	convert -resize 25% "images/$n" "thumbs/${n%.*}.25.png"
+done
