@@ -24,32 +24,32 @@ h1, h2, h3, h4, h5, h6 {
     clear: both;
 }
 
-h2.experience {
+h3.experience {
     font-size: 1em;
     display: inline;
 }
 
-h2.experience + h3 {
+h3.experience + h4 {
     font-size: 0.9em;
     font-style: italic;
     display: inline;
 }
 
-h2.experience + h3::before {
+h3.experience + h4::before {
     content: "(";
 }
 
-h2.experience + h3::after {
+h3.experience + h4::after {
     content: ")";
 }
 
-h2.experience.project::before {
+h3.experience.project::before {
     content: "🔨";
     padding-right: 0.5em;
     filter: grayscale(100%);
 }
 
-h2.experience.job::before {
+h3.experience.job::before {
     content: "📈";
     padding-right: 0.5em;
     filter: grayscale(100%);
