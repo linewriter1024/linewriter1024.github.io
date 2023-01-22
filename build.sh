@@ -113,9 +113,14 @@ post() {
 
 	# Build the blog post HTML.
 	(replacetext "__TITLE__" "$title" | replacetext "__DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile"
+
+	# Build the RSS item HTML
+	(replacetext "__TITLE__" "$title" | replacetext "__DATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__TAGS__" "$(echo "$tags" | xargs -n1 printf "#%s\n" | xargs)") < templates/feed_item.in.xml >> blog/_feed.in.xml
 }
 
 echo "Blog..."
+
+echo "" > blog/_feed.in.xml
 
 # Begin the major and minor blog post lists.
 echo "<ul>" > blog/_major.in.html
@@ -181,3 +186,6 @@ find images -name "*.png" -prune | while read n; do
 	convert -resize 10% "images/$n" "thumbs/${n%.*}.10.png"
 	convert -resize 25% "images/$n" "thumbs/${n%.*}.25.png"
 done
+
+echo "Generating RSS feed..."
+(replacefile "__FEED__" "blog/_feed.in.xml" | replacetext "__DATE__" "$(TZ=UTC date -R)" | replacetext "__YEAR__" "$(TZ=UTC date +%Y)") < templates/feed.in.xml > blog/feed.xml

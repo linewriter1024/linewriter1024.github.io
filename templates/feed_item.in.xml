@@ -1,0 +1,8 @@
+<item>
+	<title>__TITLE__</title>
+	<description>__TAGS__</description>
+	__CATEGORIES__
+	<link>__LINK__</link>
+	<guid isPermaLink="true">__LINK__</guid>
+	<pubDate>__DATE__</pubDate>
+</item>
