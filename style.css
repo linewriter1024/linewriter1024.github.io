@@ -168,3 +168,13 @@ img.left {
     margin-right: 0.5em;
     margin-bottom: 0.5em;
 }
+
+img.rss {
+    width: 1em;
+    height: 1em;
+    vertical-align: text-bottom;
+}
+
+a.rss {
+    float: right;
+}
