@@ -169,12 +169,17 @@ img.left {
     margin-bottom: 0.5em;
 }
 
-img.rss {
-    width: 1em;
-    height: 1em;
+a.icon {
+    float: right;
+    margin-left: 0.5em;
+}
+
+a.icon img {
+    width: 1.5em;
+    height: 1.5em;
     vertical-align: text-bottom;
 }
 
-a.rss {
-    float: right;
+footer a.icon img {
+    vertical-align: center;
 }

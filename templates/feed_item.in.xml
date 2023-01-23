@@ -4,5 +4,5 @@
 	__CATEGORIES__
 	<link>__LINK__</link>
 	<guid isPermaLink="true">__LINK__</guid>
-	<pubDate>__DATE__</pubDate>
+	<pubDate>__POST_RDATE__</pubDate>
 </item>

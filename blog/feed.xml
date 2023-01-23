@@ -6,12 +6,11 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sun, 22 Jan 2023 19:29:32 +0000</lastBuildDate>
-		<pubDate>Sun, 22 Jan 2023 19:29:32 +0000</pubDate>
+		<lastBuildDate>Mon, 23 Jan 2023 00:46:42 +0000</lastBuildDate>
+		<pubDate>Mon, 23 Jan 2023 00:46:42 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
-
 <item>
 	<title>Mapping tool 0.5 release</title>
 	<description>#mappingtool #software</description>
@@ -52,5 +51,6 @@
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_1</guid>
 	<pubDate>Mon, 01 Aug 2022 00:00:00 +0000</pubDate>
 </item>
+
 	</channel>
 </rss>

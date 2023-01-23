@@ -31,22 +31,36 @@ while read line; do
 	echo " Wrote $name -> $url"
 done < akas.txt
 
-# replacetext <placeholder> <text to insert>
-# A pipeline function to replace a placeholder with text
-replacetext() {
-	placeholder="$1"
-	text="$2"
-
-	sed "s^$placeholder^$text^"
-}
-
 # replacefile <placeholder> <path to file>
 # A pipeline function to replace a placeholder with the contents of a file
 replacefile() {
 	placeholder="$1"
 	path="$2"
 
-	sed -e "/$placeholder/r$path" | sed "s/$placeholder//g"
+	python3 -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], open(sys.argv[2]).read()))" "$placeholder" "$path"
+}
+
+# replacetext <placeholder> <text to insert>
+# A pipeline function to replace a placeholder with text
+replacetext() {
+	placeholder="$1"
+	text="$2"
+
+	python3 -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], sys.argv[2]))" "$placeholder" "$text"
+}
+
+basereplace() {
+	toroot="$1"
+
+	replacetext "__RDATE__" "$(TZ=UTC date -R)" |
+	replacetext "__YEAR__" "$(TZ=UTC date +%Y)" |
+	replacetext "__DATE__" "$(TZ=UTC date -I)" |
+	replacetext "__ROOT__" "$toroot"
+}
+
+commonreplace() {
+	basereplace "$@" |
+	replacetext "__FOOTERICONS__" "$(basereplace "$@" < templates/footer_icons.in.html)"
 }
 
 # The list of all tags, to be built up as posts are processed.
@@ -112,10 +126,10 @@ post() {
 	echo "<li class='postlisting'><a href='$name'>$title</a> [$date] $smalltaghtml</li>" >> blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext "__TITLE__" "$title" | replacetext "__DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile"
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile"
 
-	# Build the RSS item HTML
-	(replacetext "__TITLE__" "$title" | replacetext "__DATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__TAGS__" "$(echo "$tags" | xargs -n1 printf "#%s\n" | xargs)") < templates/feed_item.in.xml >> blog/_feed.in.xml
+	# Build the RSS item XML
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__TAGS__" "$(echo "$tags" | xargs -n1 printf "#%s\n" | xargs)") < templates/feed_item.in.xml >> blog/_feed.in.xml
 }
 
 echo "Blog..."
@@ -141,12 +155,11 @@ echo "</ul>" >> blog/_major.in.html
 # Build the main page.
 (
 	replacefile "__BLOGMINOR__" "blog/_minor.in.html" |
-	# The date of generation is included on the main page.
-	replacetext "__DATE__" "$(TZ=UTC date -I)"
+	commonreplace .
 ) < templates/index.in.html > index.html
 
 # Build the dedicated blog index page.
-(replacefile "__BLOGMAJOR__" "blog/_major.in.html") < templates/blog.in.html > blog/index.html
+(replacefile "__BLOGMAJOR__" "blog/_major.in.html" | replacetext __NUM_POSTS__ "$BN" | commonreplace ..) < templates/blog.in.html > blog/index.html
 
 
 # Uniquify and sort the list of all tags.
@@ -164,7 +177,7 @@ while read tag; do
 done < <(echo "$alltags" | xargs -n1)
 
 # Generate the full tag index page.
-(replacefile "__TAGS__" "blog/_tags.in.html") < templates/tags.in.html > blog/tags.html
+(replacefile "__TAGS__" "blog/_tags.in.html" | commonreplace ..) < templates/tags.in.html > blog/tags.html
 
 echo "Downloading images..."
 while read line; do
@@ -188,4 +201,4 @@ find images -name "*.png" -prune | while read n; do
 done
 
 echo "Generating RSS feed..."
-(replacefile "__FEED__" "blog/_feed.in.xml" | replacetext "__DATE__" "$(TZ=UTC date -R)" | replacetext "__YEAR__" "$(TZ=UTC date +%Y)") < templates/feed.in.xml > blog/feed.xml
+(replacefile "__FEED__" "blog/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml
