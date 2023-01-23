@@ -177,7 +177,7 @@ while read tag; do
 done < <(echo "$alltags" | xargs -n1)
 
 # Generate the full tag index page.
-(replacefile "__TAGS__" "blog/_tags.in.html" | commonreplace ..) < templates/tags.in.html > blog/tags.html
+(replacefile "__TAGS__" "blog/_tags.in.html" | replacetext __NUM_TAGS__ "$(echo "$alltags" | wc -w)" | commonreplace ..) < templates/tags.in.html > blog/tags.html
 
 echo "Downloading images..."
 while read line; do
