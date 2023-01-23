@@ -193,11 +193,13 @@ echo " Waiting..."
 wait
 
 echo "Processing images..."
-find images -name "*.png" -prune | while read n; do
-	n="$(basename "$n")"
-	echo " Processing $n"
-	convert -resize 10% "images/$n" "thumbs/${n%.*}.10.png"
-	convert -resize 25% "images/$n" "thumbs/${n%.*}.25.png"
+for ext in jpg png; do
+	find images -name "*.$ext" -prune | while read n; do
+		n="$(basename "$n")"
+		echo " Processing $n"
+		convert -resize 10% -strip "images/$n" "thumbs/${n%.*}.10.$ext"
+		convert -resize 25% -strip "images/$n" "thumbs/${n%.*}.25.$ext"
+	done
 done
 
 echo "Generating RSS feed..."
