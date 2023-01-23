@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 23 Jan 2023 00:53:53 +0000</lastBuildDate>
-		<pubDate>Mon, 23 Jan 2023 00:53:53 +0000</pubDate>
+		<lastBuildDate>Mon, 23 Jan 2023 03:30:14 +0000</lastBuildDate>
+		<pubDate>Mon, 23 Jan 2023 03:30:14 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>I made an RSS feed!</title>
+	<description>#software #website</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/made_rss_feed</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/made_rss_feed</guid>
+	<pubDate>Sun, 22 Jan 2023 00:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Mapping tool 0.5 release</title>
 	<description>#mappingtool #software</description>

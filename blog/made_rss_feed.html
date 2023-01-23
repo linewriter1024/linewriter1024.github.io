@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | I made an RSS feed!</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>I made an RSS feed!</h1>
+		<span class="subtitle">2023-01-22</span>
+		<span class="tags"> <a class='tag' href='tags#software'>#software</a> <a class='tag' href='tags#website'>#website</a></span>
+		</header>
+		<hr>
+		<article>
+			<p>I made an <a href="feed.xml">RSS feed</a> for my blog! It's a really simple format; I was able to implement my feed just by following the <a href="https://validator.w3.org/feed/docs/rss2.html">RSS 2.0 spec</a>. Of course, RSS readers are a little less common than they were a decade ago; but there are plenty of extensions for Firefox---I'm using <a href="https://addons.mozilla.org/en-US/firefox/addon/rsspreview/">RSSPreview</a> just to test the feed---and with how easy it was to extend my blog generator to generate XML alongside HTML I figured it was better to have a feed than not.</p>
+
+		</article>
+		<hr>
+		<footer>
+			Post dated 2023-01-22
+			 <a class='tag' href='tags#software'>#software</a> <a class='tag' href='tags#website'>#website</a>
+			<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024">
+	<img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account">
+</a>
+
+<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024">
+	<img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account">
+</a>
+
+<a class="icon" href="../blog/feed.xml" title="RSS feed">
+	<img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed">
+</a>
+		</footer>
+	</body>
+</html>
