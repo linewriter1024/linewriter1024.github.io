@@ -11,25 +11,31 @@ while read line; do
 	name="$(echo "$line" | cut -d' ' -f1)"
 	url="$(echo "$line" | cut -d' ' -f2-)"
 
-	file="aka/$name.html"
+	echo " $name -> $url"
 
-	echo "<!DOCTYPE html>" > $file
-	echo "<title>Redirecting to $url</title>" >> $file
+	(
 
-	# Refresh the page immediately to the desired URL.
-	echo "<meta http-equiv='refresh' content='0; URL=$url'>" >> $file
+		file="aka/$name.html"
 
-	# However, we don't want any caching, so if we update the URL it will be immediately reflected in the redirect.
-	echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />' >> $file
-	echo '<meta http-equiv="Pragma" content="no-cache" />' >> $file
-	echo '<meta http-equiv="Expires" content="0" />' >> $file
+		echo "<!DOCTYPE html>" > $file
+		echo "<title>Redirecting to $url</title>" >> $file
 
-	# Additional links to the URL.
-	echo "<link rel='canonical' href='$url'>" >> $file
-	echo "Redirecting to <a href='$url'>$url</a>..." >> $file # The user can click this one if their browser doesn't redirect them.
+		# Refresh the page immediately to the desired URL.
+		echo "<meta http-equiv='refresh' content='0; URL=$url'>" >> $file
 
-	echo " Wrote $name -> $url"
+		# However, we don't want any caching, so if we update the URL it will be immediately reflected in the redirect.
+		echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />' >> $file
+		echo '<meta http-equiv="Pragma" content="no-cache" />' >> $file
+		echo '<meta http-equiv="Expires" content="0" />' >> $file
+
+		# Additional links to the URL.
+		echo "<link rel='canonical' href='$url'>" >> $file
+		echo "Redirecting to <a href='$url'>$url</a>..." >> $file # The user can click this one if their browser doesn't redirect them.
+	) &
 done < akas.txt
+
+echo " Waiting..."
+wait
 
 # replacefile <placeholder> <path to file>
 # A pipeline function to replace a placeholder with the contents of a file
@@ -143,8 +149,6 @@ echo "<ul>" > blog/_minor.in.html
 # Include the list of posts via source, so it can call the post function.
 source blog.in/posts.sh
 
-wait
-
 # If there are more posts than can be displayed in the minor list (on the main page) then add a "More..." link to the minor list.
 if [ $BN -gt $BMMAX ]; then
 	echo "<li><a href='blog'>$((BN - BMMAX)) more...</a></li>" >> blog/_minor.in.html
@@ -153,6 +157,9 @@ fi
 # Cap off the lists.
 echo "</ul>" >> blog/_minor.in.html
 echo "</ul>" >> blog/_major.in.html
+
+echo " Waiting..."
+wait
 
 # Build the main page.
 (
@@ -204,6 +211,7 @@ for ext in jpg png; do
 	done
 done
 
+echo " Waiting..."
 wait
 
 echo "Generating RSS feed..."
