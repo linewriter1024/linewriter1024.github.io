@@ -37,7 +37,7 @@ replacefile() {
 	placeholder="$1"
 	path="$2"
 
-	python3 -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], open(sys.argv[2]).read()))" "$placeholder" "$path"
+	python3 -u -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], open(sys.argv[2]).read()))" "$placeholder" "$path"
 }
 
 # replacetext <placeholder> <text to insert>
@@ -46,7 +46,7 @@ replacetext() {
 	placeholder="$1"
 	text="$2"
 
-	python3 -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], sys.argv[2]))" "$placeholder" "$text"
+	python3 -u -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], sys.argv[2]))" "$placeholder" "$text"
 }
 
 basereplace() {
@@ -126,7 +126,7 @@ post() {
 	echo "<li class='postlisting'><a href='$name'>$title</a> [$date] $smalltaghtml</li>" >> blog/_major.in.html
 
 	# Build the blog post HTML.
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile"
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile" &
 
 	# Build the RSS item XML
 	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__TAGS__" "$(echo "$tags" | xargs -n1 printf "#%s\n" | xargs)") < templates/feed_item.in.xml >> blog/_feed.in.xml
@@ -142,6 +142,8 @@ echo "<ul>" > blog/_minor.in.html
 
 # Include the list of posts via source, so it can call the post function.
 source blog.in/posts.sh
+
+wait
 
 # If there are more posts than can be displayed in the minor list (on the main page) then add a "More..." link to the minor list.
 if [ $BN -gt $BMMAX ]; then
@@ -197,10 +199,12 @@ for ext in jpg png; do
 	find images -name "*.$ext" -prune | while read n; do
 		n="$(basename "$n")"
 		echo " Processing $n"
-		convert -resize 10% -strip "images/$n" "thumbs/${n%.*}.10.$ext"
-		convert -resize 25% -strip "images/$n" "thumbs/${n%.*}.25.$ext"
+		convert -resize 10% -strip "images/$n" "thumbs/${n%.*}.10.$ext" &
+		convert -resize 25% -strip "images/$n" "thumbs/${n%.*}.25.$ext" &
 	done
 done
+
+wait
 
 echo "Generating RSS feed..."
 (replacefile "__FEED__" "blog/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml
