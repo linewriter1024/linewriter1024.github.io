@@ -26,7 +26,11 @@
 			__POST__
 		</main>
 		<hr>
-		<script id="diffblog-plugin-script" async="true" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<footer>
+			<span>Post dated __POST_DATE__</span>
+			__FOOTERICONS__
+		</footer>
+		<script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
 		<script>
 				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
 					DiffBlog(
@@ -34,9 +38,5 @@
 					);
 				});
 		</script>
-		<footer>
-			<span>Post dated __POST_DATE__</span>
-			__FOOTERICONS__
-		</footer>
 	</body>
 </html>
