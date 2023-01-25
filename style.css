@@ -196,3 +196,7 @@ hr {
 img {
     max-width: 75vw;
 }
+
+q {
+    font-style: italic;
+}
