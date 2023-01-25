@@ -153,7 +153,7 @@ post() {
 	}
 
 	# Build the RSS item XML
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(summary | htmlescape)…") < templates/feed_item.in.xml >> "$outfeed" &
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(summary | htmlescape)…") < templates/feed_item.in.xml > "$outfeed" &
 }
 
 # Include the list of posts via source, so it can call the post function.
