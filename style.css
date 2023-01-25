@@ -58,13 +58,14 @@ h3.experience.job::before {
 .tag {
     margin-left: 1em;
 
-    font: bold 1.5em;
     background-color: #DDD;
     padding: 2px 6px 2px 6px;
     border-top: 1px solid #CCCCCC;
     border-right: 1px solid #333333;
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
+
+    vertical-a
 }
 
 .smalltag {
@@ -169,16 +170,21 @@ img.left {
     margin-bottom: 0.5em;
 }
 
+footer {
+    display: flex;
+    justify-content: left;
+}
+
+.footericons {
+    margin-left: auto;
+}
+
 a.icon {
-    float: right;
+    margin-left: auto;
     margin-left: 0.5em;
 }
 
 a.icon img {
     height: 1.5em;
     vertical-align: text-bottom;
-}
-
-footer a.icon img {
-    vertical-align: middle;
 }
