@@ -126,13 +126,13 @@ post() {
 			rm -f "blog/_tag_$tag.html"
 		fi
 
-	done < <(echo "$tags" | xargs -n1)
+	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
 
 	# Now we will write a link to this post to the each of its tags' pages.
 	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
 	while read tag; do
 		echo "<li class='postlisting'><a href='$name'>$title</a> [$date] $smalltaghtml</li>" >> "blog/_tag_$tag.html"
-	done < <(echo "$tags" | xargs -n1)
+	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
 
 	# Record that another post was processed.
 	BN=$((BN+1))

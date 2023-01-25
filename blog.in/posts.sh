@@ -1,3 +1,4 @@
+post finding_discussion_diff_blog "Finding discussion about diff.blog" 2023-01-25 "deepdive"
 post naga_hexslinger_win "29th DCSS win: Naga Hexslinger" 2023-01-25 "dcss"
 post diff_blog "I'm on diff.blog" 2023-01-25 "software website"
 post made_rss_feed "I made an RSS feed!" 2023-01-22 "software website"
