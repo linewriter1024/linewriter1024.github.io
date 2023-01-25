@@ -1,6 +1,6 @@
 <item>
 	<title>Mapping tool 0.1 release</title>
-	<description>Hello! I’m happy to give you and the other testers the first working, testable version of my map making tool designed for authors and storytellers. The map making tool is currently usable to make rudimentary maps, with more improvements on the way–and your feedback is important! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use…</description>
+	<description>Hello! I’m happy to give you and the other testers the first working, testable version of my map making tool designed for authors and storytellers. The map making tool is currently usable to make rudimentary maps, with more improvements on the way–and your feedback is important! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo If you have any feedback, questions, or need help running the mapping tool, please let me know! Brief Summary The map making tool for authors and storytellers is in the functional prototype stage and ready for you to test. I…</description>
 	<category>mappingtool</category><category>release</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper0_1</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_1</guid>

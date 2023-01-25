@@ -1,6 +1,6 @@
 <item>
 	<title>benleskey.com build script</title>
-	<description>This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script—as of writing—that compiles the website is…</description>
+	<description>This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script—as of writing—that compiles the website is fully commented and included below, along with the data file listing all the blog posts. build.sh posts.sh build.sh posts.sh…</description>
 	<category>software</category><category>website</category>
 	<link>https://benleskey.com/blog/website_build_script</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/website_build_script</guid>

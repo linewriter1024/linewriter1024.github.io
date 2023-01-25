@@ -77,10 +77,10 @@ commonreplace() {
 alltags=""
 
 # Maximum blog posts in the "minor" list, i.e. on the front page.
-BMMAX=3
+BMMAX=5
 
 # Maximum number of words in the RSS description summary
-SUMMARY_WORDS=55
+SUMMARY_WORDS=100
 
 # Number of blog posts so far.
 BN=0
