@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | I'm on diff.blog</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>I'm on diff.blog</h1>
+		<span class="subtitle">2023-01-25</span>
+		<span class="tags"> <a class='tag' href='tags#software'>#software</a> <a class='tag' href='tags#website'>#website</a></span>
+		</header>
+		<hr>
+		<main>
+			<p>
+	<img class="right" alt="diffblogbot starring the linewriter1024.github.io repository" src="../images/diff_blog_starred.png">
+	I saw yesterday that <a href="https://diff.blog">diff.blog</a>'s bot account on Github had starred the repository for this website. I clicked through to their <a href="https://github.com/diffblogbot">Github page</a>, which described diff.blog as "an aggregator of developer blogs… started in 2019 to improve the visibility of self hosted blogs".
+	I followed the directions in their README and signed in to diff.blog with my Github account. Once there, I added the URL of <a href="../blog">my blog</a> to my account settings and diff.blog crawled my RSS feed. Once I saw how it was using the RSS item descriptions to generate summaries, I improved my build script to actually generate a description instead of just a list of tags. Now my blog is fully functional on diff.blog!
+</p>
+
+<p>
+	<a href="../images/diff_blog_plugin.png"><img class="right" alt="diff.blog javascript plugin" src="../thumbs/diff_blog_plugin.50.png"></a>
+	diff.blog provides a Javascript <a href="https://diff.blog/plugin">plugin</a> for blogs to display links to diff.blog, HN, and Reddit discussions about the post. I stuck this into my blog post template and it's up and running without a hitch.
+</p>
+
+<p>
+	How did they find me? <a href="https://github.com/diffblogbot">diffblogbot</a> seems to crawl Github looking for blogs like mine. Looking at a random sampling of their <a href="https://github.com/diffblogbot?tab=stars">stars</a>, it seems that the crawled repositories are all Github Pages sites that either mention the keyword "blog" or have an RSS feed. Mine has both; I just <a href="./made_rss_feed">recently</a> added the RSS feed.
+</p>
+
+<p>
+	What do I think? diff.blog doesn't seem to be super popular, but it has a broad selection of independent blogs in its database and it interacts very well with my RSS feed. It was kinda cool to have them crawl my website unprompted. It doesn't look like there will be any overhead for playing with diff.blog, unless the Javascript plugin stops working, but that's easily stripped out. Maybe with the fall of Twitter services like this one will become more popular? Who knows.
+</p>
+
+		</main>
+		<hr>
+		<footer>
+			<span>Post dated 2023-01-25</span>
+			<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+		</footer>
+		<script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					DiffBlog(
+						"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+					);
+				});
+		</script>
+	</body>
+</html>

@@ -188,3 +188,11 @@ a.icon img {
     height: 1.5em;
     vertical-align: text-bottom;
 }
+
+hr {
+    clear: both;
+}
+
+img {
+    max-width: 75vw;
+}

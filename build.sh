@@ -79,8 +79,17 @@ alltags=""
 # Maximum blog posts in the "minor" list, i.e. on the front page.
 BMMAX=3
 
+# Maximum number of words in the RSS description summary
+SUMMARY_WORDS=55
+
 # Number of blog posts so far.
 BN=0
+
+echo "Blog..."
+
+# Begin the major and minor blog post lists.
+echo "<ul>" > blog/_major.in.html
+echo "<ul>" > blog/_minor.in.html
 
 # The post function is called from the posts.sh list of posts; it is responsible for processing each blog post.
 # A post has four components, reflected in the arguments:
@@ -94,6 +103,7 @@ post() {
 	# We'll be reading the text of the blog post from an input HTML file and generating the full HTML page.
 	infile="blog.in/$name.in.html"
 	outfile="blog/$name.html"
+	outfeed="blog/_$name.xml"
 
 	echo " $name: $title [$date]"
 
@@ -139,20 +149,12 @@ post() {
 	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile" &
 
 	summary() {
-		< "$infile" pandoc -i - -o - -t plain | xargs | cut -d' ' -f -55
+		< "$infile" pandoc -i - -o - -t plain | xargs | cut -d' ' -f -$SUMMARY_WORDS
 	}
 
 	# Build the RSS item XML
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(summary | htmlescape)…") < templates/feed_item.in.xml >> blog/_feed.in.xml
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(summary | htmlescape)…") < templates/feed_item.in.xml >> "$outfeed" &
 }
-
-echo "Blog..."
-
-echo "" > blog/_feed.in.xml
-
-# Begin the major and minor blog post lists.
-echo "<ul>" > blog/_major.in.html
-echo "<ul>" > blog/_minor.in.html
 
 # Include the list of posts via source, so it can call the post function.
 source blog.in/posts.sh
@@ -168,6 +170,19 @@ echo "</ul>" >> blog/_major.in.html
 
 echo " Waiting..."
 wait
+
+echo "" > blog/_feed.in.xml
+
+# Concat all the RSS items
+post() {
+	name="$1"
+
+	feedfile="blog/_$name.xml"
+	cat < "$feedfile" >> blog/_feed.in.xml
+
+}
+
+source blog.in/posts.sh
 
 # Build the main page.
 (
@@ -216,6 +231,7 @@ for ext in jpg png; do
 		echo " Processing $n"
 		convert -resize 10% -strip "images/$n" "thumbs/${n%.*}.10.$ext" &
 		convert -resize 25% -strip "images/$n" "thumbs/${n%.*}.25.$ext" &
+		convert -resize 50% -strip "images/$n" "thumbs/${n%.*}.50.$ext" &
 	done
 done
 
