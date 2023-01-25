@@ -6,14 +6,14 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 25 Jan 2023 03:45:39 +0000</lastBuildDate>
-		<pubDate>Wed, 25 Jan 2023 03:45:39 +0000</pubDate>
+		<lastBuildDate>Wed, 25 Jan 2023 03:57:06 +0000</lastBuildDate>
+		<pubDate>Wed, 25 Jan 2023 03:57:06 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
 <item>
 	<title>I made an RSS feed!</title>
-	<description>#software #website</description>
+	<description>I made an RSS feed for my blog! It’s a really simple format; I was able to implement my feed just by following the RSS 2.0 spec. Of course, RSS readers are a little less common than they were a decade ago; but there are plenty of extensions for Firefox—I’m using RSSPreview just to test…</description>
 	<category>software</category><category>website</category>
 	<link>https://benleskey.com/blog/made_rss_feed</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/made_rss_feed</guid>
@@ -21,7 +21,7 @@
 </item>
 <item>
 	<title>Mapping tool 0.5 release</title>
-	<description>#mappingtool #software</description>
+	<description>Hello all! Here’s version 0.5 of the mapping tool! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo Once you’ve tested the new version, please fill out the feedback survey. You can click everything now! One of the primary bits of feedback I received was for a better user interface,…</description>
 	<category>mappingtool</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper0_5</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_5</guid>
@@ -29,7 +29,7 @@
 </item>
 <item>
 	<title>benleskey.com build script</title>
-	<description>#software #website</description>
+	<description>This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script—as of writing—that compiles the website is…</description>
 	<category>software</category><category>website</category>
 	<link>https://benleskey.com/blog/website_build_script</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/website_build_script</guid>
@@ -37,7 +37,7 @@
 </item>
 <item>
 	<title>Mapping tool 0.4 release</title>
-	<description>#mappingtool #software</description>
+	<description>Hi! Version 0.4 of the mapping tool is out! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo Once you’ve tested the new version, please fill out the feedback survey. New Renderer and Graphics Version 0.4 of the mapping tool has an updated graphics engine for drawing the maps. Terrain…</description>
 	<category>mappingtool</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper0_4</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_4</guid>
@@ -45,7 +45,7 @@
 </item>
 <item>
 	<title>Mapping tool 0.3 release</title>
-	<description>#mappingtool #software</description>
+	<description>Hello all! The next major version of my map making tool is released! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo Once you’ve tested the new version, please fill out the feedback survey. What’s New? Version 0.3 of the map making tool includes the following updates: Brush palette —…</description>
 	<category>mappingtool</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper0_3</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_3</guid>
@@ -53,7 +53,7 @@
 </item>
 <item>
 	<title>Mapping tool 0.1 release</title>
-	<description>#mappingtool #software</description>
+	<description>Hello! I’m happy to give you and the other testers the first working, testable version of my map making tool designed for authors and storytellers. The map making tool is currently usable to make rudimentary maps, with more improvements on the way–and your feedback is important! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use…</description>
 	<category>mappingtool</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper0_1</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_1</guid>

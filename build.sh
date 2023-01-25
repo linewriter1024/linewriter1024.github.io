@@ -55,6 +55,10 @@ replacetext() {
 	python3 -u -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], sys.argv[2]))" "$placeholder" "$text"
 }
 
+htmlescape() {
+	python3 -c "import html, sys; sys.stdout.write(html.escape(sys.stdin.read()))"
+}
+
 basereplace() {
 	toroot="$1"
 
@@ -134,8 +138,12 @@ post() {
 	# Build the blog post HTML.
 	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile" &
 
+	summary() {
+		< "$infile" pandoc -i - -o - -t plain | xargs | cut -d' ' -f -55
+	}
+
 	# Build the RSS item XML
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__TAGS__" "$(echo "$tags" | xargs -n1 printf "#%s\n" | xargs)") < templates/feed_item.in.xml >> blog/_feed.in.xml
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(summary | htmlescape)…") < templates/feed_item.in.xml >> blog/_feed.in.xml
 }
 
 echo "Blog..."
