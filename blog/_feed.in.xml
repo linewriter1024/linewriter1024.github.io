@@ -1,8 +1,16 @@
 
 <item>
+	<title>Discovering random websites</title>
+	<description>The other day I was found by diff.blog who starred the repository for this website on Github. While poking around their bot’s Github account I found that the diffblogbot stars page is a huge mine for random personal websites scattered around Github. diffblogbot crawls for blogs and gathers them all here, in one place. I decided to take a look at some of them, and gather a few of the most interesting in a kind of showcase. Mocha2007’s personal website has a ton of interesting stuff: conlangs, games, toy programs, and more! Their conlangs and worldbuilding are very detailed, just…</description>
+	<category>discovery</category>
+	<link>https://benleskey.com/blog/discovering_random_websites</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/discovering_random_websites</guid>
+	<pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>Finding discussion about diff.blog</title>
 	<description>I couldn’t find much about diff.blog with a cursory glance over the internet, so I went looking. On diff.blog itself I discovered a post from Roman Martin’s blog when diff.blog found him back in 2020 the same way they did me recently. Here’s a Hacker News subthread from 2020, where the creator of diff.blog, Vishnu KS, is promoting it. Here’s a smaller subthread from 2022, and another subthread from 2021, and one more from 2020. One of the HN threads was linked in a blog post from jerieljan. There’ve been HN submissions of diff.blog, and a Reddit post, but none…</description>
-	<category>deepdive</category>
+	<category>discovery</category><category>deepdive</category>
 	<link>https://benleskey.com/blog/finding_discussion_diff_blog</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/finding_discussion_diff_blog</guid>
 	<pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
@@ -10,7 +18,7 @@
 <item>
 	<title>29th DCSS win: Naga Hexslinger</title>
 	<description>I just got my 29th win in the Dungeon Crawl: Stone Soup roguelike, playing a Naga Hexslinger of Hep. The morgue file from CKO is included below:…</description>
-	<category>dcss</category>
+	<category>games</category><category>dcss</category>
 	<link>https://benleskey.com/blog/naga_hexslinger_win</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/naga_hexslinger_win</guid>
 	<pubDate>Wed, 25 Jan 2023 00:00:00 +0000</pubDate>
