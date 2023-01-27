@@ -149,7 +149,7 @@ post() {
 	echo &quot;&lt;li class=&#x27;postlisting&#x27;&gt;&lt;a href=&#x27;$name&#x27;&gt;$title&lt;/a&gt; [$date] $smalltaghtml&lt;/li&gt;&quot; &gt;&gt; blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-01-27&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &lt; templates/post.in.html &gt; &quot;$outfile&quot;
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;__DATE__&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &lt; templates/post.in.html &gt; &quot;$outfile&quot;
 }
 
 echo &quot;Blog...&quot;
@@ -174,7 +174,7 @@ echo &quot;&lt;/ul&gt;&quot; &gt;&gt; blog/_major.in.html
 (
 	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
 	# The date of generation is included on the main page.
-	replacetext &quot;2023-01-27&quot; &quot;$(TZ=UTC date -I)&quot;
+	replacetext &quot;__DATE__&quot; &quot;$(TZ=UTC date -I)&quot;
 ) &lt; templates/index.in.html &gt; index.html
 
 # Build the dedicated blog index page.

@@ -157,7 +157,7 @@ post() {
 	echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$date] $smalltaghtml</li>" >> "$tmp"/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile" | commonreplace ..) < templates/post.in.html > "$outfile" &
+	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | commonreplace .. | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile" &
 
 	summary() {
 		< "$infile" pandoc -i - -o - -t plain | xargs | cut -d' ' -f -$SUMMARY_WORDS
