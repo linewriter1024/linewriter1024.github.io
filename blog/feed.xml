@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 26 Jan 2023 21:44:48 +0000</lastBuildDate>
-		<pubDate>Thu, 26 Jan 2023 21:44:48 +0000</pubDate>
+		<lastBuildDate>Fri, 27 Jan 2023 05:14:58 +0000</lastBuildDate>
+		<pubDate>Fri, 27 Jan 2023 05:14:58 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Test post, please ignore</title>
+	<description>This is a test post. I recently set up FreshRSS and I wanna make sure it’s automatically updating correctly. I also am still waiting on diff.blog to update automatically. There’s just a bunch of automatic things that I have to make sure are automatic. Huh.…</description>
+	<category></category>
+	<link>https://benleskey.com/blog/test_post</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/test_post</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Discovering random websites</title>
 	<description>The other day I was found by diff.blog who starred the repository for this website on Github. While poking around their bot’s Github account I found that the diffblogbot stars page is a huge mine for random personal websites scattered around Github. diffblogbot crawls for blogs and gathers them all here, in one place. I decided to take a look at some of them, and gather a few of the most interesting in a kind of showcase. Mocha2007’s personal website has a ton of interesting stuff: conlangs, games, toy programs, and more! Their conlangs and worldbuilding are very detailed, just…</description>
