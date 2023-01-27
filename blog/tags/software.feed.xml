@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 27 Jan 2023 18:24:16 +0000</lastBuildDate>
-		<pubDate>Fri, 27 Jan 2023 18:24:16 +0000</pubDate>
+		<lastBuildDate>Fri, 27 Jan 2023 18:29:32 +0000</lastBuildDate>
+		<pubDate>Fri, 27 Jan 2023 18:29:32 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>More RSS feeds!</title>
+	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>I'm on diff.blog</title>
 	<description>I saw yesterday that diff.blog’s bot account on Github had starred the repository for this website. I clicked through to their Github page, which described diff.blog as an aggregator of developer blogs… started in 2019 to improve the visibility of self hosted blogs. I followed the directions in their README and signed in to diff.blog with my Github account. Once there, I added the URL of my blog to my account settings and diff.blog crawled my RSS feed. Once I saw how it was using the RSS item descriptions to generate summaries, I improved my build script to actually generate…</description>
 	<category>software</category><category>website</category>

@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 27 Jan 2023 18:24:20 +0000</lastBuildDate>
-		<pubDate>Fri, 27 Jan 2023 18:24:20 +0000</pubDate>
+		<lastBuildDate>Fri, 27 Jan 2023 18:29:37 +0000</lastBuildDate>
+		<pubDate>Fri, 27 Jan 2023 18:29:37 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>More RSS feeds!</title>
+	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Test post, please ignore</title>
 	<description>This is a test post. I recently set up FreshRSS and I wanna make sure it’s automatically updating correctly. I also am still waiting on diff.blog to update automatically. There’s just a bunch of automatic things that I have to make sure are automatic. Huh.…</description>
