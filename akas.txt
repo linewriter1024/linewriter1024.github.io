@@ -1,4 +1,4 @@
 ifiv https://benleskey.com/ifiv
 mappingtool https://mapper1024.github.io
-mappingtoolnews ../blog/tags#mappingtool
-websitenews ../blog/tags#website
+mappingtoolnews ../blog/tags/mappingtool
+websitenews ../blog/tags/mappingtool

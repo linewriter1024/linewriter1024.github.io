@@ -73,6 +73,8 @@ commonreplace() {
 	replacetext "__FOOTERICONS__" "$(basereplace "$@" < templates/footer_icons.in.html)"
 }
 
+mkdir -p blog/tags
+
 # The list of all tags, to be built up as posts are processed.
 alltags=""
 
@@ -115,15 +117,16 @@ post() {
 	minortaghtml="" # The list of tags to be used within the "minor" blog post list, on the main page.
 
 	while read tag; do
-		taghtml="$taghtml <a class='tag' href='tags#$tag'>#$tag</a>"
-		minortaghtml="$minortaghtml <a class='smalltag' href='blog/tags#$tag'>#$tag</a>"
-		smalltaghtml="$smalltaghtml <a class='smalltag' href='tags#$tag'>#$tag</a>"
+		taghtml="$taghtml <a class='tag' href='__ROOT__/blog/tags/$tag'>#$tag</a>"
+		minortaghtml="$minortaghtml <a class='smalltag' href='__ROOT__/blog/tags/$tag'>#$tag</a>"
+		smalltaghtml="$smalltaghtml <a class='smalltag' href='__ROOT__/blog/tags/$tag'>#$tag</a>"
 
 		# If we haven't seen this tag yet in any post, record it and clear away any old file built from this tag.
 		if ! echo "$alltags" | grep -w "$tag" > /dev/null; then
 			echo " New tag: $tag"
 			alltags="$alltags $tag"
 			rm -f "blog/_tag_$tag.html"
+			rm -f "blog/_tag_feed_$tag.xml"
 		fi
 
 	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
@@ -131,7 +134,7 @@ post() {
 	# Now we will write a link to this post to the each of its tags' pages.
 	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
 	while read tag; do
-		echo "<li class='postlisting'><a href='$name'>$title</a> [$date] $smalltaghtml</li>" >> "blog/_tag_$tag.html"
+		echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$date] $smalltaghtml</li>" >> "blog/_tag_$tag.html"
 	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
 
 	# Record that another post was processed.
@@ -139,11 +142,11 @@ post() {
 
 	# If we haven't reached the limit for "minor" posts, add a link to the minor blog post listing HTML, this is for the "recent posts" section of the main page.
 	if [ $BN -le $BMMAX ]; then
-		echo "<li class='postlisting'><a href='blog/$name'>$title</a> [$date] $minortaghtml</li>" >> blog/_minor.in.html
+		echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$date] $minortaghtml</li>" >> blog/_minor.in.html
 	fi
 
 	# Always add a link to the "major" blog post listing HTML, this is for the dedicated blog page.
-	echo "<li class='postlisting'><a href='$name'>$title</a> [$date] $smalltaghtml</li>" >> blog/_major.in.html
+	echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$date] $smalltaghtml</li>" >> blog/_major.in.html
 
 	# Build the blog post HTML.
 	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile" &
@@ -176,9 +179,14 @@ echo "" > blog/_feed.in.xml
 # Concat all the RSS items
 post() {
 	name="$1"
+	tags="$4"
 
 	feedfile="blog/_$name.xml"
 	cat < "$feedfile" >> blog/_feed.in.xml
+
+	while read tag; do
+		cat < "$feedfile" >> blog/_tag_feed_"$tag".xml
+	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
 
 }
 
@@ -202,14 +210,24 @@ echo > blog/_tags.in.html
 
 # For each tag, just append the previously generated list of posts HTML for that tag.
 while read tag; do
-	echo "<h1>$tag</h1>" >> blog/_tags.in.html
+	echo " Tag: $tag"
+	echo "<h2 id='$tag'><a href='__ROOT__/blog/tags/$tag'>$tag</a></h2>" >> blog/_tags.in.html
 	echo "<ul>" >> blog/_tags.in.html
 	cat "blog/_tag_$tag.html" >> blog/_tags.in.html
 	echo "</ul>" >> blog/_tags.in.html
-done < <(echo "$alltags" | xargs -n1)
+
+	(replacefile "__ITEMS__" "blog/_tag_$tag.html" | replacetext __NUM_POSTS__ "$(wc -l "blog/_tag_$tag.html" | cut -d' ' -f1)" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag.in.html > blog/tags/"$tag".html &
+	(replacefile "__FEED_" "blog/_tag_feed_$tag.xml" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag_feed.in.xml > blog/tags/"$tag.feed.xml" &
+done < <(echo "$alltags" | xargs -n1 --no-run-if-empty)
+
+echo " Waiting..."
+wait
 
 # Generate the full tag index page.
-(replacefile "__TAGS__" "blog/_tags.in.html" | replacetext __NUM_TAGS__ "$(echo "$alltags" | wc -w)" | commonreplace ..) < templates/tags.in.html > blog/tags.html
+(replacefile "__TAGS__" "blog/_tags.in.html" | replacetext __NUM_TAGS__ "$(echo "$alltags" | wc -w)" | commonreplace ../..) < templates/tags.in.html > blog/tags/index.html
+
+echo "Generating RSS feed..."
+(replacefile "__FEED__" "blog/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml
 
 echo "Downloading images..."
 while read line; do
@@ -237,6 +255,3 @@ done
 
 echo " Waiting..."
 wait
-
-echo "Generating RSS feed..."
-(replacefile "__FEED__" "blog/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml

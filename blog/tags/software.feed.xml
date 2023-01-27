@@ -1,49 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Ben Leskey's Blog</title>
-		<description>Posts from the keys of Ben Leskey</description>
-		<link>https://benleskey.com/blog</link>
+		<title>Ben Leskey's Blog: software</title>
+		<description>software posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 27 Jan 2023 18:07:44 +0000</lastBuildDate>
-		<pubDate>Fri, 27 Jan 2023 18:07:44 +0000</pubDate>
-		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
+		<lastBuildDate>Fri, 27 Jan 2023 18:07:39 +0000</lastBuildDate>
+		<pubDate>Fri, 27 Jan 2023 18:07:39 +0000</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
-		
-<item>
-	<title>Test post, please ignore</title>
-	<description>This is a test post. I recently set up FreshRSS and I wanna make sure it’s automatically updating correctly. I also am still waiting on diff.blog to update automatically. There’s just a bunch of automatic things that I have to make sure are automatic. Huh.…</description>
-	<category></category>
-	<link>https://benleskey.com/blog/test_post</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/test_post</guid>
-	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Discovering random websites</title>
-	<description>The other day I was found by diff.blog who starred the repository for this website on Github. While poking around their bot’s Github account I found that the diffblogbot stars page is a huge mine for random personal websites scattered around Github. diffblogbot crawls for blogs and gathers them all here, in one place. I decided to take a look at some of them, and gather a few of the most interesting in a kind of showcase. Mocha2007’s personal website has a ton of interesting stuff: conlangs, games, toy programs, and more! Their conlangs and worldbuilding are very detailed, just…</description>
-	<category>discovery</category>
-	<link>https://benleskey.com/blog/discovering_random_websites</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/discovering_random_websites</guid>
-	<pubDate>Thu, 26 Jan 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Finding discussion about diff.blog</title>
-	<description>I couldn’t find much about diff.blog with a cursory glance over the internet, so I went looking. On diff.blog itself I discovered a post from Roman Martin’s blog when diff.blog found him back in 2020 the same way they did me recently. Here’s a Hacker News subthread from 2020, where the creator of diff.blog, Vishnu KS, is promoting it. Here’s a smaller subthread from 2022, and another subthread from 2021, and one more from 2020. One of the HN threads was linked in a blog post from jerieljan. There’ve been HN submissions of diff.blog, and a Reddit post, but none…</description>
-	<category>discovery</category><category>deepdive</category>
-	<link>https://benleskey.com/blog/finding_discussion_diff_blog</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/finding_discussion_diff_blog</guid>
-	<pubDate>Wed, 25 Jan 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>29th DCSS win: Naga Hexslinger</title>
-	<description>I just got my 29th win in the Dungeon Crawl: Stone Soup roguelike, playing a Naga Hexslinger of Hep. The morgue file from CKO is included below:…</description>
-	<category>games</category><category>dcss</category>
-	<link>https://benleskey.com/blog/naga_hexslinger_win</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/naga_hexslinger_win</guid>
-	<pubDate>Wed, 25 Jan 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
+		<item>
 	<title>I'm on diff.blog</title>
 	<description>I saw yesterday that diff.blog’s bot account on Github had starred the repository for this website. I clicked through to their Github page, which described diff.blog as an aggregator of developer blogs… started in 2019 to improve the visibility of self hosted blogs. I followed the directions in their README and signed in to diff.blog with my Github account. Once there, I added the URL of my blog to my account settings and diff.blog crawled my RSS feed. Once I saw how it was using the RSS item descriptions to generate summaries, I improved my build script to actually generate…</description>
 	<category>software</category><category>website</category>
@@ -99,6 +66,6 @@
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_1</guid>
 	<pubDate>Mon, 01 Aug 2022 12:00:00 +0000</pubDate>
 </item>
-
+_
 	</channel>
 </rss>
