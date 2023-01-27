@@ -228,15 +228,6 @@ while read tag; do
 	(replacefile "__FEED_" "$tmp/_tag_feed_$tag.xml" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag_feed.in.xml > blog/tags/"$tag.feed.xml" &
 done < <(echo "$alltags" | xargs -n1 --no-run-if-empty)
 
-echo " Waiting..."
-wait
-
-# Generate the full tag index page.
-(replacefile "__TAGS__" "$tmp/_tags.in.html" | replacetext __NUM_TAGS__ "$(echo "$alltags" | wc -w)" | commonreplace ../..) < templates/tags.in.html > blog/tags/index.html
-
-echo "Generating RSS feed..."
-(replacefile "__FEED__" "$tmp/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml
-
 echo "Downloading images..."
 while read line; do
 	output="$(echo "$line" | cut -d' ' -f1)"
@@ -249,6 +240,12 @@ done < images.txt
 
 echo " Waiting..."
 wait
+
+# Generate the full tag index page.
+(replacefile "__TAGS__" "$tmp/_tags.in.html" | replacetext __NUM_TAGS__ "$(echo "$alltags" | wc -w)" | commonreplace ../..) < templates/tags.in.html > blog/tags/index.html
+
+echo "Generating RSS feed..."
+(replacefile "__FEED__" "$tmp/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml
 
 echo "Processing images..."
 for ext in jpg png; do
