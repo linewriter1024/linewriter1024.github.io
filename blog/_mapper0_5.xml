@@ -1,8 +1,0 @@
-<item>
-	<title>Mapping tool 0.5 release</title>
-	<description>Hello all! Here’s version 0.5 of the mapping tool! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo Once you’ve tested the new version, please fill out the feedback survey. You can click everything now! One of the primary bits of feedback I received was for a better user interface, and version 0.5 now has a full palette sidebar so that every single control is clickable instead of needing to use the keyboard for everything! The big blob of help text is also much reduced; there are labels, icons, and/or buttons for everything and you…</description>
-	<category>mappingtool</category><category>release</category><category>software</category>
-	<link>https://benleskey.com/blog/mapper0_5</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_5</guid>
-	<pubDate>Sat, 21 Jan 2023 12:00:00 +0000</pubDate>
-</item>
