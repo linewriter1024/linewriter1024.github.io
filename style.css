@@ -194,9 +194,20 @@ hr {
 }
 
 img {
-    max-width: 75vw;
+    max-width: 60em;
 }
 
 q {
     font-style: italic;
+}
+
+blockquote {
+    margin: 0;
+    font-style: italic;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: #ddd;
+    border-radius: 0.25em;
 }

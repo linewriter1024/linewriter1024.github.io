@@ -43,8 +43,15 @@ while read line; do
 	) &
 done < akas.txt
 
-echo " Waiting..."
-wait
+echo "Downloading images..."
+while read line; do
+	output="$(echo "$line" | cut -d' ' -f1)"
+	input="$(echo "$line" | cut -d' ' -f2-)"
+
+	echo " Downloading $input -> $output"
+
+	curl -sSL "$input" > "images/$output" &
+done < images.txt
 
 # replacefile <placeholder> <path to file>
 # A pipeline function to replace a placeholder with the contents of a file
@@ -227,16 +234,6 @@ while read tag; do
 	(replacefile "__ITEMS__" "$tmp/_tag_$tag.html" | replacetext __NUM_POSTS__ "$(wc -l "$tmp/_tag_$tag.html" | cut -d' ' -f1)" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag.in.html > blog/tags/"$tag".html &
 	(replacefile "__FEED_" "$tmp/_tag_feed_$tag.xml" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag_feed.in.xml > blog/tags/"$tag.feed.xml" &
 done < <(echo "$alltags" | xargs -n1 --no-run-if-empty)
-
-echo "Downloading images..."
-while read line; do
-	output="$(echo "$line" | cut -d' ' -f1)"
-	input="$(echo "$line" | cut -d' ' -f2-)"
-
-	echo " Downloading $input -> $output"
-
-	curl -sSL "$input" > "images/$output" &
-done < images.txt
 
 echo " Waiting..."
 wait

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
-		<title>Ben Leskey's Blog: games</title>
-		<description>games posts from Ben Leskey</description>
-		<link>https://benleskey.com/blog/tags/games</link>
+		<title>Ben Leskey's Blog: cdda</title>
+		<description>cdda posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/cdda</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
 		<lastBuildDate>Sat, 28 Jan 2023 21:38:38 +0000</lastBuildDate>
 		<pubDate>Sat, 28 Jan 2023 21:38:38 +0000</pubDate>
-		<atom:link href="https://benleskey.com/blog/tags/games.feed.xml" rel="self" type="application/rss+xml" />
+		<atom:link href="https://benleskey.com/blog/tags/cdda.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>Raymon Ortega: Would-be Wizard</title>
@@ -17,14 +17,6 @@
 	<link>https://benleskey.com/blog/cdda_raymon_1</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_1</guid>
 	<pubDate>Sat, 28 Jan 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>29th DCSS win: Naga Hexslinger</title>
-	<description>I just got my 29th win in the Dungeon Crawl: Stone Soup roguelike, playing a Naga Hexslinger of Hep. The morgue file from CKO is included below:…</description>
-	<category>games</category><category>dcss</category>
-	<link>https://benleskey.com/blog/naga_hexslinger_win</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/naga_hexslinger_win</guid>
-	<pubDate>Wed, 25 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 _
 	</channel>
