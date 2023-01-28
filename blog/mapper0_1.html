@@ -12,6 +12,17 @@
 		<link rel="stylesheet" href="../deps/highlight.js.css">
 		<script src="../deps/highlight.js.js"></script>
 		<script>hljs.highlightAll();</script>
+
+		<!-- Make img title equal img alt if the title isn't set -->
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+				}
+			});
+		</script>
 	</head>
 	<body>
 		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
