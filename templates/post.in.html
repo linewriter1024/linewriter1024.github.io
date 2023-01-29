@@ -7,18 +7,27 @@
 		<title>Ben Leskey | __TITLE__</title>
 		<link rel="stylesheet" type="text/css" href="../style.css">
 		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		__SERIES_RSS_LINK__
 
 		<!-- Syntax highlighting with highlight.js -->
 		<link rel="stylesheet" href="../deps/highlight.js.css">
 		<script src="../deps/highlight.js.js"></script>
 		<script>hljs.highlightAll();</script>
 
-		<!-- Make img title equal img alt if the title isn't set -->
 		<script>
 			window.addEventListener("load", function() {
 				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
 					if(!img.hasAttribute("title")) {
 						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
 					}
 				}
 			});
@@ -31,6 +40,7 @@
 		<h1>__TITLE__</h1>
 		<span class="subtitle">__POST_DATE__</span>
 		<span class="tags">__TAGS__</span>
+		__SERIES_TOP__
 		</header>
 		<hr>
 		<main>
@@ -38,8 +48,12 @@
 		</main>
 		<hr>
 		<footer>
-			<span>Post dated __POST_DATE__</span>
-			__FOOTERICONS__
+			__SERIES_BOTTOM__
+			<div class="footerinfo">
+				<span>Post dated __POST_DATE__</span>
+				__TAGS__
+				__FOOTERICONS__
+			</div>
 		</footer>
 		<script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
 		<script>

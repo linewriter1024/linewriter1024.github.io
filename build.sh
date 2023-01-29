@@ -119,6 +119,8 @@ post() {
 	date="$3"
 	tags="$4"
 
+	series="$POST_SERIES"
+
 	# We'll be reading the text of the blog post from an input HTML file and generating the full HTML page.
 	infile="blog.in/$name.in.html"
 	outfile="blog/$name.html"
@@ -144,7 +146,7 @@ post() {
 			alltags="$alltags $tag"
 		fi
 
-	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
+	done < <(echo "$tags" | xargs -n1 | sort | uniq | xargs -n1 --no-run-if-empty)
 
 	# Now we will write a link to this post to the each of its tags' pages.
 	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
@@ -163,8 +165,16 @@ post() {
 	# Always add a link to the "major" blog post listing HTML, this is for the dedicated blog page.
 	echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$date] $smalltaghtml</li>" >> "$tmp"/_major.in.html
 
+	replaceseries() {
+		if [[ -n "$series" ]]; then
+			replacefile "__SERIES_TOP__" "templates/series_top.in.html" | replacefile "__SERIES_BOTTOM__" "templates/series_bottom.in.html" | replacetext "__SERIES__" "$series" | replacetext "__SERIES_RSS_LINK__" "<link rel='alternate' type='application/rss+xml' title=\"Ben Leskey's RSS feed: $series\" href='tags/$series.feed.xml'>"
+		else
+			replacetext "__SERIES_TOP__" "" | replacetext "__SERIES_BOTTOM__" "" | replacetext "__SERIES_RSS_LINK__" ""
+		fi
+	}
+
 	# Build the blog post HTML.
-	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | commonreplace .. | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile" &
+	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile" &
 
 	summary() {
 		< "$infile" pandoc -i - -o - -t plain | xargs | cut -d' ' -f -$SUMMARY_WORDS
