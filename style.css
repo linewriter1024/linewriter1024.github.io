@@ -197,7 +197,7 @@ hr {
 }
 
 img {
-    max-width: 60em;
+    max-width: min(60em, 95vw);
 }
 
 q {
