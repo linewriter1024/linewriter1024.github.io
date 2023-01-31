@@ -214,3 +214,19 @@ blockquote {
     background: #ddd;
     border-radius: 0.25em;
 }
+
+ol.toc {
+    background: #ddd;
+    border-radius: 5%;
+    padding: 0.5em;
+    padding-left: 1.5em;
+    float: right;
+}
+
+main.post h2, h3, h4, h5, h6 {
+    clear: none;
+}
+
+main.post p {
+    clear: none;
+}

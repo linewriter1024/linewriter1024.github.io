@@ -174,7 +174,7 @@ post() {
 	}
 
 	# Build the blog post HTML.
-	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile") < templates/post.in.html > "$outfile" &
+	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile" | python3 toc_builder.py) < templates/post.in.html > "$outfile" &
 
 	summary() {
 		< "$infile" pandoc -i - -o - -t plain | xargs | cut -d' ' -f -$SUMMARY_WORDS
