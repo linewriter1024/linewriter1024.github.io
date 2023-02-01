@@ -1,0 +1,236 @@
+body {
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+    max-width: 60em;
+
+    color: #222;
+    background-color: #eee;
+}
+
+table {
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    clear: both;
+}
+
+h3.experience {
+    font-size: 1em;
+    display: inline;
+}
+
+h3.experience + h4 {
+    font-size: 0.9em;
+    font-style: italic;
+    display: inline;
+}
+
+h3.experience + h4::before {
+    content: "(";
+}
+
+h3.experience + h4::after {
+    content: ")";
+}
+
+h3.experience.project::before {
+    content: "🔨";
+    padding-right: 0.5em;
+    filter: grayscale(100%);
+}
+
+h3.experience.job::before {
+    content: "📈";
+    padding-right: 0.5em;
+    filter: grayscale(100%);
+}
+
+.tag {
+    margin-left: 1em;
+
+    background-color: #DDD;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+}
+
+.smalltag {
+    font-size: 0.8em;
+}
+
+.postlisting {
+    margin-bottom: 0.5em;
+}
+
+.tags {
+    margin-top: 1em;
+    padding-top: 0;
+}
+
+.subtitle {
+    font-style: italic;
+}
+
+p {
+    text-indent: 1em;
+    clear: both;
+}
+
+footer {
+    font-style: italic;
+    font-size: 0.75em;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.skill {
+    background-color: #DDD;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+
+    margin-bottom: 0.5em;
+    margin-left: 0.5em;
+}
+
+.skill.min {
+    font-size: 0.75em;
+}
+
+.skill.max {
+    font-size: 1.5em;
+}
+
+.skill.paradigm::before {
+    content: "📗";
+    padding-right: 0.5em;
+    color: #777;
+    filter: grayscale(100%);
+}
+
+.skill.lang::before {
+    content: "⌨";
+    padding-right: 0.5em;
+    color: #777;
+    filter: grayscale(100%);
+}
+
+.skill.framework::before {
+    content: "🖥";
+    padding-right: 0.5em;
+    color: #777;
+    filter: grayscale(100%);
+}
+
+.skill.personal::before {
+    content: "❤";
+    padding-right: 0.5em;
+    color: #777;
+    filter: grayscale(100%);
+}
+
+.uparrow {
+    font-size: 2em;
+}
+
+a.unimportant {
+    font-size: 0.75em;
+}
+
+img.right {
+    float: right;
+    margin-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+img.left {
+    float: left;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.footerinfo {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.footerinfo * {
+    align-self: flex-start;
+}
+
+.footericons {
+    margin-left: auto;
+}
+
+a.icon {
+    margin-left: auto;
+    margin-left: 0.5em;
+}
+
+a.icon img {
+    height: 1.5em;
+    vertical-align: text-bottom;
+}
+
+hr {
+    clear: both;
+}
+
+img {
+    max-width: min(60em, 95vw);
+}
+
+q {
+    font-style: italic;
+}
+
+blockquote {
+    margin: 0;
+    font-style: italic;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: #ddd;
+    border-radius: 0.25em;
+}
+
+ol.toc {
+    background: #ddd;
+    list-style-position: inside;
+    border-radius: 15%;
+    padding: 0.5em;
+    float: right;
+}
+
+ol.toc li::marker {
+    font-weight: bold;
+}
+
+main.post h2, h3, h4, h5, h6 {
+    clear: none;
+}
+
+main.post p {
+    clear: none;
+}

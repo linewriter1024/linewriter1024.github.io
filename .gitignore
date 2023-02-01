@@ -1,0 +1,6 @@
+*.kdev4
+.kdev4/
+*.docx#
+blog/
+aka/
+index.html

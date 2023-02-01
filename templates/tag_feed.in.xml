@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ben Leskey's Blog: __TAG__</title>
+		<description>__TAG__ posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/__TAG__</link>
+		<language>en-us</language>
+		<copyright>__YEAR__ Ben Leskey</copyright>
+		<lastBuildDate>__RDATE__</lastBuildDate>
+		<pubDate>__RDATE__</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/__TAG__.feed.xml" rel="self" type="application/rss+xml" />
+
+		__FEED__
+	</channel>
+</rss>
