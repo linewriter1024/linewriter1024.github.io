@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | Mapping tool 0.1 release</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>Mapping tool 0.1 release</h1>
+		<span class="subtitle">2022-08-01</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/mappingtool">#mappingtool</a> <a class="tag" href="../blog/tags/release">#release</a> <a class="tag" href="../blog/tags/software">#software</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<p>Hello!</p>
+<p>I&#8217;m happy to give you and the other testers the first working, testable version of my map making tool designed for authors and storytellers. The map making tool is currently usable to make rudimentary maps, with more improvements on the way&#8211;and your feedback is important!</p>
+<p>You can download it here: <a href="https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options">https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options</a></p>
+<p>You can use the online demo here: <a href="https://mapper1024.github.io/demo">https://mapper1024.github.io/demo</a></p>
+<p><a href="https://mapper1024.github.io/screenshots/sample_map_2022_07_30.png"><img src="https://mapper1024.github.io/screenshots/sample_map_2022_07_30.thumb.png" alt="A screenshot of the sample map in the mapping tool"></a></p>
+<p>If you have any feedback, questions, or need help running the mapping tool, please let me know!</p>
+<h2 id="brief-summary">Brief Summary</h2>
+<p>The map making tool for authors and storytellers is in the functional prototype stage and ready for you to test. I need your feedback, input, and comments to decide what features to add, how to fix problems, and how to continue evolving the tool.</p>
+<h2 id="quickstart">Quickstart</h2>
+<p>Using the <a href="https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options">download</a> link, you can choose an option for your computer. If you can&#8217;t or don&#8217;t want to download the program, just use the <a href="https://mapper1024.github.io/demo">online demo</a> (currently the live demo works best in Chrome or Edge, Firefox struggles). You do need a computer for this, mobile devices are not yet supported.</p>
+<p>When you first run the mapping tool, it will load the sample map. You can play around with the sample map, or make your own maps (<em>Ctrl+N</em> in the app, or <em>Shift+N</em> in the live demo). All the controls are displayed in the top left corner of the program for now, so you can look there to see what actions you can take.</p>
+<p>The most basic controls:</p>
+<ul>
+<li>To add stuff to the map: <em>left-click</em> and drag.</li>
+<li>To change what you&#8217;re adding to the map, hold <em>W</em> and <em>scroll</em> with your mouse or trackpad.</li>
+<li>To move around the map: <em>right-click</em> and drag.</li>
+<li>To zoom in or out: <em>scroll</em> with your mouse or trackpad.</li>
+</ul>
+<p>If you want to delete stuff from the map, press <em>D</em> to switch to the delete brush and just <em>left-click</em> and drag. If you want to go back to adding stuff to the map, press <em>A</em>.</p>
+<p>In this prototype version of the program you can put forests, grasslands, bodies of water, rocky terrain, roadways, and representations of buildings on the map. Change what you are placing by holding <em>W</em> and <em>scrolling</em> the mouse or trackpad. Change the sizes of what you are placing by holding <em>Q</em> and <em>scrolling</em> the mouse or trackpad. You can name the things you place on the map with <em>N</em>.</p>
+<p>If you are using the desktop app, you can save your map with <em>Ctrl+S</em>, or you can load a saved map with <em>Ctrl+O</em>. In the live demo, you can save with <em>Shift+S</em>, or you can load a saved map with <em>Shift+O</em>.</p>
+<h2 id="future-plans">Future plans</h2>
+<p>This version of the mapping tool is a prototype. The graphics rendered&#8211;what the map looks like on screen&#8211;are very simplistic and provide a stylized pixel-based representation of the map objects. The controls are barebones, albiet functional. Some parts of the program are slow due to naive algorithms, though fast enough to be usable.</p>
+<p>Future versions of the mapping tool will provide better graphics. The underlying system already supports higher-quality graphics but code will need to be added to actually draw more realistic, smoother, or otherwise better maps. Future versions will also have more user-friendly controls and more options for crafting maps exactly as you intend. Future versions will optimize performance for more hardware and platforms for a smooth experience.</p>
+<p>To build the fully-featured mapping tool, I need <strong>your</strong> help.</p>
+<h2 id="how-you-can-help">How you can help</h2>
+<p>What do <strong>you</strong> want the mapping tool to be? Your input will decide how the mapping tool works and looks. This prototype is a base for future development. Your testing and suggestions are needed to determine what needs changed, added, or removed.</p>
+<p>Use this first version of the tool to make some maps. Maybe map out a story idea, or just play around with the sample map. You&#8217;ll see what you like, what you don&#8217;t like, and what needs to be changed or improved.</p>
+<p>Think of what else you want from a mapping tool. What features do you want? Do you want coniferous forests for your story set in northern Canada? Would you prefer menus over keyboard shortcuts? Do you need a map at the level of city streets for your roleplaying adventure? Do you want the program to work better with your computer? Would you prefer the water to be animated? Do you want a way to measure distance between two mountains on the map for plotting your airship novel?</p>
+<p><strong>Please let me know what you think and what you want</strong>. I will file your suggestions and requests, prioritize them, and improve the mapping tool. As development progresses, I will release more development versions for you and the rest of the testers to test, and you can see how the mapping tool is progressing and give your feedback again on what needs changed, added, and improved.</p>
+<p>Through this release-feedback-release cycle, the mapping tool will become software built to fit your needs as best it can. If you have any questions, please let me know!</p>
+<p>And do you have any name suggestions for the project? I would love to hear them!</p>
+<h2 id="technical-details">Technical details</h2>
+<p>The source code for the mapping tool is hosted at <a href="https://github.com/mapper1024/mapper1024">https://github.com/mapper1024/mapper1024</a>.</p>
+<p>Quick facts: The mapping tool is&#8230;</p>
+<ul>
+<li>Written primarily in <em>Javascript</em>
+</li>
+<li>Designed as a component that can be <em>embedded</em> in other websites, as well as used as a standalone program.</li>
+<li>Built using the <em><a href="https://sqlite.org">SQLite</a></em> database engine to store the maps.</li>
+<li>Composed of well over <em>4000</em> lines of code.</li>
+</ul>
+<p>You can read more about the technical implementation details in the <a href="https://github.com/mapper1024/mapper1024/blob/master/doc/Development-Journal.md#functional-prototype-summer-2022">development journal</a>.</p>
+
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2022-08-01</span>
+				 <a class="tag" href="../blog/tags/mappingtool">#mappingtool</a> <a class="tag" href="../blog/tags/release">#release</a> <a class="tag" href="../blog/tags/software">#software</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					DiffBlog(
+						"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+					);
+				});
+		</script>
+	</body>
+</html>
