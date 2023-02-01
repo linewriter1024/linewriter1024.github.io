@@ -259,6 +259,9 @@ echo "Generating RSS feed..."
 (replacefile "__FEED__" "$tmp/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml
 
 echo "Processing images..."
+
+mkdir -p thumbs
+
 for ext in jpg png; do
 	find images -name "*.$ext" -prune | while read n; do
 		n="$(basename "$n")"
