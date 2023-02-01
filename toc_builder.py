@@ -27,7 +27,8 @@ def all(element):
 header_tags = ["h2", "h3", "h4", "h5", "h6"]
 
 if __name__ == "__main__":
-	html = lxml.html.fromstring(sys.stdin.read())
+	html_tree = lxml.html.parse(sys.stdin)
+	html = html_tree.getroot()
 	headers = []
 
 	def find_next_headers(i, starti=0, headers=headers):
@@ -51,4 +52,4 @@ if __name__ == "__main__":
 		if toc.tag == "ol":
 			insert_headers(toc, headers)
 
-	sys.stdout.write(lxml.html.tostring(html).decode())
+	sys.stdout.write(lxml.html.tostring(html_tree, pretty_print=True).decode())
