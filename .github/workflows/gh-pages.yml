@@ -20,6 +20,12 @@ jobs:
           fetch-depth: 0
 
       - name: Build
+        run: python3 -m pip install lxml
+
+      - name: Build
+        run: sudo apt install pandoc
+
+      - name: Build
         run: ./build.sh
 
       - name: Deploy
