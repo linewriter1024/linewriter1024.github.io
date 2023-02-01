@@ -19,14 +19,17 @@ jobs:
           submodules: true
           fetch-depth: 0
 
-      - name: Build
+      - name: LXML
         run: python3 -m pip install lxml
 
-      - name: Build
+      - name: Pandoc
         run: sudo apt install pandoc
 
       - name: Build
         run: ./build.sh
+
+      - name: Remove gitignore
+        run: rm .gitignore
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
