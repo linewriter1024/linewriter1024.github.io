@@ -13,6 +13,8 @@ trap finish EXIT
 # Due to being hosted on Github pages we do not have direct control over redirects, so we must use meta refresh directives.
 echo "Akas..."
 
+mkdir -p aka
+
 # Each line in akas.txt has the format:
 # <name of redirect> <url of redirect>
 while read line; do
