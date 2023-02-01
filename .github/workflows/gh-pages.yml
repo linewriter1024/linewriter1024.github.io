@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0
 
       - name: Build
-        run: ./bash.sh
+        run: ./build.sh
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
