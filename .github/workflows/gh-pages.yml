@@ -22,8 +22,8 @@ jobs:
       - name: LXML
         run: python3 -m pip install lxml
 
-      - name: Pandoc
-        run: sudo apt install pandoc
+      - name: apt
+        run: sudo apt install pandoc imagemagick
 
       - name: Build
         run: ./build.sh
