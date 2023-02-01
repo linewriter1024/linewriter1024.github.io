@@ -217,10 +217,14 @@ blockquote {
 
 ol.toc {
     background: #ddd;
-    border-radius: 5%;
+    list-style-position: inside;
+    border-radius: 15%;
     padding: 0.5em;
-    padding-left: 1.5em;
     float: right;
+}
+
+ol.toc li::marker {
+    font-weight: bold;
 }
 
 main.post h2, h3, h4, h5, h6 {

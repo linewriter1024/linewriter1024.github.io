@@ -1,4 +1,4 @@
-POST_SERIES=cdda_raymon post cdda_raymon_2 "Raymon Ortega #2: Battery Heist" 2023-01-31 "games letsplay cdda cdda_raymon"
+POST_SERIES=cdda_raymon post cdda_raymon_2 "Raymon Ortega #2: Battery Heist and a Sweet Chariot" 2023-01-31 "games letsplay cdda cdda_raymon"
 POST_SERIES=cdda_raymon post cdda_raymon_1 "Raymon Ortega #1: Would-be Wizard" 2023-01-29 "games letsplay cdda cdda_raymon"
 post more_rss_feeds "More RSS feeds!" 2023-01-27 "software website"
 post test_post "Test post, please ignore" 2023-01-27 ""
