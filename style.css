@@ -234,3 +234,30 @@ main.post h2, h3, h4, h5, h6 {
 main.post p {
     clear: none;
 }
+
+.image-set {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    clear: both;
+
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: #ddd;
+    border-radius: 5em;
+
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.image-set img {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    background: #ccc;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
