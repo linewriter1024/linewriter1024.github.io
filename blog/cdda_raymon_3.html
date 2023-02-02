@@ -1,4 +1,59 @@
-<ol class="toc"></ol>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | Raymon Ortega #3: Camping out of town</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed: cdda_raymon" href="tags/cdda_raymon.feed.xml">
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>Raymon Ortega #3: Camping out of town</h1>
+		<span class="subtitle">2023-02-01</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/cdda">#cdda</a> <a class="tag" href="../blog/tags/cdda_raymon">#cdda_raymon</a> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/letsplay">#letsplay</a></span>
+		<hr>
+<div>
+	<a href="../blog/tags/cdda_raymon">More posts in the cdda_raymon series</a> <a class="icon" href="../blog/tags/cdda_raymon.feed.xml"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="Series RSS"></a>
+</div>
+
+		</header>
+		<hr>
+		<main class="post">
+			<ol class="toc">
+<li><a href="#first_night">First Night</a></li>
+<li><a href="#second_day">Second Day</a></li>
+<li><a href="#second_night">Second Night</a></li>
+<li><a href="#third_day">Third Day</a></li>
+</ol>
 
 <h2 id="first_night">First Night</h2>
 
@@ -16,7 +71,7 @@
 <img src="../cdda_images/raymon/3/magical_light.png" alt="">
 
 <p>
-	Raymon learns a new spell, <em>Magical Light</em>. It's not very bright&mdash;even reading by it is slower&mdash;but there's no downside to learning it and it might come in handy later.
+	Raymon learns a new spell, <em>Magical Light</em>. It's not very bright&#8212;even reading by it is slower&#8212;but there's no downside to learning it and it might come in handy later.
 </p>
 
 <img src="../cdda_images/raymon/3/black_coffee.png" alt="">
@@ -286,6 +341,7 @@
 
 <img src="../cdda_images/raymon/3/try_here.png" alt="">
 
+</p>
 <p>
 	He consults his hastily drawn maps and decides the best place to drive cross-country is there, just above the hunting lodge. If there's an opening in the forest, he can drive up toward the refugee center until he hits roads again.
 </p>
@@ -301,3 +357,36 @@
 <p>
 	As Raymon comes round a bend in the forest, he finds his path clear in front of him. The couple of nights spent camping by the city are over. The journey to the refugee center begins again.
 </p>
+
+		</main>
+		<hr>
+		<footer>
+			<div>
+	<a href="../blog/tags/cdda_raymon">More posts in the cdda_raymon series</a> <a class="icon" href="../blog/tags/cdda_raymon.feed.xml"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="Series RSS"></a>
+</div>
+<hr>
+
+			<div class="footerinfo">
+				<span>Post dated 2023-02-01</span>
+				 <a class="tag" href="../blog/tags/cdda">#cdda</a> <a class="tag" href="../blog/tags/cdda_raymon">#cdda_raymon</a> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/letsplay">#letsplay</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					DiffBlog(
+						"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+					);
+				});
+		</script>
+	</body>
+</html>
