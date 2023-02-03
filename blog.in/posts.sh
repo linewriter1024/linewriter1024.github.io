@@ -1,4 +1,4 @@
-POST_SERIES=cdda_raymon post cdda_raymon_4 "Raymon Ortega #4: Journey to the Center" 2023-02-02 "games letsplay cdda cdda_raymon"
+POST_SERIES=cdda_raymon post cdda_raymon_4 "Raymon Ortega #4: The End" 2023-02-02 "games letsplay cdda cdda_raymon"
 POST_SERIES=cdda_raymon post cdda_raymon_3 "Raymon Ortega #3: Camping out of town" 2023-02-01 "games letsplay cdda cdda_raymon"
 POST_SERIES=cdda_raymon post cdda_raymon_2 "Raymon Ortega #2: Battery Heist and a Sweet Chariot" 2023-01-31 "games letsplay cdda cdda_raymon"
 POST_SERIES=cdda_raymon post cdda_raymon_1 "Raymon Ortega #1: Would-be Wizard" 2023-01-29 "games letsplay cdda cdda_raymon"
