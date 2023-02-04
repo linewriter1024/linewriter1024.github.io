@@ -261,3 +261,8 @@ main.post p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
 }
+
+p.meta {
+    border-left: 0.25em dotted black;
+    padding-left: 0.5em;
+}
