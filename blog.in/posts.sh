@@ -1,4 +1,5 @@
-POST_SERIES=cdda_erik post cdda_erik_1 "Erik Otto #1: Used car cult salesman" 2023-02-03 "games letsplay cdda cdda_erik"
+POST_SERIES=cdda_erik post cdda_erik_2 "Erik Otto #2: Base building and car collecting" 2023-02-06 "games letsplay cdda cdda_erik"
+POST_SERIES=cdda_erik post cdda_erik_1 "Erik Otto #1: Used car cult salesman" 2023-02-05 "games letsplay cdda cdda_erik"
 POST_SERIES=cdda_raymon post cdda_raymon_postmortem "CDDA let's play: Post-mortem" 2023-02-02 "games letsplay cdda cdda_raymon"
 POST_SERIES=cdda_raymon post cdda_raymon_4 "Raymon Ortega #4: The End" 2023-02-02 "games letsplay cdda cdda_raymon"
 POST_SERIES=cdda_raymon post cdda_raymon_3 "Raymon Ortega #3: Camping out of town" 2023-02-01 "games letsplay cdda cdda_raymon"
