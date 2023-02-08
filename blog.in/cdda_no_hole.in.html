@@ -1,0 +1,11 @@
+<a href="../images/cdda_truck_in_hole.png"><img src="../thumbs/cdda_truck_in_hole.50.png" alt="A pickup truck fallen into a crater in Cataclysm: Dark Days Ahead" class="right"></a>
+
+<p>
+	In my current <a href="https://cataclysmdda.org">Cataclysm: Dark Days Ahead</a> <a href="tags/cdda_erik">playthrough</a>, I ran into a problem with the autodrive feature: it'd drive me straight into a crater and crash the vehicle.
+</p>
+
+<p>This seemed like a straightforward fix, so I checked out the master branch and set about debugging. Autodrive definitely has the capability to avoid certain terrain, so I guessed it was just a mistake in how it was calculating ledge traps or open air terrain.</p>
+
+<p>Sure enough, it was just an error in how the vehicle was being considered as "able to drive over air". With the existing logic, autodrive thought every vehicle could fly. The fix was simple: only consider helicopters (the only flying vehicle) that have enough rotor power as flyable.</p>
+
+<p>I have <a href="https://github.com/CleverRaven/Cataclysm-DDA/pull/63487">a pull request fixing this issue</a> ready to be merged.</p>
