@@ -1,3 +1,4 @@
+POST_SERIES=cdda_erik post cdda_erik_4 "Erik Otto #4: Arsenal" 2023-02-08 "games letsplay cdda cdda_erik"
 post cdda_no_hole "Autodrive into a crater fix" 2023-02-08 "cdda software"
 POST_SERIES=cdda_erik post cdda_erik_3 "Erik Otto #3: Preparing for battle" 2023-02-06 "games letsplay cdda cdda_erik"
 POST_SERIES=cdda_erik post cdda_erik_2 "Erik Otto #2: Base building and car collecting" 2023-02-06 "games letsplay cdda cdda_erik"
