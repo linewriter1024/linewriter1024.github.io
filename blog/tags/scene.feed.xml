@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ben Leskey's Blog: scene</title>
+		<description>scene posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/scene</link>
+		<language>en-us</language>
+		<copyright>2023 Ben Leskey</copyright>
+		<lastBuildDate>Wed, 15 Feb 2023 06:48:10 +0000</lastBuildDate>
+		<pubDate>Wed, 15 Feb 2023 06:48:10 +0000</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/scene.feed.xml" rel="self" type="application/rss+xml" />
+
+		<item>
+	<title>Scene draft: Lusha tries to get answers, version 1</title>
+	<description>This is the first draft of a scene I’ll be using much later. I wrote it for a creative writing class prompt, as it fit the prompt of having characters unable to say what they really mean. It’s a bit inspired by Hemingway’s Hills Like White Elephants since I read that just before writing this, and the prompt itself leads along those lines. Scene Lusha punched the number into the keypad and jerked the heavy slightly-rusted handset up to her ear. She shuffled around the tangled wire as the handset blared tones in her ear. It clicked. There were a…</description>
+	<category>writing</category><category>scene</category>
+	<link>https://benleskey.com/blog/lusha_answers_version_1</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/lusha_answers_version_1</guid>
+	<pubDate>Wed, 15 Feb 2023 12:00:00 +0000</pubDate>
+</item>
+_
+	</channel>
+</rss>
