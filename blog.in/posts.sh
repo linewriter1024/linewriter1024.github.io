@@ -1,3 +1,4 @@
+post lusha_answers_version_1 "Scene draft: Lusha tries to get answers, version 1" 2023-02-15 "writing scene"
 POST_SERIES=cdda_erik post cdda_erik_5 "Erik Otto #5: Gaining allies" 2023-02-14 "games letsplay cdda cdda_erik"
 POST_SERIES=cdda_erik post cdda_erik_4 "Erik Otto #4: Arsenal" 2023-02-08 "games letsplay cdda cdda_erik"
 post cdda_no_hole "Autodrive into a crater fix" 2023-02-08 "cdda software"
