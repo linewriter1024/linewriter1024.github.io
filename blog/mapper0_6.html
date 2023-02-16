@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | Mapping tool 0.6 release</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>Mapping tool 0.6 release</h1>
+		<span class="subtitle">2023-02-16</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/mappingtool">#mappingtool</a> <a class="tag" href="../blog/tags/release">#release</a> <a class="tag" href="../blog/tags/software">#software</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<p>I&#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!</p>
+<p>You can download it here: <a href="https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options">https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options</a></p>
+<p>You can use the online demo here: <a href="https://mapper1024.github.io/demo">https://mapper1024.github.io/demo</a></p>
+<p>Once you&#8217;ve tested the new version, please <a href="https://forms.gle/QsYyZ4sCpqzHtaX7A">fill out the feedback survey</a>.</p>
+<h2 id="picture-and-performance">Picture and Performance</h2>
+<p>Version 0.6 brings great performance improvements&#8211;far less jerking the map around&#8211;as well as a tuned-up graphics set with better looking forests, lakes, cities, grasslands, and more.</p>
+<p><a href="https://mapper1024.github.io/screenshots/sample_map_0.6.0.png"><img src="https://mapper1024.github.io/screenshots/sample_map_0.6.0.thumb.png" alt="A screenshot of the sample map in the mapping tool"></a></p>
+<p>New features and fixes include:</p>
+<ul>
+<li>The ability to extend and merge existing map objects.</li>
+<li>Huge performance improvements by reducing calculations while you&#8217;re drawing on or panning over the map.</li>
+<li>Greatly improved graphics: terrain is varied and pops out for clarity.</li>
+</ul>
+<h2 id="the-final-stretch">The Final Stretch</h2>
+<p>Every main feature is now implemented. Performance tuning, testing, and graphical improvements are the primary concerns now: tweaking and optimizing the mapping tool for your satisfaction. As always, I&#8217;d love to hear your thoughts, ideas, and feedback!</p>
+
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2023-02-16</span>
+				 <a class="tag" href="../blog/tags/mappingtool">#mappingtool</a> <a class="tag" href="../blog/tags/release">#release</a> <a class="tag" href="../blog/tags/software">#software</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>
