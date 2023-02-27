@@ -6,19 +6,11 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 27 Feb 2023 17:08:07 +0000</lastBuildDate>
-		<pubDate>Mon, 27 Feb 2023 17:08:07 +0000</pubDate>
+		<lastBuildDate>Mon, 27 Feb 2023 17:15:08 +0000</lastBuildDate>
+		<pubDate>Mon, 27 Feb 2023 17:15:08 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
-	<title>Mapping tool 0.6 requirements document</title>
-	<description>Mapping tool requirements document, latest version on Github. Mapping Tool Benjamin Leskey Mount Vernon Nazarene University 2023-02-24 Introduction System Overview The mapping tool software is for lay users such as authors, storytellers, and role-playing gamers to create maps for their worlds or fictional environments. It is intended for use as desktop software or a web app in a desktop environment; as well as being used as an embedded component in other web apps. Human Resources As part of the Honors division of this project, a group of testers should receive incremental releases to give feedback on as major milestones are…</description>
-	<category>mappingtool</category><category>software</category>
-	<link>https://benleskey.com/blog/mapper_req_0_6</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper_req_0_6</guid>
-	<pubDate>Mon, 27 Feb 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
 	<title>Mapping tool 0.6 release</title>
 	<description>I’m proud to release version 0.6 of the mapping tool: the picture and performance update! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo Once you’ve tested the new version, please fill out the feedback survey. Picture and Performance Version 0.6 brings great performance improvements–far less jerking the map around–as well as a tuned-up graphics set with better looking forests, lakes, cities, grasslands, and more. New features and fixes include: The ability to extend and merge existing map objects. Huge performance improvements by reducing calculations while you’re drawing on or panning over the map. Greatly…</description>
 	<category>mappingtool</category><category>release</category><category>software</category>

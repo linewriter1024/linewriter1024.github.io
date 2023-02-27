@@ -1,4 +1,3 @@
-post mapper_req_0_6 "Mapping tool 0.6 requirements document" 2023-02-27 "mappingtool software"
 post mapper0_6 "Mapping tool 0.6 release" 2023-02-16 "mappingtool release software"
 post lusha_answers_version_1 "Scene draft: Lusha tries to get answers, version 1" 2023-02-15 "writing scene"
 POST_SERIES=cdda_erik post cdda_erik_5 "Erik Otto #5: Gaining allies" 2023-02-14 "games letsplay cdda cdda_erik"
