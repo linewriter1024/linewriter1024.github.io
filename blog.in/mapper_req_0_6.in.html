@@ -1,0 +1,250 @@
+<p><a href="../aka/mappingtool">Mapping tool</a> requirements document, <a href="https://github.com/mapper1024/mapper1024/wiki/Requirements">latest version on Github</a>.</p>
+
+<ol class="toc"></ol>
+
+<h2 id="mapping-tool">Mapping Tool</h2>
+<ul>
+<li>Benjamin Leskey</li>
+<li>Mount Vernon Nazarene University</li>
+<li>2023-02-24</li>
+</ul>
+<h3 id="introduction">Introduction</h3>
+<h4 id="system-overview">System Overview</h4>
+<p>The mapping tool software is for lay users such as authors, storytellers, and role-playing gamers to create maps for their worlds or fictional environments. It is intended for use as desktop software or a web app in a desktop environment; as well as being used as an embedded component in other web apps.</p>
+<h4 id="human-resources">Human Resources</h4>
+<p>As part of the Honors division of this project, a group of testers should receive incremental releases to give feedback on as major milestones are developed: the software is developed for myself, them, and anyone else who may find the tool useful.</p>
+<h3 id="user-requirements">User Requirements</h3>
+<h4 id="user-objectives">User Objectives</h4>
+<p>The mapping tool software MUST allow users (e.g. authors or other storytellers) to create custom (e.g. fictional) maps for their worlds or environments. These maps may be used to organize world-building, create book illustrations, or showcase a story, to list a few possibilities.</p>
+<p>The mapping tool MUST allow users to draw maps at a higher level than simply placing pre-made props or drawing pixels. Users can place map objects like a river, a forest, a castle, or an island with specified dimensions without concerning themselves about how specifically the object should look on the screen. The software MUST provide controls so that the user can edit the map and objects on the map in real dimensions (e.g. meters).</p>
+<p>The mapping tool SHOULD allow users to render/print their maps to images in pretty format suitable as an illustration or display of a fictional world.</p>
+<p>Basic help information MUST be included, interactive help SHOULD be provided, and a tutorial is a WISH-LIST item.</p>
+<p>The primary use of the mapping tool is as desktop software (either running locally or in a browser) where the user uses the mouse and keyboard to create and edit their maps, which are saved as files. Mobile support is a WISH-LIST feature. The mapping tool SHOULD be useable as a component in a web app, where the backend that stores the map data is defined by the surrounding system allowing for, e.g., remote storage or collaborative editing. The mapping tool SHOULD support pluggable renderer components, so that the same map may be rendered in different styles (e.g. like a Tolkien map, or like a geographical survey). A default fallback renderer with simple image generation MUST be developed to support the minimal feature set. One renderer—in a generic, vaguely realistic style—SHOULD be included with the tool for core mapping functionality, but additional renderers are WISH-LIST features.</p>
+<p>The mapping tool should be deployed as free and open source software, with an appropriate license. See <a href="https://github.com/mapper1024/mapper1024/issues/42">#42</a>.</p>
+<h4 id="similar-system-information">Similar System Information</h4>
+<p>The mapping tool is intended for use as a standalone desktop app, or as an in-browser desktop app. It should also be usable as an embedded component in other web apps, as it SHOULD provide an interface for custom UI interactions (e.g. platform specific open/save shortcuts) and custom map backends. The mapping UI and renderer is a separate component from the underlying database.</p>
+<p>See the <em>System Environment Constraints</em> section below for information on libraries and frameworks used.</p>
+<h4 id="user-characteristics">User Characteristics</h4>
+<p>The user community consists of people with all levels of computer expertise; they should need no prior experience with, e.g., image-editing to be able to use the software.</p>
+<h3 id="functional-or-system-requirements">Functional or System Requirements</h3>
+<h4 id="the-map-must-graphically-satisfy-median-user-expectations">The map must graphically satisfy median user expectations</h4>
+<p>The rendered map must be vaguely realistic and smooth so that users can understand what they are looking at and be comfortable editing their maps.</p>
+<p>This may be judged by achieving an average middle-or-above (i.e. <em>Fair</em> or better) score on a <a href="https://www.simplypsychology.org/likert-scale.html">Likert scale</a> user survey of the appearance of the map during editing. Questions should cover aesthetics and readability/usability.</p>
+<ul>
+<li>Inputs: The map created by the user.</li>
+<li>Outputs: Algorithmically rendered graphics.</li>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/31">#31</a></li>
+<li>Risks: Failure to prioritize can result in getting bogged down messing with graphics. Performance of the algorithmic renderer must also be maintained.</li>
+<li>Dependencies: Algorithmic rendering, multiple layers, explicit nodes, paths</li>
+<li>Criticality: HIGH, users need things to look OK</li>
+</ul>
+<h4 id="maps-should-be-renderable-in-arbitrary-styles">Maps should be renderable in arbitrary styles</h4>
+<p>Maps should be able to be rendered in different styles (e.g. like a Tolkien map, or like a geographical survey). Renderers should be easily swappable.</p>
+<ul>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/38">#38</a></li>
+<li>Risks: Multiple renderers greatly increase complexity.</li>
+<li>Criticality: LOW</li>
+</ul>
+<h4 id="the-system-should-provide-an-overview-interface-of-previously-created-maps">The system should provide an overview interface of previously created maps</h4>
+<p>Users should have a dashboard, landing page, recently opened, or some other kind of way to easily access their existing maps.</p>
+<ul>
+<li>Inputs: History of map editing.</li>
+<li>Outputs: Interactive display of existing maps.</li>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/39">#39</a></li>
+<li>Risks: Increases complexity with a new display; a new subsystem.</li>
+<li>Criticality: LOW</li>
+</ul>
+<h4 id="the-editor-should-support-transfer-operations">The editor should support transfer operations</h4>
+<p>Users should have a way to easily transfer pieces or objects of their maps to other places/areas in the same map, perhaps through the cut/copy/paste paradigm. Ideally these pieces may transfer between maps as well.</p>
+<ul>
+<li>Inputs: Pieces of a map.</li>
+<li>Outputs: Duplicate map pieces.</li>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/14">#14</a></li>
+<li>Risks: Copying objects between maps may require additional subsystems for inter-process communication or OS clipboard methods.</li>
+<li>Criticality: LOW</li>
+</ul>
+<h4 id="done-the-user-should-be-able-to-discover-the-physical-area-covered-by-an-arbitrary-area-on-the-map">DONE: The user should be able to discover the physical area covered by an arbitrary area on the map</h4>
+<p>The user should be able to discover the physical area (such as in square kilometers) of an arbitrary area on the map. This may be used to keep track of in-world dimensions of map objects, such as how much land area a kingdom owns, or how big a lake is.</p>
+<ul>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/79">#79</a></li>
+<li>Inputs: User indication of an area on the rendered map.</li>
+<li>Outputs: Display of the in-world area of the selected area.</li>
+<li>Criticality: LOW</li>
+</ul>
+<h4 id="done-the-software-should-provide-help-to-users">DONE: The software should provide help to users</h4>
+<p>Users need assistance with using the software beyond simple documentation. Help may be in the form of help text, interactive help, or even a tutorial.</p>
+<ul>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/37">#37</a>, <a href="https://github.com/mapper1024/mapper1024/issues/36">#36</a></li>
+<li>Outputs: An informative UI that response to user action.</li>
+<li>Risks: Help needs to be comprehensive and kept up to date with developments.</li>
+<li>Criticality: LOW</li>
+</ul>
+<h4 id="done-the-mapping-tool-should-support-a-variety-of-map-object-types">DONE: The mapping tool should support a variety of map object types</h4>
+<p>In order for a wide variety of maps to be supported, a broad number of generic terrain/map object types should be supported.</p>
+<p>See <a href="https://github.com/mapper1024/mapper1024/issues/51">issue #51</a> for a current list of required terrain and objects.</p>
+<ul>
+<li>Criticality: MEDIUM</li>
+<li>Dependencies: Explicit objects, multiple layers</li>
+</ul>
+<h4 id="done-the-user-should-be-able-to-discover-the-distance-between-arbitrary-points-on-the-map">DONE: The user should be able to discover the distance between arbitrary points on the map</h4>
+<p>The user should be able to discover the distance between arbitrary points on the map. Distance may be measured as the crow flies—direct distance, or following paths—such as roads or trails.</p>
+<ul>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/35">#35</a></li>
+<li>Inputs: User indication of (at least) two points.</li>
+<li>Outputs: Display of the distance between the indicated points.</li>
+<li>Dependencies: Explicit paths</li>
+<li>Criticality: LOW</li>
+</ul>
+<h4 id="done-the-map-must-have-a-representation-of-explicit-objects">DONE: The map must have a representation of explicit objects</h4>
+<p>Explicit—or, significant—objects are objects that are very well defined on the map, such as a single tree, a building, a particular tower, etc. They stand in contrast to map objects that represent mere areas of terrain like grass or rocks. The map must support these explicit objects and allow users to add them.</p>
+<ul>
+<li>Inputs: Designation as explicit object.</li>
+<li>Outputs: Rendering of the explicit object on the map.</li>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/34">#34</a></li>
+<li>Criticality: MEDIUM, users need a way to specify significant objects on their map, or objects that are not simply areas of terrain.</li>
+</ul>
+<h4 id="done-the-map-must-have-a-representation-of-explicit-paths">DONE: The map must have a representation of explicit paths</h4>
+<p>Objects should be able to represent paths—such as a road, a trail, or a shipping route. These paths may then be used to determine distance or simply be rendered on screen.</p>
+<ul>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/46">#46</a></li>
+<li>Criticality: MEDIUM</li>
+<li>Dependencies: Explicit objects, multiple layers</li>
+</ul>
+<h4 id="done-the-map-must-support-multiple-layers">DONE: The map must support multiple layers</h4>
+<p>To support various types of geography in the same map, such as real terrain and political borders in the same world, the map should support creation and editing on various “layers” or “types” of things.</p>
+<p>These layers are: - Geographical - The primary terrain/object layer - Political - To show political boundaries: national territory, city limits, etc. - Annotation - for “out-of-world” notes (e.g. to show where a particular story takes place, or where a particular event occurred)</p>
+<ul>
+<li>Issues: <a href="https://github.com/mapper1024/mapper1024/issues/30">#30</a></li>
+<li>Criticality: MEDIUM, users expect a differentiation between physical and political regions and objects.</li>
+<li>Dependencies: Map pieces with arbitrary shape and position</li>
+</ul>
+<h4 id="done-the-mapping-tool-should-let-users-create-maps">DONE: The mapping tool should let users create maps</h4>
+<p>The mapping tool should let users create and edit individual maps, that represent arbitrary terrain/geography useful for storytelling organization.</p>
+<ul>
+<li>Inputs: User input and control.</li>
+<li>Outputs: A “map” which is a representation of the designed map.</li>
+<li>Criticality: MUST-HAVE, this is what the tool is for.</li>
+</ul>
+<h4 id="done-the-mapping-tool-should-let-users-edit-maps-at-an-arbitrary-scale">DONE: The mapping tool should let users edit maps at an arbitrary scale</h4>
+<p>The mapping tool should support editing maps at an arbitrary scale and level of detail.</p>
+<ul>
+<li>Criticality: MUST-HAVE, this is an important feature for detail and detail management in maps.</li>
+<li>Risks: Arbitrary detail risks performance issues; care and optimization must be taken when implementing this requirement.</li>
+<li>Dependencies: Map creation</li>
+</ul>
+<h4 id="done-maps-must-be-persistent">DONE: Maps must be persistent</h4>
+<p>The maps created by the mapping tool must be persistent so that users can access previously created maps.</p>
+<ul>
+<li>Inputs: Map created in the mapping tool.</li>
+<li>Outputs: Persistent store of the map that can be loaded again.</li>
+<li>Criticality: MUST-HAVE, this is a necessary feature for any editor program.</li>
+<li>Risks: Persistence implies a schema or format of some kind; care must be taken so that backwards compatibility is maintained.</li>
+<li>Dependencies: Map creation</li>
+</ul>
+<h4 id="done-pieces-of-the-map-must-have-arbitrary-shape-and-position">DONE: Pieces of the map must have arbitrary shape and position</h4>
+<p>Individual “pieces” of the map like a forest or a lake or a city must have an arbitrary, user-defined “real” (as in meters) shape and position.</p>
+<ul>
+<li>Inputs: User input and control over shape when drawing.</li>
+<li>Outputs: Pieces/objects in the map.</li>
+<li>Risks: Arbitrary shapes increases complexity of the map.</li>
+<li>Criticality: MUST-HAVE, for advanced map creation.</li>
+<li>Dependencies: Map creation</li>
+</ul>
+<h4 id="done-the-map-must-be-rendered-by-algorithm">DONE: The map must be rendered by algorithm</h4>
+<p>To avoid creating specific images for each configuration of terrain, the map graphics should be created or assembled algorithmically, with appropriate transitions and indicators.</p>
+<ul>
+<li>Inputs: The map created by the user.</li>
+<li>Outputs: Graphics rendered on the screen.</li>
+<li>Risks: Algorithms may be expensive</li>
+<li>Criticality: HIGH, users need a flexible map rendering system.</li>
+</ul>
+<h3 id="interface-requirements">Interface Requirements</h3>
+<h4 id="user-interfaces">User Interfaces</h4>
+<p>The primary interface into the system that MUST exist is the map editing UI. This provides controls to edit existing maps and a display of the map in editing. An interface to export maps as image files SHOULD also exist (see <a href="https://github.com/mapper1024/mapper1024/issues/88">#88</a>). The primary interface MUST be supplemented with platform-specific controls (i.e. keyboard shortcuts or menu options) to create new maps, save maps, and otherwise manage multiple maps—the exact behavior depends on the platform and system the mapping tool is running on. Basic command-line options MUST be supported to load existing maps.</p>
+<h5 id="map-editing-ui">Map Editing UI</h5>
+<p>A representation of the map SHOULD be rendered onto the screen with editing controls. The user can zoom in and out of varying levels of detail and scale. The scale the map is being rendered at SHOULD be displayed on screen. The position of the cursor SHOULD correspond to a position in the map, which SHOULD be displayed to the user.</p>
+<ul>
+<li>The map editing UI SHOULD be menu/button based, with hotkeys to supplement common actions, see <a href="https://github.com/mapper1024/mapper1024/issues/48">#48</a>.</li>
+<li>Context menus (i.e. right click) SHOULD be supported on map objects for common actions, see <a href="https://github.com/mapper1024/mapper1024/issues/28">#28</a>.</li>
+<li>The zoom functionality SHOULD zoom toward the cursor, see <a href="https://github.com/mapper1024/mapper1024/issues/32">#32</a>.</li>
+<li>Long operations—like loading the map—should be indicated to the user, see <a href="https://github.com/mapper1024/mapper1024/issues/20">#20</a>.</li>
+</ul>
+<h6 id="actions">Actions</h6>
+<ul>
+<li>Undoing and redoing editing actions</li>
+<li>Panning the map to move from place to place</li>
+<li>Zooming the map to view it at various scales</li>
+<li>Map actions (with layer selection)
+<ul>
+<li>Drawing objects on the map at various sizes and of various types</li>
+<li>Selecting objects on the map</li>
+<li>Moving objects on the map</li>
+<li>Deleting objects from the map</li>
+</ul></li>
+<li>Naming objects on the map</li>
+<li>Discovering distance between points on the map</li>
+<li>Calculating in-world area of an area on the rendered map</li>
+</ul>
+<h4 id="hardware-interfaces">Hardware Interfaces</h4>
+<p>The mapping tool MUST interface with the mouse for drawing the map and selecting options, and SHOULD interface with the keyboard for faster editing. The mapping tool MUST support the “trackpad” model of mouse, for laptop users. The mapping tool may support touchscreen interfaces with gestures as a WISH-LIST feature.</p>
+<h4 id="communications-interfaces">Communications Interfaces</h4>
+<p>N/A</p>
+<h4 id="software-interfaces">Software Interfaces</h4>
+<p>The mapping tool SHOULD provide APIs for: * Embedding the mapping UI component (so that it can be embedded in other web apps). * The mapping UI component is a self-contained user interface, consisting of the renderer and editing controls, but it may be embedded in another HTML page and extended with, e.g., controls to save or load maps. * Plugging in map backend components (so that maps can be loaded from alternative databases, files, or other resources). * Plugging in map renderer components (so that maps can be rendered in arbitrary styles).</p>
+<p>APIs SHOULD be described in the automatically-generated documentation (https://mapper1024.github.io/jsdoc/).</p>
+<h3 id="non-functional-requirements-other-than-those-previously-listed">Non-functional Requirements (Other than those previously listed)</h3>
+<h4 id="hardware-constraints">Hardware Constraints</h4>
+<p>The mapping tool SHOULD run comfortably on any recent consumer laptop or netbook browser.</p>
+<h4 id="performance-requirements">Performance Requirements</h4>
+<p>The mapping tool SHOULD maintain at least 30 frames per second.</p>
+<h4 id="system-environment-constraints">System Environment Constraints</h4>
+<p>The desktop app is build using the <a href="https://electronjs.org">Electron</a> framework. The desktop app uses a <a href="https://sqlite.org">SQLite</a> database backend to store each map. The browser app uses a <a href="https://sql.js.org">sql.js.org</a> SQLite database to store each map.</p>
+<h4 id="security-requirements">Security Requirements</h4>
+<p>Updates to the mapping tool should be distributed through the existing Github system; users may install new updates as they come. Automatic updates are a WISH-LIST feature.</p>
+<h4 id="reliability">Reliability</h4>
+<p>N/A</p>
+<h4 id="robustness">Robustness</h4>
+<p>The system MUST fail early and explicitly when an error condition occurs, and SHOULD atomically save maps to avoid corruption.</p>
+<h4 id="availabilty">Availabilty</h4>
+<p>N/A</p>
+<h4 id="safety">Safety</h4>
+<p>The mapping tool MUST be as safe as an average image-editor. Possible loss of data may be avoided through automatic revision saving or other backups.</p>
+<h4 id="maintenance">Maintenance</h4>
+<p>The mapping tool SHOULD automatically deploy numbered version releases through Github CI. Download links SHOULD automatically point to the most recent numbered version release. The mapping tool SHOULD have comprehensive unit tests for as many subsystems as possible.</p>
+<h4 id="portability">Portability</h4>
+<p>The mapping tool MUST support Windows 10+, and Ubuntu 20.04+ or other similar Linux distribution. The mapping tool SHOULD support Mac OS 11+. The mapping tool might support Android and iOS as a WISH-LIST feature. The mapping tool MUST support the latest version of Google Chrome/Chromium (including Microsoft Edge), and SHOULD support the latest versions of Safari and Mozilla Firefox.</p>
+<ul>
+<li>The Electron framework, used for the primary, desktop app version of the mapping tool, supports Windows, Linux, and MacOS and will be used for these platforms.</li>
+<li>The mapping tool SHOULD be provided as a web-app for use on platforms where it has not been built as a desktop app (e.g. MacOS).</li>
+<li>Mac OS ports SHOULD use the Command key, see <a href="https://github.com/mapper1024/mapper1024/issues/26">#26</a></li>
+</ul>
+<h4 id="extensibility">Extensibility</h4>
+<p>The mapping tool SHOULD support importing maps from previous versions throughout the development process. The mapping tool MUST support importing maps from previous versions after the first major release to the public (v1.0). <a href="https://github.com/mapper1024/mapper1024/issues/41">#41</a>.</p>
+<h4 id="development-process-constraints">Development Process Constraints</h4>
+<p>The development environment assumes a UNIX-like system for development scripts (such as for managing version numbers), but the program may be built and run using any platform supported by <a href="https://electronjs.org">Electron</a>. The desktop app development environment uses <a href="https://www.npmjs.com/package/yarn">Yarn</a> to access <a href="https://electronjs.org">Electron</a> and the rest of the <a href="https://nodejs.org">node.js</a> ecosystem; all written in Javascript. The sample online demo server is written in Python using <a href="https://flask.palletsprojects.com">Flask</a> to serve the web files and <a href="https://pypi.org/project/pipenv/">Pipenv</a> to manage dependencies. The sample online demo server is used for development purposes only, as a test of the ability of the mapping tool to be embedded in a web page and as a test of the online demo deployment of the software. No IDE is assumed; I have used <a href="https://www.kdevelop.org/">KDevelop</a>.</p>
+<h3 id="system-models">System Models</h3>
+<p>This section includes diagrams showing relationships between major system components and the environment. It may include one or more of the following:</p>
+<h4 id="context-models">Context Models</h4>
+<p>Context Models: what is part of the system and what is not. Includes model diagrams and activity diagrams</p>
+<figure>
+<img src="https://raw.githubusercontent.com/mapper1024/mapper1024/master/diagrams/Context_Diagram.png" alt="" /><figcaption>Context diagram</figcaption>
+</figure>
+<h4 id="interaction-models">Interaction Models</h4>
+<p>Interaction Models: user to inputs/outputs, software to other systems/environment or among components in a system. Includes use-case digrams and sequence diagrams)</p>
+<h4 id="structure-models">Structure Models</h4>
+<p>Structural Models: how the components of the system relate to one another in a static manner. Includes class diagrams (top-level, detailed, aggregation/generalization), component diagrams, deployment diagrams, package diagrams, profile diagrams, and composite structure diagrams.</p>
+<p><img src="https://raw.githubusercontent.com/mapper1024/mapper1024/master/diagrams/Package_Diagram.png" alt="Package diagram" /> <img src="https://raw.githubusercontent.com/mapper1024/mapper1024/master/diagrams/Class_Diagram.png" alt="Class diagram" /></p>
+<h4 id="behavior-models">Behavior Models</h4>
+<p>Behavorial Models: show the dynamic behavior of the system as it executes. It includes activity (for data-flow), state/state-machine diagrams (event-flow), or timing diagrams</p>
+<h4 id="database">Database</h4>
+<figure>
+<img src="https://raw.githubusercontent.com/mapper1024/mapper1024/master/diagrams/database.png" alt="" /><figcaption>Entity-Relationship diagram</figcaption>
+</figure>
+<p>This diagram devolves to the following tables:</p>
+<pre><code>entity(entityid &lt;&lt;primary key&gt;&gt;, type, valid)
+property(entityid &lt;&lt;primary key, foreign key to entityid in entity&gt;&gt;, property &lt;&lt;primary key&gt;&gt;, v_string, v_number, x, y, z)
+node(entityid &lt;&lt;primary key, foreign key to entityid in entity&gt;&gt;, nodetype, parentid &lt;&lt;foreign key to entityid in node&gt;&gt;)
+edge(entityid &lt;&lt;primary key, foreign key to entityid in entity&gt;&gt;)
+node_edge(edgeid &lt;&lt;primary key, foreign key to entityid in edge&gt;&gt;, nodeid &lt;&lt;primary key, foreign key to entityid in node&gt;&gt;)</code></pre>
+<p>The database is designed in a straightforward manner. The database is a set of <em>entities</em>. Every <em>entity</em> has a set of key-value <em>properties</em> where the key can be any string and the value can be either a number, a string, or a 3-coordinate vector. <em>Nodes</em> and <em>edges</em> are <em>entities</em> with special behavior. <em>Nodes</em> have a <em>node type</em> and can have a <em>parent node</em>. <em>Edges</em> refer to two separate <em>nodes</em> to connect them. Both <em>nodes</em> and <em>edges</em> can have arbitrary properties, as they are merely derived types of <em>entities</em>.</p>
+<p>The database is built in a very lightweight manner: only relationships between nodes and edges are modeled explicitly. The <em>property</em> system, as implemented in the <em>property</em> table, provides entities with an arbitrary key-value storage. <em>Properties</em> are not explicitly stored in the database as columns, but rather the program can store and retrieve arbitrary properties. This allows for expansion of what properties are being used without needing to update the database schema and go through a migration properties. Future versions of the program can use new properties in a backward-compatible manner. See the development journal through 2022-10-09 for an example of the flexibility of this approach.</p>

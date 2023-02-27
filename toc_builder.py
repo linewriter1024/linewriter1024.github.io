@@ -15,9 +15,9 @@ def insert_headers(ol, headers):
 			li.append(E.SPAN(header["element"].text_content()))
 
 		if header["headers"]:
-			ol = E.OL()
-			li.append(ol)
-			insert_headers(ol, header["headers"])
+			sub_ol = E.OL()
+			li.append(sub_ol)
+			insert_headers(sub_ol, header["headers"])
 
 def all(element):
 	yield element

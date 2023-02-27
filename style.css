@@ -218,9 +218,11 @@ blockquote {
 ol.toc {
     background: #ddd;
     list-style-position: inside;
-    border-radius: 15%;
+    border-radius: 1.5em;
     padding: 0.5em;
     float: right;
+    max-width: 40%;
+    margin-left: 0.5em;
 }
 
 ol.toc li::marker {
