@@ -63,7 +63,7 @@ replacefile() {
 	placeholder="$1"
 	path="$2"
 
-	python3 -u -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], open(sys.argv[2]).read()))" "$placeholder" "$path"
+	replacetext "$placeholder" "$(cat "$path")"
 }
 
 # replacetext <placeholder> <text to insert>
@@ -72,7 +72,7 @@ replacetext() {
 	placeholder="$1"
 	text="$2"
 
-	python3 -u -c "import sys; sys.stdout.write(sys.stdin.read().replace(sys.argv[1], sys.argv[2]))" "$placeholder" "$text"
+	awk -v placeholder="$placeholder" -v text="$text" '{gsub(placeholder, text); print}'
 }
 
 htmlescape() {
