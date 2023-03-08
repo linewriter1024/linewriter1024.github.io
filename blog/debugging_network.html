@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | Debugging slow boot and a clogged router</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>Debugging slow boot and a clogged router</h1>
+		<span class="subtitle">2023-03-08</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/debugging">#debugging</a> <a class="tag" href="../blog/tags/software">#software</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<p>I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends' home Wi-Fi, but the connection failed.</p>
+
+<p>This was odd:</p>
+<ul>
+	<li>I had never seen these messages before during boot.</li>
+	<li>I had not installed or upgraded new software for several days.</li>
+	<li>I had not recently changed system configuration.</li>
+	<li>My phone was connected to the same Wi-Fi that my laptop could not connect to.</li>
+</ul>
+
+<h2>Hypothesis 1: Something was wrong with my laptop</h2>
+
+<p>I rebooted the laptop. Always gotta turn it off and back on again. Unfortunantely, the same things happened.</p>
+
+<h3>Hypothesis 1.1: Something was wrong with an fstab entry</h3>
+
+<p>The first step was to look at the odd error out: the timeout to mount a disk. I looked up the UUID and found that it was an entry in fstab that tried to mount an external volume as ntfs, but it did have nofail specified so the failure to mount shouldn't be an error during boot. This entry had been working for months, so I didn't see why it would be a problem now. Nevertheless I added <code>x-systemd.device-timeout=1</code> to the mount options and rebooted. Mounting the disk timed out quickly during boot now, and didn't cause any further issues. I guess the reason I never noticed that message before was that it does not affect graphical boot at all, and just quietly timed out after 90 seconds in the background.</p>
+
+<p>This left the long wait for the network to come up during boot, and the failure to connect to the Wi-Fi.</p>
+
+<h3>Hypothesis 1.2: Something was wrong with my laptop's network ability</h3>
+
+<p>These two remaining problems were obviously tied together: Network manager waited during boot until the network was up, but because it kept trying unsuccessfully to connect to the Wi-Fi it took it until some timeout to bring the network up once it realized that it couldn't connect to the Wi-Fi. Since I'm not running a network-critical server with my laptop, I ran <code>sudo systemctl disable NetworkManager-wait-online.service</code> and turned off the boot delay. I don't need network capability to start my laptop, network manager can connect later, even after I'm logged in.</p>
+
+<p>Now I was down to one problem: my laptop couldn't connect to the Wi-Fi.</p>
+
+<h4>Hypothesis 1.2.1: Something was wrong with my laptop's Wi-Fi radio</h4>
+
+<p>One of my fears was that I'd damaged my antenna or radio card somehow. To test this, I turned on my phone's hotspot and tried to connect with my laptop. Success. While this didn't entirely rule out my laptop as the problem, it did indicate the issue lay elsewhere.</p>
+
+<p>When I turned my phone's hotspot off, it failed to connect back to the Wi-Fi. Now I was getting somewhere.</p>
+
+<h2>Hypothesis 2: Something was wrong with the router</h2>
+
+<p>The router was a <a href="https://www.verizon.com/about/sites/default/files/fios-qgr-userguide140925.pdf">Verizon FiOS-G1100</a>.</p>
+
+<p>This hypothesis seemed most reasonable now that I had two devices failing to connect. Other people in the house were still using the Wi-Fi, however, with no issues. One key to this hypothesis is that there were far more people on the WAP than normal: nearly a dozen people on the same Wi-Fi, each with their phones, laptops, tablets, etc. I would expect to see unusual failure under these relatively unusual conditions.</p>
+
+<p>Eventually I was able to reboot the router, expecting that to fix the issue. The problem persisted.</p>
+
+<p>I decided to try using a static IP address on my phone instead of using DHCP. It connected to the network with full internet access.</p>
+
+<h3>Hypothesis 2.1: Something was wrong with the router DHCP server</h3>
+
+<p>Using a static IP address on my laptop solved that connection issue as well. Clearly, there was something wrong with the DHCP server.</p>
+
+<p>When someone noticed that the Roku TV wouldn't connect to the Wi-Fi, I tried to assign it a static IP address as well, but Roku only supports DHCP IP assigning. It was time to fix the router.</p>
+
+<h4>Hypothesis 2.1.1: Too many DHCP assignments</h4>
+
+<p>My working hypothesis was that somehow the amount of people on the network had run out of IP assignments. I couldn't find evidence in the router console of too many outstanding leases, but I wanted to try resetting the DHCP server anyway, guessing that the outstanding leases were hidden and only the current devices were being show.</p>
+
+<p>There was no simple option to reset the DHCP server. Instead, I changed the IP assignment and gateway range from 192.168.1.x to 192.168.2.x, about which the console helpfully provided a warning saying it would require all devices to be assigned a new IP. Perfect.</p>
+
+<p>As soon as I hit apply, the problems vanished. I re-enabled using DHCP on my phone and laptop, and they connected perfectly. The Roku TV connected, as did every other device in the house.</p>
+
+<p>I still don't know exactly what went wrong, but I've got more experience for next time I run into this kind of problem. Plus, being able to fix it was kinda fun!</p>
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2023-03-08</span>
+				 <a class="tag" href="../blog/tags/debugging">#debugging</a> <a class="tag" href="../blog/tags/software">#software</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>

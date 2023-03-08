@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Tue, 07 Mar 2023 16:28:33 +0000</lastBuildDate>
-		<pubDate>Tue, 07 Mar 2023 16:28:33 +0000</pubDate>
+		<lastBuildDate>Wed, 08 Mar 2023 17:56:48 +0000</lastBuildDate>
+		<pubDate>Wed, 08 Mar 2023 17:56:48 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Debugging slow boot and a clogged router</title>
+	<description>I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends’ home Wi-Fi, but the connection failed. This was odd: I had never seen these messages before during boot. I had not installed or upgraded new software for several days. I…</description>
+	<category>debugging</category><category>software</category>
+	<link>https://benleskey.com/blog/debugging_network</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/debugging_network</guid>
+	<pubDate>Wed, 08 Mar 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>Mapping tool 0.6 release</title>
 	<description>I’m proud to release version 0.6 of the mapping tool: the picture and performance update! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo Once you’ve tested the new version, please fill out the feedback survey. Picture and Performance Version 0.6 brings great performance improvements–far less jerking the map around–as well as a tuned-up graphics set with better looking forests, lakes, cities, grasslands, and more. New features and fixes include: The ability to extend and merge existing map objects. Huge performance improvements by reducing calculations while you’re drawing on or panning over the map. Greatly…</description>
 	<category>mappingtool</category><category>release</category><category>software</category>
@@ -21,7 +29,7 @@
 <item>
 	<title>Autodrive into a crater fix</title>
 	<description>In my current Cataclysm: Dark Days Ahead playthrough, I ran into a problem with the autodrive feature: it’d drive me straight into a crater and crash the vehicle. This seemed like a straightforward fix, so I checked out the master branch and set about debugging. Autodrive definitely has the capability to avoid certain terrain, so I guessed it was just a mistake in how it was calculating ledge traps or open air terrain. Sure enough, it was just an error in how the vehicle was being considered as “able to drive over air”. With the existing logic, autodrive thought every…</description>
-	<category>cdda</category><category>software</category>
+	<category>cdda</category><category>debugging</category><category>software</category>
 	<link>https://benleskey.com/blog/cdda_no_hole</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_no_hole</guid>
 	<pubDate>Wed, 08 Feb 2023 12:00:00 +0000</pubDate>
@@ -89,7 +97,6 @@
 	<link>https://benleskey.com/blog/mapper0_1</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_1</guid>
 	<pubDate>Mon, 01 Aug 2022 12:00:00 +0000</pubDate>
-</item>
-_
+</item>_
 	</channel>
 </rss>

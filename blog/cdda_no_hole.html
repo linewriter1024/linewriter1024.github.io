@@ -39,7 +39,7 @@
 		<header>
 		<h1>Autodrive into a crater fix</h1>
 		<span class="subtitle">2023-02-08</span>
-		<span class="tags"> <a class="tag" href="../blog/tags/cdda">#cdda</a> <a class="tag" href="../blog/tags/software">#software</a></span>
+		<span class="tags"> <a class="tag" href="../blog/tags/cdda">#cdda</a> <a class="tag" href="../blog/tags/debugging">#debugging</a> <a class="tag" href="../blog/tags/software">#software</a></span>
 		
 		</header>
 		<hr>
@@ -55,14 +55,13 @@
 <p>Sure enough, it was just an error in how the vehicle was being considered as "able to drive over air". With the existing logic, autodrive thought every vehicle could fly. The fix was simple: only consider helicopters (the only flying vehicle) that have enough rotor power as flyable.</p>
 
 <p>I have <a href="https://github.com/CleverRaven/Cataclysm-DDA/pull/63487">a pull request fixing this issue</a> ready to be merged.</p>
-
 		</main>
 		<hr>
 		<footer>
 			
 			<div class="footerinfo">
 				<span>Post dated 2023-02-08</span>
-				 <a class="tag" href="../blog/tags/cdda">#cdda</a> <a class="tag" href="../blog/tags/software">#software</a>
+				 <a class="tag" href="../blog/tags/cdda">#cdda</a> <a class="tag" href="../blog/tags/debugging">#debugging</a> <a class="tag" href="../blog/tags/software">#software</a>
 				<div class="footericons">
 	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
 
