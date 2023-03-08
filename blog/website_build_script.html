@@ -62,57 +62,57 @@ This website is static HTML, CSS, and Javascript. There is a build script that c
 
 # Akas are permanent names that redirect to various resources. If the location of the resource changes, the aka can simply be updated.
 # Due to being hosted on Github pages we do not have direct control over redirects, so we must use meta refresh directives.
-echo __POST__quot;Akas...__POST__quot;
+echo "Akas..."
 
 # Each line in akas.txt has the format:
-# __POST__lt;name of redirect__POST__gt; __POST__lt;url of redirect__POST__gt;
+# &lt;name of redirect&gt; &lt;url of redirect&gt;
 while read line; do
 	# Split the aka line into the name and url
-	name=__POST__quot;$(echo __POST__quot;$line__POST__quot; | cut -d__POST__#x27; __POST__#x27; -f1)__POST__quot;
-	url=__POST__quot;$(echo __POST__quot;$line__POST__quot; | cut -d__POST__#x27; __POST__#x27; -f2-)__POST__quot;
+	name="$(echo "$line" | cut -d' ' -f1)"
+	url="$(echo "$line" | cut -d' ' -f2-)"
 
-	file=__POST__quot;aka/$name.html__POST__quot;
+	file="aka/$name.html"
 
-	echo __POST__quot;__POST__lt;!DOCTYPE html__POST__gt;__POST__quot; __POST__gt; $file
-	echo __POST__quot;__POST__lt;title__POST__gt;Redirecting to $url__POST__lt;/title__POST__gt;__POST__quot; __POST__gt;__POST__gt; $file
+	echo "&lt;!DOCTYPE html&gt;" &gt; $file
+	echo "&lt;title&gt;Redirecting to $url&lt;/title&gt;" &gt;&gt; $file
 
 	# Refresh the page immediately to the desired URL.
-	echo __POST__quot;__POST__lt;meta http-equiv=__POST__#x27;refresh__POST__#x27; content=__POST__#x27;0; URL=$url__POST__#x27;__POST__gt;__POST__quot; __POST__gt;__POST__gt; $file
+	echo "&lt;meta http-equiv='refresh' content='0; URL=$url'&gt;" &gt;&gt; $file
 
-	# However, we don__POST__#x27;t want any caching, so if we update the URL it will be immediately reflected in the redirect.
-	echo __POST__#x27;__POST__lt;meta http-equiv=__POST__quot;Cache-Control__POST__quot; content=__POST__quot;no-cache, no-store, must-revalidate__POST__quot; /__POST__gt;__POST__#x27; __POST__gt;__POST__gt; $file
-	echo __POST__#x27;__POST__lt;meta http-equiv=__POST__quot;Pragma__POST__quot; content=__POST__quot;no-cache__POST__quot; /__POST__gt;__POST__#x27; __POST__gt;__POST__gt; $file
-	echo __POST__#x27;__POST__lt;meta http-equiv=__POST__quot;Expires__POST__quot; content=__POST__quot;0__POST__quot; /__POST__gt;__POST__#x27; __POST__gt;__POST__gt; $file
+	# However, we don't want any caching, so if we update the URL it will be immediately reflected in the redirect.
+	echo '&lt;meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /&gt;' &gt;&gt; $file
+	echo '&lt;meta http-equiv="Pragma" content="no-cache" /&gt;' &gt;&gt; $file
+	echo '&lt;meta http-equiv="Expires" content="0" /&gt;' &gt;&gt; $file
 
 	# Additional links to the URL.
-	echo __POST__quot;__POST__lt;link rel=__POST__#x27;canonical__POST__#x27; href=__POST__#x27;$url__POST__#x27;__POST__gt;__POST__quot; __POST__gt;__POST__gt; $file
-	echo __POST__quot;Redirecting to __POST__lt;a href=__POST__#x27;$url__POST__#x27;__POST__gt;$url__POST__lt;/a__POST__gt;...__POST__quot; __POST__gt;__POST__gt; $file # The user can click this one if their browser doesn__POST__#x27;t redirect them.
+	echo "&lt;link rel='canonical' href='$url'&gt;" &gt;&gt; $file
+	echo "Redirecting to &lt;a href='$url'&gt;$url&lt;/a&gt;..." &gt;&gt; $file # The user can click this one if their browser doesn't redirect them.
 
-	echo __POST__quot; Wrote $name -__POST__gt; $url__POST__quot;
-done __POST__lt; akas.txt
+	echo " Wrote $name -&gt; $url"
+done &lt; akas.txt
 
-# replacetext __POST__lt;placeholder__POST__gt; __POST__lt;text to insert__POST__gt;
+# replacetext &lt;placeholder&gt; &lt;text to insert&gt;
 # A pipeline function to replace a placeholder with text
 replacetext() {
-	placeholder=__POST__quot;$1__POST__quot;
-	text=__POST__quot;$2__POST__quot;
+	placeholder="$1"
+	text="$2"
 
-	sed __POST__quot;s^$placeholder^$text^__POST__quot;
+	sed "s^$placeholder^$text^"
 }
 
-# replacefile __POST__lt;placeholder__POST__gt; __POST__lt;path to file__POST__gt;
+# replacefile &lt;placeholder&gt; &lt;path to file&gt;
 # A pipeline function to replace a placeholder with the contents of a file
 replacefile() {
-	placeholder=__POST__quot;$1__POST__quot;
-	path=__POST__quot;$2__POST__quot;
+	placeholder="$1"
+	path="$2"
 
-	sed -e __POST__quot;/$placeholder/r$path__POST__quot; | sed __POST__quot;s/$placeholder//g__POST__quot;
+	sed -e "/$placeholder/r$path" | sed "s/$placeholder//g"
 }
 
 # The list of all tags, to be built up as posts are processed.
-alltags=__POST__quot;__POST__quot;
+alltags=""
 
-# Maximum blog posts in the __POST__quot;minor__POST__quot; list, i.e. on the front page.
+# Maximum blog posts in the "minor" list, i.e. on the front page.
 BMMAX=3
 
 # Number of blog posts so far.
@@ -120,106 +120,106 @@ BN=0
 
 # The post function is called from the posts.sh list of posts; it is responsible for processing each blog post.
 # A post has four components, reflected in the arguments:
-# post __POST__lt;human-redable identifier name__POST__gt; __POST__lt;human-readable, pretty title of post__POST__gt; __POST__lt;date YYYY-MM-DD__POST__gt; __POST__lt;space-delimited list of tags__POST__gt;
+# post &lt;human-redable identifier name&gt; &lt;human-readable, pretty title of post&gt; &lt;date YYYY-MM-DD&gt; &lt;space-delimited list of tags&gt;
 post() {
-	name=__POST__quot;$1__POST__quot;
-	title=__POST__quot;$2__POST__quot;
-	date=__POST__quot;$3__POST__quot;
-	tags=__POST__quot;$4__POST__quot;
+	name="$1"
+	title="$2"
+	date="$3"
+	tags="$4"
 
-	# We__POST__#x27;ll be reading the text of the blog post from an input HTML file and generating the full HTML page.
-	infile=__POST__quot;blog.in/$name.in.html__POST__quot;
-	outfile=__POST__quot;blog/$name.html__POST__quot;
+	# We'll be reading the text of the blog post from an input HTML file and generating the full HTML page.
+	infile="blog.in/$name.in.html"
+	outfile="blog/$name.html"
 
-	echo __POST__quot; $name: $title [$date]__POST__quot;
+	echo " $name: $title [$date]"
 
 	# We will collect all the tags and build a list of hyperlinks to insert into the HTML.
 	# HTML for the tag lists are generated for each different place they must be used with different styling and URLs (since sometimes we need blog/tags#tag and sometimes just tags/#tag if we are within the blog itself).
 
-	taghtml=__POST__quot;__POST__quot; # The list of tags to be used within the blog posts.
-	smalltaghtml=__POST__quot;__POST__quot; # The list of tags to be used within the __POST__quot;major__POST__quot; blog post list, on the dedicated blog page.
-	minortaghtml=__POST__quot;__POST__quot; # The list of tags to be used within the __POST__quot;minor__POST__quot; blog post list, on the main page.
+	taghtml="" # The list of tags to be used within the blog posts.
+	smalltaghtml="" # The list of tags to be used within the "major" blog post list, on the dedicated blog page.
+	minortaghtml="" # The list of tags to be used within the "minor" blog post list, on the main page.
 
 	while read tag; do
-		taghtml=__POST__quot;$taghtml __POST__lt;a class=__POST__#x27;tag__POST__#x27; href=__POST__#x27;tags#$tag__POST__#x27;__POST__gt;#$tag__POST__lt;/a__POST__gt;__POST__quot;
-		minortaghtml=__POST__quot;$minortaghtml __POST__lt;a class=__POST__#x27;smalltag__POST__#x27; href=__POST__#x27;blog/tags#$tag__POST__#x27;__POST__gt;#$tag__POST__lt;/a__POST__gt;__POST__quot;
-		smalltaghtml=__POST__quot;$smalltaghtml __POST__lt;a class=__POST__#x27;smalltag__POST__#x27; href=__POST__#x27;tags#$tag__POST__#x27;__POST__gt;#$tag__POST__lt;/a__POST__gt;__POST__quot;
+		taghtml="$taghtml &lt;a class='tag' href='tags#$tag'&gt;#$tag&lt;/a&gt;"
+		minortaghtml="$minortaghtml &lt;a class='smalltag' href='blog/tags#$tag'&gt;#$tag&lt;/a&gt;"
+		smalltaghtml="$smalltaghtml &lt;a class='smalltag' href='tags#$tag'&gt;#$tag&lt;/a&gt;"
 
-		# If we haven__POST__#x27;t seen this tag yet in any post, record it and clear away any old file built from this tag.
-		if ! echo __POST__quot;$alltags__POST__quot; | grep -w __POST__quot;$tag__POST__quot; __POST__gt; /dev/null; then
-			echo __POST__quot; New tag: $tag__POST__quot;
-			alltags=__POST__quot;$alltags $tag__POST__quot;
-			rm -f __POST__quot;blog/_tag_$tag.html__POST__quot;
+		# If we haven't seen this tag yet in any post, record it and clear away any old file built from this tag.
+		if ! echo "$alltags" | grep -w "$tag" &gt; /dev/null; then
+			echo " New tag: $tag"
+			alltags="$alltags $tag"
+			rm -f "blog/_tag_$tag.html"
 		fi
 
-	done __POST__lt; __POST__lt;(echo __POST__quot;$tags__POST__quot; | xargs -n1)
+	done &lt; &lt;(echo "$tags" | xargs -n1)
 
-	# Now we will write a link to this post to the each of its tags__POST__#x27; pages.
+	# Now we will write a link to this post to the each of its tags' pages.
 	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
 	while read tag; do
-		echo __POST__quot;__POST__lt;li class=__POST__#x27;postlisting__POST__#x27;__POST__gt;__POST__lt;a href=__POST__#x27;$name__POST__#x27;__POST__gt;$title__POST__lt;/a__POST__gt; [$date] $smalltaghtml__POST__lt;/li__POST__gt;__POST__quot; __POST__gt;__POST__gt; __POST__quot;blog/_tag_$tag.html__POST__quot;
-	done __POST__lt; __POST__lt;(echo __POST__quot;$tags__POST__quot; | xargs -n1)
+		echo "&lt;li class='postlisting'&gt;&lt;a href='$name'&gt;$title&lt;/a&gt; [$date] $smalltaghtml&lt;/li&gt;" &gt;&gt; "blog/_tag_$tag.html"
+	done &lt; &lt;(echo "$tags" | xargs -n1)
 
 	# Record that another post was processed.
 	BN=$((BN+1))
 
-	# If we haven__POST__#x27;t reached the limit for __POST__quot;minor__POST__quot; posts, add a link to the minor blog post listing HTML, this is for the __POST__quot;recent posts__POST__quot; section of the main page.
+	# If we haven't reached the limit for "minor" posts, add a link to the minor blog post listing HTML, this is for the "recent posts" section of the main page.
 	if [ $BN -le $BMMAX ]; then
-		echo __POST__quot;__POST__lt;li class=__POST__#x27;postlisting__POST__#x27;__POST__gt;__POST__lt;a href=__POST__#x27;blog/$name__POST__#x27;__POST__gt;$title__POST__lt;/a__POST__gt; [$date] $minortaghtml__POST__lt;/li__POST__gt;__POST__quot; __POST__gt;__POST__gt; blog/_minor.in.html
+		echo "&lt;li class='postlisting'&gt;&lt;a href='blog/$name'&gt;$title&lt;/a&gt; [$date] $minortaghtml&lt;/li&gt;" &gt;&gt; blog/_minor.in.html
 	fi
 
-	# Always add a link to the __POST__quot;major__POST__quot; blog post listing HTML, this is for the dedicated blog page.
-	echo __POST__quot;__POST__lt;li class=__POST__#x27;postlisting__POST__#x27;__POST__gt;__POST__lt;a href=__POST__#x27;$name__POST__#x27;__POST__gt;$title__POST__lt;/a__POST__gt; [$date] $smalltaghtml__POST__lt;/li__POST__gt;__POST__quot; __POST__gt;__POST__gt; blog/_major.in.html
+	# Always add a link to the "major" blog post listing HTML, this is for the dedicated blog page.
+	echo "&lt;li class='postlisting'&gt;&lt;a href='$name'&gt;$title&lt;/a&gt; [$date] $smalltaghtml&lt;/li&gt;" &gt;&gt; blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext __POST__quot;__TITLE____POST__quot; __POST__quot;$title__POST__quot; | replacetext __POST__quot;__DATE____POST__quot; __POST__quot;$date__POST__quot; | replacetext __POST__quot;__TAGS____POST__quot; __POST__quot;$taghtml__POST__quot; | replacefile __POST__quot;__POST____POST__quot; __POST__quot;$infile__POST__quot;) __POST__lt; templates/post.in.html __POST__gt; __POST__quot;$outfile__POST__quot;
+	(replacetext "__TITLE__" "$title" | replacetext "__DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replacefile "__POST__" "$infile") &lt; templates/post.in.html &gt; "$outfile"
 }
 
-echo __POST__quot;Blog...__POST__quot;
+echo "Blog..."
 
 # Begin the major and minor blog post lists.
-echo __POST__quot;__POST__lt;ul__POST__gt;__POST__quot; __POST__gt; blog/_major.in.html
-echo __POST__quot;__POST__lt;ul__POST__gt;__POST__quot; __POST__gt; blog/_minor.in.html
+echo "&lt;ul&gt;" &gt; blog/_major.in.html
+echo "&lt;ul&gt;" &gt; blog/_minor.in.html
 
 # Include the list of posts via source, so it can call the post function.
 source blog.in/posts.sh
 
-# If there are more posts than can be displayed in the minor list (on the main page) then add a __POST__quot;More...__POST__quot; link to the minor list.
+# If there are more posts than can be displayed in the minor list (on the main page) then add a "More..." link to the minor list.
 if [ $BN -gt $BMMAX ]; then
-	echo __POST__quot;__POST__lt;li__POST__gt;__POST__lt;a href=__POST__#x27;blog__POST__#x27;__POST__gt;$((BN - BMMAX)) more...__POST__lt;/a__POST__gt;__POST__lt;/li__POST__gt;__POST__quot; __POST__gt;__POST__gt; blog/_minor.in.html
+	echo "&lt;li&gt;&lt;a href='blog'&gt;$((BN - BMMAX)) more...&lt;/a&gt;&lt;/li&gt;" &gt;&gt; blog/_minor.in.html
 fi
 
 # Cap off the lists.
-echo __POST__quot;__POST__lt;/ul__POST__gt;__POST__quot; __POST__gt;__POST__gt; blog/_minor.in.html
-echo __POST__quot;__POST__lt;/ul__POST__gt;__POST__quot; __POST__gt;__POST__gt; blog/_major.in.html
+echo "&lt;/ul&gt;" &gt;&gt; blog/_minor.in.html
+echo "&lt;/ul&gt;" &gt;&gt; blog/_major.in.html
 
 # Build the main page.
 (
-	replacefile __POST__quot;__BLOGMINOR____POST__quot; __POST__quot;blog/_minor.in.html__POST__quot; |
+	replacefile "__BLOGMINOR__" "blog/_minor.in.html" |
 	# The date of generation is included on the main page.
-	replacetext __POST__quot;__DATE____POST__quot; __POST__quot;$(TZ=UTC date -I)__POST__quot;
-) __POST__lt; templates/index.in.html __POST__gt; index.html
+	replacetext "__DATE__" "$(TZ=UTC date -I)"
+) &lt; templates/index.in.html &gt; index.html
 
 # Build the dedicated blog index page.
-(replacefile __POST__quot;__BLOGMAJOR____POST__quot; __POST__quot;blog/_major.in.html__POST__quot;) __POST__lt; templates/blog.in.html __POST__gt; blog/index.html
+(replacefile "__BLOGMAJOR__" "blog/_major.in.html") &lt; templates/blog.in.html &gt; blog/index.html
 
 
 # Uniquify and sort the list of all tags.
-alltags=__POST__quot;$(echo __POST__quot;$alltags__POST__quot; | xargs -n1 | sort | uniq | xargs)__POST__quot;
+alltags="$(echo "$alltags" | xargs -n1 | sort | uniq | xargs)"
 
 # The tag index page consist of all the tags with every post categorized under their tag/tags.
-echo __POST__gt; blog/_tags.in.html
+echo &gt; blog/_tags.in.html
 
 # For each tag, just append the previously generated list of posts HTML for that tag.
 while read tag; do
-	echo __POST__quot;__POST__lt;h1__POST__gt;$tag__POST__lt;/h1__POST__gt;__POST__quot; __POST__gt;__POST__gt; blog/_tags.in.html
-	echo __POST__quot;__POST__lt;ul__POST__gt;__POST__quot; __POST__gt;__POST__gt; blog/_tags.in.html
-	cat __POST__quot;blog/_tag_$tag.html__POST__quot; __POST__gt;__POST__gt; blog/_tags.in.html
-	echo __POST__quot;__POST__lt;/ul__POST__gt;__POST__quot; __POST__gt;__POST__gt; blog/_tags.in.html
-done __POST__lt; __POST__lt;(echo __POST__quot;$alltags__POST__quot; | xargs -n1)
+	echo "&lt;h1&gt;$tag&lt;/h1&gt;" &gt;&gt; blog/_tags.in.html
+	echo "&lt;ul&gt;" &gt;&gt; blog/_tags.in.html
+	cat "blog/_tag_$tag.html" &gt;&gt; blog/_tags.in.html
+	echo "&lt;/ul&gt;" &gt;&gt; blog/_tags.in.html
+done &lt; &lt;(echo "$alltags" | xargs -n1)
 
 # Generate the full tag index page.
-(replacefile __POST__quot;__TAGS____POST__quot; __POST__quot;blog/_tags.in.html__POST__quot;) __POST__lt; templates/tags.in.html __POST__gt; blog/tags.html
+(replacefile "__TAGS__" "blog/_tags.in.html") &lt; templates/tags.in.html &gt; blog/tags.html
 </code>
 </pre>
 <p>
@@ -230,10 +230,10 @@ done __POST__lt; __POST__lt;(echo __POST__quot;$alltags__POST__quot; | xargs -n1
 </p>
 <pre>
 <code class="language-bash">
-post website_build_script __POST__quot;benleskey.com build script__POST__quot; 2023-01-12 __POST__quot;software website__POST__quot;
-post mapper0_4 __POST__quot;Mapping tool 0.4 release__POST__quot; 2023-01-04 __POST__quot;mappingtool software__POST__quot;
-post mapper0_3 __POST__quot;Mapping tool 0.3 release__POST__quot; 2022-10-26 __POST__quot;mappingtool software__POST__quot;
-post mapper0_1 __POST__quot;Mapping tool 0.1 release__POST__quot; 2022-08-01 __POST__quot;mappingtool software__POST__quot;
+post website_build_script "benleskey.com build script" 2023-01-12 "software website"
+post mapper0_4 "Mapping tool 0.4 release" 2023-01-04 "mappingtool software"
+post mapper0_3 "Mapping tool 0.3 release" 2022-10-26 "mappingtool software"
+post mapper0_1 "Mapping tool 0.1 release" 2022-08-01 "mappingtool software"
 </code>
 </pre>
 

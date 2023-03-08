@@ -70,7 +70,8 @@ replacefile() {
 # A pipeline function to replace a placeholder with text
 replacetext() {
 	placeholder="$1"
-	text="$2"
+
+	text="$(echo "$2" | sed 's|\\|\\\\|g' | sed 's|&|\\\\&|g')"
 
 	awk -v placeholder="$placeholder" -v text="$text" '{gsub(placeholder, text); print}'
 }
