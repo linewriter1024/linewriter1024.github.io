@@ -21,7 +21,6 @@ th, td {
 
 h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
-    clear: both;
 }
 
 h3.experience {
@@ -85,7 +84,6 @@ h3.experience.job::before {
 
 p {
     text-indent: 1em;
-    clear: both;
 }
 
 footer {
@@ -215,7 +213,7 @@ blockquote {
     border-radius: 0.25em;
 }
 
-ol.toc {
+.toc {
     background: #ddd;
     list-style-position: inside;
     border-radius: 1.5em;
@@ -225,16 +223,28 @@ ol.toc {
     margin-left: 0.5em;
 }
 
-ol.toc li::marker {
+.toc.large {
+    font-size: 1.1em;
+    list-style: none;
+    max-width: 100%;
+}
+
+.toc.large li {
+    margin-bottom: 0.1em;
+    padding-left: 0;
+}
+
+.toc.large li .icon {
+    padding-right: 0.5em;
+    margin-left: 0;
+}
+
+.toc.large li:nth-child(even) {
+    background: #ccc;
+}
+
+.toc li::marker {
     font-weight: bold;
-}
-
-main.post h2, h3, h4, h5, h6 {
-    clear: none;
-}
-
-main.post p {
-    clear: none;
 }
 
 .image-set {

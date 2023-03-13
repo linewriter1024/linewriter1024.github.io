@@ -3,10 +3,10 @@ import sys
 import lxml.html
 from lxml.html import builder as E
 
-def insert_headers(ol, headers):
+def insert_headers(parent, headers):
 	for header in headers:
 		li = E.LI()
-		ol.append(li)
+		parent.append(li)
 
 		if "id" in header["element"].keys():
 			link = E.A(header["element"].text_content(), href=("#" + header["element"].get("id")))
@@ -15,9 +15,9 @@ def insert_headers(ol, headers):
 			li.append(E.SPAN(header["element"].text_content()))
 
 		if header["headers"]:
-			sub_ol = E.OL()
-			li.append(sub_ol)
-			insert_headers(sub_ol, header["headers"])
+			sub_list = lxml.html.HTMLElement(parent.tag)
+			li.append(sub_list)
+			insert_headers(sub_list, header["headers"])
 
 def all(element):
 	yield element
@@ -49,7 +49,6 @@ if __name__ == "__main__":
 			find_next_headers(selfi).append(n())
 
 	for toc in html.find_class("toc"):
-		if toc.tag == "ol":
-			insert_headers(toc, headers)
+		insert_headers(toc, headers)
 
 	sys.stdout.write(lxml.html.tostring(html_tree, pretty_print=True).decode())

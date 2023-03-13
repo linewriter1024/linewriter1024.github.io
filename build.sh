@@ -228,33 +228,26 @@ source blog.in/posts.sh
 	commonreplace .
 ) < templates/index.in.html > index.html
 
-# Build the dedicated blog index page.
-(replacefile "__BLOGMAJOR__" "$tmp/_major.in.html" | replacetext __NUM_POSTS__ "$BN" | commonreplace ..) < templates/blog.in.html > blog/index.html
-
-
 # Uniquify and sort the list of all tags.
 alltags="$(echo "$alltags" | xargs -n1 | sort | uniq | xargs)"
 
-# The tag index page consist of all the tags with every post categorized under their tag/tags.
-echo > "$tmp"/_tags.in.html
+echo > "$tmp/_tag_list.in.html"
 
 # For each tag, just append the previously generated list of posts HTML for that tag.
 while read tag; do
 	echo " Tag: $tag"
-	echo "<h2 id='$tag'><a href='__ROOT__/blog/tags/$tag'>$tag</a></h2>" >> "$tmp"/_tags.in.html
-	echo "<ul>" >> "$tmp"/_tags.in.html
-	cat "$tmp/_tag_$tag.html" >> "$tmp"/_tags.in.html
-	echo "</ul>" >> "$tmp"/_tags.in.html
+
+	echo "<li><a class='icon' href='__ROOT__/blog/tags/$tag.feed.xml' title='RSS feed'><img src='https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg' alt='RSS feed'></a><a href='__ROOT__/blog/tags/$tag'>$tag</a></li>" >> "$tmp/_tag_list.in.html"
 
 	(replacefile "__ITEMS__" "$tmp/_tag_$tag.html" | replacetext __NUM_POSTS__ "$(wc -l "$tmp/_tag_$tag.html" | cut -d' ' -f1)" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag.in.html > blog/tags/"$tag".html &
 	(replacefile "__FEED_" "$tmp/_tag_feed_$tag.xml" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag_feed.in.xml > blog/tags/"$tag.feed.xml" &
 done < <(echo "$alltags" | xargs -n1 --no-run-if-empty)
 
+# Build the dedicated blog index page.
+(replacefile "__BLOGMAJOR__" "$tmp/_major.in.html" | replacetext __NUM_POSTS__ "$BN" | replacefile __TAG_LIST__ "$tmp/_tag_list.in.html" | commonreplace ..) < templates/blog.in.html > blog/index.html
+
 echo " Waiting..."
 wait
-
-# Generate the full tag index page.
-(replacefile "__TAGS__" "$tmp/_tags.in.html" | replacetext __NUM_TAGS__ "$(echo "$alltags" | wc -w)" | commonreplace ../..) < templates/tags.in.html > blog/tags/index.html
 
 echo "Generating RSS feed..."
 (replacefile "__FEED__" "$tmp/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml
