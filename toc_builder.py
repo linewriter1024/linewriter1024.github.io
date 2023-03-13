@@ -15,7 +15,7 @@ def insert_headers(parent, headers):
 			li.append(E.SPAN(header["element"].text_content()))
 
 		if header["headers"]:
-			sub_list = lxml.html.HTMLElement(parent.tag)
+			sub_list = lxml.html.Element(parent.tag)
 			li.append(sub_list)
 			insert_headers(sub_list, header["headers"])
 
