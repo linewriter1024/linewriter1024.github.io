@@ -6,25 +6,25 @@
 		<link>https://benleskey.com/blog/tags/discovery</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Tue, 14 Mar 2023 14:22:55 +0000</lastBuildDate>
-		<pubDate>Tue, 14 Mar 2023 14:22:55 +0000</pubDate>
+		<lastBuildDate>Tue, 14 Mar 2023 15:32:19 +0000</lastBuildDate>
+		<pubDate>Tue, 14 Mar 2023 15:32:19 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/discovery.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
-	<title>Discovering random websites</title>
-	<description>The other day I was found by diff.blog who starred the repository for this website on Github. While poking around their bot’s Github account I found that the diffblogbot stars page is a huge mine for random personal websites scattered around Github. diffblogbot crawls for blogs and gathers them all here, in one place. I decided to take a look at some of them, and gather a few of the most interesting in a kind of showcase. Mocha2007’s personal website has a ton of interesting stuff: conlangs, games, toy programs, and more! Their conlangs and worldbuilding are very detailed, just…</description>
-	<category>discovery</category>
-	<link>https://benleskey.com/blog/discovering_random_websites</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/discovering_random_websites</guid>
-	<pubDate>Thu, 26 Jan 2023 12:00:00 +0000</pubDate>
+	<title>More RSS feeds!</title>
+	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Finding discussion about diff.blog</title>
-	<description>I couldn’t find much about diff.blog with a cursory glance over the internet, so I went looking. On diff.blog itself I discovered a post from Roman Martin’s blog when diff.blog found him back in 2020 the same way they did me recently. Here’s a Hacker News subthread from 2020, where the creator of diff.blog, Vishnu KS, is promoting it. Here’s a smaller subthread from 2022, and another subthread from 2021, and one more from 2020. One of the HN threads was linked in a blog post from jerieljan. There’ve been HN submissions of diff.blog, and a Reddit post, but none…</description>
-	<category>discovery</category><category>deepdive</category>
-	<link>https://benleskey.com/blog/finding_discussion_diff_blog</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/finding_discussion_diff_blog</guid>
-	<pubDate>Wed, 25 Jan 2023 12:00:00 +0000</pubDate>
+	<title>More RSS feeds!</title>
+	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

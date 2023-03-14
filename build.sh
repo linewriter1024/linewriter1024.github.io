@@ -103,6 +103,9 @@ alltags=""
 # Maximum blog posts in the "minor" list, i.e. on the front page.
 BMMAX=5
 
+# Maximum blog posts in an RSS feed
+RSSMAX=15
+
 # Maximum number of words in the RSS description summary
 SUMMARY_WORDS=100
 
@@ -211,13 +214,18 @@ post() {
 	name="$1"
 	tags="$4"
 
-	feedfile="$tmp/_$name.xml"
-	cat < "$feedfile" >> "$tmp"/_feed.in.xml
+	if [[ $(grep "<item>" "$tmp"/_feed.in.xml | wc -l) -lt $RSSMAX ]]; then
+		feedfile="$tmp/_$name.xml"
+		cat < "$feedfile" >> "$tmp"/_feed.in.xml
+	fi
 
 	while read tag; do
-		cat < "$feedfile" >> "$tmp"/_tag_feed_"$tag".xml
-	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
+		touch "$tmp"/_tag_feed_"$tag".xml
 
+		if [[ $(grep "<item>" "$tmp"/_tag_feed_"$tag".xml | wc -l) -lt $RSSMAX ]]; then
+			cat < "$feedfile" >> "$tmp"/_tag_feed_"$tag".xml
+		fi
+	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
 }
 
 source blog.in/posts.sh

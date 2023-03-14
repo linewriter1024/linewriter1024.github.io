@@ -6,17 +6,17 @@
 		<link>https://benleskey.com/blog/tags/dcss</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Tue, 14 Mar 2023 14:22:55 +0000</lastBuildDate>
-		<pubDate>Tue, 14 Mar 2023 14:22:55 +0000</pubDate>
+		<lastBuildDate>Tue, 14 Mar 2023 15:32:19 +0000</lastBuildDate>
+		<pubDate>Tue, 14 Mar 2023 15:32:19 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/dcss.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
-	<title>29th DCSS win: Naga Hexslinger</title>
-	<description>I just got my 29th win in the Dungeon Crawl: Stone Soup roguelike, playing a Naga Hexslinger of Hep. The morgue file from CKO is included below:…</description>
-	<category>games</category><category>dcss</category>
-	<link>https://benleskey.com/blog/naga_hexslinger_win</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/naga_hexslinger_win</guid>
-	<pubDate>Wed, 25 Jan 2023 12:00:00 +0000</pubDate>
+	<title>More RSS feeds!</title>
+	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

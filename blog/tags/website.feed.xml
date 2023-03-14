@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog/tags/website</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Tue, 14 Mar 2023 14:22:56 +0000</lastBuildDate>
-		<pubDate>Tue, 14 Mar 2023 14:22:56 +0000</pubDate>
+		<lastBuildDate>Tue, 14 Mar 2023 15:32:20 +0000</lastBuildDate>
+		<pubDate>Tue, 14 Mar 2023 15:32:20 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/website.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
@@ -19,28 +19,28 @@
 	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>I'm on diff.blog</title>
-	<description>I saw yesterday that diff.blog’s bot account on Github had starred the repository for this website. I clicked through to their Github page, which described diff.blog as an aggregator of developer blogs… started in 2019 to improve the visibility of self hosted blogs. I followed the directions in their README and signed in to diff.blog with my Github account. Once there, I added the URL of my blog to my account settings and diff.blog crawled my RSS feed. Once I saw how it was using the RSS item descriptions to generate summaries, I improved my build script to actually generate…</description>
+	<title>More RSS feeds!</title>
+	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
 	<category>software</category><category>website</category>
-	<link>https://benleskey.com/blog/diff_blog</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/diff_blog</guid>
-	<pubDate>Wed, 25 Jan 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>I made an RSS feed!</title>
-	<description>I made an RSS feed for my blog! It’s a really simple format; I was able to implement my feed just by following the RSS 2.0 spec. Of course, RSS readers are a little less common than they were a decade ago; but there are plenty of extensions for Firefox—I’m using RSSPreview just to test the feed—and with how easy it was to extend my blog generator to generate XML alongside HTML I figured it was better to have a feed than not.…</description>
+	<title>More RSS feeds!</title>
+	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
 	<category>software</category><category>website</category>
-	<link>https://benleskey.com/blog/made_rss_feed</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/made_rss_feed</guid>
-	<pubDate>Sun, 22 Jan 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>benleskey.com build script</title>
-	<description>This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script—as of writing—that compiles the website is fully commented and included below, along with the data file listing all the blog posts. build.sh posts.sh build.sh posts.sh…</description>
+	<title>More RSS feeds!</title>
+	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
 	<category>software</category><category>website</category>
-	<link>https://benleskey.com/blog/website_build_script</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/website_build_script</guid>
-	<pubDate>Thu, 12 Jan 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>
