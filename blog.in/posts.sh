@@ -1,3 +1,4 @@
+post cs_mft "I took the ETS major field test for computer science" 2023-03-16 "deepdive software academics"
 post debugging_network "Debugging slow boot and a clogged router" 2023-03-08 "debugging software"
 post mapper0_6 "Mapping tool 0.6 release" 2023-02-16 "mappingtool release software"
 post lusha_answers_version_1 "Scene draft: Lusha tries to get answers, version 1" 2023-02-15 "writing scene"

@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Tue, 14 Mar 2023 15:32:21 +0000</lastBuildDate>
-		<pubDate>Tue, 14 Mar 2023 15:32:21 +0000</pubDate>
+		<lastBuildDate>Thu, 16 Mar 2023 18:20:44 +0000</lastBuildDate>
+		<pubDate>Thu, 16 Mar 2023 18:20:44 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>I took the ETS major field test for computer science</title>
+	<description>Every senior student at MVNU takes a standardized assessment. The assessment lets MVNU administration compare how well their students are doing against other institutions, and how well each program is teaching the fundamentals of the program’s field. In my case the assessment was the ETS major field test for computer science. While I knew the test was coming up, I wasn’t given any information about what would be on the test, and since I knew it wouldn’t affect my graduation or GPA I wasn’t particularly concerned about studying for it. The day before the testing day I decided to look…</description>
+	<category>deepdive</category><category>software</category><category>academics</category>
+	<link>https://benleskey.com/blog/cs_mft</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cs_mft</guid>
+	<pubDate>Thu, 16 Mar 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Debugging slow boot and a clogged router</title>
 	<description>I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends’ home Wi-Fi, but the connection failed. This was odd: I had never seen these messages before during boot. I had not installed or upgraded new software for several days. I…</description>
@@ -122,14 +130,6 @@
 	<link>https://benleskey.com/blog/cdda_raymon_1</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_1</guid>
 	<pubDate>Sun, 29 Jan 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>More RSS feeds!</title>
-	<description>I’ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, the mappingtool tag. I can, in this way, use my blog easily as a set of smaller blogs for each category. This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn’t commit temporary files and doesn’t need to work so hard to find the root of the website when I’m already passing that information in the script. I do need to refactor it more, it’s getting rather unwieldy, though still…</description>
-	<category>software</category><category>website</category>
-	<link>https://benleskey.com/blog/more_rss_feeds</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
-	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>
