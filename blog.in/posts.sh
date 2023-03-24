@@ -3,7 +3,7 @@ post cdda_ernie_road_trip "CDDA big world showcase: Ernie's great road trip" 202
 post mapper_gifs "OBS Studio -> ffmpeg -> ImageMagick for an optimized gif" 2023-04-06 "discovery utilities software"
 post lusha_answers_version_2 "Scene draft: Lusha tries to get answers, version 2" 2023-03-29 "writing scene"
 post opca_win "30th DCSS win: Octopode Cinder Acolyte of Jiyva" 2023-03-28 "games dcss"
-post textengine_intro "Toward the ultimate text adventure game engine" 2023-03-21 "textengine software games discovery"
+post textengine_intro "Toward the ultimate text adventure game engine" 2023-03-23 "software games textengine discovery"
 post cs_mft "I took the ETS major field test for computer science" 2023-03-16 "deepdive software academics"
 post debugging_network "Debugging slow boot and a clogged router" 2023-03-08 "debugging software"
 post mapper0_6 "Mapping tool 0.6 release" 2023-02-16 "mappingtool release software"
