@@ -156,10 +156,16 @@ post() {
 
 	done < <(echo "$tags" | xargs -n1 | sort | uniq | xargs -n1 --no-run-if-empty)
 
+	dateinfo="$date"
+
+	if [ -n "$POST_UPDATED" ]; then
+		dateinfo="<span class='updated-date' title='updated $POST_UPDATED'>$date* <span class='updated-date-more'>(updated $POST_UPDATED)</span></span>"
+	fi
+
 	# Now we will write a link to this post to the each of its tags' pages.
 	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
 	while read tag; do
-		echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$date] $smalltaghtml</li>" >> "$tmp/_tag_$tag.html"
+		echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$dateinfo] $smalltaghtml</li>" >> "$tmp/_tag_$tag.html"
 	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
 
 	# Record that another post was processed.
@@ -167,11 +173,11 @@ post() {
 
 	# If we haven't reached the limit for "minor" posts, add a link to the minor blog post listing HTML, this is for the "recent posts" section of the main page.
 	if [ $BN -le $BMMAX ]; then
-		echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$date] $minortaghtml</li>" >> "$tmp"/_minor.in.html
+		echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$dateinfo] $minortaghtml</li>" >> "$tmp"/_minor.in.html
 	fi
 
 	# Always add a link to the "major" blog post listing HTML, this is for the dedicated blog page.
-	echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$date] $smalltaghtml</li>" >> "$tmp"/_major.in.html
+	echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$dateinfo] $smalltaghtml</li>" >> "$tmp"/_major.in.html
 
 	replaceseries() {
 		if [[ -n "$series" ]]; then
@@ -182,7 +188,7 @@ post() {
 	}
 
 	# Build the blog post HTML.
-	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$date" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile" | python3 toc_builder.py) < templates/post.in.html > "$outfile" &
+	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$dateinfo" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile" | python3 toc_builder.py) < templates/post.in.html > "$outfile" &
 
 	summary() {
 		< "$infile" pandoc -i - -o - -t plain | xargs | cut -d' ' -f -$SUMMARY_WORDS
