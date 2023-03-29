@@ -1,3 +1,4 @@
+post opca_win "30th DCSS win: Octopode Cinder Acolyte of Jiyva" 2023-03-28 "games dcss"
 post cs_mft "I took the ETS major field test for computer science" 2023-03-16 "deepdive software academics"
 post debugging_network "Debugging slow boot and a clogged router" 2023-03-08 "debugging software"
 post mapper0_6 "Mapping tool 0.6 release" 2023-02-16 "mappingtool release software"
