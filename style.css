@@ -279,3 +279,15 @@ p.meta {
     border-left: 0.25em dotted black;
     padding-left: 0.5em;
 }
+
+.updated-date-more {
+    display: none;
+}
+
+.updated-date:hover .updated-date-more {
+    display: inline;
+}
+
+.update {
+    font-style: italic;
+}
