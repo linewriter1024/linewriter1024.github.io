@@ -159,7 +159,7 @@ post() {
 	dateinfo="$date"
 
 	if [ -n "$POST_UPDATED" ]; then
-		dateinfo="<span class='updated-date' title='updated $POST_UPDATED'>$date* <span class='updated-date-more'>(updated $POST_UPDATED)</span></span>"
+		dateinfo="$date, $POST_UPDATED"
 	fi
 
 	# Now we will write a link to this post to the each of its tags' pages.
