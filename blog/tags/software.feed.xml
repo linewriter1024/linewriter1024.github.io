@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 30 Mar 2023 00:17:37 +0000</lastBuildDate>
-		<pubDate>Thu, 30 Mar 2023 00:17:37 +0000</pubDate>
+		<lastBuildDate>Thu, 06 Apr 2023 06:36:54 +0000</lastBuildDate>
+		<pubDate>Thu, 06 Apr 2023 06:36:54 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
+	<description>I’ve been working on my presentation to present my mapping tool senior Honors project at MVNU’s sURC. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool. I started with OBS studio to record the actual video of me drawing a simple map. Then I imported the video into Kdenlive for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the…</description>
+	<category>discovery</category><category>utilities</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper_gifs</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper_gifs</guid>
+	<pubDate>Thu, 06 Apr 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>I took the ETS major field test for computer science</title>
 	<description>Every senior student at MVNU takes a standardized assessment. The assessment lets MVNU administration compare how well their students are doing against other institutions, and how well each program is teaching the fundamentals of the program’s field. In my case the assessment was the ETS major field test for computer science. While I knew the test was coming up, I wasn’t given any information about what would be on the test, and since I knew it wouldn’t affect my graduation or GPA I wasn’t particularly concerned about studying for it. The day before the testing day I decided to look…</description>
 	<category>deepdive</category><category>software</category><category>academics</category>
@@ -43,68 +51,68 @@
 	<pubDate>Wed, 08 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>First Night Raymon needs more supplies. He’d like a map of the area; extra food is good; tools would be useful. It’s almost nightfall; he’s spent the whole day traveling toward the refugee center, but now he’s stuck just outside a city of unknown dimensions. The zombies can’t see very far at night, so Raymon plans to raid some of the houses for supplies as soon as nightfall comes. It’s time to set up camp. His camp is barebones, just a tent and a car, but it’s better than nothing. The tent ensures no zombies (or aliens, for that matter)…</description>
+	<title>Raymon Ortega #4: The End</title>
+	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_3</guid>
-	<pubDate>Wed, 01 Feb 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/cdda_raymon_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
+	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>First Night Raymon needs more supplies. He’d like a map of the area; extra food is good; tools would be useful. It’s almost nightfall; he’s spent the whole day traveling toward the refugee center, but now he’s stuck just outside a city of unknown dimensions. The zombies can’t see very far at night, so Raymon plans to raid some of the houses for supplies as soon as nightfall comes. It’s time to set up camp. His camp is barebones, just a tent and a car, but it’s better than nothing. The tent ensures no zombies (or aliens, for that matter)…</description>
+	<title>Raymon Ortega #4: The End</title>
+	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_3</guid>
-	<pubDate>Wed, 01 Feb 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/cdda_raymon_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
+	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>First Night Raymon needs more supplies. He’d like a map of the area; extra food is good; tools would be useful. It’s almost nightfall; he’s spent the whole day traveling toward the refugee center, but now he’s stuck just outside a city of unknown dimensions. The zombies can’t see very far at night, so Raymon plans to raid some of the houses for supplies as soon as nightfall comes. It’s time to set up camp. His camp is barebones, just a tent and a car, but it’s better than nothing. The tent ensures no zombies (or aliens, for that matter)…</description>
+	<title>Raymon Ortega #4: The End</title>
+	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_3</guid>
-	<pubDate>Wed, 01 Feb 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/cdda_raymon_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
+	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>First Night Raymon needs more supplies. He’d like a map of the area; extra food is good; tools would be useful. It’s almost nightfall; he’s spent the whole day traveling toward the refugee center, but now he’s stuck just outside a city of unknown dimensions. The zombies can’t see very far at night, so Raymon plans to raid some of the houses for supplies as soon as nightfall comes. It’s time to set up camp. His camp is barebones, just a tent and a car, but it’s better than nothing. The tent ensures no zombies (or aliens, for that matter)…</description>
+	<title>Raymon Ortega #4: The End</title>
+	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_3</guid>
-	<pubDate>Wed, 01 Feb 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/cdda_raymon_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
+	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>First Night Raymon needs more supplies. He’d like a map of the area; extra food is good; tools would be useful. It’s almost nightfall; he’s spent the whole day traveling toward the refugee center, but now he’s stuck just outside a city of unknown dimensions. The zombies can’t see very far at night, so Raymon plans to raid some of the houses for supplies as soon as nightfall comes. It’s time to set up camp. His camp is barebones, just a tent and a car, but it’s better than nothing. The tent ensures no zombies (or aliens, for that matter)…</description>
+	<title>Raymon Ortega #4: The End</title>
+	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_3</guid>
-	<pubDate>Wed, 01 Feb 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/cdda_raymon_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
+	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>First Night Raymon needs more supplies. He’d like a map of the area; extra food is good; tools would be useful. It’s almost nightfall; he’s spent the whole day traveling toward the refugee center, but now he’s stuck just outside a city of unknown dimensions. The zombies can’t see very far at night, so Raymon plans to raid some of the houses for supplies as soon as nightfall comes. It’s time to set up camp. His camp is barebones, just a tent and a car, but it’s better than nothing. The tent ensures no zombies (or aliens, for that matter)…</description>
+	<title>Raymon Ortega #4: The End</title>
+	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_3</guid>
-	<pubDate>Wed, 01 Feb 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/cdda_raymon_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
+	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>First Night Raymon needs more supplies. He’d like a map of the area; extra food is good; tools would be useful. It’s almost nightfall; he’s spent the whole day traveling toward the refugee center, but now he’s stuck just outside a city of unknown dimensions. The zombies can’t see very far at night, so Raymon plans to raid some of the houses for supplies as soon as nightfall comes. It’s time to set up camp. His camp is barebones, just a tent and a car, but it’s better than nothing. The tent ensures no zombies (or aliens, for that matter)…</description>
+	<title>Raymon Ortega #4: The End</title>
+	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_3</guid>
-	<pubDate>Wed, 01 Feb 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/cdda_raymon_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
+	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>First Night Raymon needs more supplies. He’d like a map of the area; extra food is good; tools would be useful. It’s almost nightfall; he’s spent the whole day traveling toward the refugee center, but now he’s stuck just outside a city of unknown dimensions. The zombies can’t see very far at night, so Raymon plans to raid some of the houses for supplies as soon as nightfall comes. It’s time to set up camp. His camp is barebones, just a tent and a car, but it’s better than nothing. The tent ensures no zombies (or aliens, for that matter)…</description>
+	<title>Raymon Ortega #4: The End</title>
+	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_3</guid>
-	<pubDate>Wed, 01 Feb 2023 12:00:00 +0000</pubDate>
+	<link>https://benleskey.com/blog/cdda_raymon_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
+	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

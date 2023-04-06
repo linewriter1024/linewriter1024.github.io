@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ben Leskey's Blog: utilities</title>
+		<description>utilities posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/utilities</link>
+		<language>en-us</language>
+		<copyright>2023 Ben Leskey</copyright>
+		<lastBuildDate>Thu, 06 Apr 2023 06:36:54 +0000</lastBuildDate>
+		<pubDate>Thu, 06 Apr 2023 06:36:54 +0000</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/utilities.feed.xml" rel="self" type="application/rss+xml" />
+
+		<item>
+	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
+	<description>I’ve been working on my presentation to present my mapping tool senior Honors project at MVNU’s sURC. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool. I started with OBS studio to record the actual video of me drawing a simple map. Then I imported the video into Kdenlive for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the…</description>
+	<category>discovery</category><category>utilities</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper_gifs</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper_gifs</guid>
+	<pubDate>Thu, 06 Apr 2023 12:00:00 +0000</pubDate>
+</item>_
+	</channel>
+</rss>

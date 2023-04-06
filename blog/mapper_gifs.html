@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | OBS Studio -&gt; ffmpeg -&gt; ImageMagick for an optimized gif</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>OBS Studio -&gt; ffmpeg -&gt; ImageMagick for an optimized gif</h1>
+		<span class="subtitle">2023-04-06</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/discovery">#discovery</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/utilities">#utilities</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<p>I've been working on my presentation to present my <a href="../aka/mappingtool">mapping tool</a> senior Honors project at <a href="https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc">MVNU's <abbr title="Symposium for Undergraduate Research and Creative Work">sURC</abbr></a>. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.</p>
+
+<p>I started with <a href="https://obsproject.com/">OBS studio</a> to record the actual video of me drawing a simple map. Then I imported the video into <a href="https://kdenlive.org/">Kdenlive</a> for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.</p>
+
+<p>With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.</p>
+<p>I then converted the MP4 file using </p>
+<pre><code class="language-bash">ffmpeg -i in.mp4 -vf "scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -r 10 out.gif</code></pre> 10 fps struck a good balance between choppiness and size; I didn't need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
+<p>Then I optimized the gif, lossily, using ImageMagick's mogrify command </p>
+<pre><code class="language-bash">mogrify -layers 'optimize' -fuzz 7% out.gif</code></pre>
+
+<p>The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
+
+</p>
+<p>
+Here's the final GIF:
+<img src="../images/mapper_gifs_gif.gif" alt="A map being drawn in the mapping tool">
+</p>
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2023-04-06</span>
+				 <a class="tag" href="../blog/tags/discovery">#discovery</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/utilities">#utilities</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>

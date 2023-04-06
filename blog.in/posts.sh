@@ -1,3 +1,4 @@
+post mapper_gifs "OBS Studio -> ffmpeg -> ImageMagick for an optimized gif" 2023-04-06 "discovery utilities software"
 post lusha_answers_version_2 "Scene draft: Lusha tries to get answers, version 2" 2023-03-29 "writing scene"
 post opca_win "30th DCSS win: Octopode Cinder Acolyte of Jiyva" 2023-03-28 "games dcss"
 post cs_mft "I took the ETS major field test for computer science" 2023-03-16 "deepdive software academics"
