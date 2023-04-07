@@ -2,6 +2,7 @@
 import sys
 import lxml.html
 from lxml.html import builder as E
+from urllib.parse import urlparse
 
 def all(element):
 	yield element
@@ -10,10 +11,10 @@ def all(element):
 
 def fix_path(path):
 	base = sys.argv[1]
-	if path.startswith("./") or path.startswith("../"):
-		return base + "/" + path
-	else:
+	if urlparse(path).netloc:
 		return path
+	else:
+		return base + "/" + path
 
 if __name__ == "__main__":
 	html = lxml.html.fromstring(sys.stdin.read())
