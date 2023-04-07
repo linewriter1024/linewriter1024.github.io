@@ -230,6 +230,7 @@ post() {
 		touch "$tmp"/_tag_feed_"$tag".xml
 
 		if [[ $(grep "<item>" "$tmp"/_tag_feed_"$tag".xml | wc -l) -lt $RSSMAX ]]; then
+			feedfile="$tmp/_$name.xml"
 			cat < "$feedfile" >> "$tmp"/_tag_feed_"$tag".xml
 		fi
 	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
