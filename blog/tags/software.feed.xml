@@ -6,13 +6,31 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 06 Apr 2023 06:36:54 +0000</lastBuildDate>
-		<pubDate>Thu, 06 Apr 2023 06:36:54 +0000</pubDate>
+		<lastBuildDate>Fri, 07 Apr 2023 16:44:25 +0000</lastBuildDate>
+		<pubDate>Fri, 07 Apr 2023 16:44:25 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
-	<description>I’ve been working on my presentation to present my mapping tool senior Honors project at MVNU’s sURC. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool. I started with OBS studio to record the actual video of me drawing a simple map. Then I imported the video into Kdenlive for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the…</description>
+	<description>&lt;div&gt;
+&lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
+
+&lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
+
+&lt;p&gt;With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.&lt;/p&gt;
+&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
+&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
+
+&lt;/p&gt;
+&lt;p&gt;
+Here&#x27;s the final GIF:
+&lt;img src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;
+&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>discovery</category><category>utilities</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper_gifs</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper_gifs</guid>
@@ -20,7 +38,37 @@
 </item>
 <item>
 	<title>I took the ETS major field test for computer science</title>
-	<description>Every senior student at MVNU takes a standardized assessment. The assessment lets MVNU administration compare how well their students are doing against other institutions, and how well each program is teaching the fundamentals of the program’s field. In my case the assessment was the ETS major field test for computer science. While I knew the test was coming up, I wasn’t given any information about what would be on the test, and since I knew it wouldn’t affect my graduation or GPA I wasn’t particularly concerned about studying for it. The day before the testing day I decided to look…</description>
+	<description>&lt;div&gt;
+&lt;p&gt;
+	Every senior student at &lt;a href=&quot;https://mvnu.edu&quot;&gt;MVNU&lt;/a&gt; takes a standardized assessment. The assessment lets MVNU administration compare how well their students are doing against other institutions, and how well each program is teaching the fundamentals of the program&#x27;s field. In my case the assessment was the &lt;a href=&quot;https://www.ets.org/content/dam/ets-org/pdfs/mft/comp-sci-test-description.pdf&quot;&gt;ETS major field test for computer science&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+	While I knew the test was coming up, I wasn&#x27;t given any information about what would be on the test, and since I knew it wouldn&#x27;t affect my graduation or GPA I wasn&#x27;t particularly concerned about studying for it. The day before the testing day I decided to look into exactly what I would be taking. I found a &lt;a href=&quot;https://www.ets.org/pdfs/mft/comp-sci-sample-questions.pdf&quot;&gt;sample questions document&lt;/a&gt; (&lt;a href=&quot;https://web.archive.org/web/20230316163356/https://www.ets.org/pdfs/mft/comp-sci-sample-questions.pdf&quot;&gt;archived&lt;/a&gt;) by searching on google. These sample questions were representative of the actual test&amp;#8212;as one&#x27;d expect&amp;#8212;and there was nothing I hadn&#x27;t seen in my courses at MVNU. The bulk of the questions seemed to be more &quot;Computer Science&quot; than &quot;Computer Programming&quot; and were covered by two courses in particular that I&#x27;d taken: &lt;em&gt;Data Structures &amp;amp; Algorithm Design&lt;/em&gt; and &lt;em&gt;Survey and Organization of Programming Languages&lt;/em&gt;. I didn&#x27;t study much beyond checking out the sample questions.
+&lt;/p&gt;
+
+&lt;p&gt;
+	On the day of the actual test classes were cancelled for everyone to let seniors take their major field assessments, juniors take their general education assessments (only every other junior class has to take these, I didn&#x27;t have to last year), and everyone except graduating seniors to meet with their advisors and schedule classes for the next year. Sadly, I didn&#x27;t get to enjoy much of the cancelled classes as I had to wake up for the major field test at 9 AM, and I still had my meeting with my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;Honors project&lt;/a&gt; advisor to keep wrapping things up. The test was proctored&amp;#8212;as required by ETS&amp;#8212;and administered in the main computer lab. The test itself was not very stressful; the sample questions were good preparation and representation of the actual assessment.
+&lt;/p&gt;
+
+&lt;a href=&quot;https://benleskey.com/blog/../images/cs_mft_score.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cs_mft_score.50.png&quot; alt=&quot;Test results&quot; class=&quot;left&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;
+	My score was displayed and e-mailed to me immediately after I completed the test. I scored 181 on a scale from 120&amp;#8211;200, placing me in the 98th percentile. This is pretty good, and I&#x27;m happy with the score, and how it reflects on my learning at MVNU. I could have done a little better with more studying, but most of the questions could be solved with logic, and that&#x27;s not something learned by cramming before a test&amp;#8212;only years of practice can build that kind of understanding and that&#x27;s what brought my score so high.
+&lt;/p&gt;
+
+&lt;p&gt;
+	I couldn&#x27;t find much other discussion online about the ETS major field test, just a couple &lt;a href=&quot;https://scratchrobotics.com/2018/07/08/how-i-prepare-for-ets-major-field-test-computer-science/&quot;&gt;blog&lt;/a&gt; &lt;a href=&quot;https://scratchrobotics.com/2019/02/26/prep-mft-cs-story-part-2/&quot;&gt;posts&lt;/a&gt; from &lt;a href=&quot;https://scratchrobotics.com/&quot;&gt;a student&#x27;s blog&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;h2&gt;Quirks of the results page&lt;/h2&gt;
+
+&lt;a href=&quot;https://benleskey.com/blog/../images/cs_mft_error.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cs_mft_error.50.png&quot; alt=&quot;Invalid key pressed popup&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;
+	The results page pops up the individual results for the test that I took, but interestingly if I press an &quot;illegal key&quot; like the Windows key, it alerts me and leaves the page. Why? I don&#x27;t know. Maybe it thinks I&#x27;m still taking the test.
+&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>deepdive</category><category>software</category><category>academics</category>
 	<link>https://benleskey.com/blog/cs_mft</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cs_mft</guid>
@@ -28,7 +76,65 @@
 </item>
 <item>
 	<title>Debugging slow boot and a clogged router</title>
-	<description>I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends’ home Wi-Fi, but the connection failed. This was odd: I had never seen these messages before during boot. I had not installed or upgraded new software for several days. I…</description>
+	<description>&lt;div&gt;
+&lt;p&gt;I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends&#x27; home Wi-Fi, but the connection failed.&lt;/p&gt;
+
+&lt;p&gt;This was odd:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;I had never seen these messages before during boot.&lt;/li&gt;
+	&lt;li&gt;I had not installed or upgraded new software for several days.&lt;/li&gt;
+	&lt;li&gt;I had not recently changed system configuration.&lt;/li&gt;
+	&lt;li&gt;My phone was connected to the same Wi-Fi that my laptop could not connect to.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Hypothesis 1: Something was wrong with my laptop&lt;/h2&gt;
+
+&lt;p&gt;I rebooted the laptop. Always gotta turn it off and back on again. Unfortunantely, the same things happened.&lt;/p&gt;
+
+&lt;h3&gt;Hypothesis 1.1: Something was wrong with an fstab entry&lt;/h3&gt;
+
+&lt;p&gt;The first step was to look at the odd error out: the timeout to mount a disk. I looked up the UUID and found that it was an entry in fstab that tried to mount an external volume as ntfs, but it did have nofail specified so the failure to mount shouldn&#x27;t be an error during boot. This entry had been working for months, so I didn&#x27;t see why it would be a problem now. Nevertheless I added &lt;code&gt;x-systemd.device-timeout=1&lt;/code&gt; to the mount options and rebooted. Mounting the disk timed out quickly during boot now, and didn&#x27;t cause any further issues. I guess the reason I never noticed that message before was that it does not affect graphical boot at all, and just quietly timed out after 90 seconds in the background.&lt;/p&gt;
+
+&lt;p&gt;This left the long wait for the network to come up during boot, and the failure to connect to the Wi-Fi.&lt;/p&gt;
+
+&lt;h3&gt;Hypothesis 1.2: Something was wrong with my laptop&#x27;s network ability&lt;/h3&gt;
+
+&lt;p&gt;These two remaining problems were obviously tied together: Network manager waited during boot until the network was up, but because it kept trying unsuccessfully to connect to the Wi-Fi it took it until some timeout to bring the network up once it realized that it couldn&#x27;t connect to the Wi-Fi. Since I&#x27;m not running a network-critical server with my laptop, I ran &lt;code&gt;sudo systemctl disable NetworkManager-wait-online.service&lt;/code&gt; and turned off the boot delay. I don&#x27;t need network capability to start my laptop, network manager can connect later, even after I&#x27;m logged in.&lt;/p&gt;
+
+&lt;p&gt;Now I was down to one problem: my laptop couldn&#x27;t connect to the Wi-Fi.&lt;/p&gt;
+
+&lt;h4&gt;Hypothesis 1.2.1: Something was wrong with my laptop&#x27;s Wi-Fi radio&lt;/h4&gt;
+
+&lt;p&gt;One of my fears was that I&#x27;d damaged my antenna or radio card somehow. To test this, I turned on my phone&#x27;s hotspot and tried to connect with my laptop. Success. While this didn&#x27;t entirely rule out my laptop as the problem, it did indicate the issue lay elsewhere.&lt;/p&gt;
+
+&lt;p&gt;When I turned my phone&#x27;s hotspot off, it failed to connect back to the Wi-Fi. Now I was getting somewhere.&lt;/p&gt;
+
+&lt;h2&gt;Hypothesis 2: Something was wrong with the router&lt;/h2&gt;
+
+&lt;p&gt;The router was a &lt;a href=&quot;https://www.verizon.com/about/sites/default/files/fios-qgr-userguide140925.pdf&quot;&gt;Verizon FiOS-G1100&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This hypothesis seemed most reasonable now that I had two devices failing to connect. Other people in the house were still using the Wi-Fi, however, with no issues. One key to this hypothesis is that there were far more people on the WAP than normal: nearly a dozen people on the same Wi-Fi, each with their phones, laptops, tablets, etc. I would expect to see unusual failure under these relatively unusual conditions.&lt;/p&gt;
+
+&lt;p&gt;Eventually I was able to reboot the router, expecting that to fix the issue. The problem persisted.&lt;/p&gt;
+
+&lt;p&gt;I decided to try using a static IP address on my phone instead of using DHCP. It connected to the network with full internet access.&lt;/p&gt;
+
+&lt;h3&gt;Hypothesis 2.1: Something was wrong with the router DHCP server&lt;/h3&gt;
+
+&lt;p&gt;Using a static IP address on my laptop solved that connection issue as well. Clearly, there was something wrong with the DHCP server.&lt;/p&gt;
+
+&lt;p&gt;When someone noticed that the Roku TV wouldn&#x27;t connect to the Wi-Fi, I tried to assign it a static IP address as well, but Roku only supports DHCP IP assigning. It was time to fix the router.&lt;/p&gt;
+
+&lt;h4&gt;Hypothesis 2.1.1: Too many DHCP assignments&lt;/h4&gt;
+
+&lt;p&gt;My working hypothesis was that somehow the amount of people on the network had run out of IP assignments. I couldn&#x27;t find evidence in the router console of too many outstanding leases, but I wanted to try resetting the DHCP server anyway, guessing that the outstanding leases were hidden and only the current devices were being show.&lt;/p&gt;
+
+&lt;p&gt;There was no simple option to reset the DHCP server. Instead, I changed the IP assignment and gateway range from 192.168.1.x to 192.168.2.x, about which the console helpfully provided a warning saying it would require all devices to be assigned a new IP. Perfect.&lt;/p&gt;
+
+&lt;p&gt;As soon as I hit apply, the problems vanished. I re-enabled using DHCP on my phone and laptop, and they connected perfectly. The Roku TV connected, as did every other device in the house.&lt;/p&gt;
+
+&lt;p&gt;I still don&#x27;t know exactly what went wrong, but I&#x27;ve got more experience for next time I run into this kind of problem. Plus, being able to fix it was kinda fun!&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>debugging</category><category>software</category>
 	<link>https://benleskey.com/blog/debugging_network</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/debugging_network</guid>
@@ -36,7 +142,23 @@
 </item>
 <item>
 	<title>Mapping tool 0.6 release</title>
-	<description>I’m proud to release version 0.6 of the mapping tool: the picture and performance update! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo Once you’ve tested the new version, please fill out the feedback survey. Picture and Performance Version 0.6 brings great performance improvements–far less jerking the map around–as well as a tuned-up graphics set with better looking forests, lakes, cities, grasslands, and more. New features and fixes include: The ability to extend and merge existing map objects. Huge performance improvements by reducing calculations while you’re drawing on or panning over the map. Greatly…</description>
+	<description>&lt;div&gt;
+&lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/QsYyZ4sCpqzHtaX7A&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;picture-and-performance&quot;&gt;Picture and Performance&lt;/h2&gt;
+&lt;p&gt;Version 0.6 brings great performance improvements&amp;#8211;far less jerking the map around&amp;#8211;as well as a tuned-up graphics set with better looking forests, lakes, cities, grasslands, and more.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_0.6.0.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_0.6.0.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;New features and fixes include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ability to extend and merge existing map objects.&lt;/li&gt;
+&lt;li&gt;Huge performance improvements by reducing calculations while you&amp;#8217;re drawing on or panning over the map.&lt;/li&gt;
+&lt;li&gt;Greatly improved graphics: terrain is varied and pops out for clarity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-final-stretch&quot;&gt;The Final Stretch&lt;/h2&gt;
+&lt;p&gt;Every main feature is now implemented. Performance tuning, testing, and graphical improvements are the primary concerns now: tweaking and optimizing the mapping tool for your satisfaction. As always, I&amp;#8217;d love to hear your thoughts, ideas, and feedback!&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>mappingtool</category><category>release</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper0_6</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_6</guid>
@@ -44,75 +166,423 @@
 </item>
 <item>
 	<title>Autodrive into a crater fix</title>
-	<description>In my current Cataclysm: Dark Days Ahead playthrough, I ran into a problem with the autodrive feature: it’d drive me straight into a crater and crash the vehicle. This seemed like a straightforward fix, so I checked out the master branch and set about debugging. Autodrive definitely has the capability to avoid certain terrain, so I guessed it was just a mistake in how it was calculating ledge traps or open air terrain. Sure enough, it was just an error in how the vehicle was being considered as “able to drive over air”. With the existing logic, autodrive thought every…</description>
+	<description>&lt;div&gt;
+&lt;a href=&quot;https://benleskey.com/blog/../images/cdda_truck_in_hole.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cdda_truck_in_hole.50.png&quot; alt=&quot;A pickup truck fallen into a crater in Cataclysm: Dark Days Ahead&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;
+	In my current &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_erik&quot;&gt;playthrough&lt;/a&gt;, I ran into a problem with the autodrive feature: it&#x27;d drive me straight into a crater and crash the vehicle.
+&lt;/p&gt;
+
+&lt;p&gt;This seemed like a straightforward fix, so I checked out the master branch and set about debugging. Autodrive definitely has the capability to avoid certain terrain, so I guessed it was just a mistake in how it was calculating ledge traps or open air terrain.&lt;/p&gt;
+
+&lt;p&gt;Sure enough, it was just an error in how the vehicle was being considered as &quot;able to drive over air&quot;. With the existing logic, autodrive thought every vehicle could fly. The fix was simple: only consider helicopters (the only flying vehicle) that have enough rotor power as flyable.&lt;/p&gt;
+
+&lt;p&gt;I have &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/63487&quot;&gt;a pull request fixing this issue&lt;/a&gt; ready to be merged.&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>cdda</category><category>debugging</category><category>software</category>
 	<link>https://benleskey.com/blog/cdda_no_hole</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_no_hole</guid>
 	<pubDate>Wed, 08 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>More RSS feeds!</title>
+	<description>&lt;div&gt;
+&lt;p&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mappingtool_tag.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;mappingtool tag page&quot; src=&quot;https://benleskey.com/blog/../thumbs/mappingtool_tag.50.png&quot;&gt;&lt;/a&gt;I&#x27;ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool&quot;&gt;the mappingtool tag&lt;/a&gt;. I can, in this way, use my blog easily as a set of smaller blogs for each category.&lt;/p&gt;
+
+&lt;p&gt;This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn&#x27;t commit temporary files and doesn&#x27;t need to work so hard to find the root of the website when I&#x27;m already passing that information in the script. I do need to refactor it more, it&#x27;s getting rather unwieldy, though still pretty simple to work with.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/more_rss_feeds</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
+	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>I'm on diff.blog</title>
+	<description>&lt;div&gt;
+&lt;p&gt;
+	&lt;img class=&quot;right&quot; alt=&quot;diffblogbot starring the linewriter1024.github.io repository&quot; src=&quot;https://benleskey.com/blog/../images/diff_blog_starred.png&quot;&gt;
+	I saw yesterday that &lt;a href=&quot;https://diff.blog&quot;&gt;diff.blog&lt;/a&gt;&#x27;s bot account on Github had starred the repository for this website. I clicked through to their &lt;a href=&quot;https://github.com/diffblogbot&quot;&gt;Github page&lt;/a&gt;, which described diff.blog as &lt;q cite=&quot;https://github.com/diffblogbot&quot;&gt;an aggregator of developer blogs&amp;#8230; started in 2019 to improve the visibility of self hosted blogs&lt;/q&gt;.
+	I followed the directions in their README and signed in to diff.blog with my Github account. Once there, I added the URL of &lt;a href=&quot;https://benleskey.com/blog/../blog&quot;&gt;my blog&lt;/a&gt; to my account settings and diff.blog crawled my RSS feed. Once I saw how it was using the RSS item descriptions to generate summaries, I improved my build script to actually generate a description instead of just a list of tags. Now my blog is fully functional on diff.blog!
+&lt;/p&gt;
+
+&lt;p&gt;
+	&lt;a href=&quot;https://benleskey.com/blog/../images/diff_blog_plugin.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;diff.blog javascript plugin&quot; src=&quot;https://benleskey.com/blog/../thumbs/diff_blog_plugin.50.png&quot;&gt;&lt;/a&gt;
+	diff.blog provides a Javascript &lt;a href=&quot;https://diff.blog/plugin&quot;&gt;plugin&lt;/a&gt; for blogs to display links to diff.blog, HN, and Reddit discussions about the post. I stuck this into my blog post template and it&#x27;s up and running without a hitch.
+&lt;/p&gt;
+
+&lt;p&gt;
+	How did they find me? &lt;a href=&quot;https://github.com/diffblogbot&quot;&gt;diffblogbot&lt;/a&gt; seems to crawl Github looking for blogs like mine. Looking at a random sampling of their &lt;a href=&quot;https://github.com/diffblogbot?tab=stars&quot;&gt;stars&lt;/a&gt;, it seems that the crawled repositories are all Github Pages sites that either mention the keyword &quot;blog&quot; or have an RSS feed. Mine has both; I just &lt;a href=&quot;https://benleskey.com/blog/./made_rss_feed&quot;&gt;recently&lt;/a&gt; added the RSS feed.
+&lt;/p&gt;
+
+&lt;p&gt;
+	What do I think? diff.blog doesn&#x27;t seem to be super popular, but it has a broad selection of independent blogs in its database and it interacts very well with my RSS feed. It was kinda cool to have them crawl my website unprompted. It doesn&#x27;t look like there will be any overhead for playing with diff.blog, unless the Javascript plugin stops working, but that&#x27;s easily stripped out. Maybe, with the fall of Twitter, services like this one will become more popular? Who knows.
+&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://benleskey.com/blog/./finding_discussion_diff_blog&quot;&gt;I went looking for other discussion about diff.blog&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/diff_blog</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/diff_blog</guid>
+	<pubDate>Wed, 25 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>I made an RSS feed!</title>
+	<description>&lt;div&gt;
+&lt;p&gt;I made an &lt;a href=&quot;https://benleskey.com/blog/feed.xml&quot;&gt;RSS feed&lt;/a&gt; for my blog! It&#x27;s a really simple format; I was able to implement my feed just by following the &lt;a href=&quot;https://validator.w3.org/feed/docs/rss2.html&quot;&gt;RSS 2.0 spec&lt;/a&gt;. Of course, RSS readers are a little less common than they were a decade ago; but there are plenty of extensions for Firefox---I&#x27;m using &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/rsspreview/&quot;&gt;RSSPreview&lt;/a&gt; just to test the feed---and with how easy it was to extend my blog generator to generate XML alongside HTML I figured it was better to have a feed than not.&lt;/p&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/cyberTOAD.jpg&quot; alt=&quot;Image of the cyberTOAD&amp;#8482;&quot;&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/made_rss_feed</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/made_rss_feed</guid>
+	<pubDate>Sun, 22 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Mapping tool 0.5 release</title>
+	<description>&lt;div&gt;
+&lt;p&gt;Hello all!&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s version 0.5 of the mapping tool!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/j3ysVaCAcbXLo7iw6&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;you-can-click-everything-now&quot;&gt;You can click everything now!&lt;/h2&gt;
+&lt;p&gt;One of the primary bits of feedback I received was for a better user interface, and version 0.5 now has a full palette sidebar so that every single control is clickable instead of needing to use the keyboard for everything! The big blob of help text is also much reduced; there are labels, icons, and/or buttons for everything and you can hover your mouse over them if you want to know the keyboard shortcuts.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_0.5.0.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_0.5.0.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;rapid-improvements-on-the-way&quot;&gt;Rapid improvements on the way&lt;/h2&gt;
+&lt;p&gt;The project is now in the stage of tweaking usability. The core features and gritty details have all been programmed. This means I will be rapidly fixing the user interface, improving the graphics, and focusing on addressing your feedback and suggestions. Planned improvements include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Better extended and varied graphics set&lt;/li&gt;
+&lt;li&gt;Performance improvements&lt;/li&gt;
+&lt;li&gt;Extended annotations&lt;/li&gt;
+&lt;li&gt;Area calculation&lt;/li&gt;
+&lt;li&gt;More intuitive controls&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;survey&quot;&gt;Survey&lt;/h2&gt;
+&lt;p&gt;Your feedback on the previous surveys has been very helpful! After you test this version, please &lt;a href=&quot;https://forms.gle/j3ysVaCAcbXLo7iw6&quot;&gt;fill out the 0.5 survey&lt;/a&gt;. I greatly appreciate when you fill out the survey; not only is it useful for guiding development of the mapping tool but it is very useful for the academic side of the project to have scientific data such as &amp;#8220;how many people like this feature&amp;#8221; or &amp;#8220;how has the rating of this user interface changed between versions&amp;#8221;. So if you can spare a few minutes of your time to &lt;a href=&quot;https://forms.gle/j3ysVaCAcbXLo7iw6&quot;&gt;complete the survey&lt;/a&gt;, I&amp;#8217;ll be very grateful!&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_5</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_5</guid>
+	<pubDate>Sat, 21 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>benleskey.com build script</title>
+	<description>&lt;div&gt;
+&lt;p&gt;
+This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script---as of writing---that compiles the website is fully commented and included below, along with the data file listing all the blog posts.
+&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;&lt;a href=&quot;https://benleskey.com/blog/#build&quot;&gt;build.sh&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href=&quot;https://benleskey.com/blog/#posts&quot;&gt;posts.sh&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2 id=&quot;build&quot;&gt;build.sh&lt;/h2&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&quot;language-bash&quot;&gt;
+#!/bin/bash
+
+# Akas are permanent names that redirect to various resources. If the location of the resource changes, the aka can simply be updated.
+# Due to being hosted on Github pages we do not have direct control over redirects, so we must use meta refresh directives.
+echo &quot;Akas...&quot;
+
+# Each line in akas.txt has the format:
+# &amp;lt;name of redirect&amp;gt; &amp;lt;url of redirect&amp;gt;
+while read line; do
+	# Split the aka line into the name and url
+	name=&quot;$(echo &quot;$line&quot; | cut -d&#x27; &#x27; -f1)&quot;
+	url=&quot;$(echo &quot;$line&quot; | cut -d&#x27; &#x27; -f2-)&quot;
+
+	file=&quot;aka/$name.html&quot;
+
+	echo &quot;&amp;lt;!DOCTYPE html&amp;gt;&quot; &amp;gt; $file
+	echo &quot;&amp;lt;title&amp;gt;Redirecting to $url&amp;lt;/title&amp;gt;&quot; &amp;gt;&amp;gt; $file
+
+	# Refresh the page immediately to the desired URL.
+	echo &quot;&amp;lt;meta http-equiv=&#x27;refresh&#x27; content=&#x27;0; URL=$url&#x27;&amp;gt;&quot; &amp;gt;&amp;gt; $file
+
+	# However, we don&#x27;t want any caching, so if we update the URL it will be immediately reflected in the redirect.
+	echo &#x27;&amp;lt;meta http-equiv=&quot;Cache-Control&quot; content=&quot;no-cache, no-store, must-revalidate&quot; /&amp;gt;&#x27; &amp;gt;&amp;gt; $file
+	echo &#x27;&amp;lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot; /&amp;gt;&#x27; &amp;gt;&amp;gt; $file
+	echo &#x27;&amp;lt;meta http-equiv=&quot;Expires&quot; content=&quot;0&quot; /&amp;gt;&#x27; &amp;gt;&amp;gt; $file
+
+	# Additional links to the URL.
+	echo &quot;&amp;lt;link rel=&#x27;canonical&#x27; href=&#x27;$url&#x27;&amp;gt;&quot; &amp;gt;&amp;gt; $file
+	echo &quot;Redirecting to &amp;lt;a href=&#x27;$url&#x27;&amp;gt;$url&amp;lt;/a&amp;gt;...&quot; &amp;gt;&amp;gt; $file # The user can click this one if their browser doesn&#x27;t redirect them.
+
+	echo &quot; Wrote $name -&amp;gt; $url&quot;
+done &amp;lt; akas.txt
+
+# replacetext &amp;lt;placeholder&amp;gt; &amp;lt;text to insert&amp;gt;
+# A pipeline function to replace a placeholder with text
+replacetext() {
+	placeholder=&quot;$1&quot;
+	text=&quot;$2&quot;
+
+	sed &quot;s^$placeholder^$text^&quot;
+}
+
+# replacefile &amp;lt;placeholder&amp;gt; &amp;lt;path to file&amp;gt;
+# A pipeline function to replace a placeholder with the contents of a file
+replacefile() {
+	placeholder=&quot;$1&quot;
+	path=&quot;$2&quot;
+
+	sed -e &quot;/$placeholder/r$path&quot; | sed &quot;s/$placeholder//g&quot;
+}
+
+# The list of all tags, to be built up as posts are processed.
+alltags=&quot;&quot;
+
+# Maximum blog posts in the &quot;minor&quot; list, i.e. on the front page.
+BMMAX=3
+
+# Number of blog posts so far.
+BN=0
+
+# The post function is called from the posts.sh list of posts; it is responsible for processing each blog post.
+# A post has four components, reflected in the arguments:
+# post &amp;lt;human-redable identifier name&amp;gt; &amp;lt;human-readable, pretty title of post&amp;gt; &amp;lt;date YYYY-MM-DD&amp;gt; &amp;lt;space-delimited list of tags&amp;gt;
+post() {
+	name=&quot;$1&quot;
+	title=&quot;$2&quot;
+	date=&quot;$3&quot;
+	tags=&quot;$4&quot;
+
+	# We&#x27;ll be reading the text of the blog post from an input HTML file and generating the full HTML page.
+	infile=&quot;blog.in/$name.in.html&quot;
+	outfile=&quot;blog/$name.html&quot;
+
+	echo &quot; $name: $title [$date]&quot;
+
+	# We will collect all the tags and build a list of hyperlinks to insert into the HTML.
+	# HTML for the tag lists are generated for each different place they must be used with different styling and URLs (since sometimes we need blog/tags#tag and sometimes just tags/#tag if we are within the blog itself).
+
+	taghtml=&quot;&quot; # The list of tags to be used within the blog posts.
+	smalltaghtml=&quot;&quot; # The list of tags to be used within the &quot;major&quot; blog post list, on the dedicated blog page.
+	minortaghtml=&quot;&quot; # The list of tags to be used within the &quot;minor&quot; blog post list, on the main page.
+
+	while read tag; do
+		taghtml=&quot;$taghtml &amp;lt;a class=&#x27;tag&#x27; href=&#x27;tags#$tag&#x27;&amp;gt;#$tag&amp;lt;/a&amp;gt;&quot;
+		minortaghtml=&quot;$minortaghtml &amp;lt;a class=&#x27;smalltag&#x27; href=&#x27;blog/tags#$tag&#x27;&amp;gt;#$tag&amp;lt;/a&amp;gt;&quot;
+		smalltaghtml=&quot;$smalltaghtml &amp;lt;a class=&#x27;smalltag&#x27; href=&#x27;tags#$tag&#x27;&amp;gt;#$tag&amp;lt;/a&amp;gt;&quot;
+
+		# If we haven&#x27;t seen this tag yet in any post, record it and clear away any old file built from this tag.
+		if ! echo &quot;$alltags&quot; | grep -w &quot;$tag&quot; &amp;gt; /dev/null; then
+			echo &quot; New tag: $tag&quot;
+			alltags=&quot;$alltags $tag&quot;
+			rm -f &quot;blog/_tag_$tag.html&quot;
+		fi
+
+	done &amp;lt; &amp;lt;(echo &quot;$tags&quot; | xargs -n1)
+
+	# Now we will write a link to this post to the each of its tags&#x27; pages.
+	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
+	while read tag; do
+		echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $smalltaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; &quot;blog/_tag_$tag.html&quot;
+	done &amp;lt; &amp;lt;(echo &quot;$tags&quot; | xargs -n1)
+
+	# Record that another post was processed.
+	BN=$((BN+1))
+
+	# If we haven&#x27;t reached the limit for &quot;minor&quot; posts, add a link to the minor blog post listing HTML, this is for the &quot;recent posts&quot; section of the main page.
+	if [ $BN -le $BMMAX ]; then
+		echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;blog/$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $minortaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_minor.in.html
+	fi
+
+	# Always add a link to the &quot;major&quot; blog post listing HTML, this is for the dedicated blog page.
+	echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $smalltaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
+
+	# Build the blog post HTML.
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-04-07&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
+}
+
+echo &quot;Blog...&quot;
+
+# Begin the major and minor blog post lists.
+echo &quot;&amp;lt;ul&amp;gt;&quot; &amp;gt; blog/_major.in.html
+echo &quot;&amp;lt;ul&amp;gt;&quot; &amp;gt; blog/_minor.in.html
+
+# Include the list of posts via source, so it can call the post function.
+source blog.in/posts.sh
+
+# If there are more posts than can be displayed in the minor list (on the main page) then add a &quot;More...&quot; link to the minor list.
+if [ $BN -gt $BMMAX ]; then
+	echo &quot;&amp;lt;li&amp;gt;&amp;lt;a href=&#x27;blog&#x27;&amp;gt;$((BN - BMMAX)) more...&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_minor.in.html
+fi
+
+# Cap off the lists.
+echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_minor.in.html
+echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
+
+# Build the main page.
+(
+	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
+	# The date of generation is included on the main page.
+	replacetext &quot;2023-04-07&quot; &quot;$(TZ=UTC date -I)&quot;
+) &amp;lt; templates/index.in.html &amp;gt; index.html
+
+# Build the dedicated blog index page.
+(replacefile &quot;__BLOGMAJOR__&quot; &quot;blog/_major.in.html&quot;) &amp;lt; templates/blog.in.html &amp;gt; blog/index.html
+
+
+# Uniquify and sort the list of all tags.
+alltags=&quot;$(echo &quot;$alltags&quot; | xargs -n1 | sort | uniq | xargs)&quot;
+
+# The tag index page consist of all the tags with every post categorized under their tag/tags.
+echo &amp;gt; blog/_tags.in.html
+
+# For each tag, just append the previously generated list of posts HTML for that tag.
+while read tag; do
+	echo &quot;&amp;lt;h1&amp;gt;$tag&amp;lt;/h1&amp;gt;&quot; &amp;gt;&amp;gt; blog/_tags.in.html
+	echo &quot;&amp;lt;ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_tags.in.html
+	cat &quot;blog/_tag_$tag.html&quot; &amp;gt;&amp;gt; blog/_tags.in.html
+	echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_tags.in.html
+done &amp;lt; &amp;lt;(echo &quot;$alltags&quot; | xargs -n1)
+
+# Generate the full tag index page.
+(replacefile &quot;__TAGS__&quot; &quot;blog/_tags.in.html&quot;) &amp;lt; templates/tags.in.html &amp;gt; blog/tags.html
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;
+
+&lt;/p&gt;
+&lt;h2 id=&quot;posts&quot;&gt;posts.sh&lt;/h2&gt;
+&lt;p&gt;
+&lt;/p&gt;
+&lt;pre&gt;
+&lt;code class=&quot;language-bash&quot;&gt;
+post website_build_script &quot;benleskey.com build script&quot; 2023-01-12 &quot;software website&quot;
+post mapper0_4 &quot;Mapping tool 0.4 release&quot; 2023-01-04 &quot;mappingtool software&quot;
+post mapper0_3 &quot;Mapping tool 0.3 release&quot; 2022-10-26 &quot;mappingtool software&quot;
+post mapper0_1 &quot;Mapping tool 0.1 release&quot; 2022-08-01 &quot;mappingtool software&quot;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;/div&gt;</description>
+	<category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/website_build_script</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/website_build_script</guid>
+	<pubDate>Thu, 12 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Mapping tool 0.4 release</title>
+	<description>&lt;div&gt;
+&lt;p&gt;Hi!&lt;/p&gt;
+&lt;p&gt;Version 0.4 of the mapping tool is out!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/qgEfAwBo7qLexWNDA&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;new-renderer-and-graphics&quot;&gt;New Renderer and Graphics&lt;/h2&gt;
+&lt;p&gt;Version 0.4 of the mapping tool has an updated graphics engine for drawing the maps. Terrain and objects are now represented by small graphical tiles and images for more engaging and easy-to-read maps.&lt;/p&gt;
+&lt;p&gt;The new graphics engine comes with a fully revamped set of graphics for each terrain and object type, along with entirely new terrain and objects. We now have multiple types of forest, sand, vegetation, castles, towers, and more. Single objects like a tree or a tower have placeholder public domain graphics for testing purposes.&lt;/p&gt;
+&lt;p&gt;You can also draw terrain like rocks on top of other terrain like grass or sand, with proper layering graphics.&lt;/p&gt;
+&lt;p&gt;With the new rendering engine comes better performance; everyone including Firefox users will notice the speed increase! Even without any advanced performance tuning, the mapping tool should be a much more responsive experience.&lt;/p&gt;
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;As always, your feedback is important. The new renderer changes the way much of the mapping tool looks and some of how it works, so I need to know what is a hit and what is a miss. Please take the &lt;a href=&quot;https://forms.gle/qgEfAwBo7qLexWNDA&quot;&gt;feedback survey&lt;/a&gt; or send me an email or other message to let me know what you like and what needs changed, fixed, or added!&lt;/p&gt;
+&lt;h2 id=&quot;coming-soon&quot;&gt;Coming soon&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Graphical fine-tuning, including the ability to select various map rendering styles.&lt;/li&gt;
+&lt;li&gt;Control palette, building off the sidebar for more intuitive and accessible controls.&lt;/li&gt;
+&lt;li&gt;Continual performance improvements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_4</guid>
+	<pubDate>Wed, 04 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Mapping tool 0.3 release</title>
+	<description>&lt;div&gt;
+&lt;p&gt;Hello all!&lt;/p&gt;
+&lt;p&gt;The next major version of my map making tool is released!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/fRmo3hLvL9sxyyVV6&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;whats-new&quot;&gt;What&amp;#8217;s New?&lt;/h2&gt;
+&lt;p&gt;Version 0.3 of the map making tool includes the following updates:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Brush palette &amp;#8212; you can select terrain, brush, brush size, and more with only your mouse or touchpad. Good news for laptop users!&lt;/li&gt;
+&lt;li&gt;Smoother graphics &amp;#8212; still in prototype stage, but better transitions.&lt;/li&gt;
+&lt;li&gt;Political border support &amp;#8212; imaginary boundaries now have a real presence on the map.&lt;/li&gt;
+&lt;li&gt;Prototype map annotation support &amp;#8212; mark areas important to your story.&lt;/li&gt;
+&lt;li&gt;Specific objects support &amp;#8212; you can draw a single tree or a lone tower on the map, for example.&lt;/li&gt;
+&lt;li&gt;Paths &amp;#8212; Draw paths on your map to indicate shipping routes or forest trails.&lt;/li&gt;
+&lt;li&gt;Distance measurement &amp;#8212; Figure out how many kilometers are between two points on the map.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;survey&quot;&gt;Survey&lt;/h2&gt;
+&lt;p&gt;Your feedback is important for improving the mapping tool. All the core features are in the prototype now, so I have written a survey for your feedback.&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version of the mapping tool, you can &lt;a href=&quot;https://forms.gle/fRmo3hLvL9sxyyVV6&quot;&gt;fill out the feedback survey&lt;/a&gt; to give important feedback for furthering development. Future versions will use a similar survey to measure satisfaction with the development process.&lt;/p&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What&amp;#8217;s Next?&lt;/h2&gt;
+&lt;p&gt;With all the core features in place, I can focus on refining the user interface and performance according to the feedback given in the survey and elsewhere.&lt;/p&gt;
+&lt;p&gt;Planned improvements coming soon include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Improved graphics for a cleaner and more realistic map.&lt;/li&gt;
+&lt;li&gt;Better performance for a smoother experience.&lt;/li&gt;
+&lt;li&gt;Full palette menu system to easily select what you want to do.&lt;/li&gt;
+&lt;li&gt;Improved user interface for more comfortable map making.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I look forward to continuing development, and thanks for all your feedback, ideas, and support! As always, let me know if you have any questions or comments!&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_3</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_3</guid>
+	<pubDate>Wed, 26 Oct 2022 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Mapping tool 0.1 release</title>
+	<description>&lt;div&gt;
+&lt;p&gt;Hello!&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;m happy to give you and the other testers the first working, testable version of my map making tool designed for authors and storytellers. The map making tool is currently usable to make rudimentary maps, with more improvements on the way&amp;#8211;and your feedback is important!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_2022_07_30.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_2022_07_30.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you have any feedback, questions, or need help running the mapping tool, please let me know!&lt;/p&gt;
+&lt;h2 id=&quot;brief-summary&quot;&gt;Brief Summary&lt;/h2&gt;
+&lt;p&gt;The map making tool for authors and storytellers is in the functional prototype stage and ready for you to test. I need your feedback, input, and comments to decide what features to add, how to fix problems, and how to continue evolving the tool.&lt;/p&gt;
+&lt;h2 id=&quot;quickstart&quot;&gt;Quickstart&lt;/h2&gt;
+&lt;p&gt;Using the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;download&lt;/a&gt; link, you can choose an option for your computer. If you can&amp;#8217;t or don&amp;#8217;t want to download the program, just use the &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;online demo&lt;/a&gt; (currently the live demo works best in Chrome or Edge, Firefox struggles). You do need a computer for this, mobile devices are not yet supported.&lt;/p&gt;
+&lt;p&gt;When you first run the mapping tool, it will load the sample map. You can play around with the sample map, or make your own maps (&lt;em&gt;Ctrl+N&lt;/em&gt; in the app, or &lt;em&gt;Shift+N&lt;/em&gt; in the live demo). All the controls are displayed in the top left corner of the program for now, so you can look there to see what actions you can take.&lt;/p&gt;
+&lt;p&gt;The most basic controls:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To add stuff to the map: &lt;em&gt;left-click&lt;/em&gt; and drag.&lt;/li&gt;
+&lt;li&gt;To change what you&amp;#8217;re adding to the map, hold &lt;em&gt;W&lt;/em&gt; and &lt;em&gt;scroll&lt;/em&gt; with your mouse or trackpad.&lt;/li&gt;
+&lt;li&gt;To move around the map: &lt;em&gt;right-click&lt;/em&gt; and drag.&lt;/li&gt;
+&lt;li&gt;To zoom in or out: &lt;em&gt;scroll&lt;/em&gt; with your mouse or trackpad.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want to delete stuff from the map, press &lt;em&gt;D&lt;/em&gt; to switch to the delete brush and just &lt;em&gt;left-click&lt;/em&gt; and drag. If you want to go back to adding stuff to the map, press &lt;em&gt;A&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In this prototype version of the program you can put forests, grasslands, bodies of water, rocky terrain, roadways, and representations of buildings on the map. Change what you are placing by holding &lt;em&gt;W&lt;/em&gt; and &lt;em&gt;scrolling&lt;/em&gt; the mouse or trackpad. Change the sizes of what you are placing by holding &lt;em&gt;Q&lt;/em&gt; and &lt;em&gt;scrolling&lt;/em&gt; the mouse or trackpad. You can name the things you place on the map with &lt;em&gt;N&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;If you are using the desktop app, you can save your map with &lt;em&gt;Ctrl+S&lt;/em&gt;, or you can load a saved map with &lt;em&gt;Ctrl+O&lt;/em&gt;. In the live demo, you can save with &lt;em&gt;Shift+S&lt;/em&gt;, or you can load a saved map with &lt;em&gt;Shift+O&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;future-plans&quot;&gt;Future plans&lt;/h2&gt;
+&lt;p&gt;This version of the mapping tool is a prototype. The graphics rendered&amp;#8211;what the map looks like on screen&amp;#8211;are very simplistic and provide a stylized pixel-based representation of the map objects. The controls are barebones, albiet functional. Some parts of the program are slow due to naive algorithms, though fast enough to be usable.&lt;/p&gt;
+&lt;p&gt;Future versions of the mapping tool will provide better graphics. The underlying system already supports higher-quality graphics but code will need to be added to actually draw more realistic, smoother, or otherwise better maps. Future versions will also have more user-friendly controls and more options for crafting maps exactly as you intend. Future versions will optimize performance for more hardware and platforms for a smooth experience.&lt;/p&gt;
+&lt;p&gt;To build the fully-featured mapping tool, I need &lt;strong&gt;your&lt;/strong&gt; help.&lt;/p&gt;
+&lt;h2 id=&quot;how-you-can-help&quot;&gt;How you can help&lt;/h2&gt;
+&lt;p&gt;What do &lt;strong&gt;you&lt;/strong&gt; want the mapping tool to be? Your input will decide how the mapping tool works and looks. This prototype is a base for future development. Your testing and suggestions are needed to determine what needs changed, added, or removed.&lt;/p&gt;
+&lt;p&gt;Use this first version of the tool to make some maps. Maybe map out a story idea, or just play around with the sample map. You&amp;#8217;ll see what you like, what you don&amp;#8217;t like, and what needs to be changed or improved.&lt;/p&gt;
+&lt;p&gt;Think of what else you want from a mapping tool. What features do you want? Do you want coniferous forests for your story set in northern Canada? Would you prefer menus over keyboard shortcuts? Do you need a map at the level of city streets for your roleplaying adventure? Do you want the program to work better with your computer? Would you prefer the water to be animated? Do you want a way to measure distance between two mountains on the map for plotting your airship novel?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Please let me know what you think and what you want&lt;/strong&gt;. I will file your suggestions and requests, prioritize them, and improve the mapping tool. As development progresses, I will release more development versions for you and the rest of the testers to test, and you can see how the mapping tool is progressing and give your feedback again on what needs changed, added, and improved.&lt;/p&gt;
+&lt;p&gt;Through this release-feedback-release cycle, the mapping tool will become software built to fit your needs as best it can. If you have any questions, please let me know!&lt;/p&gt;
+&lt;p&gt;And do you have any name suggestions for the project? I would love to hear them!&lt;/p&gt;
+&lt;h2 id=&quot;technical-details&quot;&gt;Technical details&lt;/h2&gt;
+&lt;p&gt;The source code for the mapping tool is hosted at &lt;a href=&quot;https://github.com/mapper1024/mapper1024&quot;&gt;https://github.com/mapper1024/mapper1024&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Quick facts: The mapping tool is&amp;#8230;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Written primarily in &lt;em&gt;Javascript&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Designed as a component that can be &lt;em&gt;embedded&lt;/em&gt; in other websites, as well as used as a standalone program.&lt;/li&gt;
+&lt;li&gt;Built using the &lt;em&gt;&lt;a href=&quot;https://sqlite.org&quot;&gt;SQLite&lt;/a&gt;&lt;/em&gt; database engine to store the maps.&lt;/li&gt;
+&lt;li&gt;Composed of well over &lt;em&gt;4000&lt;/em&gt; lines of code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can read more about the technical implementation details in the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/doc/Development-Journal.md#functional-prototype-summer-2022&quot;&gt;development journal&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_1</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_1</guid>
+	<pubDate>Mon, 01 Aug 2022 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

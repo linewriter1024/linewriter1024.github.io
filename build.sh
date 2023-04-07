@@ -71,9 +71,10 @@ replacefile() {
 replacetext() {
 	placeholder="$1"
 
-	text="$(echo "$2" | sed 's|\\|\\\\|g' | sed 's|&|\\\\&|g')"
+	text="$(echo "$2" | sed 's|\\|\\\\|g' | sed 's|&|\\&|g' | sed '$!s/$/\\n/' | tr -d '\n')"
 
-	awk -v placeholder="$placeholder" -v text="$text" '{gsub(placeholder, text); print}'
+	sed -f <(echo "s&$placeholder&$text&g")
+	#awk -v placeholder="$placeholder" -v text="$text" '{gsub(placeholder, text); print}'
 }
 
 htmlescape() {
@@ -190,12 +191,12 @@ post() {
 	# Build the blog post HTML.
 	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$dateinfo" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile" | python3 toc_builder.py) < templates/post.in.html > "$outfile" &
 
-	summary() {
-		< "$infile" pandoc -i - -o - -t plain | xargs | cut -d' ' -f -$SUMMARY_WORDS
+	rsspost() {
+		(python3 unrelate.py "https://benleskey.com/blog") < $infile
 	}
 
 	# Build the RSS item XML
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(summary | htmlescape)…") < templates/feed_item.in.xml > "$outfeed" &
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
 }
 
 # Include the list of posts via source, so it can call the post function.
@@ -229,6 +230,7 @@ post() {
 		touch "$tmp"/_tag_feed_"$tag".xml
 
 		if [[ $(grep "<item>" "$tmp"/_tag_feed_"$tag".xml | wc -l) -lt $RSSMAX ]]; then
+			feedfile="$tmp/_$name.xml"
 			cat < "$feedfile" >> "$tmp"/_tag_feed_"$tag".xml
 		fi
 	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)

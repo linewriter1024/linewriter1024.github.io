@@ -6,49 +6,178 @@
 		<link>https://benleskey.com/blog/tags/mappingtool</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 06 Apr 2023 06:36:53 +0000</lastBuildDate>
-		<pubDate>Thu, 06 Apr 2023 06:36:53 +0000</pubDate>
+		<lastBuildDate>Fri, 07 Apr 2023 16:44:25 +0000</lastBuildDate>
+		<pubDate>Fri, 07 Apr 2023 16:44:25 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/mappingtool.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>Mapping tool 0.6 release</title>
-	<description>I’m proud to release version 0.6 of the mapping tool: the picture and performance update! You can download it here: https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options You can use the online demo here: https://mapper1024.github.io/demo Once you’ve tested the new version, please fill out the feedback survey. Picture and Performance Version 0.6 brings great performance improvements–far less jerking the map around–as well as a tuned-up graphics set with better looking forests, lakes, cities, grasslands, and more. New features and fixes include: The ability to extend and merge existing map objects. Huge performance improvements by reducing calculations while you’re drawing on or panning over the map. Greatly…</description>
+	<description>&lt;div&gt;
+&lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/QsYyZ4sCpqzHtaX7A&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;picture-and-performance&quot;&gt;Picture and Performance&lt;/h2&gt;
+&lt;p&gt;Version 0.6 brings great performance improvements&amp;#8211;far less jerking the map around&amp;#8211;as well as a tuned-up graphics set with better looking forests, lakes, cities, grasslands, and more.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_0.6.0.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_0.6.0.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;New features and fixes include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The ability to extend and merge existing map objects.&lt;/li&gt;
+&lt;li&gt;Huge performance improvements by reducing calculations while you&amp;#8217;re drawing on or panning over the map.&lt;/li&gt;
+&lt;li&gt;Greatly improved graphics: terrain is varied and pops out for clarity.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;the-final-stretch&quot;&gt;The Final Stretch&lt;/h2&gt;
+&lt;p&gt;Every main feature is now implemented. Performance tuning, testing, and graphical improvements are the primary concerns now: tweaking and optimizing the mapping tool for your satisfaction. As always, I&amp;#8217;d love to hear your thoughts, ideas, and feedback!&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>mappingtool</category><category>release</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper0_6</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_6</guid>
 	<pubDate>Thu, 16 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Mapping tool 0.5 release</title>
+	<description>&lt;div&gt;
+&lt;p&gt;Hello all!&lt;/p&gt;
+&lt;p&gt;Here&amp;#8217;s version 0.5 of the mapping tool!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/j3ysVaCAcbXLo7iw6&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;you-can-click-everything-now&quot;&gt;You can click everything now!&lt;/h2&gt;
+&lt;p&gt;One of the primary bits of feedback I received was for a better user interface, and version 0.5 now has a full palette sidebar so that every single control is clickable instead of needing to use the keyboard for everything! The big blob of help text is also much reduced; there are labels, icons, and/or buttons for everything and you can hover your mouse over them if you want to know the keyboard shortcuts.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_0.5.0.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_0.5.0.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;rapid-improvements-on-the-way&quot;&gt;Rapid improvements on the way&lt;/h2&gt;
+&lt;p&gt;The project is now in the stage of tweaking usability. The core features and gritty details have all been programmed. This means I will be rapidly fixing the user interface, improving the graphics, and focusing on addressing your feedback and suggestions. Planned improvements include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Better extended and varied graphics set&lt;/li&gt;
+&lt;li&gt;Performance improvements&lt;/li&gt;
+&lt;li&gt;Extended annotations&lt;/li&gt;
+&lt;li&gt;Area calculation&lt;/li&gt;
+&lt;li&gt;More intuitive controls&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;survey&quot;&gt;Survey&lt;/h2&gt;
+&lt;p&gt;Your feedback on the previous surveys has been very helpful! After you test this version, please &lt;a href=&quot;https://forms.gle/j3ysVaCAcbXLo7iw6&quot;&gt;fill out the 0.5 survey&lt;/a&gt;. I greatly appreciate when you fill out the survey; not only is it useful for guiding development of the mapping tool but it is very useful for the academic side of the project to have scientific data such as &amp;#8220;how many people like this feature&amp;#8221; or &amp;#8220;how has the rating of this user interface changed between versions&amp;#8221;. So if you can spare a few minutes of your time to &lt;a href=&quot;https://forms.gle/j3ysVaCAcbXLo7iw6&quot;&gt;complete the survey&lt;/a&gt;, I&amp;#8217;ll be very grateful!&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_5</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_5</guid>
+	<pubDate>Sat, 21 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Mapping tool 0.4 release</title>
+	<description>&lt;div&gt;
+&lt;p&gt;Hi!&lt;/p&gt;
+&lt;p&gt;Version 0.4 of the mapping tool is out!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/qgEfAwBo7qLexWNDA&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;new-renderer-and-graphics&quot;&gt;New Renderer and Graphics&lt;/h2&gt;
+&lt;p&gt;Version 0.4 of the mapping tool has an updated graphics engine for drawing the maps. Terrain and objects are now represented by small graphical tiles and images for more engaging and easy-to-read maps.&lt;/p&gt;
+&lt;p&gt;The new graphics engine comes with a fully revamped set of graphics for each terrain and object type, along with entirely new terrain and objects. We now have multiple types of forest, sand, vegetation, castles, towers, and more. Single objects like a tree or a tower have placeholder public domain graphics for testing purposes.&lt;/p&gt;
+&lt;p&gt;You can also draw terrain like rocks on top of other terrain like grass or sand, with proper layering graphics.&lt;/p&gt;
+&lt;p&gt;With the new rendering engine comes better performance; everyone including Firefox users will notice the speed increase! Even without any advanced performance tuning, the mapping tool should be a much more responsive experience.&lt;/p&gt;
+&lt;h2 id=&quot;feedback&quot;&gt;Feedback&lt;/h2&gt;
+&lt;p&gt;As always, your feedback is important. The new renderer changes the way much of the mapping tool looks and some of how it works, so I need to know what is a hit and what is a miss. Please take the &lt;a href=&quot;https://forms.gle/qgEfAwBo7qLexWNDA&quot;&gt;feedback survey&lt;/a&gt; or send me an email or other message to let me know what you like and what needs changed, fixed, or added!&lt;/p&gt;
+&lt;h2 id=&quot;coming-soon&quot;&gt;Coming soon&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Graphical fine-tuning, including the ability to select various map rendering styles.&lt;/li&gt;
+&lt;li&gt;Control palette, building off the sidebar for more intuitive and accessible controls.&lt;/li&gt;
+&lt;li&gt;Continual performance improvements.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_4</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_4</guid>
+	<pubDate>Wed, 04 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Mapping tool 0.3 release</title>
+	<description>&lt;div&gt;
+&lt;p&gt;Hello all!&lt;/p&gt;
+&lt;p&gt;The next major version of my map making tool is released!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/fRmo3hLvL9sxyyVV6&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;whats-new&quot;&gt;What&amp;#8217;s New?&lt;/h2&gt;
+&lt;p&gt;Version 0.3 of the map making tool includes the following updates:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Brush palette &amp;#8212; you can select terrain, brush, brush size, and more with only your mouse or touchpad. Good news for laptop users!&lt;/li&gt;
+&lt;li&gt;Smoother graphics &amp;#8212; still in prototype stage, but better transitions.&lt;/li&gt;
+&lt;li&gt;Political border support &amp;#8212; imaginary boundaries now have a real presence on the map.&lt;/li&gt;
+&lt;li&gt;Prototype map annotation support &amp;#8212; mark areas important to your story.&lt;/li&gt;
+&lt;li&gt;Specific objects support &amp;#8212; you can draw a single tree or a lone tower on the map, for example.&lt;/li&gt;
+&lt;li&gt;Paths &amp;#8212; Draw paths on your map to indicate shipping routes or forest trails.&lt;/li&gt;
+&lt;li&gt;Distance measurement &amp;#8212; Figure out how many kilometers are between two points on the map.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;survey&quot;&gt;Survey&lt;/h2&gt;
+&lt;p&gt;Your feedback is important for improving the mapping tool. All the core features are in the prototype now, so I have written a survey for your feedback.&lt;/p&gt;
+&lt;p&gt;Once you&amp;#8217;ve tested the new version of the mapping tool, you can &lt;a href=&quot;https://forms.gle/fRmo3hLvL9sxyyVV6&quot;&gt;fill out the feedback survey&lt;/a&gt; to give important feedback for furthering development. Future versions will use a similar survey to measure satisfaction with the development process.&lt;/p&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What&amp;#8217;s Next?&lt;/h2&gt;
+&lt;p&gt;With all the core features in place, I can focus on refining the user interface and performance according to the feedback given in the survey and elsewhere.&lt;/p&gt;
+&lt;p&gt;Planned improvements coming soon include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Improved graphics for a cleaner and more realistic map.&lt;/li&gt;
+&lt;li&gt;Better performance for a smoother experience.&lt;/li&gt;
+&lt;li&gt;Full palette menu system to easily select what you want to do.&lt;/li&gt;
+&lt;li&gt;Improved user interface for more comfortable map making.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I look forward to continuing development, and thanks for all your feedback, ideas, and support! As always, let me know if you have any questions or comments!&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_3</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_3</guid>
+	<pubDate>Wed, 26 Oct 2022 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Mapping tool 0.1 release</title>
+	<description>&lt;div&gt;
+&lt;p&gt;Hello!&lt;/p&gt;
+&lt;p&gt;I&amp;#8217;m happy to give you and the other testers the first working, testable version of my map making tool designed for authors and storytellers. The map making tool is currently usable to make rudimentary maps, with more improvements on the way&amp;#8211;and your feedback is important!&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_2022_07_30.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_2022_07_30.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you have any feedback, questions, or need help running the mapping tool, please let me know!&lt;/p&gt;
+&lt;h2 id=&quot;brief-summary&quot;&gt;Brief Summary&lt;/h2&gt;
+&lt;p&gt;The map making tool for authors and storytellers is in the functional prototype stage and ready for you to test. I need your feedback, input, and comments to decide what features to add, how to fix problems, and how to continue evolving the tool.&lt;/p&gt;
+&lt;h2 id=&quot;quickstart&quot;&gt;Quickstart&lt;/h2&gt;
+&lt;p&gt;Using the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;download&lt;/a&gt; link, you can choose an option for your computer. If you can&amp;#8217;t or don&amp;#8217;t want to download the program, just use the &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;online demo&lt;/a&gt; (currently the live demo works best in Chrome or Edge, Firefox struggles). You do need a computer for this, mobile devices are not yet supported.&lt;/p&gt;
+&lt;p&gt;When you first run the mapping tool, it will load the sample map. You can play around with the sample map, or make your own maps (&lt;em&gt;Ctrl+N&lt;/em&gt; in the app, or &lt;em&gt;Shift+N&lt;/em&gt; in the live demo). All the controls are displayed in the top left corner of the program for now, so you can look there to see what actions you can take.&lt;/p&gt;
+&lt;p&gt;The most basic controls:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;To add stuff to the map: &lt;em&gt;left-click&lt;/em&gt; and drag.&lt;/li&gt;
+&lt;li&gt;To change what you&amp;#8217;re adding to the map, hold &lt;em&gt;W&lt;/em&gt; and &lt;em&gt;scroll&lt;/em&gt; with your mouse or trackpad.&lt;/li&gt;
+&lt;li&gt;To move around the map: &lt;em&gt;right-click&lt;/em&gt; and drag.&lt;/li&gt;
+&lt;li&gt;To zoom in or out: &lt;em&gt;scroll&lt;/em&gt; with your mouse or trackpad.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you want to delete stuff from the map, press &lt;em&gt;D&lt;/em&gt; to switch to the delete brush and just &lt;em&gt;left-click&lt;/em&gt; and drag. If you want to go back to adding stuff to the map, press &lt;em&gt;A&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;In this prototype version of the program you can put forests, grasslands, bodies of water, rocky terrain, roadways, and representations of buildings on the map. Change what you are placing by holding &lt;em&gt;W&lt;/em&gt; and &lt;em&gt;scrolling&lt;/em&gt; the mouse or trackpad. Change the sizes of what you are placing by holding &lt;em&gt;Q&lt;/em&gt; and &lt;em&gt;scrolling&lt;/em&gt; the mouse or trackpad. You can name the things you place on the map with &lt;em&gt;N&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;If you are using the desktop app, you can save your map with &lt;em&gt;Ctrl+S&lt;/em&gt;, or you can load a saved map with &lt;em&gt;Ctrl+O&lt;/em&gt;. In the live demo, you can save with &lt;em&gt;Shift+S&lt;/em&gt;, or you can load a saved map with &lt;em&gt;Shift+O&lt;/em&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;future-plans&quot;&gt;Future plans&lt;/h2&gt;
+&lt;p&gt;This version of the mapping tool is a prototype. The graphics rendered&amp;#8211;what the map looks like on screen&amp;#8211;are very simplistic and provide a stylized pixel-based representation of the map objects. The controls are barebones, albiet functional. Some parts of the program are slow due to naive algorithms, though fast enough to be usable.&lt;/p&gt;
+&lt;p&gt;Future versions of the mapping tool will provide better graphics. The underlying system already supports higher-quality graphics but code will need to be added to actually draw more realistic, smoother, or otherwise better maps. Future versions will also have more user-friendly controls and more options for crafting maps exactly as you intend. Future versions will optimize performance for more hardware and platforms for a smooth experience.&lt;/p&gt;
+&lt;p&gt;To build the fully-featured mapping tool, I need &lt;strong&gt;your&lt;/strong&gt; help.&lt;/p&gt;
+&lt;h2 id=&quot;how-you-can-help&quot;&gt;How you can help&lt;/h2&gt;
+&lt;p&gt;What do &lt;strong&gt;you&lt;/strong&gt; want the mapping tool to be? Your input will decide how the mapping tool works and looks. This prototype is a base for future development. Your testing and suggestions are needed to determine what needs changed, added, or removed.&lt;/p&gt;
+&lt;p&gt;Use this first version of the tool to make some maps. Maybe map out a story idea, or just play around with the sample map. You&amp;#8217;ll see what you like, what you don&amp;#8217;t like, and what needs to be changed or improved.&lt;/p&gt;
+&lt;p&gt;Think of what else you want from a mapping tool. What features do you want? Do you want coniferous forests for your story set in northern Canada? Would you prefer menus over keyboard shortcuts? Do you need a map at the level of city streets for your roleplaying adventure? Do you want the program to work better with your computer? Would you prefer the water to be animated? Do you want a way to measure distance between two mountains on the map for plotting your airship novel?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Please let me know what you think and what you want&lt;/strong&gt;. I will file your suggestions and requests, prioritize them, and improve the mapping tool. As development progresses, I will release more development versions for you and the rest of the testers to test, and you can see how the mapping tool is progressing and give your feedback again on what needs changed, added, and improved.&lt;/p&gt;
+&lt;p&gt;Through this release-feedback-release cycle, the mapping tool will become software built to fit your needs as best it can. If you have any questions, please let me know!&lt;/p&gt;
+&lt;p&gt;And do you have any name suggestions for the project? I would love to hear them!&lt;/p&gt;
+&lt;h2 id=&quot;technical-details&quot;&gt;Technical details&lt;/h2&gt;
+&lt;p&gt;The source code for the mapping tool is hosted at &lt;a href=&quot;https://github.com/mapper1024/mapper1024&quot;&gt;https://github.com/mapper1024/mapper1024&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Quick facts: The mapping tool is&amp;#8230;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Written primarily in &lt;em&gt;Javascript&lt;/em&gt;
+&lt;/li&gt;
+&lt;li&gt;Designed as a component that can be &lt;em&gt;embedded&lt;/em&gt; in other websites, as well as used as a standalone program.&lt;/li&gt;
+&lt;li&gt;Built using the &lt;em&gt;&lt;a href=&quot;https://sqlite.org&quot;&gt;SQLite&lt;/a&gt;&lt;/em&gt; database engine to store the maps.&lt;/li&gt;
+&lt;li&gt;Composed of well over &lt;em&gt;4000&lt;/em&gt; lines of code.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can read more about the technical implementation details in the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/doc/Development-Journal.md#functional-prototype-summer-2022&quot;&gt;development journal&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_1</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_1</guid>
+	<pubDate>Mon, 01 Aug 2022 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

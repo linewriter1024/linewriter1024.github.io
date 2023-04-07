@@ -6,33 +6,91 @@
 		<link>https://benleskey.com/blog/tags/discovery</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 06 Apr 2023 06:36:53 +0000</lastBuildDate>
-		<pubDate>Thu, 06 Apr 2023 06:36:53 +0000</pubDate>
+		<lastBuildDate>Fri, 07 Apr 2023 16:44:24 +0000</lastBuildDate>
+		<pubDate>Fri, 07 Apr 2023 16:44:24 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/discovery.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
-	<description>I’ve been working on my presentation to present my mapping tool senior Honors project at MVNU’s sURC. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool. I started with OBS studio to record the actual video of me drawing a simple map. Then I imported the video into Kdenlive for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the…</description>
+	<description>&lt;div&gt;
+&lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
+
+&lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
+
+&lt;p&gt;With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.&lt;/p&gt;
+&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
+&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
+
+&lt;/p&gt;
+&lt;p&gt;
+Here&#x27;s the final GIF:
+&lt;img src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;
+&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>discovery</category><category>utilities</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper_gifs</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper_gifs</guid>
 	<pubDate>Thu, 06 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Discovering random websites</title>
+	<description>&lt;div&gt;
+&lt;p&gt;
+&lt;a href=&quot;https://benleskey.com/blog/../images/diff_blog_stars_page.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;diffblogbot stars page&quot; src=&quot;https://benleskey.com/blog/../thumbs/diff_blog_stars_page.25.png&quot;&gt;&lt;/a&gt;
+The other day I was &lt;a href=&quot;https://benleskey.com/blog/./diff_blog&quot;&gt;found by diff.blog&lt;/a&gt; who starred the repository for this website on Github. While poking around their bot&#x27;s Github account I found that the &lt;a href=&quot;https://github.com/diffblogbot?tab=stars&quot;&gt;diffblogbot stars page&lt;/a&gt; is a huge mine for random personal websites scattered around Github. diffblogbot crawls for blogs and gathers them all here, in one place. I decided to take a look at some of them, and gather a few of the most interesting in a kind of showcase.&lt;/p&gt;
+
+&lt;p&gt;
+	&lt;a href=&quot;https://github.com/Mocha2007&quot;&gt;Mocha2007&lt;/a&gt;&#x27;s &lt;a href=&quot;https://mocha2007.github.io/&quot;&gt;personal website&lt;/a&gt; has a ton of interesting stuff: conlangs, games, toy programs, and more! Their conlangs and worldbuilding are very detailed, just take a look at the &lt;a href=&quot;https://mocha2007.github.io/namei/eremoran.html&quot;&gt;Eremoran Language&lt;/a&gt;. Their skillset and interests seem pretty close to mine actually, so this website was a really cool find. (They also have a &lt;a href=&quot;https://mocha2007.github.io/coolguys.html&quot;&gt;list of cool &amp;amp; weird sites&lt;/a&gt; too!
+&lt;/p&gt;
+
+&lt;p&gt;
+	Then there&#x27;s &lt;a href=&quot;https://github.com/SeoulToday/seoultoday.github.io&quot;&gt;SeoulToday/seoultoday.github.io&lt;/a&gt; a &lt;a href=&quot;https://seoultoday.github.io&quot;&gt;website&lt;/a&gt; that is the &lt;q cite=&quot;https://seoultoday.github.io&quot;&gt;a fictional news network for the Roblox Republic Of Korea made by SirCollinHall&lt;/q&gt;. Roxlox Republic of Korea? More likely than you think!
+&lt;/p&gt;
+
+&lt;p&gt;
+	I also found &lt;a href=&quot;https://github.com/bhaggs&quot;&gt;Brian Haggerty&lt;/a&gt;&#x27;s &lt;a href=&quot;https://bryanhaggerty.com/&quot;&gt;personal website&lt;/a&gt;. This is a more straightforward site, a few blog posts, some social media links. One interesting thing I noted is that his &lt;a href=&quot;https://bryanhaggerty.com/blog/2010/02/joining_twitter/&quot;&gt;second-to-last blog post&lt;/a&gt;, in 2010, has him joining Twitter. Now, in 2023, he&#x27;s moved to Mastodon.
+&lt;/p&gt;
+
+&lt;p&gt;
+	We also have &lt;a href=&quot;https://github.com/stpeter&quot;&gt;Peter Saint-Andre&lt;/a&gt;&#x27;s &lt;a href=&quot;https://stpeter.im/&quot;&gt;personal website&lt;/a&gt;. Despite his tech background, his &lt;a href=&quot;https://stpeter.im/journal/&quot;&gt;online journal&lt;/a&gt; is very philosophical.
+&lt;/p&gt;
+
+&lt;p&gt;
+	Finally we have &lt;a href=&quot;https://github.com/evocn&quot;&gt;Alex Hartford&lt;/a&gt;&#x27;s &lt;a href=&quot;https://evocn.org/&quot;&gt;website&lt;/a&gt;, very artistic. There&#x27;s a lot of games, art, films, and music he&#x27;s built, check it out!
+&lt;/p&gt;
+
+&lt;p&gt;There&#x27;s just so many cool little sites out on the Internet, how can one ever surf them all? As the Internet&#x27;s population grows I&#x27;m sure there&#x27;ll be more and more techy people who create these curious corners and carve out their nooks in the web. Maybe I will never see them, but with a little exploration we can all find some interesting people online just as it is in the real world.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>discovery</category>
+	<link>https://benleskey.com/blog/discovering_random_websites</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/discovering_random_websites</guid>
+	<pubDate>Thu, 26 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>In the previous episode: Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center. First leg Sure enough, Raymon finds road just ahead, and it’s leading east-west! This could be his ticket to the refugee center. There’s a light industrial compound built right next to the road, and it doesn’t look very infested with the…</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
+	<title>Finding discussion about diff.blog</title>
+	<description>&lt;div&gt;
+&lt;p&gt;I couldn&#x27;t find much about &lt;a href=&quot;https://diff.blog&quot;&gt;diff.blog&lt;/a&gt; with a cursory glance over the internet, so I went looking.&lt;/p&gt;
+
+&lt;p&gt;On diff.blog itself I discovered a post from &lt;a href=&quot;https://blog.jromanmartin.io/2020/10/20/my-blog-in-diff-blog.html&quot;&gt;Roman Martin&#x27;s blog&lt;/a&gt; when diff.blog found him back in 2020 the same way they did me recently.&lt;/p&gt;
+
+&lt;p&gt;Here&#x27;s a &lt;a href=&quot;https://news.ycombinator.com/item?id=23914454&quot;&gt;Hacker News subthread&lt;/a&gt; from 2020, where the creator of diff.blog, &lt;a href=&quot;https://vishnuks.com/&quot;&gt;Vishnu KS&lt;/a&gt;, is promoting it. Here&#x27;s a &lt;a href=&quot;https://news.ycombinator.com/item?id=29759370&quot;&gt;smaller subthread&lt;/a&gt; from 2022, and &lt;a href=&quot;https://news.ycombinator.com/item?id=27302496&quot;&gt;another subthread&lt;/a&gt; from 2021, and &lt;a href=&quot;https://news.ycombinator.com/item?id=24540786&quot;&gt;one more&lt;/a&gt; from 2020.&lt;/p&gt;
+
+&lt;p&gt;One of the HN threads was linked in a &lt;a href=&quot;https://jerieljan.com/learnings/2020-07-22/&quot;&gt;blog post&lt;/a&gt; from jerieljan.&lt;/p&gt;
+
+&lt;p&gt;There&#x27;ve been HN &lt;a href=&quot;https://news.ycombinator.com/from?site=diff.blog&quot;&gt;submissions&lt;/a&gt; of diff.blog, and a &lt;a href=&quot;https://old.reddit.com/r/programming/comments/bq6w1c/diffblog_follow_blogs_of_all_your_favourite/&quot;&gt;Reddit post&lt;/a&gt;, but none have taken any traction.&lt;/p&gt;
+
+&lt;p&gt;diff.blog is briefly mentioned in &lt;a href=&quot;https://techweez.com/2019/06/19/discovered-new-websites-apps-and-extensions-for-this-week/&quot;&gt;techweez article&lt;/a&gt;, &lt;a href=&quot;http://disq.us/p/2pgp555&quot;&gt;a comment on a contentmarketinginstitute.com article&lt;/a&gt;, and a &lt;a href=&quot;https://olegsemerikov.medium.com/copywriting-for-it-how-to-make-your-writing-cool-98a87ea11e63&quot;&gt;Medium post&lt;/a&gt; from Oleg Semerikov.&lt;/p&gt;
+
+&lt;p&gt;That&#x27;s all I&#x27;ve found so far, seems a small project but I wanted to dig up as much discussion as I could!&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>discovery</category><category>deepdive</category>
+	<link>https://benleskey.com/blog/finding_discussion_diff_blog</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/finding_discussion_diff_blog</guid>
+	<pubDate>Wed, 25 Jan 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

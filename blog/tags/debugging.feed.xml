@@ -6,13 +6,71 @@
 		<link>https://benleskey.com/blog/tags/debugging</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 06 Apr 2023 06:36:53 +0000</lastBuildDate>
-		<pubDate>Thu, 06 Apr 2023 06:36:53 +0000</pubDate>
+		<lastBuildDate>Fri, 07 Apr 2023 16:44:24 +0000</lastBuildDate>
+		<pubDate>Fri, 07 Apr 2023 16:44:24 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/debugging.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>Debugging slow boot and a clogged router</title>
-	<description>I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends’ home Wi-Fi, but the connection failed. This was odd: I had never seen these messages before during boot. I had not installed or upgraded new software for several days. I…</description>
+	<description>&lt;div&gt;
+&lt;p&gt;I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends&#x27; home Wi-Fi, but the connection failed.&lt;/p&gt;
+
+&lt;p&gt;This was odd:&lt;/p&gt;
+&lt;ul&gt;
+	&lt;li&gt;I had never seen these messages before during boot.&lt;/li&gt;
+	&lt;li&gt;I had not installed or upgraded new software for several days.&lt;/li&gt;
+	&lt;li&gt;I had not recently changed system configuration.&lt;/li&gt;
+	&lt;li&gt;My phone was connected to the same Wi-Fi that my laptop could not connect to.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;Hypothesis 1: Something was wrong with my laptop&lt;/h2&gt;
+
+&lt;p&gt;I rebooted the laptop. Always gotta turn it off and back on again. Unfortunantely, the same things happened.&lt;/p&gt;
+
+&lt;h3&gt;Hypothesis 1.1: Something was wrong with an fstab entry&lt;/h3&gt;
+
+&lt;p&gt;The first step was to look at the odd error out: the timeout to mount a disk. I looked up the UUID and found that it was an entry in fstab that tried to mount an external volume as ntfs, but it did have nofail specified so the failure to mount shouldn&#x27;t be an error during boot. This entry had been working for months, so I didn&#x27;t see why it would be a problem now. Nevertheless I added &lt;code&gt;x-systemd.device-timeout=1&lt;/code&gt; to the mount options and rebooted. Mounting the disk timed out quickly during boot now, and didn&#x27;t cause any further issues. I guess the reason I never noticed that message before was that it does not affect graphical boot at all, and just quietly timed out after 90 seconds in the background.&lt;/p&gt;
+
+&lt;p&gt;This left the long wait for the network to come up during boot, and the failure to connect to the Wi-Fi.&lt;/p&gt;
+
+&lt;h3&gt;Hypothesis 1.2: Something was wrong with my laptop&#x27;s network ability&lt;/h3&gt;
+
+&lt;p&gt;These two remaining problems were obviously tied together: Network manager waited during boot until the network was up, but because it kept trying unsuccessfully to connect to the Wi-Fi it took it until some timeout to bring the network up once it realized that it couldn&#x27;t connect to the Wi-Fi. Since I&#x27;m not running a network-critical server with my laptop, I ran &lt;code&gt;sudo systemctl disable NetworkManager-wait-online.service&lt;/code&gt; and turned off the boot delay. I don&#x27;t need network capability to start my laptop, network manager can connect later, even after I&#x27;m logged in.&lt;/p&gt;
+
+&lt;p&gt;Now I was down to one problem: my laptop couldn&#x27;t connect to the Wi-Fi.&lt;/p&gt;
+
+&lt;h4&gt;Hypothesis 1.2.1: Something was wrong with my laptop&#x27;s Wi-Fi radio&lt;/h4&gt;
+
+&lt;p&gt;One of my fears was that I&#x27;d damaged my antenna or radio card somehow. To test this, I turned on my phone&#x27;s hotspot and tried to connect with my laptop. Success. While this didn&#x27;t entirely rule out my laptop as the problem, it did indicate the issue lay elsewhere.&lt;/p&gt;
+
+&lt;p&gt;When I turned my phone&#x27;s hotspot off, it failed to connect back to the Wi-Fi. Now I was getting somewhere.&lt;/p&gt;
+
+&lt;h2&gt;Hypothesis 2: Something was wrong with the router&lt;/h2&gt;
+
+&lt;p&gt;The router was a &lt;a href=&quot;https://www.verizon.com/about/sites/default/files/fios-qgr-userguide140925.pdf&quot;&gt;Verizon FiOS-G1100&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This hypothesis seemed most reasonable now that I had two devices failing to connect. Other people in the house were still using the Wi-Fi, however, with no issues. One key to this hypothesis is that there were far more people on the WAP than normal: nearly a dozen people on the same Wi-Fi, each with their phones, laptops, tablets, etc. I would expect to see unusual failure under these relatively unusual conditions.&lt;/p&gt;
+
+&lt;p&gt;Eventually I was able to reboot the router, expecting that to fix the issue. The problem persisted.&lt;/p&gt;
+
+&lt;p&gt;I decided to try using a static IP address on my phone instead of using DHCP. It connected to the network with full internet access.&lt;/p&gt;
+
+&lt;h3&gt;Hypothesis 2.1: Something was wrong with the router DHCP server&lt;/h3&gt;
+
+&lt;p&gt;Using a static IP address on my laptop solved that connection issue as well. Clearly, there was something wrong with the DHCP server.&lt;/p&gt;
+
+&lt;p&gt;When someone noticed that the Roku TV wouldn&#x27;t connect to the Wi-Fi, I tried to assign it a static IP address as well, but Roku only supports DHCP IP assigning. It was time to fix the router.&lt;/p&gt;
+
+&lt;h4&gt;Hypothesis 2.1.1: Too many DHCP assignments&lt;/h4&gt;
+
+&lt;p&gt;My working hypothesis was that somehow the amount of people on the network had run out of IP assignments. I couldn&#x27;t find evidence in the router console of too many outstanding leases, but I wanted to try resetting the DHCP server anyway, guessing that the outstanding leases were hidden and only the current devices were being show.&lt;/p&gt;
+
+&lt;p&gt;There was no simple option to reset the DHCP server. Instead, I changed the IP assignment and gateway range from 192.168.1.x to 192.168.2.x, about which the console helpfully provided a warning saying it would require all devices to be assigned a new IP. Perfect.&lt;/p&gt;
+
+&lt;p&gt;As soon as I hit apply, the problems vanished. I re-enabled using DHCP on my phone and laptop, and they connected perfectly. The Roku TV connected, as did every other device in the house.&lt;/p&gt;
+
+&lt;p&gt;I still don&#x27;t know exactly what went wrong, but I&#x27;ve got more experience for next time I run into this kind of problem. Plus, being able to fix it was kinda fun!&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>debugging</category><category>software</category>
 	<link>https://benleskey.com/blog/debugging_network</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/debugging_network</guid>
@@ -20,7 +78,19 @@
 </item>
 <item>
 	<title>Autodrive into a crater fix</title>
-	<description>In my current Cataclysm: Dark Days Ahead playthrough, I ran into a problem with the autodrive feature: it’d drive me straight into a crater and crash the vehicle. This seemed like a straightforward fix, so I checked out the master branch and set about debugging. Autodrive definitely has the capability to avoid certain terrain, so I guessed it was just a mistake in how it was calculating ledge traps or open air terrain. Sure enough, it was just an error in how the vehicle was being considered as “able to drive over air”. With the existing logic, autodrive thought every…</description>
+	<description>&lt;div&gt;
+&lt;a href=&quot;https://benleskey.com/blog/../images/cdda_truck_in_hole.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cdda_truck_in_hole.50.png&quot; alt=&quot;A pickup truck fallen into a crater in Cataclysm: Dark Days Ahead&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;
+	In my current &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_erik&quot;&gt;playthrough&lt;/a&gt;, I ran into a problem with the autodrive feature: it&#x27;d drive me straight into a crater and crash the vehicle.
+&lt;/p&gt;
+
+&lt;p&gt;This seemed like a straightforward fix, so I checked out the master branch and set about debugging. Autodrive definitely has the capability to avoid certain terrain, so I guessed it was just a mistake in how it was calculating ledge traps or open air terrain.&lt;/p&gt;
+
+&lt;p&gt;Sure enough, it was just an error in how the vehicle was being considered as &quot;able to drive over air&quot;. With the existing logic, autodrive thought every vehicle could fly. The fix was simple: only consider helicopters (the only flying vehicle) that have enough rotor power as flyable.&lt;/p&gt;
+
+&lt;p&gt;I have &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/63487&quot;&gt;a pull request fixing this issue&lt;/a&gt; ready to be merged.&lt;/p&gt;
+&lt;/div&gt;</description>
 	<category>cdda</category><category>debugging</category><category>software</category>
 	<link>https://benleskey.com/blog/cdda_no_hole</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_no_hole</guid>
