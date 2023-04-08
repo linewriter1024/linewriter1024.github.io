@@ -158,9 +158,11 @@ post() {
 	done < <(echo "$tags" | xargs -n1 | sort | uniq | xargs -n1 --no-run-if-empty)
 
 	dateinfo="$date"
+	latestdate="$date"
 
 	if [ -n "$POST_UPDATED" ]; then
 		dateinfo="$date, $POST_UPDATED"
+		latestdate="$POST_UPDATED"
 	fi
 
 	# Now we will write a link to this post to the each of its tags' pages.
@@ -196,7 +198,7 @@ post() {
 	}
 
 	# Build the RSS item XML
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$latestdate + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
 }
 
 # Include the list of posts via source, so it can call the post function.
