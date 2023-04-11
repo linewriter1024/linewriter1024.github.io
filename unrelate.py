@@ -23,7 +23,7 @@ if __name__ == "__main__":
 		if element.tag == "a":
 			if "href" in element.keys():
 				element.set("href", fix_path(element.get("href")))
-		elif element.tag == "img":
+		elif element.tag == "img" or element.tag == "video":
 			if "src" in element.keys():
 				element.set("src", fix_path(element.get("src")))
 
