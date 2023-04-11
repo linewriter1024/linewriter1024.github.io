@@ -6,11 +6,33 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 07 Apr 2023 16:44:27 +0000</lastBuildDate>
-		<pubDate>Fri, 07 Apr 2023 16:44:27 +0000</pubDate>
+		<lastBuildDate>Tue, 11 Apr 2023 20:27:29 +0000</lastBuildDate>
+		<pubDate>Tue, 11 Apr 2023 20:27:29 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>CDDA big world showcase: Ernie's great road trip</title>
+	<description>&lt;div&gt;
+&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
+
+&lt;p&gt;If you like road trips through the post apocalyptic rural wasteland, I&#x27;ve got the right &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; world generation settings for you!&lt;/p&gt;
+
+&lt;p&gt;City size of 16 makes absolutely huge metropolises, and city spacing 8 places these massive cities far apart, producing some amazing travel experiences. Normal generation is reather unrealistic with plenty of tiny towns close together, but with these settings getting between cities basically requires a car, and simulates the long abandoned highways you&#x27;d expect in a New England apocalypse.&lt;/p&gt;
+
+&lt;p&gt;In my latest playthrough, my character Ernie drives in his sports car across the New England countryside for an entire day on his way to the refugee center, with not a single city in the way.&lt;/p&gt;
+
+&lt;video src=&quot;https://benleskey.com/blog/../videos/cdda_ernie_map.webm&quot; preload controls&gt;&lt;/video&gt;
+
+&lt;p&gt;There were plenty of interesting landmarks and happenings along the way, and lots of little rural gas stations for topping off the tanks and grabbing preserved food. This kind of travel was actually relaxing: 100 mph down straight stretches of highway. Just need to avoid all the abandoned and wrecked cars!&lt;/p&gt;
+
+&lt;p&gt;Eventually Ernie settled down in the hunting lodge north of the refugee center, but there&#x27;ll be a lot more road trips in the future as Ernie builds a new life in this huge apocalyptic world.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>games</category><category>cdda</category><category>cdda_ernie</category>
+	<link>https://benleskey.com/blog/cdda_ernie_road_trip</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_ernie_road_trip</guid>
+	<pubDate>Tue, 11 Apr 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
 	<description>&lt;div&gt;
@@ -2592,236 +2614,6 @@ Depths:2: 1572 daAuts
 	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
 	<link>https://benleskey.com/blog/cdda_raymon_postmortem</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_postmortem</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Raymon Ortega #4: The End</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
-
-&lt;p&gt;&lt;em&gt;In the previous episode:&lt;/em&gt; Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center.&lt;/p&gt;
-
-&lt;h2 id=&quot;leg&quot;&gt;First leg&lt;/h2&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/found_road.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Sure enough, Raymon finds road just ahead, and it&#x27;s leading east-west! This could be his ticket to the refugee center.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/more_light_industry.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s a light industrial compound built right next to the road, and it doesn&#x27;t look very infested with the dead. A few zombies here and there, but what with Raymon&#x27;s practice back at the city (which he still doesn&#x27;t know the name of) Raymon feels up to the challenge of clearing this area in search of valuable tools and books.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/zombie_runner.png&quot; alt=&quot;&quot;&gt;
-&lt;blockquote&gt;&lt;p&gt;This recently-risen body moves quickly, darting its head back and forth and gnawing at its hands.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Zombie runners are fast, but not as fast as Raymon when he runs. He kites them around, stabbing with his spear, and they only catch up once or twice to land a glancing scratch or two. Raymon&#x27;s spear is more than a match for them.&lt;/p&gt;
-
-&lt;div class=&quot;image-set&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/flyer.png&quot; alt=&quot;&quot;&gt;&lt;/div&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/vending_machines.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s vending machines in the lobby of the industrial complex, but Raymon doesn&#x27;t have a cash card on him.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/dropping_backpack.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;One of the most effective things Raymon can do to prepare for combat is drop his backpack. With that weight off his shoulders, his spear almost sings through the air as he impales zombies limb from limb.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/flyer2.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;This flyer Raymon remembers. It was one of many that made him aware of the new evacuation shelters, and probably saved his life when the world fell apart. He couldn&#x27;t quite remember how he got there though...&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/zombie_in_chains.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;One zombie had managed to get itself stuck in a fenced-off machinery area. Raymon pokes at it through the holes until it dies.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/fighting_fire_with_fire.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Another tactic Raymon uses is lighting a small brush fire and letting the zombies step into it and burn to death as he holds them back with his spear. He manages to kill half a dozen zombies this way, all in the same place.&lt;/p&gt;
-
-&lt;p&gt;
-	&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/denarius.png&quot; alt=&quot;&quot; class=&quot;right&quot;&gt;
-	One of the zombies is carrying a strange coin that Raymon&#x27;s never seen before. Something seems magical about it&amp;#8212;the metal feels too smooth, too strong.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/cube_van.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;
-	A cube van parked by the other half of the compound holds nearly six liters of gasoline. It&#x27;s a little too bulky to be his main vehicle though. Raymon siphons the gas and fills up his own SUV.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/zombie_child.png&quot; alt=&quot;&quot;&gt;
-
-&lt;blockquote&gt;&lt;p&gt;It was only a child, and little is different about it now aside from the hungry look in its eyes. You&#x27;d be hard-pressed to not feel like you were killing an actual child by putting it down.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;
-	&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/guilt.png&quot; alt=&quot;&quot; class=&quot;right&quot;&gt;
-	Killing that little zombie brings Rayon&#x27;s mood down a ton. He can hardly think of anything else.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/magic_missile_tough.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s no time to mope, however. Juking a tough zombie with the cube van, Raymon blasts at it with magic missile until it dies. He&#x27;s slowly improving, maybe in the future magic missile can become a primary weapon.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/misc_repair.png&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/useful_tools.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;
-	There&#x27;s a ton of useful tools in the boxes and crates stored around the industrial compound. Raymon takes whatever he thinks he can use later; there&#x27;ll be time to sort it out when he gets to safety.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/flames.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;One downside to using tactical fire is that it spreads. It&#x27;s getting hot around there.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/cop_loot.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Hidden in a dark corner was a zombie in police gear. It&#x27;s tough to kill, but Raymon brings it down with a final spear thrust through the chest. It&#x27;s got some decent gear that Raymon can use. That holster could be useful if Raymon ever finds a gun big enough to fit it.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/explored_light.png&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/explored_map.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Having cleared this entire industrial compound, Raymon dumps his loot into the trunk of his SUV and hits the road again, heading west.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/irradiation_plant_map.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s a huge irradiation plant tucked into the forest, but Raymon doesn&#x27;t stay long. He does notice a van in really good condition parked just in front, so that he investigates.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/pristine_van.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Sure enough, it&#x27;s in pristine condition. But, as before, it&#x27;s a little too bulky to be his primary vehicle. Maybe in the future he&#x27;ll want more space, so he makes a note of where it is on his map. He does, however, take the gasoline.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/evac_map.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;A little futher down the road is another evacuation shelter. This one is empty too, it seems nobody found shelter here.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/cause_bear.png&quot; alt=&quot;&quot; class=&quot;right&quot;&gt; In one of the bathrooms in the basement Raymon finds a smudged magic scroll. Well, that might be useful later.&lt;/p&gt;
-
-&lt;p&gt;
-	&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/music.png&quot; alt=&quot;&quot; class=&quot;right&quot;&gt;
-	Raymon switches on his SUV&#x27;s stereo and finds that it&#x27;s loaded with all kinds of music. His mood improves dramatically as he drives 45 mph down the road blasting some songs with open windows.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/fork_in_road.png&quot; alt=&quot;&quot;&gt;
-&lt;p&gt;
-	There&#x27;s a fork in the road just past the evacuation shelter. Raymon decides to head north first, to try and get closer to the refugee center. He wishes he had binoculars: it&#x27;d make scouting much easier.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/public_pond.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Raymon takes a breath at a public pond. Just him and the water. And, of course, the corpses of the mutant bullfrogs and zombies he had to kill to get here.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/roadside_gas_station.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Further north, there&#x27;s a roadside gas station, with plenty of gas in the pumps. Raymon tops off his SUV. If only his second gas tank wasn&#x27;t cracked, he could fill all the way.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/crate_drops.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Some crates were airdropped nearby, but there wasn&#x27;t anything spectacular inside, just a MRE and a first aid kit.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/henniker_map.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;A small town comes into view. Raymon decides to go in and loot, he&#x27;s feeling confident.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/fire_fighting.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Fitting that he&#x27;d kill a firefighter zombie with fire. Fire is just so powerful.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/mp3_player.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;In one of the houses Raymon finds a mp3 player. This will be a huge morale boost; he can listen to his favorite music while killing zombies.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/sports_car.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s a beautiful sports car in one of the garages. Raymon siphons out the gas.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/amoebic.png&quot; alt=&quot;&quot;&gt;
-&lt;blockquote&gt;&lt;p&gt;A formless slime mold the size of a cow. Crusty bits of cytoplasm fall away as it oozes across the ground.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h2 id=&quot;van&quot;&gt;Van life&lt;/h2&gt;
-
-&lt;p&gt;After looting the light industry compound and now this town, Raymon&#x27;s SUV is full to bursting. The damage quarter of the trunk doesn&#x27;t help either. Raymon decides to drive back to the irradiation plant and steal the pristine van instead. It might be bulky, but in the future it could become a decent mobile home or be useful to carry people or property back and forth.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/transferring_to_van.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Raymon smashes down the chain link fence and drives the van out, then transferrs all the fuel, supplies, and spare car batteries from his SUV.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/full_van.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;It&#x27;s beautiful, and in such good condition it can take a lot of abuse before he&#x27;ll need a new vehicle.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/recharging_station.png&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/fueling_up.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;
-	To complete his new van, Raymon reads a new manual he found, &lt;em&gt;Under the Hood&lt;/em&gt;, and uses it to install a recharging station in the cab. This will charge his batteries far faster than the little charger he put in the SUV. Then he waves goodbye to his SUV and drives his new van up to the gas station, topping off both tanks. Beautiful.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/feral_human.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;While looting the little town of Henniker more, one of the wild-eyed feral humans charges him, throwing rocks. They hurt! Some magic missiles and a coup-de-gr&amp;#226;ce with his tough spear take down the crazed man.&lt;/p&gt;
-
-&lt;div class=&quot;image-set&quot;&gt;
-	&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/flyer3.png&quot; alt=&quot;&quot;&gt;
-	&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/survivors_note.png&quot; alt=&quot;&quot;&gt;
-	&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/newspaper.png&quot; alt=&quot;&quot;&gt;
-&lt;/div&gt;
-
-&lt;p&gt;That survivor&#x27;s note is almost funny. Raymon remembers the rise in cult behavior before the end. Powerful cults, with thousands, even millions of members. There might have been something to them.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/swat_truck.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s a SWAT truck stalled in the middle of the street. Zombies swarm it but can&#x27;t get inside. Raymon looks for guns or tools inside, but doesn&#x27;t find anything notable.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/groundhog.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Returning to his van, Raymon finds two dogs chasing a groundhog. That&#x27;s the most normal thing he&#x27;s seen these past days.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/river_blockage.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s a river blocking the way west toward the refugee center, so Raymon plans to head north and around instead.&lt;/p&gt;
-
-&lt;h2 id=&quot;The end&quot;&gt;The end&lt;/h2&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/mi-gos.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Raymon passes a pack of migos on the road. They try to pursue him, but his van is too fast.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/swamp-shack.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;In a little corner of swamp there&#x27;s a shack. It&#x27;s empty, but Raymon takes a stepladder and stows it in his van. Never know when that might be useful.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/huge_farm.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s a massive farm across the river. Raymon drives slowly along the dirt roads looking for an outlet to get to the refugee center, but there isn&#x27;t one. He&#x27;s surrounded on all sides by forest.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/note2.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;This is definitely not true. Knowledge is power!&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/more_explore.png&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/more_explore_2.png&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/end_of_road.png&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/no_way_out.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Raymon drives all around the area, looking for a way to get to the refugee center by van, but there just isn&#x27;t any. Finally he parks at the edge of the farm and starts looking for a clear path through the forest; maybe he can chop down some trees?&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/owlbear.png&quot; alt=&quot;&quot;&gt;
-
-&lt;blockquote&gt;&lt;p&gt;The horrible owlbear is probably the result of genetic experimentation by some insane wizard.  These creatures inhabit the tangled forest regions of every temperate clime, as well as subterranean labyrinths.  They are ravenous eaters, aggressive hunters, and evil tempered at all times.  They attack prey on sight and will fight to the death.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;A huge owlbear comes barreling out of the forest. Raymon saw it earlier, but he didn&#x27;t look long enough to see if it was chasing him, and now it&#x27;s here. He&#x27;s already beat up. This will be a fight for his life. He readies his spear and his hands glow with magic missile.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/4/dead.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;It&#x27;s not enough. Raymon dies as the owlbear tears through him. He survived only a few days after the end of the world, and never made it to the refugee center. Perhaps someone else will find his van packed with gear, or perhaps it will rot away, unused. Who knows?&lt;/p&gt;
-
-&lt;h2 id=&quot;analysis&quot;&gt;Analysis&lt;/h2&gt;
-
-&lt;p&gt;Owlbears are deadly, but that death was avoidable. I shouldn&#x27;t have gone away from the van with my torso health that low, but I was getting impatient at not being able to reach the refugee center. Once again, one mistake is deadly in Cataclysm: Dark Days Ahead. See you next time!&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_4</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_4</guid>
 	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>

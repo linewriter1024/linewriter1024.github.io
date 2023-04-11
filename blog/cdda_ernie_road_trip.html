@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | CDDA big world showcase: Ernie's great road trip</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed: cdda_ernie" href="tags/cdda_ernie.feed.xml">
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>CDDA big world showcase: Ernie's great road trip</h1>
+		<span class="subtitle">2023-04-11</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/cdda">#cdda</a> <a class="tag" href="../blog/tags/cdda_ernie">#cdda_ernie</a> <a class="tag" href="../blog/tags/games">#games</a></span>
+		<hr>
+<div>
+	<a href="../blog/tags/cdda_ernie">More posts in the cdda_ernie series</a> <a class="icon" href="../blog/tags/cdda_ernie.feed.xml"><img class="icon" src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="Series RSS"></a>
+</div>
+		</header>
+		<hr>
+		<main class="post">
+			<img class="right" alt="The city size and city spacing settings for this CDDA world" src="../images/cdda_ernie_map_world.png">
+
+<p>If you like road trips through the post apocalyptic rural wasteland, I've got the right <a href="https://cataclysmdda.org">Cataclysm: Dark Days Ahead</a> world generation settings for you!</p>
+
+<p>City size of 16 makes absolutely huge metropolises, and city spacing 8 places these massive cities far apart, producing some amazing travel experiences. Normal generation is reather unrealistic with plenty of tiny towns close together, but with these settings getting between cities basically requires a car, and simulates the long abandoned highways you'd expect in a New England apocalypse.</p>
+
+<p>In my latest playthrough, my character Ernie drives in his sports car across the New England countryside for an entire day on his way to the refugee center, with not a single city in the way.</p>
+
+<video src="../videos/cdda_ernie_map.webm" preload controls></video>
+
+<p>There were plenty of interesting landmarks and happenings along the way, and lots of little rural gas stations for topping off the tanks and grabbing preserved food. This kind of travel was actually relaxing: 100 mph down straight stretches of highway. Just need to avoid all the abandoned and wrecked cars!</p>
+
+<p>Eventually Ernie settled down in the hunting lodge north of the refugee center, but there'll be a lot more road trips in the future as Ernie builds a new life in this huge apocalyptic world.</p>
+		</main>
+		<hr>
+		<footer>
+			<div>
+	<a href="../blog/tags/cdda_ernie">More posts in the cdda_ernie series</a> <a class="icon" href="../blog/tags/cdda_ernie.feed.xml"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="Series RSS"></a>
+</div>
+<hr>
+			<div class="footerinfo">
+				<span>Post dated 2023-04-11</span>
+				 <a class="tag" href="../blog/tags/cdda">#cdda</a> <a class="tag" href="../blog/tags/cdda_ernie">#cdda_ernie</a> <a class="tag" href="../blog/tags/games">#games</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>

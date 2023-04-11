@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ben Leskey's Blog: cdda_ernie</title>
+		<description>cdda_ernie posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/cdda_ernie</link>
+		<language>en-us</language>
+		<copyright>2023 Ben Leskey</copyright>
+		<lastBuildDate>Tue, 11 Apr 2023 20:27:26 +0000</lastBuildDate>
+		<pubDate>Tue, 11 Apr 2023 20:27:26 +0000</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/cdda_ernie.feed.xml" rel="self" type="application/rss+xml" />
+
+		<item>
+	<title>CDDA big world showcase: Ernie's great road trip</title>
+	<description>&lt;div&gt;
+&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
+
+&lt;p&gt;If you like road trips through the post apocalyptic rural wasteland, I&#x27;ve got the right &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; world generation settings for you!&lt;/p&gt;
+
+&lt;p&gt;City size of 16 makes absolutely huge metropolises, and city spacing 8 places these massive cities far apart, producing some amazing travel experiences. Normal generation is reather unrealistic with plenty of tiny towns close together, but with these settings getting between cities basically requires a car, and simulates the long abandoned highways you&#x27;d expect in a New England apocalypse.&lt;/p&gt;
+
+&lt;p&gt;In my latest playthrough, my character Ernie drives in his sports car across the New England countryside for an entire day on his way to the refugee center, with not a single city in the way.&lt;/p&gt;
+
+&lt;video src=&quot;https://benleskey.com/blog/../videos/cdda_ernie_map.webm&quot; preload controls&gt;&lt;/video&gt;
+
+&lt;p&gt;There were plenty of interesting landmarks and happenings along the way, and lots of little rural gas stations for topping off the tanks and grabbing preserved food. This kind of travel was actually relaxing: 100 mph down straight stretches of highway. Just need to avoid all the abandoned and wrecked cars!&lt;/p&gt;
+
+&lt;p&gt;Eventually Ernie settled down in the hunting lodge north of the refugee center, but there&#x27;ll be a lot more road trips in the future as Ernie builds a new life in this huge apocalyptic world.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>games</category><category>cdda</category><category>cdda_ernie</category>
+	<link>https://benleskey.com/blog/cdda_ernie_road_trip</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_ernie_road_trip</guid>
+	<pubDate>Tue, 11 Apr 2023 12:00:00 +0000</pubDate>
+</item>_
+	</channel>
+</rss>

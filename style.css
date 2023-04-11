@@ -195,7 +195,7 @@ hr {
     clear: both;
 }
 
-img {
+img, video {
     max-width: min(60em, 95vw);
 }
 
