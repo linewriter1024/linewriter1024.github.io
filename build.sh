@@ -243,7 +243,8 @@ source blog.in/posts.sh
 # Build the main page.
 (
 	replacefile "__BLOGMINOR__" "$tmp/_minor.in.html" |
-	commonreplace .
+	commonreplace . |
+	python3 element_copy.py
 ) < templates/index.in.html > index.html
 
 # Uniquify and sort the list of all tags.
