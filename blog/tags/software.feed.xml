@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 17 Apr 2023 21:42:29 +0000</lastBuildDate>
-		<pubDate>Mon, 17 Apr 2023 21:42:29 +0000</pubDate>
+		<lastBuildDate>Fri, 21 Apr 2023 01:43:21 +0000</lastBuildDate>
+		<pubDate>Fri, 21 Apr 2023 01:43:21 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Mapping tool quick start guide</title>
+	<description>See &lt;a href=&#x27;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&#x27;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;</description>
+	<category>mappingtool</category><category>software</category>
+	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
+	<pubDate>Thu, 20 Apr 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
 	<description>&lt;div&gt;
 &lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
@@ -396,7 +404,7 @@ post() {
 	echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $smalltaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-04-17&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-04-21&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
 }
 
 echo &quot;Blog...&quot;
@@ -421,7 +429,7 @@ echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 (
 	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
 	# The date of generation is included on the main page.
-	replacetext &quot;2023-04-17&quot; &quot;$(TZ=UTC date -I)&quot;
+	replacetext &quot;2023-04-21&quot; &quot;$(TZ=UTC date -I)&quot;
 ) &amp;lt; templates/index.in.html &amp;gt; index.html
 
 # Build the dedicated blog index page.

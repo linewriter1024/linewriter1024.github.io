@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog/tags/mappingtool</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 17 Apr 2023 21:42:29 +0000</lastBuildDate>
-		<pubDate>Mon, 17 Apr 2023 21:42:29 +0000</pubDate>
+		<lastBuildDate>Fri, 21 Apr 2023 01:43:21 +0000</lastBuildDate>
+		<pubDate>Fri, 21 Apr 2023 01:43:21 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/mappingtool.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Mapping tool quick start guide</title>
+	<description>See &lt;a href=&#x27;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&#x27;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;</description>
+	<category>mappingtool</category><category>software</category>
+	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
+	<pubDate>Thu, 20 Apr 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>Mapping tool 0.6 release</title>
 	<description>&lt;div&gt;
 &lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;

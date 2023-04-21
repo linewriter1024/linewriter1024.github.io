@@ -6,11 +6,19 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 17 Apr 2023 21:42:30 +0000</lastBuildDate>
-		<pubDate>Mon, 17 Apr 2023 21:42:30 +0000</pubDate>
+		<lastBuildDate>Fri, 21 Apr 2023 01:43:23 +0000</lastBuildDate>
+		<pubDate>Fri, 21 Apr 2023 01:43:23 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Mapping tool quick start guide</title>
+	<description>See &lt;a href=&#x27;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&#x27;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;</description>
+	<category>mappingtool</category><category>software</category>
+	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
+	<pubDate>Thu, 20 Apr 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>CDDA big world showcase: Ernie's great road trip</title>
 	<description>&lt;div&gt;
@@ -2597,24 +2605,6 @@ Depths:2: 1572 daAuts
 	<link>https://benleskey.com/blog/cdda_erik_1</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_erik_1</guid>
 	<pubDate>Sun, 05 Feb 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>CDDA let's play: Post-mortem</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I tried my hand at a &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; screenshot and text let&#x27;s play, featuring &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_raymon&quot;&gt;Raymon Ortega: Would-be Wizard&lt;/a&gt;. It was really fun to write, but there&#x27;s a few points I&#x27;ll remember for next time:&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;Choose a more active start. Most of this let&#x27;s play wasn&#x27;t very exciting, just trying to get to the refugee center. There wasn&#x27;t much action. Maybe a megacity playthrough?&lt;/li&gt;
-	&lt;li&gt;Build more story. Getting missions and/or goals sooner will give drive to the character and make the story interesting.&lt;/li&gt;
-	&lt;li&gt;Play patiently. The LP can be built slowly; no need to rush objectives. Raymon probably didn&#x27;t have to 100% get to the refugee center, I could have built up gear and spells where I was before I reached the refugee center.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I do want to try another. C:DDA is a great game for text-based let&#x27;s plays, and if I keep in my what I learned here, I&#x27;ll be able to have even more fun and put out an even better let&#x27;s play.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_postmortem</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_postmortem</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>

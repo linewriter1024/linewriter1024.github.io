@@ -74,6 +74,10 @@ h3.experience.job::before {
     margin-bottom: 0.5em;
 }
 
+.postlisting.external a:first-child {
+    font-style: italic;
+}
+
 .tags {
     margin-top: 1em;
     padding-top: 0;
