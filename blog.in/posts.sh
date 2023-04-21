@@ -1,3 +1,4 @@
+POST_EXTERNAL="https://github.com/mapper1024/mapper1024/wiki/Quick-Start" post mapper_quick_start "Mapping tool quick start guide" 2023-04-20 "mappingtool software"
 post cdda_ernie_road_trip "CDDA big world showcase: Ernie's great road trip" 2023-04-11 "games cdda"
 post mapper_gifs "OBS Studio -> ffmpeg -> ImageMagick for an optimized gif" 2023-04-06 "discovery utilities software"
 post lusha_answers_version_2 "Scene draft: Lusha tries to get answers, version 2" 2023-03-29 "writing scene"
