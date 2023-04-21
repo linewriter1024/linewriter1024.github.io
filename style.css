@@ -24,6 +24,10 @@ h1, h2, h3, h4, h5, h6 {
     clear: both;
 }
 
+.toc + h1, h2, h3, h4, h5, h6 {
+    clear: none;
+}
+
 h3.experience {
     font-size: 1em;
     display: inline;
@@ -72,6 +76,10 @@ h3.experience.job::before {
 
 .postlisting {
     margin-bottom: 0.5em;
+}
+
+.postlisting.external a:first-child {
+    font-style: italic;
 }
 
 .tags {

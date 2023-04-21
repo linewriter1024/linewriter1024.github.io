@@ -1,3 +1,5 @@
+post textengine_intro "Toward the ultimate text adventure game engine" 2023-04-21 "software games textengine discovery"
+POST_EXTERNAL="https://github.com/mapper1024/mapper1024/wiki/Quick-Start" post mapper_quick_start "Mapping tool quick start guide" 2023-04-20 "mappingtool software"
 post cdda_ernie_road_trip "CDDA big world showcase: Ernie's great road trip" 2023-04-11 "games cdda"
 post mvnu_surc "First place prize for my mapping tool presentation at MVNU's sURC" 2023-04-07 "academics mappingtool software"
 POST_UPDATED="2023-04-07" post mapper_gifs "OBS Studio -> ffmpeg -> ImageMagick for an optimized gif" 2023-04-06 "discovery utilities software"

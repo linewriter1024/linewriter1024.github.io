@@ -17,6 +17,25 @@ echo "Akas..."
 
 mkdir -p aka
 
+redirecthtmlpage() {
+	url="$1"
+
+	echo "<!DOCTYPE html>"
+	echo "<title>Redirecting to $url</title>"
+
+	# Refresh the page immediately to the desired URL.
+	echo "<meta http-equiv='refresh' content='0; URL=$url'>"
+
+	# However, we don't want any caching, so if we update the URL it will be immediately reflected in the redirect.
+	echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />'
+	echo '<meta http-equiv="Pragma" content="no-cache" />'
+	echo '<meta http-equiv="Expires" content="0" />'
+
+	# Additional links to the URL.
+	echo "<link rel='canonical' href='$url'>"
+	echo "Redirecting to <a href='$url'>$url</a>..." # The user can click this one if their browser doesn't redirect them.
+}
+
 # Each line in akas.txt has the format:
 # <name of redirect> <url of redirect>
 while read line; do
@@ -27,23 +46,7 @@ while read line; do
 	echo " $name -> $url"
 
 	(
-
-		file="aka/$name.html"
-
-		echo "<!DOCTYPE html>" > $file
-		echo "<title>Redirecting to $url</title>" >> $file
-
-		# Refresh the page immediately to the desired URL.
-		echo "<meta http-equiv='refresh' content='0; URL=$url'>" >> $file
-
-		# However, we don't want any caching, so if we update the URL it will be immediately reflected in the redirect.
-		echo '<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />' >> $file
-		echo '<meta http-equiv="Pragma" content="no-cache" />' >> $file
-		echo '<meta http-equiv="Expires" content="0" />' >> $file
-
-		# Additional links to the URL.
-		echo "<link rel='canonical' href='$url'>" >> $file
-		echo "Redirecting to <a href='$url'>$url</a>..." >> $file # The user can click this one if their browser doesn't redirect them.
+		redirecthtmlpage "$url" > "aka/$name.html"
 	) &
 done < akas.txt
 
@@ -165,10 +168,21 @@ post() {
 		latestdate="$POST_UPDATED"
 	fi
 
+	post_global_link="https://benleskey.com/blog/$name"
+	post_link="__ROOT__/blog/$name"
+	post_base_link="https://benleskey.com/blog/$name"
+	post_listing_class=""
+
+	if [ -n "$POST_EXTERNAL" ]; then
+		post_link="$POST_EXTERNAL"
+		post_base_link="$POST_EXTERNAL"
+		post_listing_class="external"
+	fi
+
 	# Now we will write a link to this post to the each of its tags' pages.
 	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
 	while read tag; do
-		echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$dateinfo] $smalltaghtml</li>" >> "$tmp/_tag_$tag.html"
+		echo "<li class='postlisting $post_listing_class'><a href='$post_link'>$title</a> [$dateinfo] $smalltaghtml</li>" >> "$tmp/_tag_$tag.html"
 	done < <(echo "$tags" | xargs -n1 --no-run-if-empty)
 
 	# Record that another post was processed.
@@ -176,29 +190,37 @@ post() {
 
 	# If we haven't reached the limit for "minor" posts, add a link to the minor blog post listing HTML, this is for the "recent posts" section of the main page.
 	if [ $BN -le $BMMAX ]; then
-		echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$dateinfo] $minortaghtml</li>" >> "$tmp"/_minor.in.html
+		echo "<li class='postlisting $post_listing_class'><a href='$post_link'>$title</a> [$dateinfo] $minortaghtml</li>" >> "$tmp"/_minor.in.html
 	fi
 
 	# Always add a link to the "major" blog post listing HTML, this is for the dedicated blog page.
-	echo "<li class='postlisting'><a href='__ROOT__/blog/$name'>$title</a> [$dateinfo] $smalltaghtml</li>" >> "$tmp"/_major.in.html
+	echo "<li class='postlisting $post_listing_class'><a href='$post_link'>$title</a> [$dateinfo] $smalltaghtml</li>" >> "$tmp"/_major.in.html
 
-	replaceseries() {
-		if [[ -n "$series" ]]; then
-			replacefile "__SERIES_TOP__" "templates/series_top.in.html" | replacefile "__SERIES_BOTTOM__" "templates/series_bottom.in.html" | replacetext "__SERIES__" "$series" | replacetext "__SERIES_RSS_LINK__" "<link rel='alternate' type='application/rss+xml' title=\"Ben Leskey's RSS feed: $series\" href='tags/$series.feed.xml'>"
+	if [ -z "$POST_EXTERNAL" ]; then
+		replaceseries() {
+			if [[ -n "$series" ]]; then
+				replacefile "__SERIES_TOP__" "templates/series_top.in.html" | replacefile "__SERIES_BOTTOM__" "templates/series_bottom.in.html" | replacetext "__SERIES__" "$series" | replacetext "__SERIES_RSS_LINK__" "<link rel='alternate' type='application/rss+xml' title=\"Ben Leskey's RSS feed: $series\" href='tags/$series.feed.xml'>"
+			else
+				replacetext "__SERIES_TOP__" "" | replacetext "__SERIES_BOTTOM__" "" | replacetext "__SERIES_RSS_LINK__" ""
+			fi
+		}
+
+		# Build the blog post HTML.
+		(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$dateinfo" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile" | python3 toc_builder.py) < templates/post.in.html > "$outfile" &
+	else
+		redirecthtmlpage "$POST_EXTERNAL" > "$outfile" &
+	fi
+
+	rsspost() {
+		if [ -z "$POST_EXTERNAL" ]; then
+			(python3 unrelate.py "https://benleskey.com/blog") < $infile
 		else
-			replacetext "__SERIES_TOP__" "" | replacetext "__SERIES_BOTTOM__" "" | replacetext "__SERIES_RSS_LINK__" ""
+			echo "See <a href='$POST_EXTERNAL'>$POST_EXTERNAL</a>"
 		fi
 	}
 
-	# Build the blog post HTML.
-	(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$dateinfo" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile" | python3 toc_builder.py) < templates/post.in.html > "$outfile" &
-
-	rsspost() {
-		(python3 unrelate.py "https://benleskey.com/blog") < $infile
-	}
-
 	# Build the RSS item XML
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$latestdate + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__LINK__" "https://benleskey.com/blog/$name" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$latestdate + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__GUID_LINK__" "$post_global_link" | replacetext "__LINK__" "$post_base_link" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
 }
 
 # Include the list of posts via source, so it can call the post function.
