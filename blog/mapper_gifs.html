@@ -38,13 +38,15 @@
 		<hr>
 		<header>
 		<h1>OBS Studio -&gt; ffmpeg -&gt; ImageMagick for an optimized gif</h1>
-		<span class="subtitle">2023-04-06</span>
+		<span class="subtitle">2023-04-06, 2023-04-07</span>
 		<span class="tags"> <a class="tag" href="../blog/tags/discovery">#discovery</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/utilities">#utilities</a></span>
 		
 		</header>
 		<hr>
 		<main class="post">
-			<p>I've been working on my presentation to present my <a href="../aka/mappingtool">mapping tool</a> senior Honors project at <a href="https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc">MVNU's <abbr title="Symposium for Undergraduate Research and Creative Work">sURC</abbr></a>. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.</p>
+			<p class="update">Update: The gifs worked! I <a href="mvnu_surc">successfully presented</a> at sURC, and won the top prize.</p>
+
+<p>I've been working on my presentation to present my <a href="../aka/mappingtool">mapping tool</a> senior Honors project at <a href="https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc">MVNU's <abbr title="Symposium for Undergraduate Research and Creative Work">sURC</abbr></a>. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.</p>
 
 <p>I started with <a href="https://obsproject.com/">OBS studio</a> to record the actual video of me drawing a simple map. Then I imported the video into <a href="https://kdenlive.org/">Kdenlive</a> for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.</p>
 
@@ -66,7 +68,7 @@ Here's the final GIF:
 		<footer>
 			
 			<div class="footerinfo">
-				<span>Post dated 2023-04-06</span>
+				<span>Post dated 2023-04-06, 2023-04-07</span>
 				 <a class="tag" href="../blog/tags/discovery">#discovery</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/utilities">#utilities</a>
 				<div class="footericons">
 	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>

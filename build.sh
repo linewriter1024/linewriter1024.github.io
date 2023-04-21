@@ -105,7 +105,7 @@ mkdir -p "$tmp"/tags
 alltags=""
 
 # Maximum blog posts in the "minor" list, i.e. on the front page.
-BMMAX=5
+BMMAX=7
 
 # Maximum blog posts in an RSS feed
 RSSMAX=15
@@ -161,9 +161,11 @@ post() {
 	done < <(echo "$tags" | xargs -n1 | sort | uniq | xargs -n1 --no-run-if-empty)
 
 	dateinfo="$date"
+	latestdate="$date"
 
 	if [ -n "$POST_UPDATED" ]; then
 		dateinfo="$date, $POST_UPDATED"
+		latestdate="$POST_UPDATED"
 	fi
 
 	post_global_link="https://benleskey.com/blog/$name"
@@ -218,7 +220,7 @@ post() {
 	}
 
 	# Build the RSS item XML
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$date + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__GUID_LINK__" "$post_global_link" | replacetext "__LINK__" "$post_base_link" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
+	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$latestdate + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__GUID_LINK__" "$post_global_link" | replacetext "__LINK__" "$post_base_link" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
 }
 
 # Include the list of posts via source, so it can call the post function.
@@ -278,18 +280,21 @@ while read tag; do
 
 	echo "<li><a class='icon' href='__ROOT__/blog/tags/$tag.feed.xml' title='RSS feed'><img src='https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg' alt='RSS feed'></a><a href='__ROOT__/blog/tags/$tag'>$tag</a></li>" >> "$tmp/_tag_list.in.html"
 
-	(replacefile "__ITEMS__" "$tmp/_tag_$tag.html" | replacetext __NUM_POSTS__ "$(wc -l "$tmp/_tag_$tag.html" | cut -d' ' -f1)" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag.in.html > blog/tags/"$tag".html &
 	(replacefile "__FEED_" "$tmp/_tag_feed_$tag.xml" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag_feed.in.xml > blog/tags/"$tag.feed.xml" &
 done < <(echo "$alltags" | xargs -n1 --no-run-if-empty)
 
+while read tag; do
+	(replacefile "__ITEMS__" "$tmp/_tag_$tag.html" | replacetext __NUM_POSTS__ "$(wc -l "$tmp/_tag_$tag.html" | cut -d' ' -f1)" | replacefile __TAG_LIST__ "$tmp/_tag_list.in.html" | replacetext __TAG__ "$tag" | commonreplace ../..) < templates/tag.in.html > blog/tags/"$tag".html &
+done < <(echo "$alltags" | xargs -n1 --no-run-if-empty)
+
 # Build the dedicated blog index page.
-(replacefile "__BLOGMAJOR__" "$tmp/_major.in.html" | replacetext __NUM_POSTS__ "$BN" | replacefile __TAG_LIST__ "$tmp/_tag_list.in.html" | commonreplace ..) < templates/blog.in.html > blog/index.html
+(replacefile "__BLOGMAJOR__" "$tmp/_major.in.html" | replacetext __NUM_POSTS__ "$BN" | replacefile __TAG_LIST__ "$tmp/_tag_list.in.html" | commonreplace ..) < templates/blog.in.html > blog/index.html &
 
 echo " Waiting..."
 wait
 
 echo "Generating RSS feed..."
-(replacefile "__FEED__" "$tmp/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml
+(replacefile "__FEED__" "$tmp/_feed.in.xml" | commonreplace ..) < templates/feed.in.xml > blog/feed.xml &
 
 echo "Processing images..."
 

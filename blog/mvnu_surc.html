@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | First place prize for my mapping tool presentation at MVNU's sURC</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>First place prize for my mapping tool presentation at MVNU's sURC</h1>
+		<span class="subtitle">2023-04-21</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/academics">#academics</a> <a class="tag" href="../blog/tags/mappingtool">#mappingtool</a> <a class="tag" href="../blog/tags/software">#software</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<a href="../images/mapper_gifs_gif.gif"><img class="right" src="../images/mapper_gifs_gif_small.gif" alt="A map being drawn in the mapping tool"></a>
+
+<p>I presented my <a href="../aka/mappingtool">Mapping Tool</a> for fifteen minutes at <a href="https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc">MVNU's <abbr title="Symposium for Undergraduate Research and Creative Work">sURC</abbr></a> on April 5th, taking home the first place prize of the Symposium. My friends and faculty showed up en masse at my presentation, making for a lively Q&amp;A and a really fun time.</p>
+
+<p>sURC itself was interesting. There were around twenty presenters in total. The Honors students presented their senior projects and other students presented their summer research projects in a conference format. In my room we had a wide variety of presentations: an analysis of continuous glucose monitors in diabetic patients, a presentation of a concussion-detecting device for athletes, an examination of religion and spirituality in occupational therapy, and my own software project.</p>
+
+<p>This sURC presentation was my presentation for the Honors program portion of my project, so in it I focused on how user feedback shaped the development of the mapping tool with an overview of project features and the development process. Later I'll have a twenty-five minute presentation on the details of programming.</p>
+
+<p>For more information on the mapping tool, including download links and a quick-start guide, see <a href="../aka/mappingtool">the mapping tool website</a>.</p>
+
+<p>(<a href="mapper_gifs">More about how I made the GIFs</a> used in the presentation.)</p>
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2023-04-21</span>
+				 <a class="tag" href="../blog/tags/academics">#academics</a> <a class="tag" href="../blog/tags/mappingtool">#mappingtool</a> <a class="tag" href="../blog/tags/software">#software</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>

@@ -6,13 +6,15 @@
 		<link>https://benleskey.com/blog/tags/utilities</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 21 Apr 2023 01:43:22 +0000</lastBuildDate>
-		<pubDate>Fri, 21 Apr 2023 01:43:22 +0000</pubDate>
+		<lastBuildDate>Fri, 21 Apr 2023 17:07:38 +0000</lastBuildDate>
+		<pubDate>Fri, 21 Apr 2023 17:07:38 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/utilities.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
 	<description>&lt;div&gt;
+&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
+
 &lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
 
 &lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
@@ -34,7 +36,7 @@ Here&#x27;s the final GIF:
 	<category>discovery</category><category>utilities</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper_gifs</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper_gifs</guid>
-	<pubDate>Thu, 06 Apr 2023 12:00:00 +0000</pubDate>
+	<pubDate>Fri, 07 Apr 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

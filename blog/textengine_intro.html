@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | Toward the ultimate text adventure game engine</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>Toward the ultimate text adventure game engine</h1>
+		<span class="subtitle">2023-04-21</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/discovery">#discovery</a> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/textengine">#textengine</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<ol class="toc">
+<li>
+<a href="#text-adventures">Text adventure</a><ol>
+<li><a href="#why-text">Why text?</a></li>
+<li><a href="#ai">AI?</a></li>
+<li><a href="#muds">MUDs?</a></li>
+<li><a href="#something-new">Something new</a></li>
+</ol>
+</li>
+<li>
+<a href="#goals">Goals</a><ol><li><a href="#go">Learning Go</a></li></ol>
+</li>
+<li><a href="#design">Design</a></li>
+<li><a href="#github">Github repository</a></li>
+</ol>
+
+<ul><li>Github repository: <a href="https://github.com/linewriter1024/textengine">https://github.com/linewriter1024/textengine</a>
+</li></ul>
+
+<h2 id="text-adventures">Text adventure</h2>
+
+<h3 id="why-text">Why text?</h3>
+
+<p>
+	Text-based games have an extremely good <em>complexity/development time</em> ratio. There are no graphics to worry about, no programmer art beyond writing (what luck, I happen to enjoy writing), no controls beyond text processing, no frames per second, et cetera, et cetera. Fully text based games can be even more complex than turn-based 2D roguelike games like <a href="https://cataclysmdda.org/">Cataclysm: DDA</a>. There's just less extra to worry about&#8212;the development focus has one of the most basic interfaces imaginable. Additionally, fully text-based games are perfect for screen readers due to their simple interface (see <a href="https://writing-games.com/building-a-better-mud/">this article</a> about writing a screen-reader friendly text-based game).
+</p>
+
+<p>
+	The specific style of text-based game I'm talking about is the text adventure game. The computer tells you about your environment, your circumstances, and your character, and you choose what your character does or says. It's simple, straightforward, and very reminiscent of the conversational style of a tabletop RPG.
+</p>
+
+<p>The problem is, a human game master will always be better than a computer here, right? A human game master can simulate any situation, can mediate any conflict, can act any character. (I exaggerate, but not very much.) A computer must be programmed to handle every specific situation in the game's world.</p>
+
+<h3 id="ai">AI?</h3>
+<p>
+	You can make <a href="https://chat.openai.com/chat">ChatGPT</a> play a roleplaying game with you. ChatGPT can be the game master, simulate the environment, accept the actions of your character, whatever you might want. A couple of pitfalls prevent full immersion, however. ChatGPT forgets details and must be reminded, and it can't stay on track with a game system, being a more freeform storyteller. I want something better.
+</p>
+
+<h3 id="muds">MUDs?</h3>
+
+<p>
+	The system I have in mind is similar to the <a href="https://en.wikipedia.org/w/index.php?title=MUD&amp;oldid=1140275602">MUD</a> <a href="https://medium.com/@williamson.f93/multi-user-dungeons-muds-what-are-they-and-how-to-play-af3ec0f29f4a">gameplay</a> <a href="https://writing-games.com/what-is-a-mud-multi-user-dungeon/">style</a>, which is fully text-based as you pilot your character through a multiplayer world. MUDs are, however, limited in a number of ways: they are generally room based, their multiplayer nature requires real-time interaction, their systems are quite gamey, and the "dungeon master" is primarily concerned with combat mechanics.
+</p>
+
+<h3 id="something-new">Something new</h3>
+
+<p>I've started work on a new system at <a href="https://github.com/linewriter1024/textengine">https://github.com/linewriter1024/textengine</a>. This <em>text engine</em> is an effort toward building a flexible text-based game engine for simulating any scenario or world.</p>
+
+<h2 id="goals">Goals</h2>
+
+<ul>
+	<li>To simulate combat and action mechanics</li>
+	<li>To handle social interactions</li>
+	<li>To keep track of world events: political affiliations, kingdom economics, famines, shipping routes</li>
+	<li>To support singleplayer play or play with a small party</li>
+	<li>To support any genre of game: high fantasy action, low fantasy economic, sci-fi space battle, zombie apocalypse, etc.</li>
+</ul>
+
+<p>These are very ambitious goals, but the text engine format lends itself well to managing all this complexity without the added requirements of graphical display and control.</p>
+
+<p>This will be a long-term project, so development may be quite slow. There is no time pressure, however, so I can take it at my pace.</p>
+
+<h3 id="go">Learning Go</h3>
+
+<p>This project is also a way for me to learn the Go language, which has some unique syntax and ideas that I think will be perfect for a large text-based game engine like this.</p>
+
+<h2 id="design">Design</h2>
+
+<p>The basic structure is thus: everything in the world, whether a city, a man, a kingdom, a sword, or a lake, is an entity in relationship with other entities, capable of whatever actions and interactions make sense for it.</p>
+
+<p>Let's example a sample scenario to illustrate the idea: a covered <b>wagon</b> of four <b>merchants</b> traveling down a <b>road</b> through a <b>forest</b>, about to be robbed by two <b>bandits</b> with <b>crossbows</b>. You are the lone <b>guard</b> for the <b>wagon</b>, wielding only a <b>sword</b> riding in the <b>front</b> with the <b>driver</b> while the other three <b>merchants</b> are sitting in the <b>back</b>.</p>
+
+<p>Every bold word in that previous paragrah would be an entity (or a few entities). As an example, the wagon is an entity with two entities making it up: the front and the back. In the event that you wanted to hide underneath the wagon, an entity for the underneath would be generated as well. The front of the wagon is an entity that <em>contains</em> you and the driver. This <em>contains</em> relationship would be mirrored by <em>in</em> relationships that you and the driver have with the wagon. The wagon itself is <em>on</em> the road, while the road <em>contains</em> the wagon. The road itself is within the forest, and so forth.</p>
+
+<p>You can see the complex interactions that can happen here. Each of the merchants and bandits has an AI corresponding with their generated personalities and skills, so some of the merchants might draw weapons while others might seek cover in the wagon from the bandits' crowssbows.</p>
+
+<p>Dialogue would be represented by ideas, such as "The king expresses his gratitude with an undercurrent of disdain." or "The bandit threatens you with no trace of reason in his eyes." You can choose to respond however you see fit, by threatening, cajoling, warmly thanking, etc. to influence character's perceptions, attitudes, and ultimately actions.</p>
+
+<p>Attitudes and actions would bubble upward as well to influence cities and kingdoms. If the player was not currently in a city it could be simulated on a macro level rather than each individual character in the city, so that the city's influence and politics would change and existing characters in the city would have their life stories altered without the need for a granular simulation.</p>
+
+<p>I still need to work through the details of the system, and see what implementation issues I run into, but this should provide a base for further development in a new and exciting direction.</p>
+
+<h2 id="github">Github repository</h2>
+<p>I've started work at <a href="https://github.com/linewriter1024/textengine">https://github.com/linewriter1024/textengine</a>. The prototype is not yet a functioning game, but there is a command processing system and the basis of a generic game engine capable of singleplayer and multiplayer text-based gameplay.</p>
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2023-04-21</span>
+				 <a class="tag" href="../blog/tags/discovery">#discovery</a> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/textengine">#textengine</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>

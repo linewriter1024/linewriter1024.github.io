@@ -6,11 +6,110 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 21 Apr 2023 01:43:21 +0000</lastBuildDate>
-		<pubDate>Fri, 21 Apr 2023 01:43:21 +0000</pubDate>
+		<lastBuildDate>Fri, 21 Apr 2023 17:07:38 +0000</lastBuildDate>
+		<pubDate>Fri, 21 Apr 2023 17:07:38 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>First place prize for my mapping tool presentation at MVNU's sURC</title>
+	<description>&lt;div&gt;
+&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
+
+&lt;p&gt;I presented my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;Mapping Tool&lt;/a&gt; for fifteen minutes at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt; on April 5th, taking home the first place prize of the Symposium. My friends and faculty showed up en masse at my presentation, making for a lively Q&amp;amp;A and a really fun time.&lt;/p&gt;
+
+&lt;p&gt;sURC itself was interesting. There were around twenty presenters in total. The Honors students presented their senior projects and other students presented their summer research projects in a conference format. In my room we had a wide variety of presentations: an analysis of continuous glucose monitors in diabetic patients, a presentation of a concussion-detecting device for athletes, an examination of religion and spirituality in occupational therapy, and my own software project.&lt;/p&gt;
+
+&lt;p&gt;This sURC presentation was my presentation for the Honors program portion of my project, so in it I focused on how user feedback shaped the development of the mapping tool with an overview of project features and the development process. Later I&#x27;ll have a twenty-five minute presentation on the details of programming.&lt;/p&gt;
+
+&lt;p&gt;For more information on the mapping tool, including download links and a quick-start guide, see &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;the mapping tool website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;(&lt;a href=&quot;https://benleskey.com/blog/mapper_gifs&quot;&gt;More about how I made the GIFs&lt;/a&gt; used in the presentation.)&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>academics</category><category>mappingtool</category><category>software</category>
+	<link>https://benleskey.com/blog/mvnu_surc</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mvnu_surc</guid>
+	<pubDate>Fri, 21 Apr 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
+	<title>Toward the ultimate text adventure game engine</title>
+	<description>&lt;div&gt;
+&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+
+&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;
+&lt;/li&gt;&lt;/ul&gt;
+
+&lt;h2 id=&quot;text-adventures&quot;&gt;Text adventure&lt;/h2&gt;
+
+&lt;h3 id=&quot;why-text&quot;&gt;Why text?&lt;/h3&gt;
+
+&lt;p&gt;
+	Text-based games have an extremely good &lt;em&gt;complexity/development time&lt;/em&gt; ratio. There are no graphics to worry about, no programmer art beyond writing (what luck, I happen to enjoy writing), no controls beyond text processing, no frames per second, et cetera, et cetera. Fully text based games can be even more complex than turn-based 2D roguelike games like &lt;a href=&quot;https://cataclysmdda.org/&quot;&gt;Cataclysm: DDA&lt;/a&gt;. There&#x27;s just less extra to worry about&amp;#8212;the development focus has one of the most basic interfaces imaginable. Additionally, fully text-based games are perfect for screen readers due to their simple interface (see &lt;a href=&quot;https://writing-games.com/building-a-better-mud/&quot;&gt;this article&lt;/a&gt; about writing a screen-reader friendly text-based game).
+&lt;/p&gt;
+
+&lt;p&gt;
+	The specific style of text-based game I&#x27;m talking about is the text adventure game. The computer tells you about your environment, your circumstances, and your character, and you choose what your character does or says. It&#x27;s simple, straightforward, and very reminiscent of the conversational style of a tabletop RPG.
+&lt;/p&gt;
+
+&lt;p&gt;The problem is, a human game master will always be better than a computer here, right? A human game master can simulate any situation, can mediate any conflict, can act any character. (I exaggerate, but not very much.) A computer must be programmed to handle every specific situation in the game&#x27;s world.&lt;/p&gt;
+
+&lt;h3 id=&quot;ai&quot;&gt;AI?&lt;/h3&gt;
+&lt;p&gt;
+	You can make &lt;a href=&quot;https://chat.openai.com/chat&quot;&gt;ChatGPT&lt;/a&gt; play a roleplaying game with you. ChatGPT can be the game master, simulate the environment, accept the actions of your character, whatever you might want. A couple of pitfalls prevent full immersion, however. ChatGPT forgets details and must be reminded, and it can&#x27;t stay on track with a game system, being a more freeform storyteller. I want something better.
+&lt;/p&gt;
+
+&lt;h3 id=&quot;muds&quot;&gt;MUDs?&lt;/h3&gt;
+
+&lt;p&gt;
+	The system I have in mind is similar to the &lt;a href=&quot;https://en.wikipedia.org/w/index.php?title=MUD&amp;amp;oldid=1140275602&quot;&gt;MUD&lt;/a&gt; &lt;a href=&quot;https://medium.com/@williamson.f93/multi-user-dungeons-muds-what-are-they-and-how-to-play-af3ec0f29f4a&quot;&gt;gameplay&lt;/a&gt; &lt;a href=&quot;https://writing-games.com/what-is-a-mud-multi-user-dungeon/&quot;&gt;style&lt;/a&gt;, which is fully text-based as you pilot your character through a multiplayer world. MUDs are, however, limited in a number of ways: they are generally room based, their multiplayer nature requires real-time interaction, their systems are quite gamey, and the &quot;dungeon master&quot; is primarily concerned with combat mechanics.
+&lt;/p&gt;
+
+&lt;h3 id=&quot;something-new&quot;&gt;Something new&lt;/h3&gt;
+
+&lt;p&gt;I&#x27;ve started work on a new system at &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;. This &lt;em&gt;text engine&lt;/em&gt; is an effort toward building a flexible text-based game engine for simulating any scenario or world.&lt;/p&gt;
+
+&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;To simulate combat and action mechanics&lt;/li&gt;
+	&lt;li&gt;To handle social interactions&lt;/li&gt;
+	&lt;li&gt;To keep track of world events: political affiliations, kingdom economics, famines, shipping routes&lt;/li&gt;
+	&lt;li&gt;To support singleplayer play or play with a small party&lt;/li&gt;
+	&lt;li&gt;To support any genre of game: high fantasy action, low fantasy economic, sci-fi space battle, zombie apocalypse, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These are very ambitious goals, but the text engine format lends itself well to managing all this complexity without the added requirements of graphical display and control.&lt;/p&gt;
+
+&lt;p&gt;This will be a long-term project, so development may be quite slow. There is no time pressure, however, so I can take it at my pace.&lt;/p&gt;
+
+&lt;h3 id=&quot;go&quot;&gt;Learning Go&lt;/h3&gt;
+
+&lt;p&gt;This project is also a way for me to learn the Go language, which has some unique syntax and ideas that I think will be perfect for a large text-based game engine like this.&lt;/p&gt;
+
+&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
+
+&lt;p&gt;The basic structure is thus: everything in the world, whether a city, a man, a kingdom, a sword, or a lake, is an entity in relationship with other entities, capable of whatever actions and interactions make sense for it.&lt;/p&gt;
+
+&lt;p&gt;Let&#x27;s example a sample scenario to illustrate the idea: a covered &lt;b&gt;wagon&lt;/b&gt; of four &lt;b&gt;merchants&lt;/b&gt; traveling down a &lt;b&gt;road&lt;/b&gt; through a &lt;b&gt;forest&lt;/b&gt;, about to be robbed by two &lt;b&gt;bandits&lt;/b&gt; with &lt;b&gt;crossbows&lt;/b&gt;. You are the lone &lt;b&gt;guard&lt;/b&gt; for the &lt;b&gt;wagon&lt;/b&gt;, wielding only a &lt;b&gt;sword&lt;/b&gt; riding in the &lt;b&gt;front&lt;/b&gt; with the &lt;b&gt;driver&lt;/b&gt; while the other three &lt;b&gt;merchants&lt;/b&gt; are sitting in the &lt;b&gt;back&lt;/b&gt;.&lt;/p&gt;
+
+&lt;p&gt;Every bold word in that previous paragrah would be an entity (or a few entities). As an example, the wagon is an entity with two entities making it up: the front and the back. In the event that you wanted to hide underneath the wagon, an entity for the underneath would be generated as well. The front of the wagon is an entity that &lt;em&gt;contains&lt;/em&gt; you and the driver. This &lt;em&gt;contains&lt;/em&gt; relationship would be mirrored by &lt;em&gt;in&lt;/em&gt; relationships that you and the driver have with the wagon. The wagon itself is &lt;em&gt;on&lt;/em&gt; the road, while the road &lt;em&gt;contains&lt;/em&gt; the wagon. The road itself is within the forest, and so forth.&lt;/p&gt;
+
+&lt;p&gt;You can see the complex interactions that can happen here. Each of the merchants and bandits has an AI corresponding with their generated personalities and skills, so some of the merchants might draw weapons while others might seek cover in the wagon from the bandits&#x27; crowssbows.&lt;/p&gt;
+
+&lt;p&gt;Dialogue would be represented by ideas, such as &quot;The king expresses his gratitude with an undercurrent of disdain.&quot; or &quot;The bandit threatens you with no trace of reason in his eyes.&quot; You can choose to respond however you see fit, by threatening, cajoling, warmly thanking, etc. to influence character&#x27;s perceptions, attitudes, and ultimately actions.&lt;/p&gt;
+
+&lt;p&gt;Attitudes and actions would bubble upward as well to influence cities and kingdoms. If the player was not currently in a city it could be simulated on a macro level rather than each individual character in the city, so that the city&#x27;s influence and politics would change and existing characters in the city would have their life stories altered without the need for a granular simulation.&lt;/p&gt;
+
+&lt;p&gt;I still need to work through the details of the system, and see what implementation issues I run into, but this should provide a base for further development in a new and exciting direction.&lt;/p&gt;
+
+&lt;h2 id=&quot;github&quot;&gt;Github repository&lt;/h2&gt;
+&lt;p&gt;I&#x27;ve started work at &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;. The prototype is not yet a functioning game, but there is a command processing system and the basis of a generic game engine capable of singleplayer and multiplayer text-based gameplay.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>textengine</category><category>discovery</category>
+	<link>https://benleskey.com/blog/textengine_intro</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/textengine_intro</guid>
+	<pubDate>Fri, 21 Apr 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>Mapping tool quick start guide</title>
 	<description>See &lt;a href=&#x27;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&#x27;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;</description>
 	<category>mappingtool</category><category>software</category>
@@ -21,6 +120,8 @@
 <item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
 	<description>&lt;div&gt;
+&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
+
 &lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
 
 &lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
@@ -42,7 +143,7 @@ Here&#x27;s the final GIF:
 	<category>discovery</category><category>utilities</category><category>software</category>
 	<link>https://benleskey.com/blog/mapper_gifs</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper_gifs</guid>
-	<pubDate>Thu, 06 Apr 2023 12:00:00 +0000</pubDate>
+	<pubDate>Fri, 07 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
 	<title>I took the ETS major field test for computer science</title>
@@ -539,58 +640,6 @@ post mapper0_1 &quot;Mapping tool 0.1 release&quot; 2022-08-01 &quot;mappingtool
 	<link>https://benleskey.com/blog/mapper0_3</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_3</guid>
 	<pubDate>Wed, 26 Oct 2022 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Mapping tool 0.1 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Hello!&lt;/p&gt;
-&lt;p&gt;I&amp;#8217;m happy to give you and the other testers the first working, testable version of my map making tool designed for authors and storytellers. The map making tool is currently usable to make rudimentary maps, with more improvements on the way&amp;#8211;and your feedback is important!&lt;/p&gt;
-&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_2022_07_30.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_2022_07_30.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;If you have any feedback, questions, or need help running the mapping tool, please let me know!&lt;/p&gt;
-&lt;h2 id=&quot;brief-summary&quot;&gt;Brief Summary&lt;/h2&gt;
-&lt;p&gt;The map making tool for authors and storytellers is in the functional prototype stage and ready for you to test. I need your feedback, input, and comments to decide what features to add, how to fix problems, and how to continue evolving the tool.&lt;/p&gt;
-&lt;h2 id=&quot;quickstart&quot;&gt;Quickstart&lt;/h2&gt;
-&lt;p&gt;Using the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;download&lt;/a&gt; link, you can choose an option for your computer. If you can&amp;#8217;t or don&amp;#8217;t want to download the program, just use the &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;online demo&lt;/a&gt; (currently the live demo works best in Chrome or Edge, Firefox struggles). You do need a computer for this, mobile devices are not yet supported.&lt;/p&gt;
-&lt;p&gt;When you first run the mapping tool, it will load the sample map. You can play around with the sample map, or make your own maps (&lt;em&gt;Ctrl+N&lt;/em&gt; in the app, or &lt;em&gt;Shift+N&lt;/em&gt; in the live demo). All the controls are displayed in the top left corner of the program for now, so you can look there to see what actions you can take.&lt;/p&gt;
-&lt;p&gt;The most basic controls:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;To add stuff to the map: &lt;em&gt;left-click&lt;/em&gt; and drag.&lt;/li&gt;
-&lt;li&gt;To change what you&amp;#8217;re adding to the map, hold &lt;em&gt;W&lt;/em&gt; and &lt;em&gt;scroll&lt;/em&gt; with your mouse or trackpad.&lt;/li&gt;
-&lt;li&gt;To move around the map: &lt;em&gt;right-click&lt;/em&gt; and drag.&lt;/li&gt;
-&lt;li&gt;To zoom in or out: &lt;em&gt;scroll&lt;/em&gt; with your mouse or trackpad.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;If you want to delete stuff from the map, press &lt;em&gt;D&lt;/em&gt; to switch to the delete brush and just &lt;em&gt;left-click&lt;/em&gt; and drag. If you want to go back to adding stuff to the map, press &lt;em&gt;A&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;In this prototype version of the program you can put forests, grasslands, bodies of water, rocky terrain, roadways, and representations of buildings on the map. Change what you are placing by holding &lt;em&gt;W&lt;/em&gt; and &lt;em&gt;scrolling&lt;/em&gt; the mouse or trackpad. Change the sizes of what you are placing by holding &lt;em&gt;Q&lt;/em&gt; and &lt;em&gt;scrolling&lt;/em&gt; the mouse or trackpad. You can name the things you place on the map with &lt;em&gt;N&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;If you are using the desktop app, you can save your map with &lt;em&gt;Ctrl+S&lt;/em&gt;, or you can load a saved map with &lt;em&gt;Ctrl+O&lt;/em&gt;. In the live demo, you can save with &lt;em&gt;Shift+S&lt;/em&gt;, or you can load a saved map with &lt;em&gt;Shift+O&lt;/em&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;future-plans&quot;&gt;Future plans&lt;/h2&gt;
-&lt;p&gt;This version of the mapping tool is a prototype. The graphics rendered&amp;#8211;what the map looks like on screen&amp;#8211;are very simplistic and provide a stylized pixel-based representation of the map objects. The controls are barebones, albiet functional. Some parts of the program are slow due to naive algorithms, though fast enough to be usable.&lt;/p&gt;
-&lt;p&gt;Future versions of the mapping tool will provide better graphics. The underlying system already supports higher-quality graphics but code will need to be added to actually draw more realistic, smoother, or otherwise better maps. Future versions will also have more user-friendly controls and more options for crafting maps exactly as you intend. Future versions will optimize performance for more hardware and platforms for a smooth experience.&lt;/p&gt;
-&lt;p&gt;To build the fully-featured mapping tool, I need &lt;strong&gt;your&lt;/strong&gt; help.&lt;/p&gt;
-&lt;h2 id=&quot;how-you-can-help&quot;&gt;How you can help&lt;/h2&gt;
-&lt;p&gt;What do &lt;strong&gt;you&lt;/strong&gt; want the mapping tool to be? Your input will decide how the mapping tool works and looks. This prototype is a base for future development. Your testing and suggestions are needed to determine what needs changed, added, or removed.&lt;/p&gt;
-&lt;p&gt;Use this first version of the tool to make some maps. Maybe map out a story idea, or just play around with the sample map. You&amp;#8217;ll see what you like, what you don&amp;#8217;t like, and what needs to be changed or improved.&lt;/p&gt;
-&lt;p&gt;Think of what else you want from a mapping tool. What features do you want? Do you want coniferous forests for your story set in northern Canada? Would you prefer menus over keyboard shortcuts? Do you need a map at the level of city streets for your roleplaying adventure? Do you want the program to work better with your computer? Would you prefer the water to be animated? Do you want a way to measure distance between two mountains on the map for plotting your airship novel?&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Please let me know what you think and what you want&lt;/strong&gt;. I will file your suggestions and requests, prioritize them, and improve the mapping tool. As development progresses, I will release more development versions for you and the rest of the testers to test, and you can see how the mapping tool is progressing and give your feedback again on what needs changed, added, and improved.&lt;/p&gt;
-&lt;p&gt;Through this release-feedback-release cycle, the mapping tool will become software built to fit your needs as best it can. If you have any questions, please let me know!&lt;/p&gt;
-&lt;p&gt;And do you have any name suggestions for the project? I would love to hear them!&lt;/p&gt;
-&lt;h2 id=&quot;technical-details&quot;&gt;Technical details&lt;/h2&gt;
-&lt;p&gt;The source code for the mapping tool is hosted at &lt;a href=&quot;https://github.com/mapper1024/mapper1024&quot;&gt;https://github.com/mapper1024/mapper1024&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Quick facts: The mapping tool is&amp;#8230;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Written primarily in &lt;em&gt;Javascript&lt;/em&gt;
-&lt;/li&gt;
-&lt;li&gt;Designed as a component that can be &lt;em&gt;embedded&lt;/em&gt; in other websites, as well as used as a standalone program.&lt;/li&gt;
-&lt;li&gt;Built using the &lt;em&gt;&lt;a href=&quot;https://sqlite.org&quot;&gt;SQLite&lt;/a&gt;&lt;/em&gt; database engine to store the maps.&lt;/li&gt;
-&lt;li&gt;Composed of well over &lt;em&gt;4000&lt;/em&gt; lines of code.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;You can read more about the technical implementation details in the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/doc/Development-Journal.md#functional-prototype-summer-2022&quot;&gt;development journal&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>mappingtool</category><category>release</category><category>software</category>
-	<link>https://benleskey.com/blog/mapper0_1</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_1</guid>
-	<pubDate>Mon, 01 Aug 2022 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>
