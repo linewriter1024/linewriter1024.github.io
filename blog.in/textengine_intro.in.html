@@ -1,5 +1,7 @@
 <ol class="toc"></ol>
 
+<ul><li>Github repository: <a href="https://github.com/linewriter1024/textengine">https://github.com/linewriter1024/textengine</a></li></ul>
+
 <h2 id="text-adventures">Text adventure</h2>
 
 <h3 id="why-text">Why text?</h3>
@@ -22,13 +24,46 @@
 <h3 id="muds">MUDs?</h3>
 
 <p>
-	The system I have in mind is similar to the <a href="https://en.wikipedia.org/w/index.php?title=MUD&amp;oldid=1140275602">MUD</a> <a href="https://medium.com/@williamson.f93/multi-user-dungeons-muds-what-are-they-and-how-to-play-af3ec0f29f4a">gameplay</a> <a href="https://writing-games.com/what-is-a-mud-multi-user-dungeon/">style</a>, which is fully text-based as you pilot your character through a multiplayer world. MUDs are, however, limited in a number of ways.
+	The system I have in mind is similar to the <a href="https://en.wikipedia.org/w/index.php?title=MUD&amp;oldid=1140275602">MUD</a> <a href="https://medium.com/@williamson.f93/multi-user-dungeons-muds-what-are-they-and-how-to-play-af3ec0f29f4a">gameplay</a> <a href="https://writing-games.com/what-is-a-mud-multi-user-dungeon/">style</a>, which is fully text-based as you pilot your character through a multiplayer world. MUDs are, however, limited in a number of ways: they are generally room based, their multiplayer nature requires real-time interaction, their systems are quite gamey, and the "dungeon master" is primarily concerned with combat mechanics.
 </p>
 
 <h3 id="something-new">Something new</h3>
 
+<p>I've started work on a new system at <a href="https://github.com/linewriter1024/textengine">https://github.com/linewriter1024/textengine</a>. This <em>text engine</em> is an effort toward building a flexible text-based game engine for simulating any scenario or world.</p>
+
 <h2 id="goals">Goals</h2>
+
+<ul>
+	<li>To simulate combat and action mechanics</li>
+	<li>To handle social interactions</li>
+	<li>To keep track of world events: political affiliations, kingdom economics, famines, shipping routes</li>
+	<li>To support singleplayer play or play with a small party</li>
+	<li>To support any genre of game: high fantasy action, low fantasy economic, sci-fi space battle, zombie apocalypse, etc.</li>
+</ul>
+
+<p>These are very ambitious goals, but the text engine format lends itself well to managing all this complexity without the added requirements of graphical display and control.</p>
+
+<p>This will be a long-term project, so development may be quite slow. There is no time pressure, however, so I can take it at my pace.</p>
 
 <h3 id="go">Learning Go</h3>
 
+<p>This project is also a way for me to learn the Go language, which has some unique syntax and ideas that I think will be perfect for a large text-based game engine like this.</p>
+
 <h2 id="design">Design</h2>
+
+<p>The basic structure is thus: everything in the world, whether a city, a man, a kingdom, a sword, or a lake, is an entity in relationship with other entities, capable of whatever actions and interactions make sense for it.</p>
+
+<p>Let's example a sample scenario to illustrate the idea: a covered <b>wagon</b> of four <b>merchants</b> traveling down a <b>road</b> through a <b>forest</b>, about to be robbed by two <b>bandits</b> with <b>crossbows</b>. You are the lone <b>guard</b> for the <b>wagon</b>, wielding only a <b>sword</b> riding in the <b>front</b> with the <b>driver</b> while the other three <b>merchants</b> are sitting in the <b>back</b>.</p>
+
+<p>Every bold word in that previous paragrah would be an entity (or a few entities). As an example, the wagon is an entity with two entities making it up: the front and the back. In the event that you wanted to hide underneath the wagon, an entity for the underneath would be generated as well. The front of the wagon is an entity that <em>contains</em> you and the driver. This <em>contains</em> relationship would be mirrored by <em>in</em> relationships that you and the driver have with the wagon. The wagon itself is <em>on</em> the road, while the road <em>contains</em> the wagon. The road itself is within the forest, and so forth.</p>
+
+<p>You can see the complex interactions that can happen here. Each of the merchants and bandits has an AI corresponding with their generated personalities and skills, so some of the merchants might draw weapons while others might seek cover in the wagon from the bandits' crowssbows.</p>
+
+<p>Dialogue would be represented by ideas, such as "The king expresses his gratitude with an undercurrent of disdain." or "The bandit threatens you with no trace of reason in his eyes." You can choose to respond however you see fit, by threatening, cajoling, warmly thanking, etc. to influence character's perceptions, attitudes, and ultimately actions.</p>
+
+<p>Attitudes and actions would bubble upward as well to influence cities and kingdoms. If the player was not currently in a city it could be simulated on a macro level rather than each individual character in the city, so that the city's influence and politics would change and existing characters in the city would have their life stories altered without the need for a granular simulation.</p>
+
+<p>I still need to work through the details of the system, and see what implementation issues I run into, but this should provide a base for further development in a new and exciting direction.</p>
+
+<h2 id="github">Github repository</h2>
+<p>I've started work at <a href="https://github.com/linewriter1024/textengine">https://github.com/linewriter1024/textengine</a>. The prototype is not yet a functioning game, but there is a command processing system and the basis of a generic game engine capable of singleplayer and multiplayer text-based gameplay.</p>
