@@ -51,15 +51,12 @@
 <p>I started with <a href="https://obsproject.com/">OBS studio</a> to record the actual video of me drawing a simple map. Then I imported the video into <a href="https://kdenlive.org/">Kdenlive</a> for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.</p>
 
 <p>With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.</p>
-<p>I then converted the MP4 file using </p>
-<pre><code class="language-bash">ffmpeg -i in.mp4 -vf "scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -r 10 out.gif</code></pre> 10 fps struck a good balance between choppiness and size; I didn't need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
-<p>Then I optimized the gif, lossily, using ImageMagick's mogrify command </p>
-<pre><code class="language-bash">mogrify -layers 'optimize' -fuzz 7% out.gif</code></pre>
+<p>I then converted the MP4 file using </p><pre><code class="language-bash">ffmpeg -i in.mp4 -vf "scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -r 10 out.gif</code></pre> 10 fps struck a good balance between choppiness and size; I didn't need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
+<p>Then I optimized the gif, lossily, using ImageMagick's mogrify command </p><pre><code class="language-bash">mogrify -layers 'optimize' -fuzz 7% out.gif</code></pre>
 
 <p>The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
 
-</p>
-<p>
+</p><p>
 Here's the final GIF:
 <img src="../images/mapper_gifs_gif.gif" alt="A map being drawn in the mapping tool">
 </p>

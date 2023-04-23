@@ -291,3 +291,7 @@ p.meta {
 .update {
     font-style: italic;
 }
+
+p.showcase + * {
+    clear: both;
+}

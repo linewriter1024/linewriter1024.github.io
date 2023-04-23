@@ -6,17 +6,15 @@
 		<link>https://benleskey.com/blog/tags/textengine</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 22 Apr 2023 15:35:15 +0000</lastBuildDate>
-		<pubDate>Sat, 22 Apr 2023 15:35:15 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Apr 2023 19:55:25 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Apr 2023 19:55:25 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/textengine.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>Toward the ultimate text adventure game engine</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
-&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;
-&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h2 id=&quot;text-adventures&quot;&gt;Text adventure&lt;/h2&gt;
 

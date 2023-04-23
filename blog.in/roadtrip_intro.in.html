@@ -1,0 +1,53 @@
+<ol class="toc"></ol>
+<h2 id="introduction">Introduction</h2>
+<p>Github repository: <a href="https://github.com/tigris-mt/roadtrip">https://github.com/tigris-mt/roadtrip</a></p>
+<p>
+	I've begun work on a game project, smaller in scope and more relaxing than the <a href="textengine_intro">text engine project</a>. This new project uses the <a href="https://minetest.net">Minetest</a> engine for voxel graphics, entities, and physics. This game, Roadtrip, is designed along the lines of <a href="https://store.steampowered.com/app/1017180/The_Long_Drive/">The Long Drive</a> as a post-apocalyptic roadtrip simulator and also takes inspiration from <a href="https://cataclysmdda.org">Cataclysm: Dark Days Ahead</a>. It's written in Lua.
+</p>
+<a href="../images/roadtrip.png"><img class="left" src="../thumbs/roadtrip.25.png" alt="roadtrip game prototype"></a>
+
+<h2 id="minetest"><a href="https://minetest.net">Minetest</a> &amp; Voxels</h2>
+
+<p>The Minetest engine provides a solid base for this type of game: procedural generation, low-poly graphics, built-in multiplayer, etc. I have quite a bit of experience with Minetest and Lua, so it's a good choice for game engine since I don't want to put too much development effort into this game. The world will consist of "voxels", blocks like in Minecraft that form the terrain, along with moveable "entities" such as the vehicles and the player.</p>
+
+<h2 id="design">Design</h2>
+
+<p>The basic design of the game is the player driving down a road in a procedurally generated environment. The player must survive (food, water, gasoline/electricity, shelter, etc.) as long as possible while enjoying the view and trip.</p>
+
+<p>Like The Long Drive, Roadtrip will have a long highway extending indefinitely into the distance with a randomly generated environment surrounding it, maybe including side roads or broader road networks. The prototype environment will be a desert, but it will be easy to add new biomes.</p>
+
+<p>In the prototype, the road runs from the south toward the north, with turns and corners defined by an equation that returns the X (east-west) coordinate of the road based on the Z (north-south) coordinate. The current equation is defined as <pre><code language="lua">local z_factor = 60 + 60 * seed_random()
+local z_factor_2 = 160 + 160 * seed_random()
+local x_factor = 60 + 60 * seed_random()
+
+local function road_x(z)
+	return math.floor(math.sin(z / z_factor) * (math.sin(z / z_factor_2) ^ 4) * x_factor + 0.5)
+end</code></pre> where <em>seed_random()</em> is a random generator returning a random number between 0 and 1 according to the world seed. All other properties of the world, like the width of the road at any point, will be defined by similar procedural generation to ensure continuity as each chunk of the map is generated separately.</p>
+
+<h3 id="vehicles">Vehicles</h3>
+
+<p>Vehicles are the focus of Roadtrip, so they will be very customizable. Vehicles will be individual components internally, such as the chassis, the wheels, the doors, etc., which can then be installed together and the models attached to display an entire car, truck, or other vehicle.</p>
+
+<h3 id="survival">Survival</h3>
+
+<p>Survival elements including hunger, thirst, weather, and fuel will drive further exploration and resource gathering. There may be enemies as well, or some other active threat.</p>
+
+<h3 id="exploration">Exploration</h3>
+
+<p>Resources will be available in structures off the road, in abandoned cars, or from natural resources like lakes or trees. This will encourage exploration off road, both with and without a vehicle. Terrain generation can be improved to have hills, valleys, caves, etc. to spice up the landscape.</p>
+
+<h2 id="challenges">Development Challenges</h2>
+
+<p>The Minetest engine is limited in a number of ways that will make development more challenging. I do think my familiarity with the engine along the engine's simplicity will make it worth it, however.</p>
+
+<h3 id="rotation">Rotation</h3>
+
+<p>Most noticably, if the player is attached to an object and the object rotates, the player's viewport does not rotate with the object. My workaround, rotating both at the same time, suffers from network lag causing noticable drift that the player must manually correct. I may need to contribute a feature to the engine to support this for more realistic driving.</p>
+
+<h3 id="collision">Collision</h3>
+
+<p>For performance reasons, an object's collisionbox cannot extend much beyond ~3 nodes in any direction before it starts to break. This means that entities like vehicles can't be too big or their physics won't work. Again, I may need to improve the engine here, or just live with innacurate collision on large vehicles.</p>
+
+<h3 id="hud">Hud &amp; Controls</h3>
+
+<p>Implementing the HUD and controls is a bit of a challenge as the Minetest engine is geared toward a Minecraft-like game. Nevertheless, I should be able to represent the dashboard on the HUD nearly as easily as the player's own stats. Controls are also a little harder, with a limited number of keybinds available to the game. I can use movement keys for driving, and I may be able to use hotbar items for actions like shifting gears or quick access of weapons or tools.</p>

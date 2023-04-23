@@ -6,17 +6,76 @@
 		<link>https://benleskey.com/blog/tags/games</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 22 Apr 2023 15:35:14 +0000</lastBuildDate>
-		<pubDate>Sat, 22 Apr 2023 15:35:14 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Apr 2023 19:55:24 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Apr 2023 19:55:24 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/games.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
-	<title>Toward the ultimate text adventure game engine</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<title>Prototype post-apocalyptic roadtrip simulator for the Minetest engine</title>
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Github repository: &lt;a href=&quot;https://github.com/tigris-mt/roadtrip&quot;&gt;https://github.com/tigris-mt/roadtrip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+	I&#x27;ve begun work on a game project, smaller in scope and more relaxing than the &lt;a href=&quot;https://benleskey.com/blog/textengine_intro&quot;&gt;text engine project&lt;/a&gt;. This new project uses the &lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; engine for voxel graphics, entities, and physics. This game, Roadtrip, is designed along the lines of &lt;a href=&quot;https://store.steampowered.com/app/1017180/The_Long_Drive/&quot;&gt;The Long Drive&lt;/a&gt; as a post-apocalyptic roadtrip simulator and also takes inspiration from &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt;. It&#x27;s written in Lua.
+&lt;/p&gt;
+&lt;a href=&quot;https://benleskey.com/blog/../images/roadtrip.png&quot;&gt;&lt;img class=&quot;left&quot; src=&quot;https://benleskey.com/blog/../thumbs/roadtrip.25.png&quot; alt=&quot;roadtrip game prototype&quot;&gt;&lt;/a&gt;
 
-&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;
-&lt;/li&gt;&lt;/ul&gt;
+&lt;h2 id=&quot;minetest&quot;&gt;&lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; &amp;amp; Voxels&lt;/h2&gt;
+
+&lt;p&gt;The Minetest engine provides a solid base for this type of game: procedural generation, low-poly graphics, built-in multiplayer, etc. I have quite a bit of experience with Minetest and Lua, so it&#x27;s a good choice for game engine since I don&#x27;t want to put too much development effort into this game. The world will consist of &quot;voxels&quot;, blocks like in Minecraft that form the terrain, along with moveable &quot;entities&quot; such as the vehicles and the player.&lt;/p&gt;
+
+&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
+
+&lt;p&gt;The basic design of the game is the player driving down a road in a procedurally generated environment. The player must survive (food, water, gasoline/electricity, shelter, etc.) as long as possible while enjoying the view and trip.&lt;/p&gt;
+
+&lt;p&gt;Like The Long Drive, Roadtrip will have a long highway extending indefinitely into the distance with a randomly generated environment surrounding it, maybe including side roads or broader road networks. The prototype environment will be a desert, but it will be easy to add new biomes.&lt;/p&gt;
+
+&lt;p&gt;In the prototype, the road runs from the south toward the north, with turns and corners defined by an equation that returns the X (east-west) coordinate of the road based on the Z (north-south) coordinate. The current equation is defined as &lt;/p&gt;&lt;pre&gt;&lt;code language=&quot;lua&quot;&gt;local z_factor = 60 + 60 * seed_random()
+local z_factor_2 = 160 + 160 * seed_random()
+local x_factor = 60 + 60 * seed_random()
+
+local function road_x(z)
+	return math.floor(math.sin(z / z_factor) * (math.sin(z / z_factor_2) ^ 4) * x_factor + 0.5)
+end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a random generator returning a random number between 0 and 1 according to the world seed. All other properties of the world, like the width of the road at any point, will be defined by similar procedural generation to ensure continuity as each chunk of the map is generated separately.
+
+&lt;h3 id=&quot;vehicles&quot;&gt;Vehicles&lt;/h3&gt;
+
+&lt;p&gt;Vehicles are the focus of Roadtrip, so they will be very customizable. Vehicles will be individual components internally, such as the chassis, the wheels, the doors, etc., which can then be installed together and the models attached to display an entire car, truck, or other vehicle.&lt;/p&gt;
+
+&lt;h3 id=&quot;survival&quot;&gt;Survival&lt;/h3&gt;
+
+&lt;p&gt;Survival elements including hunger, thirst, weather, and fuel will drive further exploration and resource gathering. There may be enemies as well, or some other active threat.&lt;/p&gt;
+
+&lt;h3 id=&quot;exploration&quot;&gt;Exploration&lt;/h3&gt;
+
+&lt;p&gt;Resources will be available in structures off the road, in abandoned cars, or from natural resources like lakes or trees. This will encourage exploration off road, both with and without a vehicle. Terrain generation can be improved to have hills, valleys, caves, etc. to spice up the landscape.&lt;/p&gt;
+
+&lt;h2 id=&quot;challenges&quot;&gt;Development Challenges&lt;/h2&gt;
+
+&lt;p&gt;The Minetest engine is limited in a number of ways that will make development more challenging. I do think my familiarity with the engine along the engine&#x27;s simplicity will make it worth it, however.&lt;/p&gt;
+
+&lt;h3 id=&quot;rotation&quot;&gt;Rotation&lt;/h3&gt;
+
+&lt;p&gt;Most noticably, if the player is attached to an object and the object rotates, the player&#x27;s viewport does not rotate with the object. My workaround, rotating both at the same time, suffers from network lag causing noticable drift that the player must manually correct. I may need to contribute a feature to the engine to support this for more realistic driving.&lt;/p&gt;
+
+&lt;h3 id=&quot;collision&quot;&gt;Collision&lt;/h3&gt;
+
+&lt;p&gt;For performance reasons, an object&#x27;s collisionbox cannot extend much beyond ~3 nodes in any direction before it starts to break. This means that entities like vehicles can&#x27;t be too big or their physics won&#x27;t work. Again, I may need to improve the engine here, or just live with innacurate collision on large vehicles.&lt;/p&gt;
+
+&lt;h3 id=&quot;hud&quot;&gt;Hud &amp;amp; Controls&lt;/h3&gt;
+
+&lt;p&gt;Implementing the HUD and controls is a bit of a challenge as the Minetest engine is geared toward a Minecraft-like game. Nevertheless, I should be able to represent the dashboard on the HUD nearly as easily as the player&#x27;s own stats. Controls are also a little harder, with a limited number of keybinds available to the game. I can use movement keys for driving, and I may be able to use hotbar items for actions like shifting gears or quick access of weapons or tools.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>roadtrip</category><category>minetest</category><category>games</category><category>software</category>
+	<link>https://benleskey.com/blog/roadtrip_intro</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/roadtrip_intro</guid>
+	<pubDate>Sun, 23 Apr 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
+	<title>Toward the ultimate text adventure game engine</title>
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+
+&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h2 id=&quot;text-adventures&quot;&gt;Text adventure&lt;/h2&gt;
 
@@ -91,8 +150,7 @@
 </item>
 <item>
 	<title>CDDA big world showcase: Ernie's great road trip</title>
-	<description>&lt;div&gt;
-&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
+	<description>&lt;div&gt;&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
 
 &lt;p&gt;If you like road trips through the post apocalyptic rural wasteland, I&#x27;ve got the right &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; world generation settings for you!&lt;/p&gt;
 
@@ -113,15 +171,13 @@
 </item>
 <item>
 	<title>30th DCSS win: Octopode Cinder Acolyte of Jiyva</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	I successfully ascended with my 30th win in the &lt;a href=&quot;https://crawl.develz.org&quot;&gt;Dungeon Crawl: Stone Soup&lt;/a&gt; roguelike, playing an Octopode Cinder Acolyte of Jiyva. This was a really fun run, relying on Statue Form and Dragon&#x27;s Call by the end. Dragon&#x27;s Call, in particular, seems like one of the most powerful, if not &lt;em&gt;the&lt;/em&gt; most powerful, spells.
 &lt;/p&gt;
 
 &lt;p&gt;
 The &lt;a href=&quot;https://crawl.kelbi.org/crawl/morgue/Nornya/morgue-Nornya-20230329-020302.txt&quot;&gt;morgue file&lt;/a&gt; from &lt;a href=&quot;https://crawl.kelbi.org&quot;&gt;CKO&lt;/a&gt; is included below:
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
  Dungeon Crawl Stone Soup version 0.30-a0-954-gcf5f444c16 (webtiles) character file.
 
 Game seed: 1080748785831329360
@@ -1725,8 +1781,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Erik Otto #5: Gaining allies</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
 &lt;h2 id=&quot;exploration&quot;&gt;Exploration&lt;/h2&gt;
 
@@ -1865,8 +1920,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Erik Otto #4: Arsenal</title>
-	<description>&lt;div&gt;
-&lt;p&gt;With lockpicks in hand, Erik drives out to the wind turbines to pick their locks and survey the area.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;With lockpicks in hand, Erik drives out to the wind turbines to pick their locks and survey the area.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/4/picking_lock.png&quot; alt=&quot;&quot;&gt;
 
@@ -1964,8 +2018,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Erik Otto #3: Preparing for battle</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
 &lt;p&gt;Now that the base is set up, Erik can start more organized exploration and raids. To manage having a large number of followers&amp;#8212;when he gets them&amp;#8212;he needs to set up stations for people to suit up and suit down.&lt;/p&gt;
 
@@ -1996,8 +2049,7 @@ Depths:2: 1572 daAuts
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/ranch.png&quot; alt=&quot;&quot;&gt;
 
-&lt;/p&gt;
-&lt;p&gt;Up near the huge city, Erik finds a ranch with a gas station nearby. The city filled with zombies is uncomfortably close, but he makes sure to stay out of dead earshot.&lt;/p&gt;
+&lt;/p&gt;&lt;p&gt;Up near the huge city, Erik finds a ranch with a gas station nearby. The city filled with zombies is uncomfortably close, but he makes sure to stay out of dead earshot.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/steam%20tractor.png&quot; alt=&quot;&quot;&gt;
 
@@ -2029,8 +2081,7 @@ Depths:2: 1572 daAuts
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/helipad.png&quot; alt=&quot;&quot;&gt;
 
-&lt;/p&gt;
-&lt;p&gt;The helipad itself is a small military base, very accessible.&lt;/p&gt;
+&lt;/p&gt;&lt;p&gt;The helipad itself is a small military base, very accessible.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/helipad%20fuel.png&quot; alt=&quot;&quot;&gt;
 
@@ -2100,8 +2151,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Erik Otto #2: Base building and car collecting</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	Erik and Alejandro have established a base, but now they need supplies, food, weapons, and vehicles. It&#x27;s time to go exploring and looting. They purchase ammunition from the refugee center by trading novels&amp;#8212;apparently the refugees love reading&amp;#8212;and hit the road in their RV. Tools are the first priority, so they can get vehicles working and build up their base.
 &lt;/p&gt;
 
@@ -2168,8 +2218,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Erik Otto #1: Used car cult salesman</title>
-	<description>&lt;div&gt;
-&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
+	<description>&lt;div&gt;&lt;h2 id=&quot;intro&quot;&gt;Intro&lt;/h2&gt;
 
 &lt;p&gt;It&#x27;s time for a new &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; let&#x27;s play!&lt;/p&gt;
 
@@ -2383,8 +2432,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>CDDA let's play: Post-mortem</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I tried my hand at a &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; screenshot and text let&#x27;s play, featuring &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_raymon&quot;&gt;Raymon Ortega: Would-be Wizard&lt;/a&gt;. It was really fun to write, but there&#x27;s a few points I&#x27;ll remember for next time:&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I tried my hand at a &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; screenshot and text let&#x27;s play, featuring &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_raymon&quot;&gt;Raymon Ortega: Would-be Wizard&lt;/a&gt;. It was really fun to write, but there&#x27;s a few points I&#x27;ll remember for next time:&lt;/p&gt;
 
 &lt;ul&gt;
 	&lt;li&gt;Choose a more active start. Most of this let&#x27;s play wasn&#x27;t very exciting, just trying to get to the refugee center. There wasn&#x27;t much action. Maybe a megacity playthrough?&lt;/li&gt;
@@ -2401,8 +2449,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Raymon Ortega #4: The End</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
 &lt;p&gt;&lt;em&gt;In the previous episode:&lt;/em&gt; Raymon camped out for a couple nights below a city, looting and fighting. After looting and fighting for a while, and discovering there was no way around the city from where he was, he hopped into his SUV and backtracked to try and find an off-road path back to a route toward the refugee center.&lt;/p&gt;
 
@@ -2631,8 +2678,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Raymon Ortega #3: Camping out of town</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
 &lt;h2 id=&quot;first_night&quot;&gt;First Night&lt;/h2&gt;
 
@@ -2920,8 +2966,7 @@ Depths:2: 1572 daAuts
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/3/try_here.png&quot; alt=&quot;&quot;&gt;
 
-&lt;/p&gt;
-&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
 	He consults his hastily drawn maps and decides the best place to drive cross-country is there, just above the hunting lodge. If there&#x27;s an opening in the forest, he can drive up toward the refugee center until he hits roads again.
 &lt;/p&gt;
 
@@ -2944,8 +2989,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Raymon Ortega #2: Battery Heist and a Sweet Chariot</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
 &lt;h2 id=&quot;foot&quot;&gt;On foot&lt;/h2&gt;
 
@@ -3276,8 +3320,7 @@ Depths:2: 1572 daAuts
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/2/removed_battery.png&quot; alt=&quot;&quot;&gt;
 
-&lt;/p&gt;
-&lt;p&gt;Then Raymon slips outside and removes the battery. It takes less than a minute, and the scrapper suspects nothing.&lt;/p&gt;
+&lt;/p&gt;&lt;p&gt;Then Raymon slips outside and removes the battery. It takes less than a minute, and the scrapper suspects nothing.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/2/left_behind_spear.png&quot; alt=&quot;&quot;&gt;
 
@@ -3603,8 +3646,7 @@ Depths:2: 1572 daAuts
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/2/wrecked_military_truck.png&quot; alt=&quot;&quot;&gt;
 
-&lt;/p&gt;
-&lt;p&gt;There was a pulverized wreck of a military truck on the side of the road as Raymon rounded another bend. No use to him now.&lt;/p&gt;
+&lt;/p&gt;&lt;p&gt;There was a pulverized wreck of a military truck on the side of the road as Raymon rounded another bend. No use to him now.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/2/riot_control.png&quot; alt=&quot;&quot;&gt;
 
@@ -3623,8 +3665,7 @@ Depths:2: 1572 daAuts
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/2/mall_2.png&quot; alt=&quot;&quot;&gt;
 
-&lt;/p&gt;
-&lt;p&gt;He drives parallel to the horde, heading north.&lt;/p&gt;
+&lt;/p&gt;&lt;p&gt;He drives parallel to the horde, heading north.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/2/quick_siphon.png&quot; alt=&quot;&quot;&gt;
 
@@ -3803,8 +3844,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Raymon Ortega #1: Would-be Wizard</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I&#x27;m starting a new &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; (CDDA) game, and I thought&#x27;d be cool to document my adventures. Maybe it&#x27;ll force me to play more thoughtfully, not falling victim to that classic killer of permadeath roguelikes: &lt;em&gt;Hubris&lt;/em&gt;.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I&#x27;m starting a new &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; (CDDA) game, and I thought&#x27;d be cool to document my adventures. Maybe it&#x27;ll force me to play more thoughtfully, not falling victim to that classic killer of permadeath roguelikes: &lt;em&gt;Hubris&lt;/em&gt;.&lt;/p&gt;
 
 &lt;figure&gt;
 	&lt;blockquote cite=&quot;https://cataclysmdda.org&quot;&gt;
@@ -3830,35 +3870,22 @@ Depths:2: 1572 daAuts
 &lt;/p&gt;
 
 &lt;ul&gt;
-	&lt;li&gt;
-&lt;strong&gt;Strength&lt;/strong&gt;: How tough you are and how much stuff you can carry. Raymon&#x27;s got 8, so he&#x27;s completely average. This might cause us problems later.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Dexterity&lt;/strong&gt;: Helps with dodging, ranged weapons, etc. 7 is below average but ok.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Intelligence&lt;/strong&gt;: Helps with reading books to learn stuff and with magic. We&#x27;ve got 14, which is extremely good.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Perception&lt;/strong&gt;: Helps with critical hits, ranged weapons, avoiding traps, etc. Like dexterity, we&#x27;ve got 7, which is ok but not great.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Strength&lt;/strong&gt;: How tough you are and how much stuff you can carry. Raymon&#x27;s got 8, so he&#x27;s completely average. This might cause us problems later.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Dexterity&lt;/strong&gt;: Helps with dodging, ranged weapons, etc. 7 is below average but ok.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Intelligence&lt;/strong&gt;: Helps with reading books to learn stuff and with magic. We&#x27;ve got 14, which is extremely good.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Perception&lt;/strong&gt;: Helps with critical hits, ranged weapons, avoiding traps, etc. Like dexterity, we&#x27;ve got 7, which is ok but not great.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;ul&gt;
-	&lt;li&gt;
-&lt;strong&gt;Bookworm&lt;/strong&gt;: Raymon loves reading! Reading makes him happy, and he gets much less upset than most people if he has to read dry textbooks or technical manuals.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Fast Reader&lt;/strong&gt;: Raymon gets through books really quickly. This, plus his high intelligence, means books will be a breeze to read.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Light Step&lt;/strong&gt;: We&#x27;ll be a little better at sneaking around.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Mana Efficiency, Regeneration, Sensitivity&lt;/strong&gt;: Raymon has a &lt;em&gt;lot&lt;/em&gt; of mana, used for casting magic, and it regenerates quickly.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Far-Sighted &amp;amp; Near-Sighted&lt;/strong&gt;: Raymon needs bifocal glasses or he&#x27;ll suffer vision penalties. Fortunantely, we start with a pair.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Flims&lt;/strong&gt;y: Raymon has 25% less hitpoints than usual. This is bad.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Poor Hearing&lt;/strong&gt;: Noises are less noticable. This might be a problem if we can&#x27;t hear the zombie shuffling around in the next room.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Squeamish&lt;/strong&gt;: Raymon can&#x27;t put on filthy clothes. This is hardly even a penalty, just free points for character creation.&lt;/li&gt;
-	&lt;li&gt;
-&lt;strong&gt;Truth Teller&lt;/strong&gt;: It&#x27;s hard to tell lies to NPCs, but we probably won&#x27;t need to tell any anyway.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Bookworm&lt;/strong&gt;: Raymon loves reading! Reading makes him happy, and he gets much less upset than most people if he has to read dry textbooks or technical manuals.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Fast Reader&lt;/strong&gt;: Raymon gets through books really quickly. This, plus his high intelligence, means books will be a breeze to read.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Light Step&lt;/strong&gt;: We&#x27;ll be a little better at sneaking around.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Mana Efficiency, Regeneration, Sensitivity&lt;/strong&gt;: Raymon has a &lt;em&gt;lot&lt;/em&gt; of mana, used for casting magic, and it regenerates quickly.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Far-Sighted &amp;amp; Near-Sighted&lt;/strong&gt;: Raymon needs bifocal glasses or he&#x27;ll suffer vision penalties. Fortunantely, we start with a pair.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Flims&lt;/strong&gt;y: Raymon has 25% less hitpoints than usual. This is bad.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Poor Hearing&lt;/strong&gt;: Noises are less noticable. This might be a problem if we can&#x27;t hear the zombie shuffling around in the next room.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Squeamish&lt;/strong&gt;: Raymon can&#x27;t put on filthy clothes. This is hardly even a penalty, just free points for character creation.&lt;/li&gt;
+	&lt;li&gt;&lt;strong&gt;Truth Teller&lt;/strong&gt;: It&#x27;s hard to tell lies to NPCs, but we probably won&#x27;t need to tell any anyway.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Raymon&#x27;s initial skills are all in the crafting skills: fabrication, tailoring, etc. which will give us a bit of a leg up as we start to craft before we get books.&lt;/p&gt;
@@ -4103,15 +4130,13 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>29th DCSS win: Naga Hexslinger</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	I just got my 29th win in the &lt;a href=&quot;https://crawl.develz.org&quot;&gt;Dungeon Crawl: Stone Soup&lt;/a&gt; roguelike, playing a Naga Hexslinger of Hep.
 &lt;/p&gt;
 
 &lt;p&gt;
 The &lt;a href=&quot;https://crawl.kelbi.org/crawl/morgue/Nornya/morgue-Nornya-20230125-064653.txt&quot;&gt;morgue file&lt;/a&gt; from &lt;a href=&quot;https://crawl.kelbi.org&quot;&gt;CKO&lt;/a&gt; is included below:
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
 Dungeon Crawl Stone Soup version 0.30-a0-691-g754fce4c43 (webtiles) character file.
 
 Game seed: 7588034671027407147

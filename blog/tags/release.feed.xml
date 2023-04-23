@@ -6,14 +6,13 @@
 		<link>https://benleskey.com/blog/tags/release</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 22 Apr 2023 15:35:14 +0000</lastBuildDate>
-		<pubDate>Sat, 22 Apr 2023 15:35:14 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Apr 2023 19:55:24 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Apr 2023 19:55:24 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/release.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>Mapping tool 0.6 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/QsYyZ4sCpqzHtaX7A&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
@@ -36,8 +35,7 @@
 </item>
 <item>
 	<title>Mapping tool 0.5 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Hello all!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;Hello all!&lt;/p&gt;
 &lt;p&gt;Here&amp;#8217;s version 0.5 of the mapping tool!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
@@ -64,8 +62,7 @@
 </item>
 <item>
 	<title>Mapping tool 0.4 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Hi!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;Hi!&lt;/p&gt;
 &lt;p&gt;Version 0.4 of the mapping tool is out!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
@@ -91,8 +88,7 @@
 </item>
 <item>
 	<title>Mapping tool 0.3 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Hello all!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;Hello all!&lt;/p&gt;
 &lt;p&gt;The next major version of my map making tool is released!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
@@ -129,8 +125,7 @@
 </item>
 <item>
 	<title>Mapping tool 0.1 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Hello!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;Hello!&lt;/p&gt;
 &lt;p&gt;I&amp;#8217;m happy to give you and the other testers the first working, testable version of my map making tool designed for authors and storytellers. The map making tool is currently usable to make rudimentary maps, with more improvements on the way&amp;#8211;and your feedback is important!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
@@ -166,8 +161,7 @@
 &lt;p&gt;The source code for the mapping tool is hosted at &lt;a href=&quot;https://github.com/mapper1024/mapper1024&quot;&gt;https://github.com/mapper1024/mapper1024&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Quick facts: The mapping tool is&amp;#8230;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Written primarily in &lt;em&gt;Javascript&lt;/em&gt;
-&lt;/li&gt;
+&lt;li&gt;Written primarily in &lt;em&gt;Javascript&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;Designed as a component that can be &lt;em&gt;embedded&lt;/em&gt; in other websites, as well as used as a standalone program.&lt;/li&gt;
 &lt;li&gt;Built using the &lt;em&gt;&lt;a href=&quot;https://sqlite.org&quot;&gt;SQLite&lt;/a&gt;&lt;/em&gt; database engine to store the maps.&lt;/li&gt;
 &lt;li&gt;Composed of well over &lt;em&gt;4000&lt;/em&gt; lines of code.&lt;/li&gt;

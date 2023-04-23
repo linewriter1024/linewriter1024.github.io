@@ -6,14 +6,74 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 22 Apr 2023 15:35:14 +0000</lastBuildDate>
-		<pubDate>Sat, 22 Apr 2023 15:35:14 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Apr 2023 19:55:24 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Apr 2023 19:55:24 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Prototype post-apocalyptic roadtrip simulator for the Minetest engine</title>
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Github repository: &lt;a href=&quot;https://github.com/tigris-mt/roadtrip&quot;&gt;https://github.com/tigris-mt/roadtrip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+	I&#x27;ve begun work on a game project, smaller in scope and more relaxing than the &lt;a href=&quot;https://benleskey.com/blog/textengine_intro&quot;&gt;text engine project&lt;/a&gt;. This new project uses the &lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; engine for voxel graphics, entities, and physics. This game, Roadtrip, is designed along the lines of &lt;a href=&quot;https://store.steampowered.com/app/1017180/The_Long_Drive/&quot;&gt;The Long Drive&lt;/a&gt; as a post-apocalyptic roadtrip simulator and also takes inspiration from &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt;. It&#x27;s written in Lua.
+&lt;/p&gt;
+&lt;a href=&quot;https://benleskey.com/blog/../images/roadtrip.png&quot;&gt;&lt;img class=&quot;left&quot; src=&quot;https://benleskey.com/blog/../thumbs/roadtrip.25.png&quot; alt=&quot;roadtrip game prototype&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;minetest&quot;&gt;&lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; &amp;amp; Voxels&lt;/h2&gt;
+
+&lt;p&gt;The Minetest engine provides a solid base for this type of game: procedural generation, low-poly graphics, built-in multiplayer, etc. I have quite a bit of experience with Minetest and Lua, so it&#x27;s a good choice for game engine since I don&#x27;t want to put too much development effort into this game. The world will consist of &quot;voxels&quot;, blocks like in Minecraft that form the terrain, along with moveable &quot;entities&quot; such as the vehicles and the player.&lt;/p&gt;
+
+&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
+
+&lt;p&gt;The basic design of the game is the player driving down a road in a procedurally generated environment. The player must survive (food, water, gasoline/electricity, shelter, etc.) as long as possible while enjoying the view and trip.&lt;/p&gt;
+
+&lt;p&gt;Like The Long Drive, Roadtrip will have a long highway extending indefinitely into the distance with a randomly generated environment surrounding it, maybe including side roads or broader road networks. The prototype environment will be a desert, but it will be easy to add new biomes.&lt;/p&gt;
+
+&lt;p&gt;In the prototype, the road runs from the south toward the north, with turns and corners defined by an equation that returns the X (east-west) coordinate of the road based on the Z (north-south) coordinate. The current equation is defined as &lt;/p&gt;&lt;pre&gt;&lt;code language=&quot;lua&quot;&gt;local z_factor = 60 + 60 * seed_random()
+local z_factor_2 = 160 + 160 * seed_random()
+local x_factor = 60 + 60 * seed_random()
+
+local function road_x(z)
+	return math.floor(math.sin(z / z_factor) * (math.sin(z / z_factor_2) ^ 4) * x_factor + 0.5)
+end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a random generator returning a random number between 0 and 1 according to the world seed. All other properties of the world, like the width of the road at any point, will be defined by similar procedural generation to ensure continuity as each chunk of the map is generated separately.
+
+&lt;h3 id=&quot;vehicles&quot;&gt;Vehicles&lt;/h3&gt;
+
+&lt;p&gt;Vehicles are the focus of Roadtrip, so they will be very customizable. Vehicles will be individual components internally, such as the chassis, the wheels, the doors, etc., which can then be installed together and the models attached to display an entire car, truck, or other vehicle.&lt;/p&gt;
+
+&lt;h3 id=&quot;survival&quot;&gt;Survival&lt;/h3&gt;
+
+&lt;p&gt;Survival elements including hunger, thirst, weather, and fuel will drive further exploration and resource gathering. There may be enemies as well, or some other active threat.&lt;/p&gt;
+
+&lt;h3 id=&quot;exploration&quot;&gt;Exploration&lt;/h3&gt;
+
+&lt;p&gt;Resources will be available in structures off the road, in abandoned cars, or from natural resources like lakes or trees. This will encourage exploration off road, both with and without a vehicle. Terrain generation can be improved to have hills, valleys, caves, etc. to spice up the landscape.&lt;/p&gt;
+
+&lt;h2 id=&quot;challenges&quot;&gt;Development Challenges&lt;/h2&gt;
+
+&lt;p&gt;The Minetest engine is limited in a number of ways that will make development more challenging. I do think my familiarity with the engine along the engine&#x27;s simplicity will make it worth it, however.&lt;/p&gt;
+
+&lt;h3 id=&quot;rotation&quot;&gt;Rotation&lt;/h3&gt;
+
+&lt;p&gt;Most noticably, if the player is attached to an object and the object rotates, the player&#x27;s viewport does not rotate with the object. My workaround, rotating both at the same time, suffers from network lag causing noticable drift that the player must manually correct. I may need to contribute a feature to the engine to support this for more realistic driving.&lt;/p&gt;
+
+&lt;h3 id=&quot;collision&quot;&gt;Collision&lt;/h3&gt;
+
+&lt;p&gt;For performance reasons, an object&#x27;s collisionbox cannot extend much beyond ~3 nodes in any direction before it starts to break. This means that entities like vehicles can&#x27;t be too big or their physics won&#x27;t work. Again, I may need to improve the engine here, or just live with innacurate collision on large vehicles.&lt;/p&gt;
+
+&lt;h3 id=&quot;hud&quot;&gt;Hud &amp;amp; Controls&lt;/h3&gt;
+
+&lt;p&gt;Implementing the HUD and controls is a bit of a challenge as the Minetest engine is geared toward a Minecraft-like game. Nevertheless, I should be able to represent the dashboard on the HUD nearly as easily as the player&#x27;s own stats. Controls are also a little harder, with a limited number of keybinds available to the game. I can use movement keys for driving, and I may be able to use hotbar items for actions like shifting gears or quick access of weapons or tools.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>roadtrip</category><category>minetest</category><category>games</category><category>software</category>
+	<link>https://benleskey.com/blog/roadtrip_intro</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/roadtrip_intro</guid>
+	<pubDate>Sun, 23 Apr 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>First place prize for my mapping tool presentation at MVNU's sURC</title>
-	<description>&lt;div&gt;
-&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
+	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
 
 &lt;p&gt;I presented my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;Mapping Tool&lt;/a&gt; for fifteen minutes at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt; on April 5th, taking home the first place prize of the Symposium. My friends and faculty showed up en masse at my presentation, making for a lively Q&amp;amp;A and a really fun time.&lt;/p&gt;
 
@@ -32,11 +92,9 @@
 </item>
 <item>
 	<title>Toward the ultimate text adventure game engine</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
-&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;
-&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h2 id=&quot;text-adventures&quot;&gt;Text adventure&lt;/h2&gt;
 
@@ -119,23 +177,19 @@
 </item>
 <item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
-	<description>&lt;div&gt;
-&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
 
 &lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
 
 &lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
 
 &lt;p&gt;With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.&lt;/p&gt;
-&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
-&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
+&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
 
-&lt;/p&gt;
-&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
 Here&#x27;s the final GIF:
 &lt;img src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;
 &lt;/p&gt;
@@ -147,8 +201,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>I took the ETS major field test for computer science</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	Every senior student at &lt;a href=&quot;https://mvnu.edu&quot;&gt;MVNU&lt;/a&gt; takes a standardized assessment. The assessment lets MVNU administration compare how well their students are doing against other institutions, and how well each program is teaching the fundamentals of the program&#x27;s field. In my case the assessment was the &lt;a href=&quot;https://www.ets.org/content/dam/ets-org/pdfs/mft/comp-sci-test-description.pdf&quot;&gt;ETS major field test for computer science&lt;/a&gt;.
 &lt;/p&gt;
 
@@ -185,8 +238,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>Debugging slow boot and a clogged router</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends&#x27; home Wi-Fi, but the connection failed.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends&#x27; home Wi-Fi, but the connection failed.&lt;/p&gt;
 
 &lt;p&gt;This was odd:&lt;/p&gt;
 &lt;ul&gt;
@@ -251,8 +303,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>Mapping tool 0.6 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/QsYyZ4sCpqzHtaX7A&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
@@ -275,8 +326,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>Autodrive into a crater fix</title>
-	<description>&lt;div&gt;
-&lt;a href=&quot;https://benleskey.com/blog/../images/cdda_truck_in_hole.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cdda_truck_in_hole.50.png&quot; alt=&quot;A pickup truck fallen into a crater in Cataclysm: Dark Days Ahead&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
+	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/cdda_truck_in_hole.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cdda_truck_in_hole.50.png&quot; alt=&quot;A pickup truck fallen into a crater in Cataclysm: Dark Days Ahead&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
 
 &lt;p&gt;
 	In my current &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_erik&quot;&gt;playthrough&lt;/a&gt;, I ran into a problem with the autodrive feature: it&#x27;d drive me straight into a crater and crash the vehicle.
@@ -295,8 +345,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>More RSS feeds!</title>
-	<description>&lt;div&gt;
-&lt;p&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mappingtool_tag.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;mappingtool tag page&quot; src=&quot;https://benleskey.com/blog/../thumbs/mappingtool_tag.50.png&quot;&gt;&lt;/a&gt;I&#x27;ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool&quot;&gt;the mappingtool tag&lt;/a&gt;. I can, in this way, use my blog easily as a set of smaller blogs for each category.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mappingtool_tag.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;mappingtool tag page&quot; src=&quot;https://benleskey.com/blog/../thumbs/mappingtool_tag.50.png&quot;&gt;&lt;/a&gt;I&#x27;ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool&quot;&gt;the mappingtool tag&lt;/a&gt;. I can, in this way, use my blog easily as a set of smaller blogs for each category.&lt;/p&gt;
 
 &lt;p&gt;This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn&#x27;t commit temporary files and doesn&#x27;t need to work so hard to find the root of the website when I&#x27;m already passing that information in the script. I do need to refactor it more, it&#x27;s getting rather unwieldy, though still pretty simple to work with.&lt;/p&gt;
 &lt;/div&gt;</description>
@@ -307,8 +356,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>I'm on diff.blog</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	&lt;img class=&quot;right&quot; alt=&quot;diffblogbot starring the linewriter1024.github.io repository&quot; src=&quot;https://benleskey.com/blog/../images/diff_blog_starred.png&quot;&gt;
 	I saw yesterday that &lt;a href=&quot;https://diff.blog&quot;&gt;diff.blog&lt;/a&gt;&#x27;s bot account on Github had starred the repository for this website. I clicked through to their &lt;a href=&quot;https://github.com/diffblogbot&quot;&gt;Github page&lt;/a&gt;, which described diff.blog as &lt;q cite=&quot;https://github.com/diffblogbot&quot;&gt;an aggregator of developer blogs&amp;#8230; started in 2019 to improve the visibility of self hosted blogs&lt;/q&gt;.
 	I followed the directions in their README and signed in to diff.blog with my Github account. Once there, I added the URL of &lt;a href=&quot;https://benleskey.com/blog/../blog&quot;&gt;my blog&lt;/a&gt; to my account settings and diff.blog crawled my RSS feed. Once I saw how it was using the RSS item descriptions to generate summaries, I improved my build script to actually generate a description instead of just a list of tags. Now my blog is fully functional on diff.blog!
@@ -336,8 +384,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>I made an RSS feed!</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I made an &lt;a href=&quot;https://benleskey.com/blog/feed.xml&quot;&gt;RSS feed&lt;/a&gt; for my blog! It&#x27;s a really simple format; I was able to implement my feed just by following the &lt;a href=&quot;https://validator.w3.org/feed/docs/rss2.html&quot;&gt;RSS 2.0 spec&lt;/a&gt;. Of course, RSS readers are a little less common than they were a decade ago; but there are plenty of extensions for Firefox---I&#x27;m using &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/rsspreview/&quot;&gt;RSSPreview&lt;/a&gt; just to test the feed---and with how easy it was to extend my blog generator to generate XML alongside HTML I figured it was better to have a feed than not.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I made an &lt;a href=&quot;https://benleskey.com/blog/feed.xml&quot;&gt;RSS feed&lt;/a&gt; for my blog! It&#x27;s a really simple format; I was able to implement my feed just by following the &lt;a href=&quot;https://validator.w3.org/feed/docs/rss2.html&quot;&gt;RSS 2.0 spec&lt;/a&gt;. Of course, RSS readers are a little less common than they were a decade ago; but there are plenty of extensions for Firefox---I&#x27;m using &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/rsspreview/&quot;&gt;RSSPreview&lt;/a&gt; just to test the feed---and with how easy it was to extend my blog generator to generate XML alongside HTML I figured it was better to have a feed than not.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../images/cyberTOAD.jpg&quot; alt=&quot;Image of the cyberTOAD&amp;#8482;&quot;&gt;
 &lt;/div&gt;</description>
@@ -348,8 +395,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>Mapping tool 0.5 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Hello all!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;Hello all!&lt;/p&gt;
 &lt;p&gt;Here&amp;#8217;s version 0.5 of the mapping tool!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
@@ -376,11 +422,9 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>benleskey.com build script</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script---as of writing---that compiles the website is fully commented and included below, along with the data file listing all the blog posts.
-&lt;/p&gt;
-&lt;ul&gt;
+&lt;/p&gt;&lt;ul&gt;
 	&lt;li&gt;&lt;a href=&quot;https://benleskey.com/blog/#build&quot;&gt;build.sh&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;https://benleskey.com/blog/#posts&quot;&gt;posts.sh&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -388,8 +432,7 @@ This website is static HTML, CSS, and Javascript. There is a build script that c
 
 &lt;h2 id=&quot;build&quot;&gt;build.sh&lt;/h2&gt;
 &lt;p&gt;
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
 &lt;code class=&quot;language-bash&quot;&gt;
 #!/bin/bash
 
@@ -505,7 +548,7 @@ post() {
 	echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $smalltaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-04-22&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-04-23&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
 }
 
 echo &quot;Blog...&quot;
@@ -530,7 +573,7 @@ echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 (
 	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
 	# The date of generation is included on the main page.
-	replacetext &quot;2023-04-22&quot; &quot;$(TZ=UTC date -I)&quot;
+	replacetext &quot;2023-04-23&quot; &quot;$(TZ=UTC date -I)&quot;
 ) &amp;lt; templates/index.in.html &amp;gt; index.html
 
 # Build the dedicated blog index page.
@@ -557,11 +600,9 @@ done &amp;lt; &amp;lt;(echo &quot;$alltags&quot; | xargs -n1)
 &lt;/pre&gt;
 &lt;p&gt;
 
-&lt;/p&gt;
-&lt;h2 id=&quot;posts&quot;&gt;posts.sh&lt;/h2&gt;
+&lt;/p&gt;&lt;h2 id=&quot;posts&quot;&gt;posts.sh&lt;/h2&gt;
 &lt;p&gt;
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
 &lt;code class=&quot;language-bash&quot;&gt;
 post website_build_script &quot;benleskey.com build script&quot; 2023-01-12 &quot;software website&quot;
 post mapper0_4 &quot;Mapping tool 0.4 release&quot; 2023-01-04 &quot;mappingtool software&quot;
@@ -578,8 +619,7 @@ post mapper0_1 &quot;Mapping tool 0.1 release&quot; 2022-08-01 &quot;mappingtool
 </item>
 <item>
 	<title>Mapping tool 0.4 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Hi!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;Hi!&lt;/p&gt;
 &lt;p&gt;Version 0.4 of the mapping tool is out!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
@@ -602,44 +642,6 @@ post mapper0_1 &quot;Mapping tool 0.1 release&quot; 2022-08-01 &quot;mappingtool
 	<link>https://benleskey.com/blog/mapper0_4</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_4</guid>
 	<pubDate>Wed, 04 Jan 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Mapping tool 0.3 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Hello all!&lt;/p&gt;
-&lt;p&gt;The next major version of my map making tool is released!&lt;/p&gt;
-&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/fRmo3hLvL9sxyyVV6&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;whats-new&quot;&gt;What&amp;#8217;s New?&lt;/h2&gt;
-&lt;p&gt;Version 0.3 of the map making tool includes the following updates:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Brush palette &amp;#8212; you can select terrain, brush, brush size, and more with only your mouse or touchpad. Good news for laptop users!&lt;/li&gt;
-&lt;li&gt;Smoother graphics &amp;#8212; still in prototype stage, but better transitions.&lt;/li&gt;
-&lt;li&gt;Political border support &amp;#8212; imaginary boundaries now have a real presence on the map.&lt;/li&gt;
-&lt;li&gt;Prototype map annotation support &amp;#8212; mark areas important to your story.&lt;/li&gt;
-&lt;li&gt;Specific objects support &amp;#8212; you can draw a single tree or a lone tower on the map, for example.&lt;/li&gt;
-&lt;li&gt;Paths &amp;#8212; Draw paths on your map to indicate shipping routes or forest trails.&lt;/li&gt;
-&lt;li&gt;Distance measurement &amp;#8212; Figure out how many kilometers are between two points on the map.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;survey&quot;&gt;Survey&lt;/h2&gt;
-&lt;p&gt;Your feedback is important for improving the mapping tool. All the core features are in the prototype now, so I have written a survey for your feedback.&lt;/p&gt;
-&lt;p&gt;Once you&amp;#8217;ve tested the new version of the mapping tool, you can &lt;a href=&quot;https://forms.gle/fRmo3hLvL9sxyyVV6&quot;&gt;fill out the feedback survey&lt;/a&gt; to give important feedback for furthering development. Future versions will use a similar survey to measure satisfaction with the development process.&lt;/p&gt;
-&lt;h2 id=&quot;whats-next&quot;&gt;What&amp;#8217;s Next?&lt;/h2&gt;
-&lt;p&gt;With all the core features in place, I can focus on refining the user interface and performance according to the feedback given in the survey and elsewhere.&lt;/p&gt;
-&lt;p&gt;Planned improvements coming soon include:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Improved graphics for a cleaner and more realistic map.&lt;/li&gt;
-&lt;li&gt;Better performance for a smoother experience.&lt;/li&gt;
-&lt;li&gt;Full palette menu system to easily select what you want to do.&lt;/li&gt;
-&lt;li&gt;Improved user interface for more comfortable map making.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I look forward to continuing development, and thanks for all your feedback, ideas, and support! As always, let me know if you have any questions or comments!&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>mappingtool</category><category>release</category><category>software</category>
-	<link>https://benleskey.com/blog/mapper0_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_3</guid>
-	<pubDate>Wed, 26 Oct 2022 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

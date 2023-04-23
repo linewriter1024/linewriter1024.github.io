@@ -1,3 +1,4 @@
+post roadtrip_intro "Prototype post-apocalyptic roadtrip simulator for the Minetest engine" 2023-04-23 "roadtrip minetest games software"
 post mvnu_surc "First place prize for my mapping tool presentation at MVNU's sURC" 2023-04-21 "academics mappingtool software"
 post textengine_intro "Toward the ultimate text adventure game engine" 2023-04-21 "software games textengine discovery"
 POST_EXTERNAL="https://github.com/mapper1024/mapper1024/wiki/Quick-Start" post mapper_quick_start "Mapping tool quick start guide" 2023-04-20 "mappingtool software"

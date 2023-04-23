@@ -6,17 +6,15 @@
 		<link>https://benleskey.com/blog/tags/discovery</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 22 Apr 2023 15:35:14 +0000</lastBuildDate>
-		<pubDate>Sat, 22 Apr 2023 15:35:14 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Apr 2023 19:55:24 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Apr 2023 19:55:24 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/discovery.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>Toward the ultimate text adventure game engine</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
-&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;
-&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h2 id=&quot;text-adventures&quot;&gt;Text adventure&lt;/h2&gt;
 
@@ -91,23 +89,19 @@
 </item>
 <item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
-	<description>&lt;div&gt;
-&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
 
 &lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
 
 &lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
 
 &lt;p&gt;With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.&lt;/p&gt;
-&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
-&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
+&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
 
-&lt;/p&gt;
-&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
 Here&#x27;s the final GIF:
 &lt;img src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;
 &lt;/p&gt;
@@ -119,8 +113,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>Discovering random websites</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 &lt;a href=&quot;https://benleskey.com/blog/../images/diff_blog_stars_page.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;diffblogbot stars page&quot; src=&quot;https://benleskey.com/blog/../thumbs/diff_blog_stars_page.25.png&quot;&gt;&lt;/a&gt;
 The other day I was &lt;a href=&quot;https://benleskey.com/blog/./diff_blog&quot;&gt;found by diff.blog&lt;/a&gt; who starred the repository for this website on Github. While poking around their bot&#x27;s Github account I found that the &lt;a href=&quot;https://github.com/diffblogbot?tab=stars&quot;&gt;diffblogbot stars page&lt;/a&gt; is a huge mine for random personal websites scattered around Github. diffblogbot crawls for blogs and gathers them all here, in one place. I decided to take a look at some of them, and gather a few of the most interesting in a kind of showcase.&lt;/p&gt;
 
@@ -153,8 +146,7 @@ The other day I was &lt;a href=&quot;https://benleskey.com/blog/./diff_blog&quot
 </item>
 <item>
 	<title>Finding discussion about diff.blog</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I couldn&#x27;t find much about &lt;a href=&quot;https://diff.blog&quot;&gt;diff.blog&lt;/a&gt; with a cursory glance over the internet, so I went looking.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I couldn&#x27;t find much about &lt;a href=&quot;https://diff.blog&quot;&gt;diff.blog&lt;/a&gt; with a cursory glance over the internet, so I went looking.&lt;/p&gt;
 
 &lt;p&gt;On diff.blog itself I discovered a post from &lt;a href=&quot;https://blog.jromanmartin.io/2020/10/20/my-blog-in-diff-blog.html&quot;&gt;Roman Martin&#x27;s blog&lt;/a&gt; when diff.blog found him back in 2020 the same way they did me recently.&lt;/p&gt;
 

@@ -6,15 +6,75 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 22 Apr 2023 15:35:17 +0000</lastBuildDate>
-		<pubDate>Sat, 22 Apr 2023 15:35:17 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Apr 2023 19:55:27 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Apr 2023 19:55:27 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
 <item>
+	<title>Prototype post-apocalyptic roadtrip simulator for the Minetest engine</title>
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Github repository: &lt;a href=&quot;https://github.com/tigris-mt/roadtrip&quot;&gt;https://github.com/tigris-mt/roadtrip&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+	I&#x27;ve begun work on a game project, smaller in scope and more relaxing than the &lt;a href=&quot;https://benleskey.com/blog/textengine_intro&quot;&gt;text engine project&lt;/a&gt;. This new project uses the &lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; engine for voxel graphics, entities, and physics. This game, Roadtrip, is designed along the lines of &lt;a href=&quot;https://store.steampowered.com/app/1017180/The_Long_Drive/&quot;&gt;The Long Drive&lt;/a&gt; as a post-apocalyptic roadtrip simulator and also takes inspiration from &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt;. It&#x27;s written in Lua.
+&lt;/p&gt;
+&lt;a href=&quot;https://benleskey.com/blog/../images/roadtrip.png&quot;&gt;&lt;img class=&quot;left&quot; src=&quot;https://benleskey.com/blog/../thumbs/roadtrip.25.png&quot; alt=&quot;roadtrip game prototype&quot;&gt;&lt;/a&gt;
+
+&lt;h2 id=&quot;minetest&quot;&gt;&lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; &amp;amp; Voxels&lt;/h2&gt;
+
+&lt;p&gt;The Minetest engine provides a solid base for this type of game: procedural generation, low-poly graphics, built-in multiplayer, etc. I have quite a bit of experience with Minetest and Lua, so it&#x27;s a good choice for game engine since I don&#x27;t want to put too much development effort into this game. The world will consist of &quot;voxels&quot;, blocks like in Minecraft that form the terrain, along with moveable &quot;entities&quot; such as the vehicles and the player.&lt;/p&gt;
+
+&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
+
+&lt;p&gt;The basic design of the game is the player driving down a road in a procedurally generated environment. The player must survive (food, water, gasoline/electricity, shelter, etc.) as long as possible while enjoying the view and trip.&lt;/p&gt;
+
+&lt;p&gt;Like The Long Drive, Roadtrip will have a long highway extending indefinitely into the distance with a randomly generated environment surrounding it, maybe including side roads or broader road networks. The prototype environment will be a desert, but it will be easy to add new biomes.&lt;/p&gt;
+
+&lt;p&gt;In the prototype, the road runs from the south toward the north, with turns and corners defined by an equation that returns the X (east-west) coordinate of the road based on the Z (north-south) coordinate. The current equation is defined as &lt;/p&gt;&lt;pre&gt;&lt;code language=&quot;lua&quot;&gt;local z_factor = 60 + 60 * seed_random()
+local z_factor_2 = 160 + 160 * seed_random()
+local x_factor = 60 + 60 * seed_random()
+
+local function road_x(z)
+	return math.floor(math.sin(z / z_factor) * (math.sin(z / z_factor_2) ^ 4) * x_factor + 0.5)
+end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a random generator returning a random number between 0 and 1 according to the world seed. All other properties of the world, like the width of the road at any point, will be defined by similar procedural generation to ensure continuity as each chunk of the map is generated separately.
+
+&lt;h3 id=&quot;vehicles&quot;&gt;Vehicles&lt;/h3&gt;
+
+&lt;p&gt;Vehicles are the focus of Roadtrip, so they will be very customizable. Vehicles will be individual components internally, such as the chassis, the wheels, the doors, etc., which can then be installed together and the models attached to display an entire car, truck, or other vehicle.&lt;/p&gt;
+
+&lt;h3 id=&quot;survival&quot;&gt;Survival&lt;/h3&gt;
+
+&lt;p&gt;Survival elements including hunger, thirst, weather, and fuel will drive further exploration and resource gathering. There may be enemies as well, or some other active threat.&lt;/p&gt;
+
+&lt;h3 id=&quot;exploration&quot;&gt;Exploration&lt;/h3&gt;
+
+&lt;p&gt;Resources will be available in structures off the road, in abandoned cars, or from natural resources like lakes or trees. This will encourage exploration off road, both with and without a vehicle. Terrain generation can be improved to have hills, valleys, caves, etc. to spice up the landscape.&lt;/p&gt;
+
+&lt;h2 id=&quot;challenges&quot;&gt;Development Challenges&lt;/h2&gt;
+
+&lt;p&gt;The Minetest engine is limited in a number of ways that will make development more challenging. I do think my familiarity with the engine along the engine&#x27;s simplicity will make it worth it, however.&lt;/p&gt;
+
+&lt;h3 id=&quot;rotation&quot;&gt;Rotation&lt;/h3&gt;
+
+&lt;p&gt;Most noticably, if the player is attached to an object and the object rotates, the player&#x27;s viewport does not rotate with the object. My workaround, rotating both at the same time, suffers from network lag causing noticable drift that the player must manually correct. I may need to contribute a feature to the engine to support this for more realistic driving.&lt;/p&gt;
+
+&lt;h3 id=&quot;collision&quot;&gt;Collision&lt;/h3&gt;
+
+&lt;p&gt;For performance reasons, an object&#x27;s collisionbox cannot extend much beyond ~3 nodes in any direction before it starts to break. This means that entities like vehicles can&#x27;t be too big or their physics won&#x27;t work. Again, I may need to improve the engine here, or just live with innacurate collision on large vehicles.&lt;/p&gt;
+
+&lt;h3 id=&quot;hud&quot;&gt;Hud &amp;amp; Controls&lt;/h3&gt;
+
+&lt;p&gt;Implementing the HUD and controls is a bit of a challenge as the Minetest engine is geared toward a Minecraft-like game. Nevertheless, I should be able to represent the dashboard on the HUD nearly as easily as the player&#x27;s own stats. Controls are also a little harder, with a limited number of keybinds available to the game. I can use movement keys for driving, and I may be able to use hotbar items for actions like shifting gears or quick access of weapons or tools.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>roadtrip</category><category>minetest</category><category>games</category><category>software</category>
+	<link>https://benleskey.com/blog/roadtrip_intro</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/roadtrip_intro</guid>
+	<pubDate>Sun, 23 Apr 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>First place prize for my mapping tool presentation at MVNU's sURC</title>
-	<description>&lt;div&gt;
-&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
+	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
 
 &lt;p&gt;I presented my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;Mapping Tool&lt;/a&gt; for fifteen minutes at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt; on April 5th, taking home the first place prize of the Symposium. My friends and faculty showed up en masse at my presentation, making for a lively Q&amp;amp;A and a really fun time.&lt;/p&gt;
 
@@ -33,11 +93,9 @@
 </item>
 <item>
 	<title>Toward the ultimate text adventure game engine</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
-&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;
-&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 
 &lt;h2 id=&quot;text-adventures&quot;&gt;Text adventure&lt;/h2&gt;
 
@@ -120,8 +178,7 @@
 </item>
 <item>
 	<title>CDDA big world showcase: Ernie's great road trip</title>
-	<description>&lt;div&gt;
-&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
+	<description>&lt;div&gt;&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
 
 &lt;p&gt;If you like road trips through the post apocalyptic rural wasteland, I&#x27;ve got the right &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; world generation settings for you!&lt;/p&gt;
 
@@ -142,23 +199,19 @@
 </item>
 <item>
 	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
-	<description>&lt;div&gt;
-&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
 
 &lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
 
 &lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
 
 &lt;p&gt;With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.&lt;/p&gt;
-&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
-&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
+&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
 
-&lt;/p&gt;
-&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;
 Here&#x27;s the final GIF:
 &lt;img src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;
 &lt;/p&gt;
@@ -170,8 +223,7 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>Scene draft: Lusha tries to get answers, version 2</title>
-	<description>&lt;div&gt;
-&lt;p&gt;Here&#x27;s the second draft of a &lt;a href=&quot;https://benleskey.com/blog/lusha_answers_version_1&quot;&gt;scene I&#x27;ve been working on&lt;/a&gt;, both for my creative writing class and for my current novel project. I&#x27;ve made some revisions to make it more clear what&#x27;s going on, and I removed the bit at the end of having a random rat run up and eat the telephone cord.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;Here&#x27;s the second draft of a &lt;a href=&quot;https://benleskey.com/blog/lusha_answers_version_1&quot;&gt;scene I&#x27;ve been working on&lt;/a&gt;, both for my creative writing class and for my current novel project. I&#x27;ve made some revisions to make it more clear what&#x27;s going on, and I removed the bit at the end of having a random rat run up and eat the telephone cord.&lt;/p&gt;
 
 &lt;h2&gt;Scene&lt;/h2&gt;
 &lt;p&gt;Lusha punched the number into the keypad and jerked the heavy slightly-rusted handset up to her ear. She shuffled around the tangled wire as the handset blared tones. It clicked. There were a few other girls at the dormitory payphones, but nobody was listening too closely yet.&lt;/p&gt;
@@ -229,15 +281,13 @@ Here&#x27;s the final GIF:
 </item>
 <item>
 	<title>30th DCSS win: Octopode Cinder Acolyte of Jiyva</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	I successfully ascended with my 30th win in the &lt;a href=&quot;https://crawl.develz.org&quot;&gt;Dungeon Crawl: Stone Soup&lt;/a&gt; roguelike, playing an Octopode Cinder Acolyte of Jiyva. This was a really fun run, relying on Statue Form and Dragon&#x27;s Call by the end. Dragon&#x27;s Call, in particular, seems like one of the most powerful, if not &lt;em&gt;the&lt;/em&gt; most powerful, spells.
 &lt;/p&gt;
 
 &lt;p&gt;
 The &lt;a href=&quot;https://crawl.kelbi.org/crawl/morgue/Nornya/morgue-Nornya-20230329-020302.txt&quot;&gt;morgue file&lt;/a&gt; from &lt;a href=&quot;https://crawl.kelbi.org&quot;&gt;CKO&lt;/a&gt; is included below:
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
  Dungeon Crawl Stone Soup version 0.30-a0-954-gcf5f444c16 (webtiles) character file.
 
 Game seed: 1080748785831329360
@@ -1841,8 +1891,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>I took the ETS major field test for computer science</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	Every senior student at &lt;a href=&quot;https://mvnu.edu&quot;&gt;MVNU&lt;/a&gt; takes a standardized assessment. The assessment lets MVNU administration compare how well their students are doing against other institutions, and how well each program is teaching the fundamentals of the program&#x27;s field. In my case the assessment was the &lt;a href=&quot;https://www.ets.org/content/dam/ets-org/pdfs/mft/comp-sci-test-description.pdf&quot;&gt;ETS major field test for computer science&lt;/a&gt;.
 &lt;/p&gt;
 
@@ -1879,8 +1928,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Debugging slow boot and a clogged router</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends&#x27; home Wi-Fi, but the connection failed.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends&#x27; home Wi-Fi, but the connection failed.&lt;/p&gt;
 
 &lt;p&gt;This was odd:&lt;/p&gt;
 &lt;ul&gt;
@@ -1945,8 +1993,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Mapping tool 0.6 release</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I&amp;#8217;m proud to release version 0.6 of the mapping tool: the picture and performance update!&lt;/p&gt;
 &lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Once you&amp;#8217;ve tested the new version, please &lt;a href=&quot;https://forms.gle/QsYyZ4sCpqzHtaX7A&quot;&gt;fill out the feedback survey&lt;/a&gt;.&lt;/p&gt;
@@ -1969,8 +2016,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Scene draft: Lusha tries to get answers, version 1</title>
-	<description>&lt;div&gt;
-&lt;p class=&quot;update&quot;&gt;I&#x27;ve written a &lt;a href=&quot;https://benleskey.com/blog/lusha_answers_version_2&quot;&gt;second draft.&lt;/a&gt;&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;I&#x27;ve written a &lt;a href=&quot;https://benleskey.com/blog/lusha_answers_version_2&quot;&gt;second draft.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;This is the first draft of a scene I&#x27;ll be using much later. I wrote it for a creative writing class prompt, as it fit the prompt of having characters unable to say what they really mean. It&#x27;s a bit inspired by Hemingway&#x27;s &lt;a href=&quot;https://en.wikipedia.org/wiki/Hills_Like_White_Elephants&quot;&gt;Hills Like White Elephants&lt;/a&gt; since I read that just before writing this, and the prompt itself leads along those lines.&lt;/p&gt;
 
@@ -2031,8 +2077,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Erik Otto #5: Gaining allies</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
 
 &lt;h2 id=&quot;exploration&quot;&gt;Exploration&lt;/h2&gt;
 
@@ -2171,8 +2216,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Erik Otto #4: Arsenal</title>
-	<description>&lt;div&gt;
-&lt;p&gt;With lockpicks in hand, Erik drives out to the wind turbines to pick their locks and survey the area.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;With lockpicks in hand, Erik drives out to the wind turbines to pick their locks and survey the area.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/4/picking_lock.png&quot; alt=&quot;&quot;&gt;
 
@@ -2270,8 +2314,7 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>Autodrive into a crater fix</title>
-	<description>&lt;div&gt;
-&lt;a href=&quot;https://benleskey.com/blog/../images/cdda_truck_in_hole.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cdda_truck_in_hole.50.png&quot; alt=&quot;A pickup truck fallen into a crater in Cataclysm: Dark Days Ahead&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
+	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/cdda_truck_in_hole.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cdda_truck_in_hole.50.png&quot; alt=&quot;A pickup truck fallen into a crater in Cataclysm: Dark Days Ahead&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
 
 &lt;p&gt;
 	In my current &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_erik&quot;&gt;playthrough&lt;/a&gt;, I ran into a problem with the autodrive feature: it&#x27;d drive me straight into a crater and crash the vehicle.
@@ -2287,142 +2330,6 @@ Depths:2: 1572 daAuts
 	<link>https://benleskey.com/blog/cdda_no_hole</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_no_hole</guid>
 	<pubDate>Wed, 08 Feb 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Erik Otto #3: Preparing for battle</title>
-	<description>&lt;div&gt;
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
-
-&lt;p&gt;Now that the base is set up, Erik can start more organized exploration and raids. To manage having a large number of followers&amp;#8212;when he gets them&amp;#8212;he needs to set up stations for people to suit up and suit down.&lt;/p&gt;
-
-&lt;h2 id=&quot;gear&quot;&gt;Organizing gear&lt;/h2&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/washboard.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;First, Erik crafts a washing kit and washes up some holsters and sheaths he took off zombie corpses while raiding light industry compounds.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/clothes.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Full outfits go into the clothes room. Currently there isn&#x27;t much difference, but in the future there may be full hazmat outfits, melee raiding outfits, summer outfits, etc.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/weapons.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Weapons&amp;#8212;including slings, holsters, sheaths, and the like&amp;#8212;go into the weapons side of this room. Weapons racks should include a gun and a backup melee weapon. In the future there&#x27;ll be sidearms and rifles in every rack.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/gear.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Finally, the racks in this half of the room hold backpacks filled with supplies. The backpacks all contain vital tools, like flashlights, multitools, lighters, and prying tools. Eventually the tools will become standardized, but for now there is a little variance between the tools, though they all provide mostly the same capabilities.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/mission_pack.png&quot; alt=&quot;&quot;&gt;
-&lt;p&gt;Finally, the counters in the workshop are for mission packs, sets of items needed for various missions. Anyone can grab one of these and go.&lt;/p&gt;
-
-&lt;h2 id=&quot;exploring&quot;&gt;Exploration&lt;/h2&gt;
-
-&lt;p&gt;Erik takes the pickup truck out for an exploration spin to scout more of the area and collect useful loot.
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/ranch.png&quot; alt=&quot;&quot;&gt;
-
-&lt;/p&gt;
-&lt;p&gt;Up near the huge city, Erik finds a ranch with a gas station nearby. The city filled with zombies is uncomfortably close, but he makes sure to stay out of dead earshot.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/steam%20tractor.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s a steam-powered tractor in the barn. Not really useful, but perhaps a time will come when coal is more plentiful than gas?&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/gas%20station.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Not yet, however. Erik fills up his pickup truck with gasoline from the pump. It&#x27;s still working.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/old%20van.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;The van he and Alejandro found back when the first left the evac shelter still has gas in it. Erik takes the gas.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/new%20lamp.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Back home, Erik installs a new standing lamp to light up the rest of the storage areas, then heads out for more exploration.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/shooting%20zapper.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;A zapper zombie guards a fire lookout tower. Erik guns it down with a single bullet, then goes up into the tower to survey the land.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/more%20map.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Nothing much that&#x27;s interesting.&lt;/p&gt;
-
-&lt;h2 id=&quot;weapons&quot;&gt;Weaponry&lt;/h2&gt;
-
-&lt;p&gt;With the guns and ammunition that he has, Erik decides it&#x27;s time to take on the military helipad to the east, looking for more fuel, ammunition, and explosives.
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/helipad.png&quot; alt=&quot;&quot;&gt;
-
-&lt;/p&gt;
-&lt;p&gt;The helipad itself is a small military base, very accessible.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/helipad%20fuel.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;It&#x27;s also got plenty of fuel, for when Erik converts some of his vehicles to be diesel/electric hybrids.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/zombie%20dog.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;A zombie dog attacks Erik from within an abandoned cabin. It bites his leg deeply before he shoots it to pieces.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/alcohol%20wip.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Not a problem; Erik uses some alcohol wipes to disinfect his wound and keeps going. He can&#x27;t wait to gather more followers so he doesn&#x27;t have to do this himself.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/hiding.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;The military roadblocks with automated turrets are goldmines for ammunition and magazines, but the problem is the turrets. Erik devises a method shooting the turrets before they can even see him. He crouches in his truck to avoid line of sight and drives right next to the turret...&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/pop%20out%20and%20shoot.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;...then he pops up to check where it is, ducks down again, pokes his rifle out the window...&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/blam.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;...and &lt;strong&gt;BLAM&lt;/strong&gt;, there&#x27;s a dead turret. Rinse and repeat for the other turret, and for the other roadblocks in the area. Erik picks up 9mm pistol rounds as well as 5.56 NATO rifle rounds.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/more%20map%202.png&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/more%20map%203.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Erik scouts still more of the area. He spots another Last Man On Earth bunker to the north, and investigates.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/secret%20passage.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;This one had a hidden passage behind a bookcase. Erik slides the bookcase out of the way and finds a cache of guns and ammunition.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/lmoe.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;The full bunker had a decent amount of supplies. Erik throws them all into his truck. Every little bit helps.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/military%20roadblock.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;The military roadblock near the original evac shelter is the next nut to crack. Erik approaches with a full rifle as the zombie soldiers are distracted by the turrets.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/boom.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;One battle later, and everything but Erik is dead. He might not want to get his hands dirty, but there is no fury like the wrath of a lazy man.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/back.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;He returns with a haul of guns and ammunition to base, ready to sort it out with Alejandro.&lt;/p&gt;
-
-&lt;h2 id=&quot;return&quot;&gt;Return to base&lt;/h2&gt;
-
-&lt;p&gt;The next step in the scouting phase is to break into some of the wind turbines to get an even broader view of the area. For this, Erik could either cut through the metal doors with an acetylene torch, which would be expensive, or he could craft some lockpicks and just spend a little time.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/workbenches.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Some sturdy workbenches looted from the helipad will make this easier.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/3/lockpicks.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Erik crafts a set of lockpicks with Alejandro&#x27;s help. It&#x27;s time for phase two of the scouting plan: wind turbine breaking and entering.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_erik</category>
-	<link>https://benleskey.com/blog/cdda_erik_3</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_erik_3</guid>
-	<pubDate>Mon, 06 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>

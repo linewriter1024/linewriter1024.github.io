@@ -6,21 +6,19 @@
 		<link>https://benleskey.com/blog/tags/dcss</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 22 Apr 2023 15:35:14 +0000</lastBuildDate>
-		<pubDate>Sat, 22 Apr 2023 15:35:14 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Apr 2023 19:55:24 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Apr 2023 19:55:24 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/dcss.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>30th DCSS win: Octopode Cinder Acolyte of Jiyva</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	I successfully ascended with my 30th win in the &lt;a href=&quot;https://crawl.develz.org&quot;&gt;Dungeon Crawl: Stone Soup&lt;/a&gt; roguelike, playing an Octopode Cinder Acolyte of Jiyva. This was a really fun run, relying on Statue Form and Dragon&#x27;s Call by the end. Dragon&#x27;s Call, in particular, seems like one of the most powerful, if not &lt;em&gt;the&lt;/em&gt; most powerful, spells.
 &lt;/p&gt;
 
 &lt;p&gt;
 The &lt;a href=&quot;https://crawl.kelbi.org/crawl/morgue/Nornya/morgue-Nornya-20230329-020302.txt&quot;&gt;morgue file&lt;/a&gt; from &lt;a href=&quot;https://crawl.kelbi.org&quot;&gt;CKO&lt;/a&gt; is included below:
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
  Dungeon Crawl Stone Soup version 0.30-a0-954-gcf5f444c16 (webtiles) character file.
 
 Game seed: 1080748785831329360
@@ -1624,15 +1622,13 @@ Depths:2: 1572 daAuts
 </item>
 <item>
 	<title>29th DCSS win: Naga Hexslinger</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	I just got my 29th win in the &lt;a href=&quot;https://crawl.develz.org&quot;&gt;Dungeon Crawl: Stone Soup&lt;/a&gt; roguelike, playing a Naga Hexslinger of Hep.
 &lt;/p&gt;
 
 &lt;p&gt;
 The &lt;a href=&quot;https://crawl.kelbi.org/crawl/morgue/Nornya/morgue-Nornya-20230125-064653.txt&quot;&gt;morgue file&lt;/a&gt; from &lt;a href=&quot;https://crawl.kelbi.org&quot;&gt;CKO&lt;/a&gt; is included below:
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
 Dungeon Crawl Stone Soup version 0.30-a0-691-g754fce4c43 (webtiles) character file.
 
 Game seed: 7588034671027407147

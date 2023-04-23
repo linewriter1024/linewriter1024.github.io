@@ -51,4 +51,4 @@ if __name__ == "__main__":
 	for toc in html.find_class("toc"):
 		insert_headers(toc, headers)
 
-	sys.stdout.write(lxml.html.tostring(html_tree, pretty_print=True).decode())
+	sys.stdout.write(lxml.html.tostring(html_tree).decode())

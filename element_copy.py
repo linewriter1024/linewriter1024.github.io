@@ -27,4 +27,4 @@ if __name__ == "__main__":
 			if copyfromid in copyfrom:
 				element.getparent().replace(element, copy.deepcopy(copyfrom[copyfromid]))
 
-	sys.stdout.write(lxml.html.tostring(html_tree, pretty_print=True).decode())
+	sys.stdout.write(lxml.html.tostring(html_tree).decode())

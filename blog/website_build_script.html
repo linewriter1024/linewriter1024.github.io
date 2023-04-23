@@ -46,8 +46,7 @@
 		<main class="post">
 			<p>
 This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script---as of writing---that compiles the website is fully commented and included below, along with the data file listing all the blog posts.
-</p>
-<ul>
+</p><ul>
 	<li><a href="#build">build.sh</a></li>
 	<li><a href="#posts">posts.sh</a></li>
 </ul>
@@ -55,8 +54,7 @@ This website is static HTML, CSS, and Javascript. There is a build script that c
 
 <h2 id="build">build.sh</h2>
 <p>
-</p>
-<pre>
+</p><pre>
 <code class="language-bash">
 #!/bin/bash
 
@@ -224,11 +222,9 @@ done &lt; &lt;(echo "$alltags" | xargs -n1)
 </pre>
 <p>
 
-</p>
-<h2 id="posts">posts.sh</h2>
+</p><h2 id="posts">posts.sh</h2>
 <p>
-</p>
-<pre>
+</p><pre>
 <code class="language-bash">
 post website_build_script "benleskey.com build script" 2023-01-12 "software website"
 post mapper0_4 "Mapping tool 0.4 release" 2023-01-04 "mappingtool software"

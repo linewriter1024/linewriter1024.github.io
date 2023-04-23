@@ -6,14 +6,13 @@
 		<link>https://benleskey.com/blog/tags/website</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 22 Apr 2023 15:35:15 +0000</lastBuildDate>
-		<pubDate>Sat, 22 Apr 2023 15:35:15 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Apr 2023 19:55:25 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Apr 2023 19:55:25 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/website.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 	<title>More RSS feeds!</title>
-	<description>&lt;div&gt;
-&lt;p&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mappingtool_tag.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;mappingtool tag page&quot; src=&quot;https://benleskey.com/blog/../thumbs/mappingtool_tag.50.png&quot;&gt;&lt;/a&gt;I&#x27;ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool&quot;&gt;the mappingtool tag&lt;/a&gt;. I can, in this way, use my blog easily as a set of smaller blogs for each category.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mappingtool_tag.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;mappingtool tag page&quot; src=&quot;https://benleskey.com/blog/../thumbs/mappingtool_tag.50.png&quot;&gt;&lt;/a&gt;I&#x27;ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool&quot;&gt;the mappingtool tag&lt;/a&gt;. I can, in this way, use my blog easily as a set of smaller blogs for each category.&lt;/p&gt;
 
 &lt;p&gt;This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn&#x27;t commit temporary files and doesn&#x27;t need to work so hard to find the root of the website when I&#x27;m already passing that information in the script. I do need to refactor it more, it&#x27;s getting rather unwieldy, though still pretty simple to work with.&lt;/p&gt;
 &lt;/div&gt;</description>
@@ -24,8 +23,7 @@
 </item>
 <item>
 	<title>I'm on diff.blog</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 	&lt;img class=&quot;right&quot; alt=&quot;diffblogbot starring the linewriter1024.github.io repository&quot; src=&quot;https://benleskey.com/blog/../images/diff_blog_starred.png&quot;&gt;
 	I saw yesterday that &lt;a href=&quot;https://diff.blog&quot;&gt;diff.blog&lt;/a&gt;&#x27;s bot account on Github had starred the repository for this website. I clicked through to their &lt;a href=&quot;https://github.com/diffblogbot&quot;&gt;Github page&lt;/a&gt;, which described diff.blog as &lt;q cite=&quot;https://github.com/diffblogbot&quot;&gt;an aggregator of developer blogs&amp;#8230; started in 2019 to improve the visibility of self hosted blogs&lt;/q&gt;.
 	I followed the directions in their README and signed in to diff.blog with my Github account. Once there, I added the URL of &lt;a href=&quot;https://benleskey.com/blog/../blog&quot;&gt;my blog&lt;/a&gt; to my account settings and diff.blog crawled my RSS feed. Once I saw how it was using the RSS item descriptions to generate summaries, I improved my build script to actually generate a description instead of just a list of tags. Now my blog is fully functional on diff.blog!
@@ -53,8 +51,7 @@
 </item>
 <item>
 	<title>I made an RSS feed!</title>
-	<description>&lt;div&gt;
-&lt;p&gt;I made an &lt;a href=&quot;https://benleskey.com/blog/feed.xml&quot;&gt;RSS feed&lt;/a&gt; for my blog! It&#x27;s a really simple format; I was able to implement my feed just by following the &lt;a href=&quot;https://validator.w3.org/feed/docs/rss2.html&quot;&gt;RSS 2.0 spec&lt;/a&gt;. Of course, RSS readers are a little less common than they were a decade ago; but there are plenty of extensions for Firefox---I&#x27;m using &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/rsspreview/&quot;&gt;RSSPreview&lt;/a&gt; just to test the feed---and with how easy it was to extend my blog generator to generate XML alongside HTML I figured it was better to have a feed than not.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;p&gt;I made an &lt;a href=&quot;https://benleskey.com/blog/feed.xml&quot;&gt;RSS feed&lt;/a&gt; for my blog! It&#x27;s a really simple format; I was able to implement my feed just by following the &lt;a href=&quot;https://validator.w3.org/feed/docs/rss2.html&quot;&gt;RSS 2.0 spec&lt;/a&gt;. Of course, RSS readers are a little less common than they were a decade ago; but there are plenty of extensions for Firefox---I&#x27;m using &lt;a href=&quot;https://addons.mozilla.org/en-US/firefox/addon/rsspreview/&quot;&gt;RSSPreview&lt;/a&gt; just to test the feed---and with how easy it was to extend my blog generator to generate XML alongside HTML I figured it was better to have a feed than not.&lt;/p&gt;
 
 &lt;img src=&quot;https://benleskey.com/blog/../images/cyberTOAD.jpg&quot; alt=&quot;Image of the cyberTOAD&amp;#8482;&quot;&gt;
 &lt;/div&gt;</description>
@@ -65,11 +62,9 @@
 </item>
 <item>
 	<title>benleskey.com build script</title>
-	<description>&lt;div&gt;
-&lt;p&gt;
+	<description>&lt;div&gt;&lt;p&gt;
 This website is static HTML, CSS, and Javascript. There is a build script that compiles together templates and HTML into the final website that you see, this bit of dynamicism enables me to reuse common HTML and keeps track of tedious bits like blog tag link lists. The script---as of writing---that compiles the website is fully commented and included below, along with the data file listing all the blog posts.
-&lt;/p&gt;
-&lt;ul&gt;
+&lt;/p&gt;&lt;ul&gt;
 	&lt;li&gt;&lt;a href=&quot;https://benleskey.com/blog/#build&quot;&gt;build.sh&lt;/a&gt;&lt;/li&gt;
 	&lt;li&gt;&lt;a href=&quot;https://benleskey.com/blog/#posts&quot;&gt;posts.sh&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -77,8 +72,7 @@ This website is static HTML, CSS, and Javascript. There is a build script that c
 
 &lt;h2 id=&quot;build&quot;&gt;build.sh&lt;/h2&gt;
 &lt;p&gt;
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
 &lt;code class=&quot;language-bash&quot;&gt;
 #!/bin/bash
 
@@ -194,7 +188,7 @@ post() {
 	echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $smalltaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-04-22&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-04-23&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
 }
 
 echo &quot;Blog...&quot;
@@ -219,7 +213,7 @@ echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 (
 	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
 	# The date of generation is included on the main page.
-	replacetext &quot;2023-04-22&quot; &quot;$(TZ=UTC date -I)&quot;
+	replacetext &quot;2023-04-23&quot; &quot;$(TZ=UTC date -I)&quot;
 ) &amp;lt; templates/index.in.html &amp;gt; index.html
 
 # Build the dedicated blog index page.
@@ -246,11 +240,9 @@ done &amp;lt; &amp;lt;(echo &quot;$alltags&quot; | xargs -n1)
 &lt;/pre&gt;
 &lt;p&gt;
 
-&lt;/p&gt;
-&lt;h2 id=&quot;posts&quot;&gt;posts.sh&lt;/h2&gt;
+&lt;/p&gt;&lt;h2 id=&quot;posts&quot;&gt;posts.sh&lt;/h2&gt;
 &lt;p&gt;
-&lt;/p&gt;
-&lt;pre&gt;
+&lt;/p&gt;&lt;pre&gt;
 &lt;code class=&quot;language-bash&quot;&gt;
 post website_build_script &quot;benleskey.com build script&quot; 2023-01-12 &quot;software website&quot;
 post mapper0_4 &quot;Mapping tool 0.4 release&quot; 2023-01-04 &quot;mappingtool software&quot;
