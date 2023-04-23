@@ -12,47 +12,6 @@
 		<a href="#contact">Contact</a> | <a href="blog">Blog</a> | <a href="#projects">Projects</a> | <a href="#experience">Experience</a> | <a href="#skills">Skills</a> | <a href="#cool">Other Cool Stuff</a>
 		<hr>
 		<h1 id="contact">I am Benjamin Leskey</h1>
-		<span id="slideshow"></span>
-		<script>
-			const slides = [
-				["#mappingtool", "thumbs/mapper_default.25.png", "map making tool"],
-				["#roadtrip", "thumbs/roadtrip.25.png", "roadtrip game"],
-				["#elevator", "thumbs/elevator.25.png", "minetest elevator mod"],
-				["", "thumbs/cyberTOAD.25.jpg", "toad with glowing satellite dish"],
-				["blog/cdda_no_hole", "thumbs/cdda_truck_in_hole.25.png", "a truck in a hole in Cataclysm: Dark Days Ahead"],
-			];
-
-			// Shuffle slides
-			for (let i = slides.length - 1; i > 0; i--) {
-				const j = Math.floor(Math.random() * (i + 1));
-				[slides[i], slides[j]] = [slides[j], slides[i]];
-			}
-
-			const slideshow = document.getElementById("slideshow");
-			let slidei = 0;
-
-			function rotate() {
-				const [link, thumbnail, alt] = slides[slidei];
-
-				slideshow.innerHTML = "";
-
-				const a = document.createElement("a");
-				a.href = link;
-				slideshow.appendChild(a);
-
-				const img = document.createElement("img");
-				img.src = thumbnail;
-				img.className = "right";
-				img.alt = alt;
-				img.height = 120;
-				a.appendChild(img);
-
-				slidei = (slidei + 1) % slides.length;
-			}
-
-			setInterval(rotate, 2500);
-			rotate();
-		</script>
 		<ul class="contactlinks">
 			<li>E-mail me at <code>ben (a) benleskey (o) com</code>.</li>
 			<li><a href="https://github.com/linewriter1024">Github (linewriter1024)</a></li>
