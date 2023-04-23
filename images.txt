@@ -1,2 +1,3 @@
 elevator.png https://raw.githubusercontent.com/tigris-mt/elevator/master/screenshot.png
 mapper_default.png https://mapper1024.github.io/screenshots/default.png
+roadtrip.png https://raw.githubusercontent.com/tigris-mt/roadtrip/master/screenshot.png

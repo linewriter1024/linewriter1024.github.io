@@ -27,4 +27,4 @@ if __name__ == "__main__":
 			if "src" in element.keys():
 				element.set("src", fix_path(element.get("src")))
 
-	sys.stdout.write(lxml.html.tostring(html, pretty_print=True).decode())
+	sys.stdout.write(lxml.html.tostring(html).decode())
