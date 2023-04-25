@@ -292,6 +292,23 @@ p.meta {
     font-style: italic;
 }
 
-p.showcase + * {
+.showcase + * {
     clear: both;
+}
+
+@media (min-width: 800px) {
+    #contactlinks {
+        float: right;
+        margin-top: 0.5em;
+        padding-top: 0;
+    }
+
+    #contact {
+        clear: none;
+        float: left;
+    }
+
+    #contactlinks + * {
+        clear: left;
+    }
 }
