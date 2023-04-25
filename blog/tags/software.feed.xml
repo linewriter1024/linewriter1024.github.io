@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Tue, 25 Apr 2023 18:32:23 +0000</lastBuildDate>
-		<pubDate>Tue, 25 Apr 2023 18:32:23 +0000</pubDate>
+		<lastBuildDate>Tue, 25 Apr 2023 18:38:55 +0000</lastBuildDate>
+		<pubDate>Tue, 25 Apr 2023 18:38:55 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
@@ -75,6 +75,8 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<title>First place prize for my mapping tool presentation at MVNU's sURC</title>
 	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
 
+&lt;p&gt;Update 2023-04-25: &lt;a href=&quot;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&quot;&gt;MVNU sURC press release featuring my mapping tool&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;I presented my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;Mapping Tool&lt;/a&gt; for fifteen minutes at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt; on April 5th, taking home the first place prize of the Symposium. My friends and faculty showed up en masse at my presentation, making for a lively Q&amp;amp;A and a really fun time.&lt;/p&gt;
 
 &lt;p&gt;sURC itself was interesting. There were around twenty presenters in total. The Honors students presented their senior projects and other students presented their summer research projects in a conference format. In my room we had a wide variety of presentations: an analysis of continuous glucose monitors in diabetic patients, a presentation of a concussion-detecting device for athletes, an examination of religion and spirituality in occupational therapy, and my own software project.&lt;/p&gt;
@@ -88,7 +90,7 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<category>academics</category><category>mappingtool</category><category>software</category>
 	<link>https://benleskey.com/blog/mvnu_surc</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mvnu_surc</guid>
-	<pubDate>Fri, 21 Apr 2023 12:00:00 +0000</pubDate>
+	<pubDate>Tue, 25 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
 	<title>Toward the ultimate text adventure game engine</title>
