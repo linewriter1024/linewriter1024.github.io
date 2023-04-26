@@ -105,6 +105,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .skill {
@@ -117,6 +118,24 @@ footer {
 
     margin-bottom: 0.5em;
     margin-left: 0.5em;
+}
+
+.skill.shrink {
+    animation: skill-shrink 1000ms ease-in-out;
+}
+
+.skill.grow {
+    animation: skill-grow 1000ms ease-in-out;
+}
+
+@keyframes skill-shrink {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-2000%); }
+}
+
+@keyframes skill-grow {
+  0% { transform: translateX(2000%); }
+  100% { transform: translateX(0%); }
 }
 
 .skill.min {

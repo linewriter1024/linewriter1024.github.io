@@ -184,13 +184,8 @@
 			<span class="skill personal">Coordination</span>
 		</div>
 
-		<!-- Randomize skills list for variety. -->
-		<script>
-			const skills = document.querySelector("#skillslist");
-			for (let i = skills.children.length; i >= 0; i--) {
-				skills.appendChild(skills.children[Math.random() * i | 0]);
-			}
-		</script>
+		<!-- Randomize and rotate skills list for variety. -->
+		<script src="scripts/rotate_skills.js"></script>
 
 		<h2 id="cool">Other Cool Stuff</h2>
 		<h3>Programming</h3>
@@ -214,7 +209,7 @@
 
 		<footer>
 			<div class="footerinfo">
-				<span><a href="aka/websiterepo">Site last updated 2023-04-25</a></span>
+				<span><a href="aka/websiterepo">Site last updated 2023-04-26</a></span>
 				<div class="footericons">
 	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
 
