@@ -172,13 +172,8 @@
 			<span class="skill personal">Coordination</span>
 		</div>
 
-		<!-- Randomize skills list for variety. -->
-		<script>
-			const skills = document.querySelector("#skillslist");
-			for (let i = skills.children.length; i >= 0; i--) {
-				skills.appendChild(skills.children[Math.random() * i | 0]);
-			}
-		</script>
+		<!-- Randomize and rotate skills list for variety. -->
+		<script src="scripts/rotate_skills.js"></script>
 
 		<h2 id="cool">Other Cool Stuff</h2>
 		<h3>Programming</h3>
