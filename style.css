@@ -106,6 +106,9 @@ footer {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    border-left: 4px solid blue;
+    border-right: 4px solid orange;
+    border-radius: 1em;
 }
 
 .skill {
