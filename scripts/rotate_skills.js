@@ -31,7 +31,9 @@
 	});
 
 	window.addEventListener("resize", function() {
-		reset();
+		if(!allSkills) {
+			reset();
+		}
 	})
 
 	const timeouts = [];
