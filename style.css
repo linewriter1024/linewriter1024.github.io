@@ -105,7 +105,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .skill {
@@ -121,11 +121,11 @@ footer {
 }
 
 .skill.shrink {
-    animation: skill-shrink 1000ms ease-in-out;
+    animation: skill-shrink 1000ms ease-in-out forwards;
 }
 
 .skill.grow {
-    animation: skill-grow 1000ms ease-in-out;
+    animation: skill-grow 1000ms ease-in-out forwards;
 }
 
 @keyframes skill-shrink {
