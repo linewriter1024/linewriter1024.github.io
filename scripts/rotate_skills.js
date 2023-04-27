@@ -23,8 +23,6 @@
 		maxHeight = Math.max(maxHeight, skill.offsetHeight);
 	}
 
-	skills.style.minHeight = `${maxHeight * 1.1}px`;
-
 	let allSkills = false;
 
 	skillsToggle.addEventListener("click", function() {
@@ -36,21 +34,19 @@
 		reset();
 	})
 
-	let intervalId;
-	let timeoutId;
+	const timeouts = [];
 
 	function reset() {
-		if(intervalId) {
-			clearInterval(intervalId);
-		}
-
-		if(timeoutId) {
-			clearTimeout(timeoutId);
+		while(timeouts.length > 0) {
+			clearTimeout(timeouts.pop());
 		}
 
 		skills.innerHTML = "";
 
 		if(allSkills) {
+			skills.style.height = "";
+			skills.style.overflowY = "auto";
+
 			const choices = Array.from(skillNodes);
 			while(choices.length > 0) {
 				const index = Math.floor(Math.random() * choices.length);
@@ -60,6 +56,9 @@
 			}
 		}
 		else {
+			skills.style.height = `${maxHeight * 1.1}px`;
+			skills.style.overflowY = "hidden";
+
 			function rotate() {
 				const choices = Array.from(skillNodes);
 				const got = [];
@@ -83,24 +82,27 @@
 					skill.classList.add("shrink");
 				}
 
-				function grow() {
+				function grow(animate) {
 					skills.innerHTML = "";
 					for(const skill of got) {
 						const newSkill = skill.cloneNode(true)
-						newSkill.classList.add("grow");
+						if(animate) {
+							newSkill.classList.add("grow");
+						}
 						skills.appendChild(newSkill);
 					}
 				}
 
 				if(skills.children.length > 0) {
-					timeoutId = setTimeout(grow, 1000);
+					timeouts.push(setTimeout(() => grow(true), 1000));
+					timeouts.push(setTimeout(rotate, 4000));
 				}
 				else {
-					grow();
+					grow(false);
+					timeouts.push(setTimeout(rotate, 1000));
 				}
 			}
 
-			intervalId = setInterval(rotate, 4000);
 			rotate();
 		}
 	}
