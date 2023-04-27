@@ -331,3 +331,8 @@ p.meta {
         clear: left;
     }
 }
+
+.site-link {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}
