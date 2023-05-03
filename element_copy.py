@@ -9,8 +9,6 @@ def all(element):
 	for child in element:
 		yield from all(child)
 
-header_tags = ["h2", "h3", "h4", "h5", "h6"]
-
 if __name__ == "__main__":
 	html_tree = lxml.html.parse(sys.stdin)
 	html = html_tree.getroot()
