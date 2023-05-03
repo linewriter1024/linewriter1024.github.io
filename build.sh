@@ -274,7 +274,8 @@ source blog.in/posts.sh
 (
 	replacefile "__BLOGMINOR__" "$tmp/_minor.in.html" |
 	commonreplace . |
-	python3 element_copy.py
+	python3 element_copy.py |
+	python3 alternate.py
 ) < templates/index.in.html > index.html
 
 # Uniquify and sort the list of all tags.
