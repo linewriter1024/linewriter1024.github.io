@@ -36,6 +36,8 @@ redirecthtmlpage() {
 	echo "Redirecting to <a href='$url'>$url</a>..." # The user can click this one if their browser doesn't redirect them.
 }
 
+N_AKAS=0
+
 # Each line in akas.txt has the format:
 # <name of redirect> <url of redirect>
 while read line; do
@@ -44,6 +46,10 @@ while read line; do
 	url="$(echo "$line" | cut -d' ' -f2-)"
 
 	echo " $name -> $url"
+
+	echo "<tr><td><a href='$name'>$name</a></td> <td><a href='$url'>$url</a></td></tr>" >> "$tmp/_akas.in.html"
+
+	N_AKAS=$((N_AKAS+1))
 
 	(
 		redirecthtmlpage "$url" > "aka/$name.html"
@@ -235,6 +241,8 @@ fi
 echo "</ul>" >> "$tmp"/_minor.in.html
 echo "</ul>" >> "$tmp"/_major.in.html
 
+(commonreplace .. | replacetext "__NUM_AKAS__" $N_AKAS | replacefile "__AKAS__" "$tmp/_akas.in.html") < templates/aka_index.in.html > "aka/index.html" &
+
 echo " Waiting..."
 wait
 
@@ -266,7 +274,8 @@ source blog.in/posts.sh
 (
 	replacefile "__BLOGMINOR__" "$tmp/_minor.in.html" |
 	commonreplace . |
-	python3 element_copy.py
+	python3 element_copy.py |
+	python3 alternate.py
 ) < templates/index.in.html > index.html
 
 # Uniquify and sort the list of all tags.

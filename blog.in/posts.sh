@@ -1,5 +1,6 @@
+POST_EXTERNAL="https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works" post mvnu_surc_announcement "MVNU sURC press release featuring my mapping tool" 2023-04-25 "academics mappingtool"
 post roadtrip_intro "Prototype post-apocalyptic roadtrip simulator for the Minetest engine" 2023-04-23 "roadtrip minetest games software"
-post mvnu_surc "First place prize for my mapping tool presentation at MVNU's sURC" 2023-04-21 "academics mappingtool software"
+POST_UPDATED="2023-04-25" post mvnu_surc "First place prize for my mapping tool presentation at MVNU's sURC" 2023-04-21 "academics mappingtool software"
 post textengine_intro "Toward the ultimate text adventure game engine" 2023-04-21 "software games textengine discovery"
 POST_EXTERNAL="https://github.com/mapper1024/mapper1024/wiki/Quick-Start" post mapper_quick_start "Mapping tool quick start guide" 2023-04-20 "mappingtool software"
 post cdda_ernie_road_trip "CDDA big world showcase: Ernie's great road trip" 2023-04-11 "games cdda"

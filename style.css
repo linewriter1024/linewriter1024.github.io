@@ -105,6 +105,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .skill {
@@ -117,6 +118,24 @@ footer {
 
     margin-bottom: 0.5em;
     margin-left: 0.5em;
+}
+
+.skill.shrink {
+    animation: skill-shrink 1000ms ease-in-out forwards;
+}
+
+.skill.grow {
+    animation: skill-grow 1000ms ease-in-out forwards;
+}
+
+@keyframes skill-shrink {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-2000%); }
+}
+
+@keyframes skill-grow {
+  0% { transform: translateX(2000%); }
+  100% { transform: translateX(0%); }
 }
 
 .skill.min {
@@ -292,6 +311,28 @@ p.meta {
     font-style: italic;
 }
 
-p.showcase + * {
+.showcase + * {
     clear: both;
+}
+
+@media (min-width: 800px) {
+    #contactlinks {
+        float: right;
+        margin-top: 0.5em;
+        padding-top: 0;
+    }
+
+    #contact {
+        clear: none;
+        float: left;
+    }
+
+    #contactlinks + * {
+        clear: left;
+    }
+}
+
+.site-link {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
 }
