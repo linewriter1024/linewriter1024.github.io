@@ -1,3 +1,4 @@
+post graduation "I graduated from MVNU!" 2023-05-07 "academics life"
 POST_EXTERNAL="https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works" post mvnu_surc_announcement "MVNU sURC press release featuring my mapping tool" 2023-04-25 "academics mappingtool"
 post roadtrip_intro "Prototype post-apocalyptic roadtrip simulator for the Minetest engine" 2023-04-23 "roadtrip minetest games software"
 POST_UPDATED="2023-04-25" post mvnu_surc "First place prize for my mapping tool presentation at MVNU's sURC" 2023-04-21 "academics mappingtool software"
