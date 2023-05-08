@@ -1,3 +1,4 @@
+post mapper0_6_2 "Mapping tool 0.6.2 release & thanks to all testers" 2023-05-08 "mappingtool release software"
 post graduation "I graduated from MVNU!" 2023-05-07 "academics life"
 POST_EXTERNAL="https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works" post mvnu_surc_announcement "MVNU sURC press release featuring my mapping tool" 2023-04-25 "academics mappingtool"
 post roadtrip_intro "Prototype post-apocalyptic roadtrip simulator for the Minetest engine" 2023-04-23 "roadtrip minetest games software"

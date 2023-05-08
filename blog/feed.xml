@@ -6,11 +6,35 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 08 May 2023 03:40:00 +0000</lastBuildDate>
-		<pubDate>Mon, 08 May 2023 03:40:00 +0000</pubDate>
+		<lastBuildDate>Mon, 08 May 2023 14:51:14 +0000</lastBuildDate>
+		<pubDate>Mon, 08 May 2023 14:51:14 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Mapping tool 0.6.2 release & thanks to all testers</title>
+	<description>&lt;div&gt;&lt;p&gt;Hello everyone!&lt;/p&gt;
+&lt;p&gt;Thank you so much for supporting the development of the mapping tool with your feedback, bug reports, and suggestions!&lt;/p&gt;
+&lt;p&gt;Version 0.6.2 of the mapping tool is out, with several important improvements including unlimited scale and image exporting. This is the last version of the mapping tool to be developed as an MVNU project, as I have graduated! In the future, the mapping tool will be developed as an open source project.&lt;/p&gt;
+&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_0.6.2.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_0.6.2.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;image-exporting&quot;&gt;Image Exporting&lt;/h2&gt;
+&lt;p&gt;You can now save parts of the map as images to be used as illustrations for a book, for a website, or for whatever you want.&lt;/p&gt;
+&lt;h2 id=&quot;unlimited-scale&quot;&gt;Unlimited Scale&lt;/h2&gt;
+&lt;p&gt;The scale of your maps is now unlimited, with a few handy controls to set exactly what scale you want to edit your map at at any given moment: you can edit on the scale of meters to design a city, or on the scale of hundreds of kilometers to design a continent. Whatever you like, all in the same map.&lt;/p&gt;
+&lt;h2 id=&quot;whats-next&quot;&gt;What&amp;#8217;s Next&lt;/h2&gt;
+&lt;p&gt;Just because I graduated doesn&amp;#8217;t mean that the mapping tool is done. I&amp;#8217;m going to keep working on it! Features like altitude controls, better performance, alternate graphical styles, and more are all in the pipeline. I&amp;#8217;ll also be releasing the tool as an open source project so that anyone interested can contribute ideas, code, and art.&lt;/p&gt;
+&lt;h2 id=&quot;stay-in-touch&quot;&gt;Stay in Touch&lt;/h2&gt;
+&lt;p&gt;Feel free to e-mail me at &lt;a href=&quot;https://benleskey.com/blog/mailto:ben@benleskey.com&quot;&gt;ben@benleskey.com&lt;/a&gt; for anything! You can also post feature requests or bug reports using the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/issues&quot;&gt;mapping tool issue tracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you&amp;#8217;d like to keep up with development of the mapping tool and try out new releases, all mapping tool news is posted &lt;a href=&quot;https://benleskey.com/aka/mappingtoolnews&quot;&gt;on my website&lt;/a&gt;. An &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool.feed.xml&quot;&gt;rss feed for news&lt;/a&gt; is available, as well as an &lt;a href=&quot;https://github.com/mapper1024/mapper1024/releases.atom&quot;&gt;atom feed for releases&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Thank you again for your support, and I hope you continue to enjoy the mapping tool as it grows and evolves!&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>mappingtool</category><category>release</category><category>software</category>
+	<link>https://benleskey.com/blog/mapper0_6_2</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_6_2</guid>
+	<pubDate>Mon, 08 May 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>I graduated from MVNU!</title>
 	<description>&lt;div&gt;&lt;img src=&quot;https://benleskey.com/blog/../images/mvnu_grad_ribbon.png&quot; alt=&quot;ribbon cut just before the baccalaureate service&quot;&gt;
@@ -2096,145 +2120,6 @@ Depths:2: 1572 daAuts
 	<link>https://benleskey.com/blog/lusha_answers_version_1</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/lusha_answers_version_1</guid>
 	<pubDate>Wed, 29 Mar 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Erik Otto #5: Gaining allies</title>
-	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
-
-&lt;h2 id=&quot;exploration&quot;&gt;Exploration&lt;/h2&gt;
-
-&lt;p&gt;Before any high-level raiding, Erik wants more allies and resources. There is no more postal service or Amazon, so he goes exploring with Alejandro Quick.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/exploring.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Up around the big city should be rich pickings.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/turret%20car.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s an armored car along the side of the road with two turrets mounted on top. Erik and Alejandro pull over beside it and strip out the turrets for later.&lt;/p&gt;
-
-&lt;p class=&quot;meta&quot;&gt;These turret mounts are the first step in a fully-automated laser defense system mounted on top of a vehicle. Such defenses would make raiding cities almost a breeze.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/battle.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Erik and Alejandro tear through a horde of zombies with 5.56 NATO rounds as they raid another evacuation shelter.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/southwick.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Reading a map they found on one of the zombie&#x27;s body, Erik learns about another city to the north-east. This&#x27;s one&#x27;s smaller, but no less dense.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/tower.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Erik climbs a radio tower to survey the surrounding area. There&#x27;s plenty of useful stores in the city, and some interesting features in the countryside.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/bunker.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;He and Alejandro come across a survivor&#x27;s bunker surrounded by spiked pits. They don&#x27;t have any way to get across, so they leave it, but maybe there was something good in there, or even a survivor!&lt;/p&gt;
-
-&lt;h2 id=&quot;gertha&quot;&gt;Gertha&lt;/h2&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/scavenger.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;As they drive across a field, they come across a survivor: a scavenger. She&#x27;s tough-looking, and Erik decides to recruit her into the cult.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/yay.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;She accepts! Gertha Solano joins the team!&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/gertha%20abilities.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p class=&quot;meta&quot;&gt;Gertha is a solid combat character. She has good melee skills, and amazing ranged skills, plus the excellent &lt;em&gt;Fast Learner&lt;/em&gt; trait which will help greatly in improving combat and non-combat skills.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/gertha%20camp.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Gertha packs up her makeshift camp and joins them in the back of the truck as they head to base to get Gertha geared up and settled in.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/gertha%20inv.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Gertha inheirits Erik&#x27;s position of primary explorer, and gets decked out with gear and weapons. Unlike Erik, she doesn&#x27;t care about fashion, so she sticks on a sturdy duster and Kevlar vest to be ready for any combat.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/faction%20camp.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;With three people in the cult now, Erik decides to set up a camp outside the bunker.&lt;/p&gt;
-
-&lt;p class=&quot;meta&quot;&gt;
-	The faction camp system lets NPCs embark on longer tasks, fetch resources, and craft items. It takes a &lt;em&gt;lot&lt;/em&gt; of resources to get faction camps up and running, so for now there&#x27;s just a tent for some shelter. Alejandro Quick can chop logs from the forest, for example, while the others are out exploring.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/gun%20basement.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;On an exploration trip in one of the Southwick houses, Gertha finds a gun basement with plenty of guns and ammunition. She uses a heavy crowbar to smash apart the ammunition safes.&lt;/p&gt;
-
-&lt;p&gt;Later, Erik drives them to the refugee center, where they learn about some kind of scientific hub left after the apocalypse.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/hub01.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;It&#x27;s very far to the south, but the refugee leader wants them to deliver a packet of data.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/bandits.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Before that, Gertha takes their sniper rifle between the pickup seats and takes out a camp of bandits from range.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/dead%20bandits.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Those bandits weren&#x27;t even dangerous. Not since Gertha had a rifle that powerful.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/person%20spotted.png&quot; alt=&quot;&quot;&gt;
-
-&lt;h2 id=&quot;kathy&quot;&gt;Kathy&lt;/h2&gt;
-
-&lt;p&gt;While driving down toward the scientific hub, they spot signs of life in a little swamp shack.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/kathy.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;It&#x27;s another person! Kathy Burroughs, another survivor, agrees to join the gang. She&#x27;s in excellent physical condition, even stronger than Gertha, so she&#x27;ll be a valuable asset on the exploration team.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/raiding%20cabin.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;While raiding a bandit cabin, Gertha engages in close quarters rifle combat. She hides out of sign, training her aim on doorways, and when a hapless bandit charges out she guns him down with no more than a squeeze of her trigger.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/hub01_map.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Finally they reach the scientific hub, Hub 01.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/intercom.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;There&#x27;s an intercom in the main building, but nobody alive upstairs. After some back-and-forth with the person on the other side of the intercom, Erik gets enough favor to begin accepting mercenary missions and traiding.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/intercom%20trade.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Hub 01 trades good books, armor, weapons, and scientific items.&lt;/p&gt;
-
-&lt;h2 id=&quot;domenic&quot;&gt;Domenic&lt;/h2&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/domenic.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Hearing cries of help from a cabin on an exploration trip, Gertha and Kathy fight through a horde of zombies to rescue Domenic Driver. He agrees to join their group without Erik even present. The cult is growing.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/domenic%20stats.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Domenic is not very strong, but he&#x27;s an unarmed combat master. In the future, perhaps, he can teach the rest of them. For now he&#x27;ll be stuck on camp duty after getting geared up.&lt;/p&gt;
-
-&lt;h2 id=&quot;turret&quot;&gt;Laser turret&lt;/h2&gt;
-
-&lt;p&gt;One of the Hub 01 missions left the group with an &lt;em&gt;hm12 dazzle rifle&lt;/em&gt;, a weak but cheap laser weapon that damages even robots. Erik wants to mount it on the pickup truck with automatic targetting, so he reads plenty of books to design a turret and turret controller system.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/getting%20bots.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;They also retrive some broken riot control turrets that Erik shot up earlier, to strip them for parts and AI cores.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/installed%20turret.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Finally Erik installs the automated laser turret on the pickup truck. This will target and destroy anything hostile it sees, and greatly improves the teams offensive and defensive power.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/erik/5/lab%20target.png&quot; alt=&quot;&quot;&gt;
-
-&lt;p&gt;Next stop: a top-secret scientific lab sitting in the middle of a giant ant nest to the north-west.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_erik</category>
-	<link>https://benleskey.com/blog/cdda_erik_5</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_erik_5</guid>
-	<pubDate>Tue, 14 Feb 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>
