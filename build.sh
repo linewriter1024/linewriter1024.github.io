@@ -104,6 +104,7 @@ commonreplace() {
 	replacetext "__FOOTERICONS__" "$(basereplace "$@" < templates/footer_icons.in.html)"
 }
 
+mkdir -p page
 mkdir -p blog/tags
 mkdir -p "$tmp"/tags
 
@@ -121,6 +122,7 @@ SUMMARY_WORDS=100
 
 # Number of blog posts so far.
 BN=0
+PN=0
 
 echo "Blog..."
 
@@ -185,6 +187,11 @@ post() {
 		post_listing_class="external"
 	fi
 
+	if [ -n "$POST_INTERNAL" ]; then
+		post_link="__ROOT__/page/$POST_INTERNAL"
+		post_base_link="https://benleskey.com/page/$POST_INTERNAL"
+	fi
+
 	# Now we will write a link to this post to the each of its tags' pages.
 	# We do this after tag processing because a link to the post also includes its tags, so we need to know all the tags of the post.
 	while read tag; do
@@ -202,7 +209,11 @@ post() {
 	# Always add a link to the "major" blog post listing HTML, this is for the dedicated blog page.
 	echo "<li class='postlisting $post_listing_class'><a href='$post_link'>$title</a> [$dateinfo] $smalltaghtml</li>" >> "$tmp"/_major.in.html
 
-	if [ -z "$POST_EXTERNAL" ]; then
+	if [ -n "$POST_INTERNAL" ]; then
+		redirecthtmlpage "../page/$POST_INTERNAL" > "$outfile" &
+	elif [ -n "$POST_EXTERNAL" ]; then
+		redirecthtmlpage "$POST_EXTERNAL" > "$outfile" &
+	else
 		replaceseries() {
 			if [[ -n "$series" ]]; then
 				replacefile "__SERIES_TOP__" "templates/series_top.in.html" | replacefile "__SERIES_BOTTOM__" "templates/series_bottom.in.html" | replacetext "__SERIES__" "$series" | replacetext "__SERIES_RSS_LINK__" "<link rel='alternate' type='application/rss+xml' title=\"Ben Leskey's RSS feed: $series\" href='tags/$series.feed.xml'>"
@@ -213,24 +224,53 @@ post() {
 
 		# Build the blog post HTML.
 		(replacetext "__TITLE__" "$title" | replacetext "__POST_DATE__" "$dateinfo" | replacetext "__TAGS__" "$taghtml" | replaceseries | commonreplace .. | replacefile "__POST__" "$infile" | python3 toc_builder.py) < templates/post.in.html > "$outfile" &
-	else
-		redirecthtmlpage "$POST_EXTERNAL" > "$outfile" &
 	fi
 
 	rsspost() {
-		if [ -z "$POST_EXTERNAL" ]; then
-			(python3 unrelate.py "https://benleskey.com/blog") < $infile
+		if [ -n "$POST_INTERNAL" ]; then
+			(if [ -n "$POST_BLURB" ]; then
+				echo "<p>$POST_BLURB</p>"
+			fi
+			echo "See <a href='$POST_INTERNAL'>$POST_INTERNAL</a>") | python3 unrelate.py "https://benleskey.com/blog"
+		elif [ -n "$POST_EXTERNAL" ]; then
+			(if [ -n "$POST_BLURB" ]; then
+				echo "<p>$POST_BLURB</p>"
+			fi
+			echo "See <a href='$POST_EXTERNAL'>$POST_EXTERNAL</a>") | python3 unrelate.py "https://benleskey.com/blog"
 		else
-			echo "See <a href='$POST_EXTERNAL'>$POST_EXTERNAL</a>"
+			(python3 unrelate.py "https://benleskey.com/blog") < $infile
 		fi
 	}
 
 	# Build the RSS item XML
-	(commonreplace .. | replacetext "__TITLE__" "$title" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$latestdate + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__GUID_LINK__" "$post_global_link" | replacetext "__LINK__" "$post_base_link" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
+	(commonreplace .. | replacetext "__TITLE__" "$(echo "$title" | htmlescape)" | replacetext "__POST_RDATE__" "$(TZ=UTC date --date="$latestdate + 12 hours" -R)" | replacetext "__CATEGORIES__" "$(echo "$tags" | xargs -n1 printf "<category>%s</category>")" | replacetext "__GUID_LINK__" "$post_global_link" | replacetext "__LINK__" "$post_base_link" | replacetext "__DESCRIPTION__" "$(rsspost | htmlescape)") < templates/feed_item.in.xml > "$outfeed" &
 }
 
 # Include the list of posts via source, so it can call the post function.
 source blog.in/posts.sh
+
+echo "<ul>" > "$tmp"/_pages.in.html
+
+page() {
+	name="$1"
+	title="$2"
+	date="$3"
+
+	echo " $name: $title [$date]"
+
+	infile="page.in/$name.in.html"
+	outfile="page/$name.html"
+
+	echo "<li class='postlisting'><a href='$name'>$title</a> [$date]</li>" >> "$tmp"/_pages.in.html
+
+	(replacetext "__TITLE__" "$title" | replacetext "__PAGE_DATE__" "$date" | commonreplace .. | replacefile "__PAGE__" "$infile" | python3 toc_builder.py) < templates/page.in.html > "$outfile" &
+
+	PN=$((PN+1))
+}
+
+source page.in/pages.sh
+
+echo "</ul>" >> "$tmp"/_pages.in.html
 
 # If there are more posts than can be displayed in the minor list (on the main page) then add a "More..." link to the minor list.
 if [ $BN -gt $BMMAX ]; then
@@ -298,6 +338,8 @@ done < <(echo "$alltags" | xargs -n1 --no-run-if-empty)
 
 # Build the dedicated blog index page.
 (replacefile "__BLOGMAJOR__" "$tmp/_major.in.html" | replacetext __NUM_POSTS__ "$BN" | replacefile __TAG_LIST__ "$tmp/_tag_list.in.html" | commonreplace ..) < templates/blog.in.html > blog/index.html &
+
+(replacefile "__PAGES__" "$tmp/_pages.in.html" | replacetext __NUM_PAGES__ "$PN" | commonreplace ..) < templates/pages.in.html > page/index.html &
 
 echo " Waiting..."
 wait

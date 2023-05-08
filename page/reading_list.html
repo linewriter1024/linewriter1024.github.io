@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | Reading list</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Pages</a>
+		<hr>
+		<header>
+		<h1>Reading list</h1>
+		<span class="subtitle">2023-05-08</span>
+		</header>
+		<hr>
+		<main class="post">
+			<p>I recommend these books.</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>Author</th>
+			<th>Title</th>
+			<th>Brief Notes</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr><th colspan="3"><a id="2023-05-08">2023-05-08</a></th></tr>
+		<tr>
+			<td>Joe Abercrombie</td>
+			<td><ul><li>A Little Hatred (#1)</li><li>The Trouble with Peace (#2)</li><li>The Wisdom of Crowds (#3)</li></ul></td>
+			<td>Grimdark fantasy politics &amp; war</td>
+		</tr>
+		<tr>
+			<td>Max Brooks</td>
+			<td>World War Z</td>
+			<td>Interview-style zombie apocalypse post-mortem</td>
+		</tr>
+		<tr>
+			<td>Margaret Atwood</td>
+			<td>Oryx and Crake</td>
+			<td>Incredibly bleak dystopia and apocalypse</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>See the <a href="../blog/tags/reading">reading</a> blog tag.</p>
+		</main>
+		<hr>
+		<footer>
+			<div class="footerinfo">
+				<span>Page dated 2023-05-08</span>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>

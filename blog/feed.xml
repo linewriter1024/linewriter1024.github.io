@@ -6,13 +6,23 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 08 May 2023 14:51:14 +0000</lastBuildDate>
-		<pubDate>Mon, 08 May 2023 14:51:14 +0000</pubDate>
+		<lastBuildDate>Mon, 08 May 2023 16:48:20 +0000</lastBuildDate>
+		<pubDate>Mon, 08 May 2023 16:48:20 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
 <item>
-	<title>Mapping tool 0.6.2 release & thanks to all testers</title>
+	<title>Reading list update #1</title>
+	<description>&lt;div&gt;&lt;p&gt;Abercrombie&#x27;s grim darkness, Atwood&#x27;s dystopia, Brooks&#x27; apocalypse, and more!&lt;/p&gt;
+See &lt;a href=&quot;https://benleskey.com/blog/reading_list#2023-05-08&quot;&gt;reading_list#2023-05-08&lt;/a&gt;
+&lt;/div&gt;</description>
+	<category>reading</category><category>discovery</category>
+	<link>https://benleskey.com/page/reading_list#2023-05-08</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/reading_list_1</guid>
+	<pubDate>Mon, 08 May 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
+	<title>Mapping tool 0.6.2 release &amp; thanks to all testers</title>
 	<description>&lt;div&gt;&lt;p&gt;Hello everyone!&lt;/p&gt;
 &lt;p&gt;Thank you so much for supporting the development of the mapping tool with your feedback, bug reports, and suggestions!&lt;/p&gt;
 &lt;p&gt;Version 0.6.2 of the mapping tool is out, with several important improvements including unlimited scale and image exporting. This is the last version of the mapping tool to be developed as an MVNU project, as I have graduated! In the future, the mapping tool will be developed as an open source project.&lt;/p&gt;
@@ -49,7 +59,8 @@
 </item>
 <item>
 	<title>MVNU sURC press release featuring my mapping tool</title>
-	<description>See &lt;a href=&#x27;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&#x27;&gt;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&lt;/a&gt;</description>
+	<description>&lt;p&gt;See &lt;a href=&quot;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&quot;&gt;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&lt;/a&gt;
+&lt;/p&gt;</description>
 	<category>academics</category><category>mappingtool</category>
 	<link>https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mvnu_surc_announcement</guid>
@@ -117,7 +128,7 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<pubDate>Sun, 23 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>First place prize for my mapping tool presentation at MVNU's sURC</title>
+	<title>First place prize for my mapping tool presentation at MVNU&#x27;s sURC</title>
 	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
 
 &lt;p&gt;Update 2023-04-25: &lt;a href=&quot;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&quot;&gt;MVNU sURC press release featuring my mapping tool&lt;/a&gt;&lt;/p&gt;
@@ -216,14 +227,15 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 </item>
 <item>
 	<title>Mapping tool quick start guide</title>
-	<description>See &lt;a href=&#x27;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&#x27;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;</description>
+	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&quot;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;
+&lt;/p&gt;</description>
 	<category>mappingtool</category><category>software</category>
 	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
 	<pubDate>Thu, 20 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>CDDA big world showcase: Ernie's great road trip</title>
+	<title>CDDA big world showcase: Ernie&#x27;s great road trip</title>
 	<description>&lt;div&gt;&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
 
 &lt;p&gt;If you like road trips through the post apocalyptic rural wasteland, I&#x27;ve got the right &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; world generation settings for you!&lt;/p&gt;
@@ -244,7 +256,7 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<pubDate>Tue, 11 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
+	<title>OBS Studio -&gt; ffmpeg -&gt; ImageMagick for an optimized gif</title>
 	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
 
 &lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
@@ -2059,67 +2071,6 @@ Depths:2: 1572 daAuts
 	<link>https://benleskey.com/blog/mapper0_6</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_6</guid>
 	<pubDate>Thu, 16 Feb 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Scene draft: Lusha tries to get answers, version 1</title>
-	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;I&#x27;ve written a &lt;a href=&quot;https://benleskey.com/blog/lusha_answers_version_2&quot;&gt;second draft.&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This is the first draft of a scene I&#x27;ll be using much later. I wrote it for a creative writing class prompt, as it fit the prompt of having characters unable to say what they really mean. It&#x27;s a bit inspired by Hemingway&#x27;s &lt;a href=&quot;https://en.wikipedia.org/wiki/Hills_Like_White_Elephants&quot;&gt;Hills Like White Elephants&lt;/a&gt; since I read that just before writing this, and the prompt itself leads along those lines.&lt;/p&gt;
-
-&lt;h2&gt;Scene&lt;/h2&gt;
-&lt;p&gt;Lusha punched the number into the keypad and jerked the heavy slightly-rusted handset up to her ear. She shuffled around the tangled wire as the handset blared tones in her ear. It clicked. There were a few other girls at the dormitory payphones, but nobody was listening too closely yet.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Lusha?&amp;#8221; Her father&#x27;s soft voice came metallic and worried.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Baba, I need to know something.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;He didn&#x27;t say anything.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Baba?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What is it, love?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;How did you get me to the university?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The briefest pause, then he said &amp;#8220;Is something wrong?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Baba&amp;#8212;!&amp;#8221; Lusha stopped as a girl picked up the handset of the payphone next to her and clicked in a number. She went on, quieter, &amp;#8220;Baba, something happened and I&amp;#8217;ve gotta know.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What happened?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I wanna know. I have to know.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What happened, Lusha?&amp;#8221; He must have been very close to the telephone. It usually sat on their living room table with a chair on either side so both her mother and father could talk with their friends at once. Now his every breath rang out through the handset on her end.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Is that Lusha, Eli?&amp;#8221; her mothers voice came through the line. &amp;#8220;Oh, Lusha, what&amp;#8217;s going on?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I was asking how I got to&amp;#8230; here,&amp;#8221; said Lusha.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Oh,&amp;#8221; said her mother.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s nothing,&amp;#8221; said her father. &amp;#8220;Don&amp;#8217;t worry.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Are you gonna tell her?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;He growled a little growl, not meant for anyone. &amp;#8220;It&amp;#8217;ll be okay. It&amp;#8217;s okay. You can go back to the bread.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I don&amp;#8217;t have to yet.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What&amp;#8217;s wrong?&amp;#8221; said Lusha.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;He won&amp;#8217;t tell me either.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s my business.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s my business too,&amp;#8221; said Lusha. &amp;#8220;I told you, something happened.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;We need to talk,&amp;#8221; he said. &amp;#8220;Later.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I can&amp;#8217;t talk later. I won&amp;#8217;t have a telephone.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I&amp;#8217;m sorry love, I can&amp;#8217;t.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;If you can&amp;#8217;t tell her now what makes you think you can tell her later? Or is it something you can&amp;#8217;t tell just me? Eli?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;No.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;You don&amp;#8217;t have to say what it is. Just say there&amp;#8217;s something. Don&amp;#8217;t look at me like that.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Moma?&amp;#8221; said Lusha.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Your father&amp;#8217;s hiding something. I want him to spit it out.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Lusha weighed her words. &amp;#8220;Do you know how it happened, Moma? Anything? Please, Moma.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I want him to say it.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Moma please. I don&amp;#8217;t have any time.&amp;#8221; Lusha clutched the handset with a sweaty hand. The girl beside her stopped chatting with her friend, but she hadn&amp;#8217;t hung up yet.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Eli, say it. Just say you&amp;#8217;re hiding it!&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Her father choked out a guttural sob. &amp;#8220;Girls, please&amp;#8230;&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Baba?&amp;#8221; The handset was too heavy.&lt;/p&gt;
-&lt;p&gt;Nobody said anything for a while, then her mother came back. &amp;#8220;He ran out the door.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Is he okay?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I don&amp;#8217;t know.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What do you know? I have to know.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I want you to come home first.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I can&amp;#8217;t!&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Not over the telephone.&amp;#8221; Now she was crying.&lt;/p&gt;
-&lt;p&gt;Lusha froze holding the handset to her ear. &amp;#8220;Moma,&amp;#8221; she whispered.&lt;/p&gt;
-&lt;p&gt;A big commotion came over the telephone. &amp;#8220;Eugh! There&amp;#8217;s a rat chew&amp;#8212;&amp;#8221; the line went flat.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Hey Lusha,&amp;#8221; said the girl next to her, &amp;#8220;Is everything alright?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Lusha couldn&amp;#8217;t say.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>writing</category><category>scene</category>
-	<link>https://benleskey.com/blog/lusha_answers_version_1</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/lusha_answers_version_1</guid>
-	<pubDate>Wed, 29 Mar 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>

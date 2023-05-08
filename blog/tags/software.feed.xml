@@ -6,12 +6,12 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 08 May 2023 14:51:12 +0000</lastBuildDate>
-		<pubDate>Mon, 08 May 2023 14:51:12 +0000</pubDate>
+		<lastBuildDate>Mon, 08 May 2023 16:48:17 +0000</lastBuildDate>
+		<pubDate>Mon, 08 May 2023 16:48:17 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
-	<title>Mapping tool 0.6.2 release & thanks to all testers</title>
+	<title>Mapping tool 0.6.2 release &amp; thanks to all testers</title>
 	<description>&lt;div&gt;&lt;p&gt;Hello everyone!&lt;/p&gt;
 &lt;p&gt;Thank you so much for supporting the development of the mapping tool with your feedback, bug reports, and suggestions!&lt;/p&gt;
 &lt;p&gt;Version 0.6.2 of the mapping tool is out, with several important improvements including unlimited scale and image exporting. This is the last version of the mapping tool to be developed as an MVNU project, as I have graduated! In the future, the mapping tool will be developed as an open source project.&lt;/p&gt;
@@ -96,7 +96,7 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<pubDate>Sun, 23 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>First place prize for my mapping tool presentation at MVNU's sURC</title>
+	<title>First place prize for my mapping tool presentation at MVNU&#x27;s sURC</title>
 	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
 
 &lt;p&gt;Update 2023-04-25: &lt;a href=&quot;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&quot;&gt;MVNU sURC press release featuring my mapping tool&lt;/a&gt;&lt;/p&gt;
@@ -195,14 +195,15 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 </item>
 <item>
 	<title>Mapping tool quick start guide</title>
-	<description>See &lt;a href=&#x27;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&#x27;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;</description>
+	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&quot;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;
+&lt;/p&gt;</description>
 	<category>mappingtool</category><category>software</category>
 	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
 	<pubDate>Thu, 20 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>OBS Studio -> ffmpeg -> ImageMagick for an optimized gif</title>
+	<title>OBS Studio -&gt; ffmpeg -&gt; ImageMagick for an optimized gif</title>
 	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
 
 &lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
@@ -381,7 +382,7 @@ Here&#x27;s the final GIF:
 	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>I'm on diff.blog</title>
+	<title>I&#x27;m on diff.blog</title>
 	<description>&lt;div&gt;&lt;p&gt;
 	&lt;img class=&quot;right&quot; alt=&quot;diffblogbot starring the linewriter1024.github.io repository&quot; src=&quot;https://benleskey.com/blog/../images/diff_blog_starred.png&quot;&gt;
 	I saw yesterday that &lt;a href=&quot;https://diff.blog&quot;&gt;diff.blog&lt;/a&gt;&#x27;s bot account on Github had starred the repository for this website. I clicked through to their &lt;a href=&quot;https://github.com/diffblogbot&quot;&gt;Github page&lt;/a&gt;, which described diff.blog as &lt;q cite=&quot;https://github.com/diffblogbot&quot;&gt;an aggregator of developer blogs&amp;#8230; started in 2019 to improve the visibility of self hosted blogs&lt;/q&gt;.

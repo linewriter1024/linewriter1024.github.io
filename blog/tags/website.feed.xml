@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog/tags/website</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 08 May 2023 14:51:12 +0000</lastBuildDate>
-		<pubDate>Mon, 08 May 2023 14:51:12 +0000</pubDate>
+		<lastBuildDate>Mon, 08 May 2023 16:48:18 +0000</lastBuildDate>
+		<pubDate>Mon, 08 May 2023 16:48:18 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/website.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
@@ -22,7 +22,7 @@
 	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>
 <item>
-	<title>I'm on diff.blog</title>
+	<title>I&#x27;m on diff.blog</title>
 	<description>&lt;div&gt;&lt;p&gt;
 	&lt;img class=&quot;right&quot; alt=&quot;diffblogbot starring the linewriter1024.github.io repository&quot; src=&quot;https://benleskey.com/blog/../images/diff_blog_starred.png&quot;&gt;
 	I saw yesterday that &lt;a href=&quot;https://diff.blog&quot;&gt;diff.blog&lt;/a&gt;&#x27;s bot account on Github had starred the repository for this website. I clicked through to their &lt;a href=&quot;https://github.com/diffblogbot&quot;&gt;Github page&lt;/a&gt;, which described diff.blog as &lt;q cite=&quot;https://github.com/diffblogbot&quot;&gt;an aggregator of developer blogs&amp;#8230; started in 2019 to improve the visibility of self hosted blogs&lt;/q&gt;.
