@@ -231,7 +231,7 @@ post() {
 			(if [ -n "$POST_BLURB" ]; then
 				echo "<p>$POST_BLURB</p>"
 			fi
-			echo "See <a href='$POST_INTERNAL'>$POST_INTERNAL</a>") | python3 unrelate.py "https://benleskey.com/blog"
+			echo "See <a href='$POST_INTERNAL'>$POST_INTERNAL</a>") | python3 unrelate.py "https://benleskey.com/page"
 		elif [ -n "$POST_EXTERNAL" ]; then
 			(if [ -n "$POST_BLURB" ]; then
 				echo "<p>$POST_BLURB</p>"
