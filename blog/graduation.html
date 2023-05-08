@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | I graduated from MVNU!</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>I graduated from MVNU!</h1>
+		<span class="subtitle">2023-05-07</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/academics">#academics</a> <a class="tag" href="../blog/tags/life">#life</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<!-- My favorite part of commencement was when Dr. Henry Commencement said "it's commencing time" and commenced all over everyone. -->
+<img src="../images/mvnu_grad_ribbon.png" alt="ribbon cut just before the baccalaureate service">
+<p>I graduated from MVNU yesterday, <i>summa cum laude</i> &amp; Honors scholar! <small>I did it, an A in every class!</small></p>
+<p><i>I'm really done</i> hit me in a small way now that I can clean up all the academic files and folders and apps I have hanging around my computers. I don't need my LMS anymore. Most of my hundreds of old assignments are worth as much as the paragraphs I wrote in 3rd grade. Notebooks filled with doodles and math homework are useless.</p>
+<p>Of course, the important things I started during my time at MVNU won't stop just because I graduated. Projects like my <a href="../aka/mappingtool">mapping tool</a> and the creative writing work that I've done will continue, the dozens of good friends I've made are still my friends even now that we've gone our separate ways, and all the social and academic knowledge pounded into my head is solidly <b>there</b>, ready for the rest of my life.</p>
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2023-05-07</span>
+				 <a class="tag" href="../blog/tags/academics">#academics</a> <a class="tag" href="../blog/tags/life">#life</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>
