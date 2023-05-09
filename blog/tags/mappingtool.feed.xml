@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog/tags/mappingtool</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 08 May 2023 16:53:14 +0000</lastBuildDate>
-		<pubDate>Mon, 08 May 2023 16:53:14 +0000</pubDate>
+		<lastBuildDate>Tue, 09 May 2023 03:38:35 +0000</lastBuildDate>
+		<pubDate>Tue, 09 May 2023 03:38:35 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/mappingtool.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
@@ -25,7 +25,7 @@
 &lt;h2 id=&quot;whats-next&quot;&gt;What&amp;#8217;s Next&lt;/h2&gt;
 &lt;p&gt;Just because I graduated doesn&amp;#8217;t mean that the mapping tool is done. I&amp;#8217;m going to keep working on it! Features like altitude controls, better performance, alternate graphical styles, and more are all in the pipeline. I&amp;#8217;ll also be releasing the tool as an open source project so that anyone interested can contribute ideas, code, and art.&lt;/p&gt;
 &lt;h2 id=&quot;stay-in-touch&quot;&gt;Stay in Touch&lt;/h2&gt;
-&lt;p&gt;Feel free to e-mail me at &lt;a href=&quot;https://benleskey.com/blog/mailto:ben@benleskey.com&quot;&gt;ben@benleskey.com&lt;/a&gt; for anything! You can also post feature requests or bug reports using the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/issues&quot;&gt;mapping tool issue tracker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Feel free to e-mail me at &lt;a href=&quot;mailto:ben@benleskey.com&quot;&gt;ben@benleskey.com&lt;/a&gt; for anything! You can also post feature requests or bug reports using the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/issues&quot;&gt;mapping tool issue tracker&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;If you&amp;#8217;d like to keep up with development of the mapping tool and try out new releases, all mapping tool news is posted &lt;a href=&quot;https://benleskey.com/aka/mappingtoolnews&quot;&gt;on my website&lt;/a&gt;. An &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool.feed.xml&quot;&gt;rss feed for news&lt;/a&gt; is available, as well as an &lt;a href=&quot;https://github.com/mapper1024/mapper1024/releases.atom&quot;&gt;atom feed for releases&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Thank you again for your support, and I hope you continue to enjoy the mapping tool as it grows and evolves!&lt;/p&gt;
 &lt;/div&gt;</description>
