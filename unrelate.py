@@ -11,7 +11,7 @@ def all(element):
 
 def fix_path(path):
 	base = sys.argv[1]
-	if urlparse(path).netloc:
+	if urlparse(path).netloc or urlparse(path).scheme:
 		return path
 	else:
 		return base + "/" + path
