@@ -1,1 +1,1 @@
-page reading_list "Reading list" 2023-05-08
+page reading_list "Recommended reading list" 2023-05-08
