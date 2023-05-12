@@ -1,3 +1,4 @@
+post dillo_test "The Dillo Test" 2023-05-11 "dev software website"
 POST_BLURB="Abercrombie's grim darkness, Atwood's dystopia, Brooks' apocalypse, and more!" POST_INTERNAL="reading_list#2023-05-08" post reading_list_1 "Reading list update #1" 2023-05-08 "reading discovery"
 post mapper0_6_2 "Mapping tool 0.6.2 release & thanks to all testers" 2023-05-08 "mappingtool release software"
 post graduation "I graduated from MVNU!" 2023-05-07 "academics life"
