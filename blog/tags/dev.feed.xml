@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ben Leskey's Blog: dev</title>
+		<description>dev posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/dev</link>
+		<language>en-us</language>
+		<copyright>2023 Ben Leskey</copyright>
+		<lastBuildDate>Fri, 12 May 2023 00:38:45 +0000</lastBuildDate>
+		<pubDate>Fri, 12 May 2023 00:38:45 +0000</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/dev.feed.xml" rel="self" type="application/rss+xml" />
+
+		<item>
+	<title>The Dillo Test</title>
+	<description>&lt;div&gt;&lt;p&gt;You may not know what Dillo is.&lt;/p&gt;
+&lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test.png&quot; alt=&quot;benleskey.com in dillo&quot;&gt;
+
+&lt;p&gt;That&#x27;s &lt;a href=&quot;https://www.dillo.org/&quot;&gt;Dillo&lt;/a&gt;. It&#x27;s a plain graphical web browser with minimal feature set beyond being able to draw text and, sometimes, images. Why would anyone want that? Well, there&#x27;s not much practical reason now&amp;#8212;every modern browser supports a truckload of features beyond simple HTML&amp;#8212;but it does indicate a simplicity and graceful degradation that is aesthetically desirable. This website, for instance, is entirely usable in Dillo. Javascript doesn&#x27;t work, but everything has a fallback. If your site works in Dillo, then it is &lt;i&gt;simple enough&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&#x27;s not even difficult to make this site work in Dillo. In fact, it avoids any kind of bloat. This site can&#x27;t rely on Javascript, or on complicated styling, or on anything but simple text to get its message across. Functionality beyond that is, as is traditional, just window dressing on top of a simple HTML structure. Common? No. But if your site works in Dillo it will probably satisfy the hacker hipsters.&lt;/p&gt;
+
+&lt;p&gt;You can, of course, take it further and make the &lt;a href=&quot;https://lynx.invisible-island.net/&quot;&gt;Lynx&lt;/a&gt; test &lt;b&gt;;)&lt;/b&gt;. You&#x27;d better hope you&#x27;ve got alt text on your &lt;i&gt;img&lt;/i&gt; elements!&lt;/p&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test_lynx.png&quot; alt=&quot;benleskey.com in lynx&quot;&gt;
+&lt;/div&gt;</description>
+	<category>dev</category><category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/dillo_test</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/dillo_test</guid>
+	<pubDate>Thu, 11 May 2023 12:00:00 +0000</pubDate>
+</item>_
+	</channel>
+</rss>

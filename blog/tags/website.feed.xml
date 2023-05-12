@@ -6,11 +6,29 @@
 		<link>https://benleskey.com/blog/tags/website</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 11 May 2023 19:12:57 +0000</lastBuildDate>
-		<pubDate>Thu, 11 May 2023 19:12:57 +0000</pubDate>
+		<lastBuildDate>Fri, 12 May 2023 00:38:46 +0000</lastBuildDate>
+		<pubDate>Fri, 12 May 2023 00:38:46 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/website.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>The Dillo Test</title>
+	<description>&lt;div&gt;&lt;p&gt;You may not know what Dillo is.&lt;/p&gt;
+&lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test.png&quot; alt=&quot;benleskey.com in dillo&quot;&gt;
+
+&lt;p&gt;That&#x27;s &lt;a href=&quot;https://www.dillo.org/&quot;&gt;Dillo&lt;/a&gt;. It&#x27;s a plain graphical web browser with minimal feature set beyond being able to draw text and, sometimes, images. Why would anyone want that? Well, there&#x27;s not much practical reason now&amp;#8212;every modern browser supports a truckload of features beyond simple HTML&amp;#8212;but it does indicate a simplicity and graceful degradation that is aesthetically desirable. This website, for instance, is entirely usable in Dillo. Javascript doesn&#x27;t work, but everything has a fallback. If your site works in Dillo, then it is &lt;i&gt;simple enough&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;It&#x27;s not even difficult to make this site work in Dillo. In fact, it avoids any kind of bloat. This site can&#x27;t rely on Javascript, or on complicated styling, or on anything but simple text to get its message across. Functionality beyond that is, as is traditional, just window dressing on top of a simple HTML structure. Common? No. But if your site works in Dillo it will probably satisfy the hacker hipsters.&lt;/p&gt;
+
+&lt;p&gt;You can, of course, take it further and make the &lt;a href=&quot;https://lynx.invisible-island.net/&quot;&gt;Lynx&lt;/a&gt; test &lt;b&gt;;)&lt;/b&gt;. You&#x27;d better hope you&#x27;ve got alt text on your &lt;i&gt;img&lt;/i&gt; elements!&lt;/p&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test_lynx.png&quot; alt=&quot;benleskey.com in lynx&quot;&gt;
+&lt;/div&gt;</description>
+	<category>dev</category><category>software</category><category>website</category>
+	<link>https://benleskey.com/blog/dillo_test</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/dillo_test</guid>
+	<pubDate>Thu, 11 May 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>More RSS feeds!</title>
 	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mappingtool_tag.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;mappingtool tag page&quot; src=&quot;https://benleskey.com/blog/../thumbs/mappingtool_tag.50.png&quot;&gt;&lt;/a&gt;I&#x27;ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool&quot;&gt;the mappingtool tag&lt;/a&gt;. I can, in this way, use my blog easily as a set of smaller blogs for each category.&lt;/p&gt;
 
@@ -188,7 +206,7 @@ post() {
 	echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $smalltaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-05-11&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2023-05-12&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
 }
 
 echo &quot;Blog...&quot;
@@ -213,7 +231,7 @@ echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 (
 	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
 	# The date of generation is included on the main page.
-	replacetext &quot;2023-05-11&quot; &quot;$(TZ=UTC date -I)&quot;
+	replacetext &quot;2023-05-12&quot; &quot;$(TZ=UTC date -I)&quot;
 ) &amp;lt; templates/index.in.html &amp;gt; index.html
 
 # Build the dedicated blog index page.
