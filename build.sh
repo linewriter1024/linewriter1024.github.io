@@ -352,7 +352,7 @@ echo "Processing images..."
 mkdir -p thumbs
 
 for ext in jpg png; do
-	find images -name "*.$ext" -prune | while read n; do
+	find images -maxdepth 1 -name "*.$ext" -prune | while read n; do
 		n="$(basename "$n")"
 		echo " Processing $n"
 		convert -resize 10% -strip "images/$n" "thumbs/${n%.*}.10.$ext" &
