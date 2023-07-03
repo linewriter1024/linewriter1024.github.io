@@ -6,11 +6,20 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Tue, 20 Jun 2023 05:30:01 +0000</lastBuildDate>
-		<pubDate>Tue, 20 Jun 2023 05:30:01 +0000</pubDate>
+		<lastBuildDate>Mon, 03 Jul 2023 19:23:07 +0000</lastBuildDate>
+		<pubDate>Mon, 03 Jul 2023 19:23:07 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Make horses milkable</title>
+	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&quot;&gt;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&lt;/a&gt;
+&lt;/p&gt;</description>
+	<category>cdda</category><category>software</category>
+	<link>https://github.com/CleverRaven/Cataclysm-DDA/pull/66639</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/make_horses_milkable</guid>
+	<pubDate>Mon, 03 Jul 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Reading list update #2</title>
 	<description>&lt;div&gt;&lt;p&gt;Culture and mystery!&lt;/p&gt;
@@ -1974,43 +1983,6 @@ Depths:2: 1572 daAuts
 	<link>https://benleskey.com/blog/opca_win</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/opca_win</guid>
 	<pubDate>Tue, 28 Mar 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>I took the ETS major field test for computer science</title>
-	<description>&lt;div&gt;&lt;p&gt;
-	Every senior student at &lt;a href=&quot;https://mvnu.edu&quot;&gt;MVNU&lt;/a&gt; takes a standardized assessment. The assessment lets MVNU administration compare how well their students are doing against other institutions, and how well each program is teaching the fundamentals of the program&#x27;s field. In my case the assessment was the &lt;a href=&quot;https://www.ets.org/content/dam/ets-org/pdfs/mft/comp-sci-test-description.pdf&quot;&gt;ETS major field test for computer science&lt;/a&gt;.
-&lt;/p&gt;
-
-&lt;p&gt;
-	While I knew the test was coming up, I wasn&#x27;t given any information about what would be on the test, and since I knew it wouldn&#x27;t affect my graduation or GPA I wasn&#x27;t particularly concerned about studying for it. The day before the testing day I decided to look into exactly what I would be taking. I found a &lt;a href=&quot;https://www.ets.org/pdfs/mft/comp-sci-sample-questions.pdf&quot;&gt;sample questions document&lt;/a&gt; (&lt;a href=&quot;https://web.archive.org/web/20230316163356/https://www.ets.org/pdfs/mft/comp-sci-sample-questions.pdf&quot;&gt;archived&lt;/a&gt;) by searching on google. These sample questions were representative of the actual test&amp;#8212;as one&#x27;d expect&amp;#8212;and there was nothing I hadn&#x27;t seen in my courses at MVNU. The bulk of the questions seemed to be more &quot;Computer Science&quot; than &quot;Computer Programming&quot; and were covered by two courses in particular that I&#x27;d taken: &lt;em&gt;Data Structures &amp;amp; Algorithm Design&lt;/em&gt; and &lt;em&gt;Survey and Organization of Programming Languages&lt;/em&gt;. I didn&#x27;t study much beyond checking out the sample questions.
-&lt;/p&gt;
-
-&lt;p&gt;
-	On the day of the actual test classes were cancelled for everyone to let seniors take their major field assessments, juniors take their general education assessments (only every other junior class has to take these, I didn&#x27;t have to last year), and everyone except graduating seniors to meet with their advisors and schedule classes for the next year. Sadly, I didn&#x27;t get to enjoy much of the cancelled classes as I had to wake up for the major field test at 9 AM, and I still had my meeting with my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;Honors project&lt;/a&gt; advisor to keep wrapping things up. The test was proctored&amp;#8212;as required by ETS&amp;#8212;and administered in the main computer lab. The test itself was not very stressful; the sample questions were good preparation and representation of the actual assessment.
-&lt;/p&gt;
-
-&lt;a href=&quot;https://benleskey.com/blog/../images/cs_mft_score.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cs_mft_score.50.png&quot; alt=&quot;Test results&quot; class=&quot;left&quot;&gt;&lt;/a&gt;
-
-&lt;p&gt;
-	My score was displayed and e-mailed to me immediately after I completed the test. I scored 181 on a scale from 120&amp;#8211;200, placing me in the 98th percentile. This is pretty good, and I&#x27;m happy with the score, and how it reflects on my learning at MVNU. I could have done a little better with more studying, but most of the questions could be solved with logic, and that&#x27;s not something learned by cramming before a test&amp;#8212;only years of practice can build that kind of understanding and that&#x27;s what brought my score so high.
-&lt;/p&gt;
-
-&lt;p&gt;
-	I couldn&#x27;t find much other discussion online about the ETS major field test, just a couple &lt;a href=&quot;https://scratchrobotics.com/2018/07/08/how-i-prepare-for-ets-major-field-test-computer-science/&quot;&gt;blog&lt;/a&gt; &lt;a href=&quot;https://scratchrobotics.com/2019/02/26/prep-mft-cs-story-part-2/&quot;&gt;posts&lt;/a&gt; from &lt;a href=&quot;https://scratchrobotics.com/&quot;&gt;a student&#x27;s blog&lt;/a&gt;.
-&lt;/p&gt;
-
-&lt;h2&gt;Quirks of the results page&lt;/h2&gt;
-
-&lt;a href=&quot;https://benleskey.com/blog/../images/cs_mft_error.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cs_mft_error.50.png&quot; alt=&quot;Invalid key pressed popup&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
-
-&lt;p&gt;
-	The results page pops up the individual results for the test that I took, but interestingly if I press an &quot;illegal key&quot; like the Windows key, it alerts me and leaves the page. Why? I don&#x27;t know. Maybe it thinks I&#x27;m still taking the test.
-&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>deepdive</category><category>software</category><category>academics</category>
-	<link>https://benleskey.com/blog/cs_mft</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cs_mft</guid>
-	<pubDate>Thu, 16 Mar 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>

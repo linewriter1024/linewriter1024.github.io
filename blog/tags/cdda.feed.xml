@@ -6,11 +6,20 @@
 		<link>https://benleskey.com/blog/tags/cdda</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Tue, 20 Jun 2023 05:29:56 +0000</lastBuildDate>
-		<pubDate>Tue, 20 Jun 2023 05:29:56 +0000</pubDate>
+		<lastBuildDate>Mon, 03 Jul 2023 19:23:04 +0000</lastBuildDate>
+		<pubDate>Mon, 03 Jul 2023 19:23:04 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/cdda.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Make horses milkable</title>
+	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&quot;&gt;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&lt;/a&gt;
+&lt;/p&gt;</description>
+	<category>cdda</category><category>software</category>
+	<link>https://github.com/CleverRaven/Cataclysm-DDA/pull/66639</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/make_horses_milkable</guid>
+	<pubDate>Mon, 03 Jul 2023 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>CDDA big world showcase: Ernie&#x27;s great road trip</title>
 	<description>&lt;div&gt;&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
 
