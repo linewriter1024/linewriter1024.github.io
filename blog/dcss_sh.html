@@ -1,51 +1,82 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Ben Leskey's Blog</title>
-		<description>Posts from the keys of Ben Leskey</description>
-		<link>https://benleskey.com/blog</link>
-		<language>en-us</language>
-		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 28 Jul 2023 12:17:10 +0000</lastBuildDate>
-		<pubDate>Fri, 28 Jul 2023 12:17:10 +0000</pubDate>
-		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
-
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | The new DCSS shapeshifter background (first win)</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
 		
-<item>
-	<title>The new DCSS shapeshifter background (first win)</title>
-	<description>&lt;div&gt;&lt;p&gt;
-	I got a win playing an Armataur Shapeshifter of Okawaru in the &lt;a href=&quot;https://crawl.develz.org&quot;&gt;Dungeon Crawl: Stone Soup&lt;/a&gt; roguelike. This was my first Armataur win, as well as my first win and first real time playing the new shapeshifter background, which is replacing the old transmutations magic school. Unlike with the old transmutations school, this character didn&#x27;t have to cast spells at all, and I could focus on being a melee dude. And what a melee dude I was!
-&lt;/p&gt;
 
-&lt;p&gt;
-	During the whole game, I encountered only four &quot;talismans&quot; which allow me to shapeshift into different forms: Beast (which all shapeshifters start with), Maw, Blade, and Storm. Beast is a low level form, Maw and Blade are on the same level, and Storm is an end game form (measured by their minimum skill requirements). My basic strategy was to get the most powerful form I had online as soon as possible, training only shapeshifting until the next form was usable, because the forms grant immense powerups at the cost of locking out certain armor and weapon slots, or, in the case of storm form, all armor and weapons. Okawaru filled in the gaps, giving me the skill boosts I needed to keep up in the rest of my fighting skills.
-&lt;/p&gt;
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
 
-&lt;p&gt;
-	Beast form isn&#x27;t very interesting: it gives a small boost to (unarmed) combat power in exchange for losing a lot of armor. Being an armataur helped here, because I had some natural mutations that weren&#x27;t overridden by the form that gave me more HP and natural armor.
-&lt;/p&gt;
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
 
-&lt;p&gt;
-	For a short time in the mid-game I had the choice between Blade form and Maw form. Blade form is a straightforward powerup giving you powerful unarmed combat melee attacks. Maw form gives less unarmed combat power but a powerful auxiliary &quot;maw&quot; attack that lets you regain health during combat &amp;#224; la Makhleb. I was fairly underwhelmed by maw form: despite its healing power I felt I was giving up too much offense for the chance of an auxiliary attack, whereas blade form provided a simple, brutal damage boost while still letting me wear body armor. I only switched to Maw form when facing hydras.
-&lt;/p&gt;
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>The new DCSS shapeshifter background (first win)</h1>
+		<span class="subtitle">2023-07-28</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/dcss">#dcss</a> <a class="tag" href="../blog/tags/games">#games</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<p>
+	I got a win playing an Armataur Shapeshifter of Okawaru in the <a href="https://crawl.develz.org">Dungeon Crawl: Stone Soup</a> roguelike. This was my first Armataur win, as well as my first win and first real time playing the new shapeshifter background, which is replacing the old transmutations magic school. Unlike with the old transmutations school, this character didn't have to cast spells at all, and I could focus on being a melee dude. And what a melee dude I was!
+</p>
 
-&lt;p&gt;
-	But those were just stepping stones on the way to the end-game form: Storm form. Storm form disables all armor and weapons, but grants it&#x27;s own significant AC and EV boosts plus insane damage output and a powerful Blinkbolt utility attack. Once I got shapeshifting up to level 21 (and I rushed for it) I switched to Storm form and never looked back. There is nothing in the game that could stand up to an Okawaru-boosted storm form armataur coming at them like a flying electric freight train. I deleted orbs of fire in a few hits. In exchange for this awesome power I was a bit of a glass cannon, lacking almost all resistances due to poor jewelry loot, but I still felt very powerful with some use of consumables and Okawaru.
-&lt;/p&gt;
+<p>
+	During the whole game, I encountered only four "talismans" which allow me to shapeshift into different forms: Beast (which all shapeshifters start with), Maw, Blade, and Storm. Beast is a low level form, Maw and Blade are on the same level, and Storm is an end game form (measured by their minimum skill requirements). My basic strategy was to get the most powerful form I had online as soon as possible, training only shapeshifting until the next form was usable, because the forms grant immense powerups at the cost of locking out certain armor and weapon slots, or, in the case of storm form, all armor and weapons. Okawaru filled in the gaps, giving me the skill boosts I needed to keep up in the rest of my fighting skills.
+</p>
 
-&lt;p&gt;
+<p>
+	Beast form isn't very interesting: it gives a small boost to (unarmed) combat power in exchange for losing a lot of armor. Being an armataur helped here, because I had some natural mutations that weren't overridden by the form that gave me more HP and natural armor.
+</p>
+
+<p>
+	For a short time in the mid-game I had the choice between Blade form and Maw form. Blade form is a straightforward powerup giving you powerful unarmed combat melee attacks. Maw form gives less unarmed combat power but a powerful auxiliary "maw" attack that lets you regain health during combat &#224; la Makhleb. I was fairly underwhelmed by maw form: despite its healing power I felt I was giving up too much offense for the chance of an auxiliary attack, whereas blade form provided a simple, brutal damage boost while still letting me wear body armor. I only switched to Maw form when facing hydras.
+</p>
+
+<p>
+	But those were just stepping stones on the way to the end-game form: Storm form. Storm form disables all armor and weapons, but grants it's own significant AC and EV boosts plus insane damage output and a powerful Blinkbolt utility attack. Once I got shapeshifting up to level 21 (and I rushed for it) I switched to Storm form and never looked back. There is nothing in the game that could stand up to an Okawaru-boosted storm form armataur coming at them like a flying electric freight train. I deleted orbs of fire in a few hits. In exchange for this awesome power I was a bit of a glass cannon, lacking almost all resistances due to poor jewelry loot, but I still felt very powerful with some use of consumables and Okawaru.
+</p>
+
+<p>
 	There are other end-game forms I never got access to: Dragon, Undead, and Statue (not sure if those are their actual names).
 	Of these, Statue form seems the most interesting for the potential to wear equipment, and for extended I imagine Undead form would be popular, but I have no personal analysis of their strengths.
-&lt;/p&gt;
+</p>
 
-&lt;p&gt;
+<p>
 	Overall, shapeshifting feels like an improvement over the spell-based transmutations.
-	I didn&#x27;t have to waste training magic and could focus on melee. Having the talismas as items wasn&#x27;t too bad for inventory pressure either, especially with the limited armor, but if I had dabbled in spells I might not have enjoyed carrying around the extra items. Right now, any melee character can start using shapeshifting, as evidenced by my Armataur which was a successful storm form menace despite having -3 shapeshifting aptitude. The new forms will probable need some balancing, but they&#x27;re really fun to play and eliminate much of the frustration and useless decision-making transmuters used to face. I look forward to playing another shapeshifter and trying some of the other end-game forms.
-&lt;/p&gt;
+	I didn't have to waste training magic and could focus on melee. Having the talismas as items wasn't too bad for inventory pressure either, especially with the limited armor, but if I had dabbled in spells I might not have enjoyed carrying around the extra items. Right now, any melee character can start using shapeshifting, as evidenced by my Armataur which was a successful storm form menace despite having -3 shapeshifting aptitude. The new forms will probable need some balancing, but they're really fun to play and eliminate much of the frustration and useless decision-making transmuters used to face. I look forward to playing another shapeshifter and trying some of the other end-game forms.
+</p>
 
-&lt;p&gt;
-The &lt;a href=&quot;https://crawl.kelbi.org/crawl/morgue/Nornya/morgue-Nornya-20230728-114855.txt&quot;&gt;morgue file&lt;/a&gt; from &lt;a href=&quot;https://crawl.kelbi.org&quot;&gt;CKO&lt;/a&gt; is included below:
-&lt;/p&gt;&lt;pre&gt;
+<p>
+The <a href="https://crawl.kelbi.org/crawl/morgue/Nornya/morgue-Nornya-20230728-114855.txt">morgue file</a> from <a href="https://crawl.kelbi.org">CKO</a> is included below:
+</p><pre>
  Dungeon Crawl Stone Soup version 0.31-a0-369-g8eba5f6939 (webtiles) character file.
 
 Game seed: 6689161685896560304
@@ -67,10 +98,10 @@ Gold:   6575       SH:  0    Dex: 11    Spells: 25/25 levels left
 rFire   + . .          - Unarmed
 rCold   . . .        u - melded orb {light}
 rNeg    . . .        e - melded +4 skin of Zhor {*Englaciate rC+++ SInv}
-rPois   &amp;#8734;            m - melded +2 helmet {SInv}
+rPois   &#8734;            m - melded +2 helmet {SInv}
 rElec   +            L - melded scarf {rC+ rF+}
 rCorr   .            U - melded +1 pair of gloves of Infinity {Rampage rC- Will+++ Int-2}
-SInv    .            y - melded +3 barding &quot;Nunet&quot; {rElec Regen+}
+SInv    .            y - melded +3 barding "Nunet" {rElec Regen+}
 Will    ++...        F - amulet of faith
 Stlth   ++           R - ring of protection from fire
 HPRegen 0.60/turn    M - ring of willpower
@@ -113,7 +144,7 @@ Armour
    SInv:      It lets you see invisible.
  m - a +2 helmet of see invisible (melded)
  u - an orb of light (melded)
- y - the +3 barding &quot;Nunet&quot; (melded) {rElec Regen+}
+ y - the +3 barding "Nunet" (melded) {rElec Regen+}
    (Okawaru gifted it to you on level 15 of the Dungeon)
 
    rElec:     It insulates you from electricity.
@@ -133,7 +164,7 @@ Jewellery
  F - an amulet of faith (around neck)
  M - a ring of willpower (right fist)
  R - a ring of protection from fire (left fist)
- Y - the ring &quot;Boocwev&quot; {rN+ rCorr Str+2}
+ Y - the ring "Boocwev" {rN+ rCorr Str+2}
    (You found it on level 3 of the Shoals)
 
    [ring of resist corrosion]
@@ -193,7 +224,7 @@ Potions
 
 
 You had 25 spell levels left.
-You didn&#x27;t know any spells.
+You didn't know any spells.
 Your spell library contained the following spells:
 
  Spells                   Type           Power      Damage    Failure   Level
@@ -214,45 +245,45 @@ Your spell library contained the following spells:
  Ignite Poison            Fire/Tmut/Pois 0%         N/A       75%         3
  Inner Flame              Hex/Fire       0%         N/A       75%         3
  Mephitic Cloud           Conj/Pois/Air  0%         N/A       75%         3
- Ozocubu&#x27;s Armour         Ice            0%         N/A       75%         3
+ Ozocubu's Armour         Ice            0%         N/A       75%         3
  Portal Projectile        Hex/Tloc       0%         N/A       75%         3
  Stone Arrow              Conj/Erth      0%         3d7       75%         3
  Swiftness                Air            0%         N/A       75%         3
  Vampiric Draining        Necr           0%         2d6       75%         3
- Vhi&#x27;s Electric Charge    Tloc/Air       0%         N/A       75%         3
+ Vhi's Electric Charge    Tloc/Air       0%         N/A       75%         3
  Airstrike                Air            0%         2d(0-16)  99%         4
  Anguish                  Hex/Necr       0%         N/A       99%         4
  Dispel Undead            Necr           0%         3d6       99%         4
  Flame Wave               Conj/Fire      0%         2d4       99%         4
- Iskenderun&#x27;s Mystic Bla  Conj/Tloc      0%         2d3       99%         4
- Leda&#x27;s Liquefaction      Hex/Erth       0%         N/A       99%         4
- Olgreb&#x27;s Toxic Radiance  Pois           0%         N/A       99%         4
+ Iskenderun's Mystic Bla  Conj/Tloc      0%         2d3       99%         4
+ Leda's Liquefaction      Hex/Erth       0%         N/A       99%         4
+ Olgreb's Toxic Radiance  Pois           0%         N/A       99%         4
  Sticky Flame             Conj/Fire      0%         2d3       99%         4
- Alistair&#x27;s Intoxication  Tmut/Pois      0%         N/A       100%        5
+ Alistair's Intoxication  Tmut/Pois      0%         N/A       100%        5
  Arcjolt                  Conj/Air       0%         1d10      100%        5
- Borgnjor&#x27;s Vile Clutch   Necr/Erth      0%         N/A       100%        5
+ Borgnjor's Vile Clutch   Necr/Erth      0%         N/A       100%        5
  Fireball                 Conj/Fire      0%         3d3       100%        5
  Freezing Cloud           Conj/Ice/Air   0%         6-21      100%        5
- Iskenderun&#x27;s Battlesphe  Conj           0%         2d6       100%        5
- Lee&#x27;s Rapid Deconstruct  Erth           0%         3d4*      100%        5
+ Iskenderun's Battlesphe  Conj           0%         2d6       100%        5
+ Lee's Rapid Deconstruct  Erth           0%         3d4*      100%        5
  Metabolic Englaciation   Hex/Ice        0%         N/A       100%        5
- Yara&#x27;s Violent Unravell  Hex/Tmut       0%         3d3       100%        5
+ Yara's Violent Unravell  Hex/Tmut       0%         3d3       100%        5
  Conjure Ball Lightning   Conj/Air       0%         3x3d6     100%        6
- Eringya&#x27;s Noxious Bog    Tmut/Pois      0%         4d6       100%        6
- Leda&#x27;s Unmaking          Conj/Erth      0%         9d1       100%        6
+ Eringya's Noxious Bog    Tmut/Pois      0%         4d6       100%        6
+ Leda's Unmaking          Conj/Erth      0%         9d1       100%        6
  Plasma Beam              Fire/Air       0%         2x1d10    100%        6
  Starburst                Conj/Fire      0%         6d3       100%        6
  Enfeeble                 Hex            0%         N/A       100%        7
  Orb of Destruction       Conj           0%         9d5       100%        7
- Ozocubu&#x27;s Refrigeration  Ice            0%         4d7       100%        7
- Lehudib&#x27;s Crystal Spear  Conj/Erth      0%         10d2      100%        8
- Maxwell&#x27;s Capacitive Co  Air            0%         &amp;#8734;         100%        8
+ Ozocubu's Refrigeration  Ice            0%         4d7       100%        7
+ Lehudib's Crystal Spear  Conj/Erth      0%         10d2      100%        8
+ Maxwell's Capacitive Co  Air            0%         &#8734;         100%        8
  Chain Lightning          Conj/Air       0%         N/A       100%        9
  Fire Storm               Conj/Fire      0%         5d1       100%        9
  Shatter                  Erth           0%         3d5*      100%        9
  Call Canine Familiar     Summ           Unusable   N/A       N/A         3
  Summon Guardian Golem    Hex/Summ       Unusable   N/A       N/A         3
- Tukima&#x27;s Dance           Hex            Unusable   N/A       N/A         3
+ Tukima's Dance           Hex            Unusable   N/A       N/A         3
  Animate Armour           Summ/Erth      Unusable   N/A       N/A         4
  Summon Ice Beast         Ice/Summ       Unusable   N/A       N/A         4
  Summon Lightning Spire   Summ/Air       Unusable   N/A       N/A         4
@@ -298,14 +329,14 @@ Ziggurat: Depths:2
 
 Annotations:
 D:4 2 runed translucent doors
-D:9 3 runed translucent doors, MackTheMacaw&#x27;s ghost, journeyman HuFi
+D:9 3 runed translucent doors, MackTheMacaw's ghost, journeyman HuFi
 Elf:1 6 runed translucent doors
-Elf:2 4 runed translucent doors, Umesenoz&#x27;s ghost, adept GnWn
+Elf:2 4 runed translucent doors, Umesenoz's ghost, adept GnWn
 Zot:1 4 transporters
-Zot:3 2 transporters, Daut&#x27;s ghost, legendary FoFi
+Zot:3 2 transporters, Daut's ghost, legendary FoFi
 
 
-Innate Abilities, Weirdness &amp;amp; Mutations
+Innate Abilities, Weirdness &amp; Mutations
 
 You are a lightning-filled tempest!
 Your electrical attacks strike out in all directions at once.
@@ -365,7 +396,7 @@ A reaper comes into view. It is wielding a +2 scythe of venom.
 The reaper hits you from afar with a +2 scythe of venom!!!
 You take 39 damage, and have 204/243 hp.
 There is a staircase leading out of the dungeon here.
-You can&#x27;t go down here!
+You can't go down here!
 You have escaped!
 
 #..####..###..####............#
@@ -374,12 +405,12 @@ You have escaped!
 ##.# #.###.....###.#   #.##..##
  #.###..#.......#..#   #.##....
  #.(........2......#   #.###.##
- ####......&amp;gt;#......#   #.# #.##
+ ####......&gt;#......#   #.# #.##
     #......###.....#####.# #.).
     #.......#v...........###.##
     #..............#######...#
-    #...#.......#..#######&amp;#247;###
-    #..###.....###.......&amp;#247;.#
+    #...#.......#..#######&#247;###
+    #..###.....###.......&#247;.#
     #...#.......#..#.####..####
     #..............#.## #..#...
     #.....#########...###..#)##
@@ -689,13 +720,13 @@ Turn   | Place    | Note
    353 | D:1      | Reached XP level 2. HP: 22/23 MP: 2/2
    356 | D:1      | Reached skill level 3 in Shapeshifting
    888 | D:2      | Reached XP level 3. HP: 19/28 MP: 3/3
-  1391 | D:2      | Found Firhuc&#x27;s Distillery.
+  1391 | D:2      | Found Firhuc's Distillery.
   1399 | D:2      | Bought a potion of heal wounds for 50 gold pieces
-  1736 | D:3      | Identified the +9 hand axe &quot;Armataur&#x27;s Curse&quot; {flame,
+  1736 | D:3      | Identified the +9 hand axe "Armataur's Curse" {flame,
                   | +Blink rF- rN+}
   1803 | D:3      | Reached XP level 4. HP: 32/36 MP: 4/4
   1854 | D:3      | Found a shadowy altar of Dithmenos.
-  1944 | D:3      | Identified the amulet &quot;Abbapak&quot; {RegenMP Dex+6}
+  1944 | D:3      | Identified the amulet "Abbapak" {RegenMP Dex+6}
   2110 | D:3      | Found a hazy altar of Hepliaklqana.
   2653 | D:4      | Found a large runed translucent door.
   2653 | D:4      | Found a large runed translucent door.
@@ -725,7 +756,7 @@ Turn   | Place    | Note
   4234 | D:5      | Reached XP level 8. HP: 23/62 MP: 1/10
   4438 | D:5      | Found a blossoming altar of Fedhas.
   4447 | D:5      | Found a broken altar of Ashenzari.
-  4486 | D:5      | Found Ficeut&#x27;s Distillery.
+  4486 | D:5      | Found Ficeut's Distillery.
   4487 | D:5      | Found a sacrificial altar of Ru.
   4487 | D:5      | Noticed Menkaure
   4487 | D:5      | Noticed Prince Ribbit
@@ -739,7 +770,7 @@ Turn   | Place    | Note
   4951 | Sewer    | Noticed Pargi
   4959 | Sewer    | Killed Pargi
   5254 | D:6      | Found a staircase to the Ecumenical Temple.
-  5285 | D:6      | Found Oraruf&#x27;s Wicked Wares.
+  5285 | D:6      | Found Oraruf's Wicked Wares.
   5390 | D:6      | Reached skill level 7 in Shapeshifting
   5655 | D:6      | Reached skill level 5 in Invocations
   5655 | D:6      | Reached XP level 9. HP: 67/67 MP: 12/12
@@ -748,7 +779,7 @@ Turn   | Place    | Note
   7215 | D:8      | Found a staircase to the Lair.
   7220 | D:8      | Reached XP level 10. HP: 59/74 MP: 9/14
   8222 | D:9      | Reached *** piety under Okawaru
-  8715 | D:9      | Noticed MackTheMacaw&#x27;s ghost (journeyman HuFi)
+  8715 | D:9      | Noticed MackTheMacaw's ghost (journeyman HuFi)
   8745 | D:9      | Found a runed translucent gate.
   8745 | D:9      | Found a runed translucent gate.
   8745 | D:9      | Found a runed translucent gate.
@@ -762,8 +793,8 @@ Turn   | Place    | Note
   9272 | D:10     | Reached **** piety under Okawaru
   9273 | D:10     | Reached skill level 10 in Shapeshifting
   9292 | D:10     | Found a staircase to the Orcish Mines.
-  9328 | D:10     | Found Mejenok&#x27;s General Store.
-  9335 | D:10     | Found Uczyary&#x27;s Specific Store.
+  9328 | D:10     | Found Mejenok's General Store.
+  9335 | D:10     | Found Uczyary's Specific Store.
   9341 | D:10     | Bought a potion of heal wounds for 60 gold pieces
   9341 | D:10     | Bought a potion of berserk rage for 60 gold pieces
   9389 | D:10     | Found a shimmering blue altar of Sif Muna.
@@ -793,7 +824,7 @@ Turn   | Place    | Note
  10962 | D:11     | Reached skill level 11 in Shapeshifting
  10969 | D:11     | Killed a boulder beetle
  10978 | D:11     | Killed a lindwurm
- 11042 | D:12     | Found Mic Kuycs&#x27;s Jewellery Boutique.
+ 11042 | D:12     | Found Mic Kuycs's Jewellery Boutique.
  11151 | Lair:1   | Entered Level 1 of the Lair of Beasts
  11362 | Lair:1   | Reached XP level 12. HP: 28/87 MP: 15/18
  11719 | Lair:1   | Found the +4 skin of Zhor {*Englaciate rC+++ SInv}
@@ -804,7 +835,7 @@ Turn   | Place    | Note
  12586 | Lair:2   | Noticed a four-headed hydra
  12646 | Lair:2   | Noticed Harold
  12667 | Lair:2   | Killed Harold
- 12667 | Lair:2   | Identified the +0 barding &quot;Puytt&quot; {Rampage rPois Regen+
+ 12667 | Lair:2   | Identified the +0 barding "Puytt" {Rampage rPois Regen+
                   | Int-3} (Okawaru gifted it to you on level 2 of the Lair of
                   | Beasts)
  12667 | Lair:2   | Received a gift from Okawaru
@@ -820,7 +851,7 @@ Turn   | Place    | Note
  15240 | Lair:5   | Received a gift from Okawaru
  15374 | Lair:5   | Reached XP level 14. HP: 84/111 MP: 20/20
  15578 | Lair:5   | Found a staircase to the Slime Pits.
- 15710 | Lair:5   | Identified the +4 quarterstaff &quot;Umuvuufoag&quot; {freeze, rElec
+ 15710 | Lair:5   | Identified the +4 quarterstaff "Umuvuufoag" {freeze, rElec
                   | Will+ Int+9 Dex-4} (Okawaru gifted it to you on level 5 of
                   | the Lair of Beasts)
  15710 | Lair:5   | Received a gift from Okawaru
@@ -838,10 +869,10 @@ Turn   | Place    | Note
  19077 | Orc:2    | Reached skill level 5 in Dodging
  19119 | Orc:2    | Killed an orc warlord
  19119 | Orc:2    | Received a gift from Okawaru
- 19265 | Orc:2    | Found Ruba&#x27;s General Store.
- 19265 | Orc:2    | Found Digeal&#x27;s Book Boutique.
- 19266 | Orc:2    | Found Sen Fiut&#x27;s Antique Armour Boutique.
- 19266 | Orc:2    | Found Arubluly&#x27;s Antique Weapon Shop.
+ 19265 | Orc:2    | Found Ruba's General Store.
+ 19265 | Orc:2    | Found Digeal's Book Boutique.
+ 19266 | Orc:2    | Found Sen Fiut's Antique Armour Boutique.
+ 19266 | Orc:2    | Found Arubluly's Antique Weapon Shop.
  19505 | D:13     | Noticed Azrael
  19516 | D:13     | Killed Azrael
  19554 | D:13     | Reached skill level 14 in Shapeshifting
@@ -855,12 +886,12 @@ Turn   | Place    | Note
  20663 | D:13     | Reached skill level 15 in Unarmed Combat
  21146 | D:13     | Identified the +0 leather armour of the Five Spreadsheets
                   | {rPois Str+2}
- 21281 | D:14     | Found Ifekaupp&#x27;s Armour Boutique.
+ 21281 | D:14     | Found Ifekaupp's Armour Boutique.
  21291 | D:14     | Bought a +2 helmet of see invisible for 301 gold pieces
  21417 | D:14     | Received a gift from Okawaru
  21432 | D:14     | You fall into a shaft and drop 1 floor!
  21432 | D:15     | Entered Level 15 of the Dungeon
- 21528 | D:15     | Identified the +3 barding &quot;Nunet&quot; {rElec Regen+} (Okawaru
+ 21528 | D:15     | Identified the +3 barding "Nunet" {rElec Regen+} (Okawaru
                   | gifted it to you on level 15 of the Dungeon)
  21528 | D:15     | Received a gift from Okawaru
  22504 | D:15     | Found a staircase to the Depths.
@@ -886,7 +917,7 @@ Turn   | Place    | Note
  29278 | Elf:1    | Received a gift from Okawaru
  29661 | Elf:1    | Identified the +4 scimitar of Amorality {venom, rPois rC+++
                   | Will- Dex-2}
- 29699 | Elf:1    | Identified the +4 barding &quot;Maxzaes&quot; {Str+3 Int+2 Dex+3}
+ 29699 | Elf:1    | Identified the +4 barding "Maxzaes" {Str+3 Int+2 Dex+3}
                   | (Okawaru gifted it to you on level 1 of the Elven Halls)
  29699 | Elf:1    | Received a gift from Okawaru
  30248 | Elf:1    | Found a runed translucent gate.
@@ -900,7 +931,7 @@ Turn   | Place    | Note
  30512 | Elf:1    | Got the Quarto of Bruises
  30897 | Elf:2    | Paralysed by an air elemental for 1 turns
  31133 | Elf:2    | Found a runed translucent door.
- 31133 | Elf:2    | Noticed Umesenoz&#x27;s ghost (adept GnWn)
+ 31133 | Elf:2    | Noticed Umesenoz's ghost (adept GnWn)
  31237 | Elf:2    | Found a runed translucent gate.
  31238 | Elf:2    | Found a runed translucent gate.
  31238 | Elf:2    | Found a runed translucent gate.
@@ -908,20 +939,20 @@ Turn   | Place    | Note
  31325 | Elf:2    | Reached ****** piety under Okawaru
  31344 | Elf:2    | Received a gift from Okawaru
  31757 | Elf:3    | Entered Level 3 of the Elven Halls
- 31846 | Elf:3    | Found Weofuifa&#x27;s Distillery.
+ 31846 | Elf:3    | Found Weofuifa's Distillery.
  32020 | Elf:3    | Bought a potion of curing for 39 gold pieces
  32020 | Elf:3    | Bought a potion of curing for 39 gold pieces
  32020 | Elf:3    | Bought a potion of haste for 130 gold pieces
  32283 | Elf:3    | Reached skill level 20 in Shapeshifting
- 32319 | Elf:3    | Identified the +8 long sword &quot;Jagoegug&quot; {spect, rF+ Will++
+ 32319 | Elf:3    | Identified the +8 long sword "Jagoegug" {spect, rF+ Will++
                   | Str+3}
  32330 | Elf:3    | Found a shimmering blue altar of Sif Muna.
  32465 | Elf:3    | Gained mutation: You are dopey. (Int -2) [a cacodemon]
  33170 | Elf:3    | Paralysed by an air elemental for 1 turns
- 33278 | Elf:3    | Identified the +7 flail &quot;Ytyaboy&quot; {protect, Drain Fragile
+ 33278 | Elf:3    | Identified the +7 flail "Ytyaboy" {protect, Drain Fragile
                   | rN+++ Dex+7}
  33307 | Elf:3    | Identified the +1 robe of Liberalism {+Blink rCorr SInv}
- 33458 | Elf:3    | Identified the +8 triple crossbow &quot;Urov Seyblek&quot; {heavy,
+ 33458 | Elf:3    | Identified the +8 triple crossbow "Urov Seyblek" {heavy,
                   | Fragile rPois rF- Str+5} (Okawaru gifted it to you on level
                   | 3 of the Elven Halls)
  33458 | Elf:3    | Received a gift from Okawaru
@@ -931,15 +962,15 @@ Turn   | Place    | Note
  33785 | Elf:3    | Identified the ring of Botoaczi {rN+ Int+6}
  33920 | Elf:3    | Received a gift from Okawaru
  34075 | Elf:3    | Got the Collected Works on the Syncline and Geometry
- 34172 | Elf:3    | Got Loadwos&#x27;s Spellbook of Ill-starred Stones
+ 34172 | Elf:3    | Got Loadwos's Spellbook of Ill-starred Stones
  34173 | Elf:3    | Identified the +0 helmet of Binan {rC+}
  34287 | Elf:3    | Identified the +4 eveningstar of the Neverending Places
                   | {flame, rC+ Dex+3}
  34517 | Shoals:1 | Entered Level 1 of the Shoals
- 34534 | Shoals:1 | Found Jephoix&#x27;s Armour Shoppe.
+ 34534 | Shoals:1 | Found Jephoix's Armour Shoppe.
  34552 | Shoals:1 | Reached skill level 1 in Stealth
  34578 | Shoals:1 | Reached XP level 19. HP: 132/156 MP: 25/25
- 34692 | Shoals:1 | Identified the +5 flail &quot;Atuexen&quot; {freeze, rC+ Str+4 Int+4}
+ 34692 | Shoals:1 | Identified the +5 flail "Atuexen" {freeze, rC+ Str+4 Int+4}
  35061 | Shoals:1 | Reached skill level 21 in Shapeshifting
  35759 | Shoals:2 | Noticed Donald
  35770 | Shoals:2 | Killed Donald
@@ -949,10 +980,10 @@ Turn   | Place    | Note
                   | Fly rN++}
  36792 | Shoals:3 | Found a transporter.
  36793 | Shoals:3 | Found a transporter.
- 36794 | Shoals:3 | Noticed blal&#x27;s ghost (adept OpEE)
- 36845 | Shoals:3 | Killed blal&#x27;s ghost
+ 36794 | Shoals:3 | Noticed blal's ghost (adept OpEE)
+ 36845 | Shoals:3 | Killed blal's ghost
  36964 | Shoals:3 | Identified the +3 arbalest of Trauma {flame, rC++}
- 36968 | Shoals:3 | Identified the ring &quot;Boocwev&quot; {rN+ rCorr Str+2}
+ 36968 | Shoals:3 | Identified the ring "Boocwev" {rN+ rCorr Str+2}
  36999 | Shoals:3 | Identified the +1 morningstar of Putrescence {freeze, Str+2
                   | Dex+6}
  37029 | Shoals:3 | Identified the +2 barding of Impermeability {rPois rCorr}
@@ -973,7 +1004,7 @@ Turn   | Place    | Note
                   | (Okawaru gifted it to you on level 1 of the Vaults)
  40260 | Vaults:1 | Received a gift from Okawaru
  40979 | Vaults:1 | Got the Papyrus of Infection
- 41268 | Vaults:1 | Found Jyixzaj&#x27;s Antique Weapon Emporium.
+ 41268 | Vaults:1 | Found Jyixzaj's Antique Weapon Emporium.
  41863 | Vaults:2 | Identified the +4 glaive of Gestra Aruo {elec, Dex+3
                   | Stlth+} (Okawaru gifted it to you on level 2 of the Vaults)
  41863 | Vaults:2 | Received a gift from Okawaru
@@ -1002,15 +1033,15 @@ Turn   | Place    | Note
  46711 | Depths:1 | Found a radiant altar of Vehumet.
  46725 | Depths:1 | Received a gift from Okawaru
  46933 | Depths:1 | Found a transporter.
- 46939 | Depths:1 | Noticed cark&#x27;s ghost (adept AtEn)
+ 46939 | Depths:1 | Noticed cark's ghost (adept AtEn)
  46947 | Depths:1 | Noticed an ancient lich
  46949 | Depths:1 | Found a transporter.
  47031 | Depths:1 | Killed an ancient lich
- 47034 | Depths:1 | Killed cark&#x27;s ghost
+ 47034 | Depths:1 | Killed cark's ghost
  47118 | Depths:1 | Identified the +5 rapier of Action {freeze, Stlth+}
  47310 | Depths:1 | Found a gateway to Hell.
  47402 | Depths:1 | Found a one-way gate to the infinite horrors of the Abyss.
- 47531 | Depths:1 | Found Abber&#x27;s Self-Improvement Boutique.
+ 47531 | Depths:1 | Found Abber's Self-Improvement Boutique.
  47606 | Depths:2 | Identified the +0 barding of Gravitas {rCorr SInv} (Okawaru
                   | gifted it to you on level 2 of the Depths)
  47606 | Depths:2 | Received a gift from Okawaru
@@ -1048,13 +1079,13 @@ Turn   | Place    | Note
  52841 | Vaults:5 | Noticed a dread lich
  52944 | Vaults:5 | Received a gift from Okawaru
  52999 | Vaults:5 | Noticed a dread lich
- 53453 | Vaults:5 | Found Gaem&#x27;s Magic Scroll Shop.
- 53461 | Vaults:5 | Found Piym&#x27;s Weapon Shoppe.
+ 53453 | Vaults:5 | Found Gaem's Magic Scroll Shop.
+ 53461 | Vaults:5 | Found Piym's Weapon Shoppe.
  53658 | Vaults:5 | Noticed a dread lich
  53668 | Vaults:5 | Killed a dread lich
  53671 | Vaults:5 | Killed a dread lich
  53907 | Vaults:5 | Killed a dread lich
- 54151 | Vaults:5 | Got Aschakk&#x27;s Vellum of Noxious Anemomancy
+ 54151 | Vaults:5 | Got Aschakk's Vellum of Noxious Anemomancy
  54344 | Vaults:5 | Identified the +5 flail of the Distant Future {venom, Fly
                   | rElec rPois Str-3}
  54361 | Vaults:5 | Paralysed by a floating eye for 2 turns
@@ -1079,10 +1110,10 @@ Turn   | Place    | Note
  57869 | Zot:2    | Found a runed translucent gate.
  57869 | Zot:2    | Found a runed translucent gate.
  57870 | Zot:2    | Found a runed translucent gate.
- 57871 | Zot:2    | Noticed Xatigonedgh&#x27;s ghost (veteran DgGl)
- 57871 | Zot:2    | Noticed Xatigonedgh&#x27;s ghost (veteran DgGl)
- 58296 | Zot:2    | Killed Xatigonedgh&#x27;s ghost
- 58310 | Zot:2    | Killed Xatigonedgh&#x27;s ghost
+ 57871 | Zot:2    | Noticed Xatigonedgh's ghost (veteran DgGl)
+ 57871 | Zot:2    | Noticed Xatigonedgh's ghost (veteran DgGl)
+ 58296 | Zot:2    | Killed Xatigonedgh's ghost
+ 58310 | Zot:2    | Killed Xatigonedgh's ghost
  58538 | Zot:2    | Identified the +1 pair of gloves of Infinity {Rampage rC-
                   | Will+++ Int-2}
  58606 | Zot:3    | Identified the +4 short sword of Beidawy {drain, Stlth+}
@@ -1094,7 +1125,7 @@ Turn   | Place    | Note
  58999 | Zot:3    | Reached XP level 25. HP: 182/230 MP: 30/30
  59009 | Zot:3    | Found a transporter.
  59012 | Zot:3    | Noticed a shard shrike
- 59013 | Zot:3    | Noticed Daut&#x27;s ghost (legendary FoFi)
+ 59013 | Zot:3    | Noticed Daut's ghost (legendary FoFi)
  59046 | Zot:3    | Reached skill level 24 in Shapeshifting
  59440 | Zot:3    | Noticed a shard shrike
  59748 | Arena    | Entered the Arena
@@ -1132,7 +1163,7 @@ Turn   | Place    | Note
  64116 | Zot:5    | Noticed an orb of fire
  64128 | Zot:5    | Noticed an ancient lich
  64143 | Zot:5    | Killed an ancient lich
- 64143 | Zot:5    | Identified the +4 ring mail &quot;Cyom Ruu&quot; {rC- rN+ rCorr
+ 64143 | Zot:5    | Identified the +4 ring mail "Cyom Ruu" {rC- rN+ rCorr
                   | Slay+5} (Okawaru gifted it to you on level 5 of the Realm
                   | of Zot)
  64143 | Zot:5    | Received a gift from Okawaru
@@ -1317,376 +1348,37 @@ Vaults:4: 1569 daAuts
    Zot:3: 1527 daAuts
 Spider:4: 1509 daAuts
 Vaults:2: 1493 daAuts
-&lt;/pre&gt;
-
-&lt;/div&gt;</description>
-	<category>games</category><category>dcss</category>
-	<link>https://benleskey.com/blog/dcss_sh</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/dcss_sh</guid>
-	<pubDate>Fri, 28 Jul 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Make horses milkable</title>
-	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&quot;&gt;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&lt;/a&gt;
-&lt;/p&gt;</description>
-	<category>cdda</category><category>software</category>
-	<link>https://github.com/CleverRaven/Cataclysm-DDA/pull/66639</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/make_horses_milkable</guid>
-	<pubDate>Mon, 03 Jul 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Reading list update #2</title>
-	<description>&lt;div&gt;&lt;p&gt;Culture and mystery!&lt;/p&gt;
-See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-06-06&quot;&gt;reading_list#2023-06-06&lt;/a&gt;
-&lt;/div&gt;</description>
-	<category>reading</category><category>discovery</category>
-	<link>https://benleskey.com/page/reading_list#2023-06-06</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/reading_list_2</guid>
-	<pubDate>Tue, 06 Jun 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>The Dillo Test</title>
-	<description>&lt;div&gt;&lt;p&gt;You may not know what Dillo is.&lt;/p&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test.png&quot; alt=&quot;benleskey.com in dillo&quot;&gt;
-
-&lt;p&gt;That&#x27;s &lt;a href=&quot;https://www.dillo.org/&quot;&gt;Dillo&lt;/a&gt;. It&#x27;s a plain graphical web browser with minimal feature set beyond being able to draw text and, sometimes, images. Why would anyone want that? Well, there&#x27;s not much practical reason now&amp;#8212;every modern browser supports a truckload of features beyond simple HTML&amp;#8212;but it does indicate a simplicity and graceful degradation that is aesthetically desirable. This website, for instance, is entirely usable in Dillo. Javascript doesn&#x27;t work, but everything has a fallback. If your site works in Dillo, then it is &lt;i&gt;simple enough&lt;/i&gt;.&lt;/p&gt;
-
-&lt;p&gt;It&#x27;s not even difficult to make this site work in Dillo. In fact, it avoids any kind of bloat. This site can&#x27;t rely on Javascript, or on complicated styling, or on anything but simple text to get its message across. Functionality beyond that is, as is traditional, just window dressing on top of a simple HTML structure. Common? No. But if your site works in Dillo it will probably satisfy the hacker hipsters.&lt;/p&gt;
-
-&lt;p&gt;You can, of course, take it further and make the &lt;a href=&quot;https://lynx.invisible-island.net/&quot;&gt;Lynx&lt;/a&gt; test &lt;b&gt;;)&lt;/b&gt;. You&#x27;d better hope you&#x27;ve got alt text on your &lt;i&gt;img&lt;/i&gt; elements!&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test_lynx.png&quot; alt=&quot;benleskey.com in lynx&quot;&gt;
-&lt;/div&gt;</description>
-	<category>dev</category><category>software</category><category>website</category>
-	<link>https://benleskey.com/blog/dillo_test</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/dillo_test</guid>
-	<pubDate>Thu, 11 May 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Reading list update #1</title>
-	<description>&lt;div&gt;&lt;p&gt;Abercrombie&#x27;s grim darkness, Atwood&#x27;s dystopia, Brooks&#x27; apocalypse, and more!&lt;/p&gt;
-See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-05-08&quot;&gt;reading_list#2023-05-08&lt;/a&gt;
-&lt;/div&gt;</description>
-	<category>reading</category><category>discovery</category>
-	<link>https://benleskey.com/page/reading_list#2023-05-08</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/reading_list_1</guid>
-	<pubDate>Mon, 08 May 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Mapping tool 0.6.2 release &amp; thanks to all testers</title>
-	<description>&lt;div&gt;&lt;p&gt;Hello everyone!&lt;/p&gt;
-&lt;p&gt;Thank you so much for supporting the development of the mapping tool with your feedback, bug reports, and suggestions!&lt;/p&gt;
-&lt;p&gt;Version 0.6.2 of the mapping tool is out, with several important improvements including unlimited scale and image exporting. This is the last version of the mapping tool to be developed as an MVNU project, as I have graduated! In the future, the mapping tool will be developed as an open source project.&lt;/p&gt;
-&lt;p&gt;You can download it here: &lt;a href=&quot;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&quot;&gt;https://github.com/mapper1024/mapper1024/blob/master/DOWNLOAD.md#download-options&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;You can use the online demo here: &lt;a href=&quot;https://mapper1024.github.io/demo&quot;&gt;https://mapper1024.github.io/demo&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://mapper1024.github.io/screenshots/sample_map_0.6.2.png&quot;&gt;&lt;img src=&quot;https://mapper1024.github.io/screenshots/sample_map_0.6.2.thumb.png&quot; alt=&quot;A screenshot of the sample map in the mapping tool&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;image-exporting&quot;&gt;Image Exporting&lt;/h2&gt;
-&lt;p&gt;You can now save parts of the map as images to be used as illustrations for a book, for a website, or for whatever you want.&lt;/p&gt;
-&lt;h2 id=&quot;unlimited-scale&quot;&gt;Unlimited Scale&lt;/h2&gt;
-&lt;p&gt;The scale of your maps is now unlimited, with a few handy controls to set exactly what scale you want to edit your map at at any given moment: you can edit on the scale of meters to design a city, or on the scale of hundreds of kilometers to design a continent. Whatever you like, all in the same map.&lt;/p&gt;
-&lt;h2 id=&quot;whats-next&quot;&gt;What&amp;#8217;s Next&lt;/h2&gt;
-&lt;p&gt;Just because I graduated doesn&amp;#8217;t mean that the mapping tool is done. I&amp;#8217;m going to keep working on it! Features like altitude controls, better performance, alternate graphical styles, and more are all in the pipeline. I&amp;#8217;ll also be releasing the tool as an open source project so that anyone interested can contribute ideas, code, and art.&lt;/p&gt;
-&lt;h2 id=&quot;stay-in-touch&quot;&gt;Stay in Touch&lt;/h2&gt;
-&lt;p&gt;Feel free to e-mail me at &lt;a href=&quot;mailto:ben@benleskey.com&quot;&gt;ben@benleskey.com&lt;/a&gt; for anything! You can also post feature requests or bug reports using the &lt;a href=&quot;https://github.com/mapper1024/mapper1024/issues&quot;&gt;mapping tool issue tracker&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;If you&amp;#8217;d like to keep up with development of the mapping tool and try out new releases, all mapping tool news is posted &lt;a href=&quot;https://benleskey.com/aka/mappingtoolnews&quot;&gt;on my website&lt;/a&gt;. An &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool.feed.xml&quot;&gt;rss feed for news&lt;/a&gt; is available, as well as an &lt;a href=&quot;https://github.com/mapper1024/mapper1024/releases.atom&quot;&gt;atom feed for releases&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Thank you again for your support, and I hope you continue to enjoy the mapping tool as it grows and evolves!&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>mappingtool</category><category>release</category><category>software</category>
-	<link>https://benleskey.com/blog/mapper0_6_2</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_6_2</guid>
-	<pubDate>Mon, 08 May 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>I graduated from MVNU!</title>
-	<description>&lt;div&gt;&lt;img src=&quot;https://benleskey.com/blog/../images/mvnu_grad_ribbon.png&quot; alt=&quot;ribbon cut just before the baccalaureate service&quot;&gt;
-&lt;p&gt;I graduated from MVNU yesterday, &lt;i&gt;summa cum laude&lt;/i&gt; &amp;amp; Honors scholar! &lt;small&gt;I did it, an A in every class!&lt;/small&gt;&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;I&#x27;m really done&lt;/i&gt; hit me in a small way now that I can clean up all the academic files and folders and apps I have hanging around my computers. I don&#x27;t need my LMS anymore. Most of my hundreds of old assignments are worth as much as the paragraphs I wrote in 3rd grade. Notebooks filled with doodles and math homework are useless.&lt;/p&gt;
-&lt;p&gt;Of course, the important things I started during my time at MVNU won&#x27;t stop just because I graduated. Projects like my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; and the creative writing work that I&#x27;ve done will continue, the dozens of good friends I&#x27;ve made are still my friends even now that we&#x27;ve gone our separate ways, and all the social and academic knowledge pounded into my head is solidly &lt;b&gt;there&lt;/b&gt;, ready for the rest of my life.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>academics</category><category>life</category>
-	<link>https://benleskey.com/blog/graduation</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/graduation</guid>
-	<pubDate>Sun, 07 May 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>MVNU sURC press release featuring my mapping tool</title>
-	<description>&lt;p&gt;See &lt;a href=&quot;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&quot;&gt;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&lt;/a&gt;
-&lt;/p&gt;</description>
-	<category>academics</category><category>mappingtool</category>
-	<link>https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mvnu_surc_announcement</guid>
-	<pubDate>Tue, 25 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Prototype post-apocalyptic roadtrip simulator for the Minetest engine</title>
-	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Github repository: &lt;a href=&quot;https://github.com/tigris-mt/roadtrip&quot;&gt;https://github.com/tigris-mt/roadtrip&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;
-	I&#x27;ve begun work on a game project, smaller in scope and more relaxing than the &lt;a href=&quot;https://benleskey.com/blog/textengine_intro&quot;&gt;text engine project&lt;/a&gt;. This new project uses the &lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; engine for voxel graphics, entities, and physics. This game, Roadtrip, is designed along the lines of &lt;a href=&quot;https://store.steampowered.com/app/1017180/The_Long_Drive/&quot;&gt;The Long Drive&lt;/a&gt; as a post-apocalyptic roadtrip simulator and also takes inspiration from &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt;. It&#x27;s written in Lua.
-&lt;/p&gt;
-&lt;a href=&quot;https://benleskey.com/blog/../images/roadtrip.png&quot;&gt;&lt;img class=&quot;left&quot; src=&quot;https://benleskey.com/blog/../thumbs/roadtrip.25.png&quot; alt=&quot;roadtrip game prototype&quot;&gt;&lt;/a&gt;
-
-&lt;h2 id=&quot;minetest&quot;&gt;&lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; &amp;amp; Voxels&lt;/h2&gt;
-
-&lt;p&gt;The Minetest engine provides a solid base for this type of game: procedural generation, low-poly graphics, built-in multiplayer, etc. I have quite a bit of experience with Minetest and Lua, so it&#x27;s a good choice for game engine since I don&#x27;t want to put too much development effort into this game. The world will consist of &quot;voxels&quot;, blocks like in Minecraft that form the terrain, along with moveable &quot;entities&quot; such as the vehicles and the player.&lt;/p&gt;
-
-&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
-
-&lt;p&gt;The basic design of the game is the player driving down a road in a procedurally generated environment. The player must survive (food, water, gasoline/electricity, shelter, etc.) as long as possible while enjoying the view and trip.&lt;/p&gt;
-
-&lt;p&gt;Like The Long Drive, Roadtrip will have a long highway extending indefinitely into the distance with a randomly generated environment surrounding it, maybe including side roads or broader road networks. The prototype environment will be a desert, but it will be easy to add new biomes.&lt;/p&gt;
-
-&lt;p&gt;In the prototype, the road runs from the south toward the north, with turns and corners defined by an equation that returns the X (east-west) coordinate of the road based on the Z (north-south) coordinate. The current equation is defined as &lt;/p&gt;&lt;pre&gt;&lt;code language=&quot;lua&quot;&gt;local z_factor = 60 + 60 * seed_random()
-local z_factor_2 = 160 + 160 * seed_random()
-local x_factor = 60 + 60 * seed_random()
-
-local function road_x(z)
-	return math.floor(math.sin(z / z_factor) * (math.sin(z / z_factor_2) ^ 4) * x_factor + 0.5)
-end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a random generator returning a random number between 0 and 1 according to the world seed. All other properties of the world, like the width of the road at any point, will be defined by similar procedural generation to ensure continuity as each chunk of the map is generated separately.
-
-&lt;h3 id=&quot;vehicles&quot;&gt;Vehicles&lt;/h3&gt;
-
-&lt;p&gt;Vehicles are the focus of Roadtrip, so they will be very customizable. Vehicles will be individual components internally, such as the chassis, the wheels, the doors, etc., which can then be installed together and the models attached to display an entire car, truck, or other vehicle.&lt;/p&gt;
-
-&lt;h3 id=&quot;survival&quot;&gt;Survival&lt;/h3&gt;
-
-&lt;p&gt;Survival elements including hunger, thirst, weather, and fuel will drive further exploration and resource gathering. There may be enemies as well, or some other active threat.&lt;/p&gt;
-
-&lt;h3 id=&quot;exploration&quot;&gt;Exploration&lt;/h3&gt;
-
-&lt;p&gt;Resources will be available in structures off the road, in abandoned cars, or from natural resources like lakes or trees. This will encourage exploration off road, both with and without a vehicle. Terrain generation can be improved to have hills, valleys, caves, etc. to spice up the landscape.&lt;/p&gt;
-
-&lt;h2 id=&quot;challenges&quot;&gt;Development Challenges&lt;/h2&gt;
-
-&lt;p&gt;The Minetest engine is limited in a number of ways that will make development more challenging. I do think my familiarity with the engine along the engine&#x27;s simplicity will make it worth it, however.&lt;/p&gt;
-
-&lt;h3 id=&quot;rotation&quot;&gt;Rotation&lt;/h3&gt;
-
-&lt;p&gt;Most noticably, if the player is attached to an object and the object rotates, the player&#x27;s viewport does not rotate with the object. My workaround, rotating both at the same time, suffers from network lag causing noticable drift that the player must manually correct. I may need to contribute a feature to the engine to support this for more realistic driving.&lt;/p&gt;
-
-&lt;h3 id=&quot;collision&quot;&gt;Collision&lt;/h3&gt;
-
-&lt;p&gt;For performance reasons, an object&#x27;s collisionbox cannot extend much beyond ~3 nodes in any direction before it starts to break. This means that entities like vehicles can&#x27;t be too big or their physics won&#x27;t work. Again, I may need to improve the engine here, or just live with innacurate collision on large vehicles.&lt;/p&gt;
-
-&lt;h3 id=&quot;hud&quot;&gt;Hud &amp;amp; Controls&lt;/h3&gt;
-
-&lt;p&gt;Implementing the HUD and controls is a bit of a challenge as the Minetest engine is geared toward a Minecraft-like game. Nevertheless, I should be able to represent the dashboard on the HUD nearly as easily as the player&#x27;s own stats. Controls are also a little harder, with a limited number of keybinds available to the game. I can use movement keys for driving, and I may be able to use hotbar items for actions like shifting gears or quick access of weapons or tools.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>roadtrip</category><category>minetest</category><category>games</category><category>software</category>
-	<link>https://benleskey.com/blog/roadtrip_intro</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/roadtrip_intro</guid>
-	<pubDate>Sun, 23 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>First place prize for my mapping tool presentation at MVNU&#x27;s sURC</title>
-	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
-
-&lt;p&gt;Update 2023-04-25: &lt;a href=&quot;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&quot;&gt;MVNU sURC press release featuring my mapping tool&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I presented my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;Mapping Tool&lt;/a&gt; for fifteen minutes at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt; on April 5th, taking home the first place prize of the Symposium. My friends and faculty showed up en masse at my presentation, making for a lively Q&amp;amp;A and a really fun time.&lt;/p&gt;
-
-&lt;p&gt;sURC itself was interesting. There were around twenty presenters in total. The Honors students presented their senior projects and other students presented their summer research projects in a conference format. In my room we had a wide variety of presentations: an analysis of continuous glucose monitors in diabetic patients, a presentation of a concussion-detecting device for athletes, an examination of religion and spirituality in occupational therapy, and my own software project.&lt;/p&gt;
-
-&lt;p&gt;This sURC presentation was my presentation for the Honors program portion of my project, so in it I focused on how user feedback shaped the development of the mapping tool with an overview of project features and the development process. Later I&#x27;ll have a twenty-five minute presentation on the details of programming and engineering the project.&lt;/p&gt;
-
-&lt;p&gt;For more information on the mapping tool, including download links and a quick-start guide, see &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;the mapping tool website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;(&lt;a href=&quot;https://benleskey.com/blog/mapper_gifs&quot;&gt;More about how I made the GIFs&lt;/a&gt; used in the presentation.)&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>academics</category><category>mappingtool</category><category>software</category>
-	<link>https://benleskey.com/blog/mvnu_surc</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mvnu_surc</guid>
-	<pubDate>Tue, 25 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Toward the ultimate text adventure game engine</title>
-	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
-
-&lt;ul&gt;&lt;li&gt;Github repository: &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
-
-&lt;h2 id=&quot;text-adventures&quot;&gt;Text adventure&lt;/h2&gt;
-
-&lt;h3 id=&quot;why-text&quot;&gt;Why text?&lt;/h3&gt;
-
-&lt;p&gt;
-	Text-based games have an extremely good &lt;em&gt;complexity/development time&lt;/em&gt; ratio. There are no graphics to worry about, no programmer art beyond writing (what luck, I happen to enjoy writing), no controls beyond text processing, no frames per second, et cetera, et cetera. Fully text based games can be even more complex than turn-based 2D roguelike games like &lt;a href=&quot;https://cataclysmdda.org/&quot;&gt;Cataclysm: DDA&lt;/a&gt;. There&#x27;s just less extra to worry about&amp;#8212;the development focus has one of the most basic interfaces imaginable. Additionally, fully text-based games are perfect for screen readers due to their simple interface (see &lt;a href=&quot;https://writing-games.com/building-a-better-mud/&quot;&gt;this article&lt;/a&gt; about writing a screen-reader friendly text-based game).
-&lt;/p&gt;
-
-&lt;p&gt;
-	The specific style of text-based game I&#x27;m talking about is the text adventure game. The computer tells you about your environment, your circumstances, and your character, and you choose what your character does or says. It&#x27;s simple, straightforward, and very reminiscent of the conversational style of a tabletop RPG.
-&lt;/p&gt;
-
-&lt;p&gt;The problem is, a human game master will always be better than a computer here, right? A human game master can simulate any situation, can mediate any conflict, can act any character. (I exaggerate, but not very much.) A computer must be programmed to handle every specific situation in the game&#x27;s world.&lt;/p&gt;
-
-&lt;h3 id=&quot;ai&quot;&gt;AI?&lt;/h3&gt;
-&lt;p&gt;
-	You can make &lt;a href=&quot;https://chat.openai.com/chat&quot;&gt;ChatGPT&lt;/a&gt; play a roleplaying game with you. ChatGPT can be the game master, simulate the environment, accept the actions of your character, whatever you might want. A couple of pitfalls prevent full immersion, however. ChatGPT forgets details and must be reminded, and it can&#x27;t stay on track with a game system, being a more freeform storyteller. I want something better.
-&lt;/p&gt;
-
-&lt;h3 id=&quot;muds&quot;&gt;MUDs?&lt;/h3&gt;
-
-&lt;p&gt;
-	The system I have in mind is similar to the &lt;a href=&quot;https://en.wikipedia.org/w/index.php?title=MUD&amp;amp;oldid=1140275602&quot;&gt;MUD&lt;/a&gt; &lt;a href=&quot;https://medium.com/@williamson.f93/multi-user-dungeons-muds-what-are-they-and-how-to-play-af3ec0f29f4a&quot;&gt;gameplay&lt;/a&gt; &lt;a href=&quot;https://writing-games.com/what-is-a-mud-multi-user-dungeon/&quot;&gt;style&lt;/a&gt;, which is fully text-based as you pilot your character through a multiplayer world. MUDs are, however, limited in a number of ways: they are generally room based, their multiplayer nature requires real-time interaction, their systems are quite gamey, and the &quot;dungeon master&quot; is primarily concerned with combat mechanics.
-&lt;/p&gt;
-
-&lt;h3 id=&quot;something-new&quot;&gt;Something new&lt;/h3&gt;
-
-&lt;p&gt;I&#x27;ve started work on a new system at &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;. This &lt;em&gt;text engine&lt;/em&gt; is an effort toward building a flexible text-based game engine for simulating any scenario or world.&lt;/p&gt;
-
-&lt;h2 id=&quot;goals&quot;&gt;Goals&lt;/h2&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;To simulate combat and action mechanics&lt;/li&gt;
-	&lt;li&gt;To handle social interactions&lt;/li&gt;
-	&lt;li&gt;To keep track of world events: political affiliations, kingdom economics, famines, shipping routes&lt;/li&gt;
-	&lt;li&gt;To support singleplayer play or play with a small party&lt;/li&gt;
-	&lt;li&gt;To support any genre of game: high fantasy action, low fantasy economic, sci-fi space battle, zombie apocalypse, etc.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;These are very ambitious goals, but the text engine format lends itself well to managing all this complexity without the added requirements of graphical display and control.&lt;/p&gt;
-
-&lt;p&gt;This will be a long-term project, so development may be quite slow. There is no time pressure, however, so I can take it at my pace.&lt;/p&gt;
-
-&lt;h3 id=&quot;go&quot;&gt;Learning Go&lt;/h3&gt;
-
-&lt;p&gt;This project is also a way for me to learn the Go language, which has some unique syntax and ideas that I think will be perfect for a large text-based game engine like this.&lt;/p&gt;
-
-&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
-
-&lt;p&gt;The basic structure is thus: everything in the world, whether a city, a man, a kingdom, a sword, or a lake, is an entity in relationship with other entities, capable of whatever actions and interactions make sense for it.&lt;/p&gt;
-
-&lt;p&gt;Let&#x27;s example a sample scenario to illustrate the idea: a covered &lt;b&gt;wagon&lt;/b&gt; of four &lt;b&gt;merchants&lt;/b&gt; traveling down a &lt;b&gt;road&lt;/b&gt; through a &lt;b&gt;forest&lt;/b&gt;, about to be robbed by two &lt;b&gt;bandits&lt;/b&gt; with &lt;b&gt;crossbows&lt;/b&gt;. You are the lone &lt;b&gt;guard&lt;/b&gt; for the &lt;b&gt;wagon&lt;/b&gt;, wielding only a &lt;b&gt;sword&lt;/b&gt; riding in the &lt;b&gt;front&lt;/b&gt; with the &lt;b&gt;driver&lt;/b&gt; while the other three &lt;b&gt;merchants&lt;/b&gt; are sitting in the &lt;b&gt;back&lt;/b&gt;.&lt;/p&gt;
-
-&lt;p&gt;Every bold word in that previous paragrah would be an entity (or a few entities). As an example, the wagon is an entity with two entities making it up: the front and the back. In the event that you wanted to hide underneath the wagon, an entity for the underneath would be generated as well. The front of the wagon is an entity that &lt;em&gt;contains&lt;/em&gt; you and the driver. This &lt;em&gt;contains&lt;/em&gt; relationship would be mirrored by &lt;em&gt;in&lt;/em&gt; relationships that you and the driver have with the wagon. The wagon itself is &lt;em&gt;on&lt;/em&gt; the road, while the road &lt;em&gt;contains&lt;/em&gt; the wagon. The road itself is within the forest, and so forth.&lt;/p&gt;
-
-&lt;p&gt;You can see the complex interactions that can happen here. Each of the merchants and bandits has an AI corresponding with their generated personalities and skills, so some of the merchants might draw weapons while others might seek cover in the wagon from the bandits&#x27; crowssbows.&lt;/p&gt;
-
-&lt;p&gt;Dialogue would be represented by ideas, such as &quot;The king expresses his gratitude with an undercurrent of disdain.&quot; or &quot;The bandit threatens you with no trace of reason in his eyes.&quot; You can choose to respond however you see fit, by threatening, cajoling, warmly thanking, etc. to influence character&#x27;s perceptions, attitudes, and ultimately actions.&lt;/p&gt;
-
-&lt;p&gt;Attitudes and actions would bubble upward as well to influence cities and kingdoms. If the player was not currently in a city it could be simulated on a macro level rather than each individual character in the city, so that the city&#x27;s influence and politics would change and existing characters in the city would have their life stories altered without the need for a granular simulation.&lt;/p&gt;
-
-&lt;p&gt;I still need to work through the details of the system, and see what implementation issues I run into, but this should provide a base for further development in a new and exciting direction.&lt;/p&gt;
-
-&lt;h2 id=&quot;github&quot;&gt;Github repository&lt;/h2&gt;
-&lt;p&gt;I&#x27;ve started work at &lt;a href=&quot;https://github.com/linewriter1024/textengine&quot;&gt;https://github.com/linewriter1024/textengine&lt;/a&gt;. The prototype is not yet a functioning game, but there is a command processing system and the basis of a generic game engine capable of singleplayer and multiplayer text-based gameplay.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>software</category><category>games</category><category>textengine</category><category>discovery</category>
-	<link>https://benleskey.com/blog/textengine_intro</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/textengine_intro</guid>
-	<pubDate>Fri, 21 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Mapping tool quick start guide</title>
-	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&quot;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;
-&lt;/p&gt;</description>
-	<category>mappingtool</category><category>software</category>
-	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
-	<pubDate>Thu, 20 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>CDDA big world showcase: Ernie&#x27;s great road trip</title>
-	<description>&lt;div&gt;&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
-
-&lt;p&gt;If you like road trips through the post apocalyptic rural wasteland, I&#x27;ve got the right &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; world generation settings for you!&lt;/p&gt;
-
-&lt;p&gt;City size of 16 makes absolutely huge metropolises, and city spacing 8 places these massive cities far apart, producing some amazing travel experiences. Normal generation is reather unrealistic with plenty of tiny towns close together, but with these settings getting between cities basically requires a car, and simulates the long abandoned highways you&#x27;d expect in a New England apocalypse.&lt;/p&gt;
-
-&lt;p&gt;In my latest playthrough, my character Ernie drives in his sports car across the New England countryside for an entire day on his way to the refugee center, with not a single city in the way.&lt;/p&gt;
-
-&lt;video src=&quot;https://benleskey.com/blog/../videos/cdda_ernie_map.webm&quot; preload controls&gt;&lt;/video&gt;
-
-&lt;p&gt;There were plenty of interesting landmarks and happenings along the way, and lots of little rural gas stations for topping off the tanks and grabbing preserved food. This kind of travel was actually relaxing: 100 mph down straight stretches of highway. Just need to avoid all the abandoned and wrecked cars!&lt;/p&gt;
-
-&lt;p&gt;Eventually Ernie settled down in the hunting lodge north of the refugee center, but there&#x27;ll be a lot more road trips in the future as Ernie builds a new life in this huge apocalyptic world.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>games</category><category>cdda</category>
-	<link>https://benleskey.com/blog/cdda_ernie_road_trip</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_ernie_road_trip</guid>
-	<pubDate>Tue, 11 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>OBS Studio -&gt; ffmpeg -&gt; ImageMagick for an optimized gif</title>
-	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
-
-&lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
-
-&lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
-
-&lt;p&gt;With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.&lt;/p&gt;
-&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
-&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
-
-&lt;/p&gt;&lt;p&gt;
-Here&#x27;s the final GIF:
-&lt;img src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;
-&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>discovery</category><category>utilities</category><category>software</category>
-	<link>https://benleskey.com/blog/mapper_gifs</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper_gifs</guid>
-	<pubDate>Fri, 07 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Scene draft: Lusha tries to get answers, version 2</title>
-	<description>&lt;div&gt;&lt;p&gt;Here&#x27;s the second draft of a &lt;a href=&quot;https://benleskey.com/blog/lusha_answers_version_1&quot;&gt;scene I&#x27;ve been working on&lt;/a&gt;, both for my creative writing class and for my current novel project. I&#x27;ve made some revisions to make it more clear what&#x27;s going on, and I removed the bit at the end of having a random rat run up and eat the telephone cord.&lt;/p&gt;
-
-&lt;h2&gt;Scene&lt;/h2&gt;
-&lt;p&gt;Lusha punched the number into the keypad and jerked the heavy slightly-rusted handset up to her ear. She shuffled around the tangled wire as the handset blared tones. It clicked. There were a few other girls at the dormitory payphones, but nobody was listening too closely yet.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Lusha?&amp;#8221; Her father&#x27;s soft voice came metallic and worried.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Baba, I need to know something.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;He didn&#x27;t say anything.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Baba?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What is it, love?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;How did you get me to the university?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;The briefest pause, then he said &amp;#8220;Is something wrong?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Baba&amp;#8212;!&amp;#8221; Lusha stopped as a girl picked up the handset of the payphone next to her and clicked in a number. She went on, quieter, &amp;#8220;Baba, something happened and I&amp;#8217;ve gotta know.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What happened?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I wanna know. I have to know.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What happened, Lusha?&amp;#8221; He must have been very close to the telephone. It usually sat in their kitchen with a stool on either side so both her mother and father could talk with their friends at once. Now his every breath rang out through the handset on her end.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Is that Lusha, Eli?&amp;#8221; her mothers voice came through the line. &amp;#8220;Oh, Lusha, what&amp;#8217;s going on?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I was asking how I got to&amp;#8230; here,&amp;#8221; said Lusha, glancing at the girl beside her.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Oh,&amp;#8221; said her mother.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s nothing,&amp;#8221; said her father. &amp;#8220;Don&amp;#8217;t worry.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Are you gonna tell her?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;He growled a little growl, not meant for anyone. &amp;#8220;It&amp;#8217;ll be okay. It&amp;#8217;s okay. You can go back to the bread.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I don&amp;#8217;t have to yet.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What&amp;#8217;s wrong?&amp;#8221; said Lusha.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;He won&amp;#8217;t tell me either.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s my business.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;It&amp;#8217;s my business too,&amp;#8221; said Lusha. The girl next to her was chatting about foot sores with her friend. Lusha gritted her teeth. &amp;#8220;I told you, something happened&amp;#8230; at the registrar. An important man asked me for something.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;We need to talk,&amp;#8221; he said, just like when she was a kid being scolded. &amp;#8220;Later.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I can&amp;#8217;t talk later. I won&amp;#8217;t have a telephone. We need to talk now.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I&amp;#8217;m sorry love,&amp;#8221; he choked out, &amp;#8220;I can&amp;#8217;t.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;If you can&amp;#8217;t tell her now what makes you think you can tell her later? Or is it something you can&amp;#8217;t tell just me? Eli?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;No.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;You don&amp;#8217;t have to say what it is. Just say there&amp;#8217;s something. Don&amp;#8217;t look at me like that.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Moma?&amp;#8221; said Lusha.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Your father&amp;#8217;s hiding something. I want him to spit it out.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Lusha weighed her words. &amp;#8220;Do you know how it happened, Moma? Anything? Please, Moma.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I want him to say it.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Moma please. I don&amp;#8217;t have any time.&amp;#8221; Lusha clutched the handset with a sweaty hand. The girl beside her stopped chatting with her friend, but she hadn&amp;#8217;t hung up yet.&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Eli, say it. Just say you&amp;#8217;re hiding it! Say what you did to get her into the university!&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Her father choked out a guttural sob. &amp;#8220;Girls, please&amp;#8230;&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Baba?&amp;#8221; The handset was too heavy. The girl beside her was too quiet.&lt;/p&gt;
-&lt;p&gt;Nobody said anything for a while, then her mother came back. &amp;#8220;He ran out the door.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Is he okay?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I don&amp;#8217;t know.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;What do you know? I have to know.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I want you to come home first.&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;I can&amp;#8217;t!&amp;#8221;&lt;/p&gt;
-&lt;p&gt;&amp;#8220;Not over the telephone. Not over the telephone, Lusha.&amp;#8221; Now she was crying.&lt;/p&gt;
-&lt;p&gt;Lusha froze holding the handset to her ear. &amp;#8220;Moma,&amp;#8221; she whispered. The line popped as if it were cut, and hissed horribly. &amp;#8220;Moma?&amp;#8221; She pulled the crackling, hissing roar away from her head.&lt;/p&gt;
-&lt;p&gt;Another bored girl stood behind her. &amp;#8220;You done?&amp;#8221;&lt;/p&gt;
-&lt;p&gt;Lusha sniffled and handed over the telephone.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>writing</category><category>scene</category>
-	<link>https://benleskey.com/blog/lusha_answers_version_2</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/lusha_answers_version_2</guid>
-	<pubDate>Wed, 29 Mar 2023 12:00:00 +0000</pubDate>
-</item>
-	</channel>
-</rss>
+</pre>
+
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2023-07-28</span>
+				 <a class="tag" href="../blog/tags/dcss">#dcss</a> <a class="tag" href="../blog/tags/games">#games</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>
