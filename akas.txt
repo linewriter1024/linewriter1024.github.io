@@ -7,3 +7,4 @@ roadtrip ../blog/roadtrip_intro
 textengine ../blog/textengine_intro
 websitenews ../blog/tags/website
 websiterepo https://github.com/linewriter1024/linewriter1024.github.io
+wexlfu-tpt https://github.com/wexlfu/The_Paradise_Trap
