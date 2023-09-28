@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ben Leskey's Blog: wesnoth</title>
+		<description>wesnoth posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/wesnoth</link>
+		<language>en-us</language>
+		<copyright>2023 Ben Leskey</copyright>
+		<lastBuildDate>Thu, 28 Sep 2023 17:53:27 +0000</lastBuildDate>
+		<pubDate>Thu, 28 Sep 2023 17:53:27 +0000</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/wesnoth.feed.xml" rel="self" type="application/rss+xml" />
+
+		<item>
+	<title>World map for a Wesnoth campaign: The Paradise Trap</title>
+	<description>&lt;div&gt;&lt;p class=&quot;showcase&quot;&gt;
+	&lt;img src=&quot;https://raw.githubusercontent.com/wesnoth/wesnoth/51b58ad218fc285717c7d5889fdfeda59f017ca6/data/core/images/maps/wesnoth.webp&quot; class=&quot;right&quot; style=&quot;max-height: 160px&quot; alt=&quot;the wesnoth world map&quot;&gt;
+	I&#x27;m working on a &lt;a href=&quot;https://wesnoth.org&quot;&gt;Battle for Wesnoth&lt;/a&gt; campaign, &lt;a href=&quot;https://benleskey.com/blog/../aka/wexlfu-tpt&quot;&gt;The Paradise Trap&lt;/a&gt;, set in the western sea off the coast of the Great Continent in the world of Wesnoth. The world of Wesnoth has a canonical map, but working with a nice-looking map is beyond the scope of my project for now. Fortunately for me, Wesnoth&#x27;s game map editor creates nice enough maps and has an automatable screenshot export function built in.
+&lt;/p&gt;
+
+&lt;p class=&quot;showcase&quot;&gt;
+	&lt;img src=&quot;https://benleskey.com/blog/../images/tpt_world_map_raw_0.3.png&quot; class=&quot;right&quot; style=&quot;max-height: 160px&quot; alt=&quot;the paradise trap world map before labels are added&quot;&gt;
+	I built an approximation of the world map in the in-game map editor. This maps out the terrain of both the canonical continent and my own world building&amp;#8212;Paradise. The scale is certainly off, but it doesn&#x27;t matter; I&#x27;m not concerned about accuracy for this map which will only be used at the start of scenarios to roughly plot out the movement of the characters.
+&lt;/p&gt;
+
+&lt;p class=&quot;showcase&quot;&gt;
+	&lt;img src=&quot;https://benleskey.com/blog/../images/tpt_world_map_0.3.png&quot; class=&quot;right&quot; style=&quot;max-height: 160px&quot; alt=&quot;the paradise trap world map&quot;&gt;
+	Finally, I use ImageMagick to add labels to the map. The labels are drawn using a built-in Wesnoth font, so the style at least somewhat matches the game. This final image is then used at the beginning of each scenario, and can be used for spatial reference as I write the story.
+&lt;/p&gt;
+
+&lt;p&gt;
+	This is all automated through a script that exports the wesnoth map of the world to an image and then uses a long &lt;code&gt;convert&lt;/code&gt; invocation to add all the labels. The script is included below for reference.
+&lt;/p&gt;
+
+&lt;h2&gt;Map generation script&lt;/h2&gt;
+&lt;pre&gt;
+&lt;code language=&quot;bash&quot;&gt;
+#!/bin/bash
+if ! [[ ./images/worldmap.png -ot ./worldmap/worldmap.cfg ]] &amp;amp;&amp;amp; ! [[ ./images/worldmap.png -ot ./worldmap/build.sh ]] ; then
+	echo &quot;Worldmap is up to date!&quot;
+	if [[ -n &quot;$wx&quot; ]]; then
+		return 0
+	else
+		exit 0
+	fi
+fi
+
+wesnoth --screenshot ./worldmap/worldmap.cfg ./images/worldmap.png &amp;gt; /dev/null
+
+commandline=&quot;&quot;
+font=&quot;$(wesnoth --data-path)/fonts/OldaniaADFStd-Regular.otf&quot;
+
+label() {
+	x=$1
+	y=$2
+	text=&quot;$3&quot;
+	scale=${4:-1}
+	scalei=&quot;$(echo &quot;$scale * 48&quot; | bc | cut -d. -f1)&quot;
+	len=&quot;$(echo &quot;$text&quot; | wc -c)&quot;
+
+	commandline=&quot;$commandline -pointsize \&quot;$scalei\&quot; -font \&quot;$font\&quot; -fill white -gravity NorthWest -draw \&quot;text $((x - (scalei * len) / 6)),$((y - $scalei)) \\\&quot;$text\\\&quot;\&quot;&quot;
+}
+
+label 3510 1040 &quot;Elensefar&quot; 1.5
+label 3732 1338 &quot;Halstead&quot;
+label 3680 1616 &quot;Aldril&quot;
+label 4000 1190 &quot;Carcyn&quot;
+label 3303 2304 &quot;Blackwater Port&quot;
+label 3024 2037 &quot;Isle of Alduin&quot;
+label 2445 1134 &quot;The Three Sisters&quot;
+label 2390 1575 &quot;The Red Isle&quot;
+
+label 1606 1317 &quot;Ialwas&quot;
+
+label 3357 441 &quot;Glamdrol&quot;
+label 3837 282 &quot;Rumyr&quot;
+
+label 5031 1866 &quot;Dan Tonk&quot; 1.5
+label 5523 2349 &quot;Weldyn&quot; 1.5
+label 5349 1722 &quot;Tath&quot;
+label 4875 2844 &quot;Fort Tahn&quot;
+
+label 4815 1362 &quot;Gryphon Mountain&quot;
+label 5640 1086 &quot;Swamp of Dread&quot; 2
+label 4380 213 &quot;Lake Vrug&quot; 2
+label 3395 1890 &quot;Bay of Pearls&quot;
+
+label 3960 760 &quot;Wesmere Forest&quot; 2
+label 3774 2670 &quot;Aethenwood&quot;
+
+label 423 1719 &quot;Paradise&quot; 3
+label 4344 1911 &quot;Wesnoth&quot; 3
+
+eval &quot;convert $commandline ./images/worldmap.png ./images/worldmap.png&quot;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>wesnoth</category>
+	<link>https://benleskey.com/blog/tpt_world_map</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/tpt_world_map</guid>
+	<pubDate>Thu, 28 Sep 2023 12:00:00 +0000</pubDate>
+</item>_
+	</channel>
+</rss>
