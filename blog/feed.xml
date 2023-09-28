@@ -6,25 +6,28 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 28 Sep 2023 17:53:30 +0000</lastBuildDate>
-		<pubDate>Thu, 28 Sep 2023 17:53:30 +0000</pubDate>
+		<lastBuildDate>Thu, 28 Sep 2023 18:03:51 +0000</lastBuildDate>
+		<pubDate>Thu, 28 Sep 2023 18:03:51 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
 <item>
 	<title>World map for a Wesnoth campaign: The Paradise Trap</title>
-	<description>&lt;div&gt;&lt;p class=&quot;showcase&quot;&gt;
-	&lt;img src=&quot;https://raw.githubusercontent.com/wesnoth/wesnoth/51b58ad218fc285717c7d5889fdfeda59f017ca6/data/core/images/maps/wesnoth.webp&quot; class=&quot;right&quot; style=&quot;max-height: 160px&quot; alt=&quot;the wesnoth world map&quot;&gt;
+	<description>&lt;div&gt;&lt;img src=&quot;https://raw.githubusercontent.com/wesnoth/wesnoth/51b58ad218fc285717c7d5889fdfeda59f017ca6/data/core/images/maps/wesnoth.webp&quot; style=&quot;max-width: 160px&quot; class=&quot;right&quot; alt=&quot;the wesnoth world map&quot;&gt;
+
+&lt;p&gt;
 	I&#x27;m working on a &lt;a href=&quot;https://wesnoth.org&quot;&gt;Battle for Wesnoth&lt;/a&gt; campaign, &lt;a href=&quot;https://benleskey.com/blog/../aka/wexlfu-tpt&quot;&gt;The Paradise Trap&lt;/a&gt;, set in the western sea off the coast of the Great Continent in the world of Wesnoth. The world of Wesnoth has a canonical map, but working with a nice-looking map is beyond the scope of my project for now. Fortunately for me, Wesnoth&#x27;s game map editor creates nice enough maps and has an automatable screenshot export function built in.
 &lt;/p&gt;
 
-&lt;p class=&quot;showcase&quot;&gt;
-	&lt;img src=&quot;https://benleskey.com/blog/../images/tpt_world_map_raw_0.3.png&quot; class=&quot;right&quot; style=&quot;max-height: 160px&quot; alt=&quot;the paradise trap world map before labels are added&quot;&gt;
+&lt;img src=&quot;https://benleskey.com/blog/../images/tpt_world_map_raw_0.3.png&quot; alt=&quot;the paradise trap world map before labels are added&quot;&gt;
+
+&lt;p&gt;
 	I built an approximation of the world map in the in-game map editor. This maps out the terrain of both the canonical continent and my own world building&amp;#8212;Paradise. The scale is certainly off, but it doesn&#x27;t matter; I&#x27;m not concerned about accuracy for this map which will only be used at the start of scenarios to roughly plot out the movement of the characters.
 &lt;/p&gt;
 
-&lt;p class=&quot;showcase&quot;&gt;
-	&lt;img src=&quot;https://benleskey.com/blog/../images/tpt_world_map_0.3.png&quot; class=&quot;right&quot; style=&quot;max-height: 160px&quot; alt=&quot;the paradise trap world map&quot;&gt;
+&lt;img src=&quot;https://benleskey.com/blog/../images/tpt_world_map_0.3.png&quot; alt=&quot;the paradise trap world map&quot;&gt;
+
+&lt;p&gt;
 	Finally, I use ImageMagick to add labels to the map. The labels are drawn using a built-in Wesnoth font, so the style at least somewhat matches the game. This final image is then used at the beginning of each scenario, and can be used for spatial reference as I write the story.
 &lt;/p&gt;
 
