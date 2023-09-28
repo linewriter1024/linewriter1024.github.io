@@ -1,3 +1,4 @@
+post tpt_world_map "World map for a Wesnoth campaign: The Paradise Trap" 2023-09-28 "software games wesnoth"
 post dcss_sh "The new DCSS shapeshifter background (first win)" 2023-07-28 "games dcss"
 POST_EXTERNAL="https://github.com/CleverRaven/Cataclysm-DDA/pull/66639" post make_horses_milkable "Make horses milkable" 2023-07-03 "cdda software"
 POST_BLURB="Culture and mystery!" POST_INTERNAL="reading_list#2023-06-06" post reading_list_2 "Reading list update #2" 2023-06-06 "reading discovery"
