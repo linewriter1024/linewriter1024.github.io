@@ -6,11 +6,21 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Thu, 28 Sep 2023 18:03:51 +0000</lastBuildDate>
-		<pubDate>Thu, 28 Sep 2023 18:03:51 +0000</pubDate>
+		<lastBuildDate>Fri, 06 Oct 2023 14:57:32 +0000</lastBuildDate>
+		<pubDate>Fri, 06 Oct 2023 14:57:32 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Reading list update #3</title>
+	<description>&lt;div&gt;&lt;p&gt;Sci-fi, history, Mark Twain!&lt;/p&gt;
+See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-10-06&quot;&gt;reading_list#2023-10-06&lt;/a&gt;
+&lt;/div&gt;</description>
+	<category>reading</category><category>discovery</category>
+	<link>https://benleskey.com/page/reading_list#2023-10-06</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/reading_list_3</guid>
+	<pubDate>Fri, 06 Oct 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>World map for a Wesnoth campaign: The Paradise Trap</title>
 	<description>&lt;div&gt;&lt;img src=&quot;https://raw.githubusercontent.com/wesnoth/wesnoth/51b58ad218fc285717c7d5889fdfeda59f017ca6/data/core/images/maps/wesnoth.webp&quot; style=&quot;max-width: 160px&quot; class=&quot;right&quot; alt=&quot;the wesnoth world map&quot;&gt;
@@ -1697,30 +1707,6 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<link>https://benleskey.com/blog/cdda_ernie_road_trip</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_ernie_road_trip</guid>
 	<pubDate>Tue, 11 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>OBS Studio -&gt; ffmpeg -&gt; ImageMagick for an optimized gif</title>
-	<description>&lt;div&gt;&lt;p class=&quot;update&quot;&gt;Update: The gifs worked! I &lt;a href=&quot;https://benleskey.com/blog/mvnu_surc&quot;&gt;successfully presented&lt;/a&gt; at sURC, and won the top prize.&lt;/p&gt;
-
-&lt;p&gt;I&#x27;ve been working on my presentation to present my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; senior Honors project at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt;. For part of this presentation I wanted an animated gif illustrating the basic drawing functionality of the tool.&lt;/p&gt;
-
-&lt;p&gt;I started with &lt;a href=&quot;https://obsproject.com/&quot;&gt;OBS studio&lt;/a&gt; to record the actual video of me drawing a simple map. Then I imported the video into &lt;a href=&quot;https://kdenlive.org/&quot;&gt;Kdenlive&lt;/a&gt; for editing. OBS recorded the video as 1920x1080, but the actual mapping tool window that I was recording was only 1916x1008 so when I imported it into Kdenlive there was a black bar along the bottom. To solve this, I set the resolution of the Kdenlive project to 1278x672 (the same scale but a smaller resolution to keep the GIF size small) and applied a transform effect to position the original clip within the proper resolution. I set the clip speed to 300%, so that in under 30 seconds people could see an example of an entire (if small) map being created.&lt;/p&gt;
-
-&lt;p&gt;With the Kdenlive project ready, I rendered it to an MP4 file for conversion to GIF.&lt;/p&gt;
-&lt;p&gt;I then converted the MP4 file using &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;ffmpeg -i in.mp4 -vf &quot;scale=-1:-1,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse&quot; -r 10 out.gif&lt;/code&gt;&lt;/pre&gt; 10 fps struck a good balance between choppiness and size; I didn&#x27;t need it to be smooth, just not so jumpy as to be annoying. I had ffmpeg generate a GIF palette itself with the palettegen and paletteuse combo.
-&lt;p&gt;Then I optimized the gif, lossily, using ImageMagick&#x27;s mogrify command &lt;/p&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;mogrify -layers &#x27;optimize&#x27; -fuzz 7% out.gif&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The final size of the optimized GIF was 3.1MiB, down from a 21MiB unoptimized GIF, an 8.1MiB MP4 file, and an 11MiB original obs output file.
-
-&lt;/p&gt;&lt;p&gt;
-Here&#x27;s the final GIF:
-&lt;img src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;
-&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>discovery</category><category>utilities</category><category>software</category>
-	<link>https://benleskey.com/blog/mapper_gifs</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper_gifs</guid>
-	<pubDate>Fri, 07 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>
