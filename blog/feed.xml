@@ -6,11 +6,26 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 06 Oct 2023 14:59:19 +0000</lastBuildDate>
-		<pubDate>Fri, 06 Oct 2023 14:59:19 +0000</pubDate>
+		<lastBuildDate>Sat, 21 Oct 2023 01:05:53 +0000</lastBuildDate>
+		<pubDate>Sat, 21 Oct 2023 01:05:53 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Arcana Technoclysm: A small mod for Cataclysm: DDA</title>
+	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt;&#x27;s premier magic mod is &lt;a href=&quot;http://www.cddawiki.chezzo.com/cdda_wiki/index.php?title=Magiclysm&quot;&gt;&lt;/a&gt;Magiclysm, which not only adds an entire magic system and slew of useful spells, items, and locations but also alters the lore of the game to imply that magic has existed throughout history. This lore breaks significantly from real world history, so I prefer mods that keep magic as something esoteric and hidden, such as the newly added mod &lt;i&gt;Mind Over Matter&lt;/i&gt; or the mature &lt;a href=&quot;https://github.com/chaosvolt/cdda-arcana-mod&quot;&gt;Arcana&lt;/a&gt; mod.&lt;/p&gt;
+
+&lt;p&gt;However, there is one particular spell from Magiclysm that I love that is not available in any other mod: the &lt;i&gt;Summon Motorcycle&lt;/i&gt; spell. This is amazingly useful and fun to play with, so I decided to port the idea over to Magiclysm in my own mod. This new mod, &lt;a href=&quot;https://benleskey.com/blog/../aka/cdda-arcana-technoclysm&quot;&gt;Arcana Technoclysm&lt;/a&gt;, currently adds three temporary summonable vehicles and a new location to find the magic whistles needed to summon these vehicles. It&#x27;s a simple mod but fills in the summonable vehicle gap in the more lore-friendly magic mods. The vehicles currently available are an amphibious boat with wheels, a motorcycle, and a horseless carriage with plenty of cargo space. Each of the vehicles is a tradeoff between maneuverability, compatible terrain, and cargo space, so hopefully players will have incentive to find strange warehouses and collect all the magic whistles.&lt;/p&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/technoclysm_items.png&quot; alt=&quot;A screenshot of the three vehicle summoning whistles from the Arcana Technoclysm mod&quot;&gt;
+&lt;img src=&quot;https://benleskey.com/blog/../images/technoclysm_vehicles.png&quot; alt=&quot;A screenshot of the three summonable vehicles from the Arcana Technoclysm mod&quot;&gt;
+&lt;img src=&quot;https://benleskey.com/blog/../images/technoclysm_warehouse.png&quot; alt=&quot;A screenshot of the new location where you can find vehicle summoning whistles&quot;&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>cdda</category>
+	<link>https://benleskey.com/blog/cdda_arcana_technoclysm</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_arcana_technoclysm</guid>
+	<pubDate>Fri, 20 Oct 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Reading list update #3</title>
 	<description>&lt;div&gt;&lt;p&gt;Sci-fi, history, Mark Twain!&lt;/p&gt;
@@ -1686,27 +1701,6 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
 	<pubDate>Thu, 20 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>CDDA big world showcase: Ernie&#x27;s great road trip</title>
-	<description>&lt;div&gt;&lt;img class=&quot;right&quot; alt=&quot;The city size and city spacing settings for this CDDA world&quot; src=&quot;https://benleskey.com/blog/../images/cdda_ernie_map_world.png&quot;&gt;
-
-&lt;p&gt;If you like road trips through the post apocalyptic rural wasteland, I&#x27;ve got the right &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; world generation settings for you!&lt;/p&gt;
-
-&lt;p&gt;City size of 16 makes absolutely huge metropolises, and city spacing 8 places these massive cities far apart, producing some amazing travel experiences. Normal generation is reather unrealistic with plenty of tiny towns close together, but with these settings getting between cities basically requires a car, and simulates the long abandoned highways you&#x27;d expect in a New England apocalypse.&lt;/p&gt;
-
-&lt;p&gt;In my latest playthrough, my character Ernie drives in his sports car across the New England countryside for an entire day on his way to the refugee center, with not a single city in the way.&lt;/p&gt;
-
-&lt;video src=&quot;https://benleskey.com/blog/../videos/cdda_ernie_map.webm&quot; preload controls&gt;&lt;/video&gt;
-
-&lt;p&gt;There were plenty of interesting landmarks and happenings along the way, and lots of little rural gas stations for topping off the tanks and grabbing preserved food. This kind of travel was actually relaxing: 100 mph down straight stretches of highway. Just need to avoid all the abandoned and wrecked cars!&lt;/p&gt;
-
-&lt;p&gt;Eventually Ernie settled down in the hunting lodge north of the refugee center, but there&#x27;ll be a lot more road trips in the future as Ernie builds a new life in this huge apocalyptic world.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>games</category><category>cdda</category>
-	<link>https://benleskey.com/blog/cdda_ernie_road_trip</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_ernie_road_trip</guid>
-	<pubDate>Tue, 11 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>
