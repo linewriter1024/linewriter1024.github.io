@@ -6,11 +6,108 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2023 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 28 Oct 2023 14:15:08 +0000</lastBuildDate>
-		<pubDate>Sat, 28 Oct 2023 14:15:08 +0000</pubDate>
+		<lastBuildDate>Thu, 02 Nov 2023 21:58:33 +0000</lastBuildDate>
+		<pubDate>Thu, 02 Nov 2023 21:58:33 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Cataclysm DDA: recent great improvements</title>
+	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; has recieved some really nice updates to the experimental branch in recent months. My top three are:&lt;/p&gt;
+&lt;h2&gt;&lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/67907&quot;&gt;Default sort zone&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This one is huge! Now you can define a loot sorting zone as a catchall, where items will be sorted unless there&#x27;s a more specific zone for them to go into. Previously, every time I settled down in a location or mobile base, I would have to set every zone for every filter as many times as there were tiles. It was so tedious that I wrote a Bash script to do it for me using xdotool, a script that is entirely useless now!&lt;/p&gt;
+
+&lt;h3&gt;mobile-base-zones script&lt;/h3&gt;
+&lt;pre&gt;
+&lt;code language=&quot;bash&quot;&gt;
+#!/bin/bash
+
+. `which qterminal-helper`
+
+# Custom zone letter
+CUSTOM=j
+
+# Delay between keys (msec)
+DELAY=200
+
+set -x
+
+W=&quot;$(wmctrl -l | grep Cataclysm | cut -d&quot; &quot; -f1)&quot;
+xdotool windowactivate &quot;$W&quot;
+sleep 1
+
+type() {
+	xdotool type --delay $DELAY &quot;$(echo -e &quot;$1&quot;)&quot;
+}
+
+key() {
+	sleep $(echo &quot;$DELAY / 1000&quot; | bc -l)
+	xdotool key &quot;$@&quot;
+}
+
+zone() {
+	pos=&quot;$1&quot;
+	zone=&quot;$2&quot;
+	type &quot;YA$zone\r$pos\r\r$CONFIRM&quot;
+	key Escape
+	type &quot;Y&quot;
+}
+
+customzone() {
+	pos=&quot;$1&quot;
+	filter=&quot;$2&quot;
+	type &quot;YA$CUSTOM$filter\r\r$pos\r\r$CONFIRM&quot;
+	key Escape
+	type &quot;Y&quot;
+}
+
+. `which mobile-base-zones-config`
+
+for pos in $GENERIC_P; do
+	for zone in $GENERIC_Z; do
+			zone &quot;$pos&quot; &quot;$zone&quot;
+	done
+done
+
+for pos in $DUMP_P; do
+	for zone in $DUMP_Z; do
+			zone &quot;$pos&quot; &quot;$zone&quot;
+	done
+done
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;h3&gt;mobile-base-zones-config&lt;/h3&gt;
+&lt;pre&gt;
+&lt;code&gt;
+#!/bin/bash
+
+# Y if vehicle, otherwise empty
+CONFIRM=
+
+# Collect positions from origin
+GENERIC_P=&quot;&quot;
+# Collect zones
+GENERIC_Z=&quot;&quot;
+
+# Dump positions from origin
+DUMP_P=&quot;.&quot;
+# Dump zones
+DUMP_Z=&quot;0 a b c d e f g h i k l m n o p q t u v w x y z C D E F G J I K&quot;
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;h2&gt;&lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/64334&quot;&gt;Plugging in tools&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;This one is just great quality of life. Now players can plug tools like welders, soldering irons, and especially smartphones (with their unswappable batteries) directly into appliances or vehicle dashboards. This saves all the tedium of continually swapping out batteries, and makes using electric tools just that much easier.&lt;/p&gt;
+
+&lt;h2&gt;&lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/68686&quot;&gt;Brawling buff&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Finally there&#x27;s been a small buff to the Brawling style where waiting for a turn or two will grant a bonus to accuracy. This makes melee combat using the Brawling style feel more engaging, and gives more edge to early-to-mid-game melee combat.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>games</category><category>cdda</category>
+	<link>https://benleskey.com/blog/cdda_improvements</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_improvements</guid>
+	<pubDate>Thu, 02 Nov 2023 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Arcana Technoclysm: A small mod for Cataclysm: DDA</title>
 	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt;&#x27;s premier magic mod is &lt;a href=&quot;http://www.cddawiki.chezzo.com/cdda_wiki/index.php?title=Magiclysm&quot;&gt;&lt;/a&gt;Magiclysm, which not only adds an entire magic system and slew of useful spells, items, and locations but also alters the lore of the game to imply that magic has existed throughout history. This lore breaks significantly from real world history, so I prefer mods that keep magic as something esoteric and hidden, such as the newly added mod &lt;i&gt;Mind Over Matter&lt;/i&gt; or the mature &lt;a href=&quot;https://github.com/chaosvolt/cdda-arcana-mod&quot;&gt;Arcana&lt;/a&gt; mod.&lt;/p&gt;
@@ -1692,15 +1789,6 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<link>https://benleskey.com/blog/textengine_intro</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/textengine_intro</guid>
 	<pubDate>Fri, 21 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Mapping tool quick start guide</title>
-	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&quot;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;
-&lt;/p&gt;</description>
-	<category>mappingtool</category><category>software</category>
-	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
-	<pubDate>Thu, 20 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>
