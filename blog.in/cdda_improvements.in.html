@@ -1,0 +1,89 @@
+<p><a href="https://cataclysmdda.org">Cataclysm: Dark Days Ahead</a> has recieved some really nice updates to the experimental branch in recent months. My top three are:</p>
+<h2><a href="https://github.com/CleverRaven/Cataclysm-DDA/pull/67907">Default sort zone</a></h2>
+<p>This one is huge! Now you can define a loot sorting zone as a catchall, where items will be sorted unless there's a more specific zone for them to go into. Previously, every time I settled down in a location or mobile base, I would have to set every zone for every filter as many times as there were tiles. It was so tedious that I wrote a Bash script to do it for me using xdotool, a script that is entirely useless now!</p>
+
+<h3>mobile-base-zones script</h3>
+<pre>
+<code language="bash">
+#!/bin/bash
+
+. `which qterminal-helper`
+
+# Custom zone letter
+CUSTOM=j
+
+# Delay between keys (msec)
+DELAY=200
+
+set -x
+
+W="$(wmctrl -l | grep Cataclysm | cut -d" " -f1)"
+xdotool windowactivate "$W"
+sleep 1
+
+type() {
+	xdotool type --delay $DELAY "$(echo -e "$1")"
+}
+
+key() {
+	sleep $(echo "$DELAY / 1000" | bc -l)
+	xdotool key "$@"
+}
+
+zone() {
+	pos="$1"
+	zone="$2"
+	type "YA$zone\r$pos\r\r$CONFIRM"
+	key Escape
+	type "Y"
+}
+
+customzone() {
+	pos="$1"
+	filter="$2"
+	type "YA$CUSTOM$filter\r\r$pos\r\r$CONFIRM"
+	key Escape
+	type "Y"
+}
+
+. `which mobile-base-zones-config`
+
+for pos in $GENERIC_P; do
+	for zone in $GENERIC_Z; do
+			zone "$pos" "$zone"
+	done
+done
+
+for pos in $DUMP_P; do
+	for zone in $DUMP_Z; do
+			zone "$pos" "$zone"
+	done
+done
+</code>
+</pre>
+
+<h3>mobile-base-zones-config</h3>
+<pre>
+<code>
+#!/bin/bash
+
+# Y if vehicle, otherwise empty
+CONFIRM=
+
+# Collect positions from origin
+GENERIC_P=""
+# Collect zones
+GENERIC_Z=""
+
+# Dump positions from origin
+DUMP_P="."
+# Dump zones
+DUMP_Z="0 a b c d e f g h i k l m n o p q t u v w x y z C D E F G J I K"
+</code>
+</pre>
+
+<h2><a href="https://github.com/CleverRaven/Cataclysm-DDA/pull/64334">Plugging in tools</a></h2>
+<p>This one is just great quality of life. Now players can plug tools like welders, soldering irons, and especially smartphones (with their unswappable batteries) directly into appliances or vehicle dashboards. This saves all the tedium of continually swapping out batteries, and makes using electric tools just that much easier.</p>
+
+<h2><a href="https://github.com/CleverRaven/Cataclysm-DDA/pull/68686">Brawling buff</a></h2>
+<p>Finally there's been a small buff to the Brawling style where waiting for a turn or two will grant a bonus to accuracy. This makes melee combat using the Brawling style feel more engaging, and gives more edge to early-to-mid-game melee combat.</p>
