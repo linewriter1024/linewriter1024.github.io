@@ -5,7 +5,7 @@ mappingtoolnews ../blog/tags/mappingtool
 minetest-b https://github.com/tigris-mt/b
 resume ../files/Benjamin Leskey Resume Public.pdf
 roadtrip ../blog/roadtrip_intro
-textengine ../blog/textengine_intro
+textengine ../blog/tags/textengine
 websitenews ../blog/tags/website
 websiterepo https://github.com/linewriter1024/linewriter1024.github.io
 wexlfu-tpt https://github.com/wexlfu/The_Paradise_Trap

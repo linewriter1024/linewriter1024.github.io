@@ -1,3 +1,4 @@
+post minecraft_amethyst_farm "First Version of an Amethyst Farm" 2024-01-14 "games minecraft"
 post cdda_improvements "Recent great improvements in Cataclysm: DDA" 2023-11-02 "games cdda"
 post cdda_arcana_technoclysm "Arcana Technoclysm: A small mod for Cataclysm: DDA" 2023-10-20 "software games cdda"
 POST_BLURB="Sci-fi, history, Mark Twain!" POST_INTERNAL="reading_list#2023-10-06" post reading_list_3 "Reading list update #3" 2023-10-06 "reading discovery"
