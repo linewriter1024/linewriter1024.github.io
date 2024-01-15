@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ben Leskey's Blog: minecraft</title>
+		<description>minecraft posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/minecraft</link>
+		<language>en-us</language>
+		<copyright>2024 Ben Leskey</copyright>
+		<lastBuildDate>Mon, 15 Jan 2024 15:55:49 +0000</lastBuildDate>
+		<pubDate>Mon, 15 Jan 2024 15:55:49 +0000</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/minecraft.feed.xml" rel="self" type="application/rss+xml" />
+
+		<item>
+	<title>First Version of an Amethyst Farm</title>
+	<description>&lt;div&gt;&lt;p&gt;Through trial and error I have developed a kind of amethyst farm in Minecraft. It is neither pretty nor efficient, but it can be improved and it is easy to build. There are four parts to the system: the collection timer system, the piston matrix system, the allay collection system, and the transfer system. Each geode recieves its own copy of these systems, and the amethyst shards are transported to a central location.&lt;/p&gt;
+
+&lt;h2&gt;The Timer&lt;/h2&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/minecraft/amethyst_timer_system.png&quot;&gt;
+
+&lt;p&gt;The timer system is a etho hopper clock with five items that is turned into a counter by locking one of the hoppers. Every time a random tick is observed from the sapling, one item is released from the locked hopper. When all five items have been released, the piston matrix fires and the hopper clock resets.&lt;/p&gt;
+
+&lt;p&gt;This random tick counter is not the most efficient way to mine the amethyst, but it can be tuned and is better than losing valuable piston room to actually measure when the crystals grow.&lt;/p&gt;
+
+&lt;h2&gt;The Piston Matrix&lt;/h2&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/minecraft/amethyst_piston_matrix.png&quot;&gt;
+
+&lt;p&gt;The piston matrix itself is tied to the timer. When the timer activates, all the pistons activate too, breaking the crystals. Some of the crystals will be fully grown, and these will drop two amethyst shards for collection. The pistons will then deactivate, waiting for the next cycle and letting the allays access the dropped items.&lt;/p&gt;
+
+&lt;h2&gt;The Allay Collection&lt;/h2&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/minecraft/amethyst_allay.png&quot;&gt;
+
+&lt;p&gt;Two allays are positioned to cover the entire geode. When the amethyst shards are dropped by the piston matrix, the allays grab up the shards and carry them to a noteblock that fires every couple seconds. They throw the items, which are then collected by hopper and hopper minecart to be sent upstairs. Care must be taken that the allays cannot get stuck inside crevices of the geode.&lt;/p&gt;
+
+&lt;h2&gt;The Transfer&lt;/h2&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/minecraft/amethyst_transfer.png&quot;&gt;
+
+&lt;p&gt;The transfer system itself is simple: hopper minecarts collect the shards from the allay system and then put them into a dropped system powered by a clock, which shoots the items up into a water stream where they are collected in my base.&lt;/p&gt;
+
+&lt;h2&gt;Expansion&lt;/h2&gt;
+
+&lt;img src=&quot;https://benleskey.com/blog/../images/minecraft/amethyst_expansion.png&quot;&gt;
+
+&lt;p&gt;This system can be connected by rail to any other geodes in the area, currently I am connected to one other geode but there is another geode ready have its own piston matrix installed.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>games</category><category>minecraft</category>
+	<link>https://benleskey.com/blog/minecraft_amethyst_farm</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/minecraft_amethyst_farm</guid>
+	<pubDate>Sun, 14 Jan 2024 12:00:00 +0000</pubDate>
+</item>_
+	</channel>
+</rss>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | First Version of an Amethyst Farm</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>First Version of an Amethyst Farm</h1>
+		<span class="subtitle">2024-01-14</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/minecraft">#minecraft</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<p>Through trial and error I have developed a kind of amethyst farm in Minecraft. It is neither pretty nor efficient, but it can be improved and it is easy to build. There are four parts to the system: the collection timer system, the piston matrix system, the allay collection system, and the transfer system. Each geode recieves its own copy of these systems, and the amethyst shards are transported to a central location.</p>
+
+<h2>The Timer</h2>
+
+<img src="../images/minecraft/amethyst_timer_system.png">
+
+<p>The timer system is a etho hopper clock with five items that is turned into a counter by locking one of the hoppers. Every time a random tick is observed from the sapling, one item is released from the locked hopper. When all five items have been released, the piston matrix fires and the hopper clock resets.</p>
+
+<p>This random tick counter is not the most efficient way to mine the amethyst, but it can be tuned and is better than losing valuable piston room to actually measure when the crystals grow.</p>
+
+<h2>The Piston Matrix</h2>
+
+<img src="../images/minecraft/amethyst_piston_matrix.png">
+
+<p>The piston matrix itself is tied to the timer. When the timer activates, all the pistons activate too, breaking the crystals. Some of the crystals will be fully grown, and these will drop two amethyst shards for collection. The pistons will then deactivate, waiting for the next cycle and letting the allays access the dropped items.</p>
+
+<h2>The Allay Collection</h2>
+
+<img src="../images/minecraft/amethyst_allay.png">
+
+<p>Two allays are positioned to cover the entire geode. When the amethyst shards are dropped by the piston matrix, the allays grab up the shards and carry them to a noteblock that fires every couple seconds. They throw the items, which are then collected by hopper and hopper minecart to be sent upstairs. Care must be taken that the allays cannot get stuck inside crevices of the geode.</p>
+
+<h2>The Transfer</h2>
+
+<img src="../images/minecraft/amethyst_transfer.png">
+
+<p>The transfer system itself is simple: hopper minecarts collect the shards from the allay system and then put them into a dropped system powered by a clock, which shoots the items up into a water stream where they are collected in my base.</p>
+
+<h2>Expansion</h2>
+
+<img src="../images/minecraft/amethyst_expansion.png">
+
+<p>This system can be connected by rail to any other geodes in the area, currently I am connected to one other geode but there is another geode ready have its own piston matrix installed.</p>
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2024-01-14</span>
+				 <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/minecraft">#minecraft</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>
