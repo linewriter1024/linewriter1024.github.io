@@ -31,6 +31,8 @@ redirecthtmlpage() {
 	echo '<meta http-equiv="Pragma" content="no-cache" />'
 	echo '<meta http-equiv="Expires" content="0" />'
 
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1">'
+
 	# Additional links to the URL.
 	echo "<link rel='canonical' href='$url'>"
 	echo "Redirecting to <a href='$url'>$url</a>..." # The user can click this one if their browser doesn't redirect them.
