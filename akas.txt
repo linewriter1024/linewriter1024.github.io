@@ -9,3 +9,4 @@ textengine ../blog/tags/textengine
 websitenews ../blog/tags/website
 websiterepo https://github.com/linewriter1024/linewriter1024.github.io
 wexlfu-tpt https://github.com/wexlfu/The_Paradise_Trap
+wedding https://www.theknot.com/us/hannah-young-and-ben-leskey-may-2024
