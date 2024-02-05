@@ -49,7 +49,7 @@ while read line; do
 
 	echo " $name -> $url"
 
-	echo "<tr><td><a href='$name'>$name</a></td> <td><a href='$url'>$url</a></td> <td><a href='$name.qr.svg'>SVG</a> | <a href='$name.qr.png'>PNG</a></td></tr>" >> "$tmp/_akas.in.html"
+	echo "<tr><td><a href='$name'>$name</a></td> <td><a href='$url'>$url</a></td> <td><a href='$name.qr.svg'>SVG</a> <a href='$name.qr.png'>PNG</a></td></tr>" >> "$tmp/_akas.in.html"
 
 	N_AKAS=$((N_AKAS+1))
 
