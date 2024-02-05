@@ -23,7 +23,7 @@ jobs:
         run: python3 -m pip install lxml
 
       - name: apt
-        run: sudo apt install pandoc imagemagick
+        run: sudo apt install pandoc imagemagick qrencode
 
       - name: Build
         run: ./build.sh
