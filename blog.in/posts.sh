@@ -1,3 +1,4 @@
+post cdda_arcana_technoclysm_2 "Arcana Technoclysm update: Magical UPS, whistle crafting, and bionic installation" 2024-05-17 "software games cdda"
 post minecraft_amethyst_farm "First Version of an Amethyst Farm" 2024-01-14 "games minecraft"
 post cdda_improvements "Recent great improvements in Cataclysm: DDA" 2023-11-02 "games cdda"
 post cdda_arcana_technoclysm "Arcana Technoclysm: A small mod for Cataclysm: DDA" 2023-10-20 "software games cdda"

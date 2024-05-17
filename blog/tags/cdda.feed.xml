@@ -6,11 +6,26 @@
 		<link>https://benleskey.com/blog/tags/cdda</link>
 		<language>en-us</language>
 		<copyright>2024 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 14 Feb 2024 02:54:09 +0000</lastBuildDate>
-		<pubDate>Wed, 14 Feb 2024 02:54:09 +0000</pubDate>
+		<lastBuildDate>Fri, 17 May 2024 14:39:16 +0000</lastBuildDate>
+		<pubDate>Fri, 17 May 2024 14:39:16 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/cdda.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Arcana Technoclysm update: Magical UPS, whistle crafting, and bionic installation</title>
+	<description>&lt;div&gt;&lt;p&gt;I&#x27;ve updated my mod &lt;a href=&quot;https://benleskey.com/blog/../aka/cdda-arcana-technoclysm&quot;&gt;Arcana Technoclysm&lt;/a&gt; for &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt; with some more new features.&lt;/p&gt;
+
+&lt;p&gt;First the changes. The vehicle whistles can now be crafted from each other, so if you find the boat whistle and really wanted the motorcycle whistle you can still craft it. The recipes are written in the Cleansing Flame book and the arcana lab journal. Also, there are some more Technoclysm item spawns in the strange warehouse, so poke around! Technoclysm items can also spawn rarely with other Arcana items in labs or magic locations.&lt;/p&gt;
+
+&lt;p&gt;The first new feature is an eternal UPS (power supply) which uses magical energy to constantly provide power to UPS-enabled tools. It has a recharge rate of about 2 kJ per minute and is fairly small, and can be either crafted or found.&lt;/p&gt;
+
+&lt;p&gt;The second, and more important, new feature is a magical means of installing bionics. &lt;i&gt;Bionic talismans&lt;/i&gt; can be crafted from any power storage or power generation CBM. Using the bionic talisman will temporarily summon a magical avatar of the bionic, who will install any bionic for you before disappearing. This provides a means of installing bionics outside of the Exodii using another otherworldly force who may be more or less friendly.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>cdda</category>
+	<link>https://benleskey.com/blog/cdda_arcana_technoclysm_2</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_arcana_technoclysm_2</guid>
+	<pubDate>Fri, 17 May 2024 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>Recent great improvements in Cataclysm: DDA</title>
 	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; has recieved some really nice updates to the experimental branch in recent months. My top three are:&lt;/p&gt;
 &lt;h2&gt;&lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/67907&quot;&gt;Default sort zone&lt;/a&gt;&lt;/h2&gt;
@@ -2233,292 +2248,6 @@ DUMP_Z=&quot;0 a b c d e f g h i k l m n o p q t u v w x y z C D E F G J I K&quo
 	<link>https://benleskey.com/blog/cdda_raymon_2</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_2</guid>
 	<pubDate>Tue, 31 Jan 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Raymon Ortega #1: Would-be Wizard</title>
-	<description>&lt;div&gt;&lt;p&gt;I&#x27;m starting a new &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; (CDDA) game, and I thought&#x27;d be cool to document my adventures. Maybe it&#x27;ll force me to play more thoughtfully, not falling victim to that classic killer of permadeath roguelikes: &lt;em&gt;Hubris&lt;/em&gt;.&lt;/p&gt;
-
-&lt;figure&gt;
-	&lt;blockquote cite=&quot;https://cataclysmdda.org&quot;&gt;
-		&lt;p&gt;Cataclysm: Dark Days Ahead is a turn-based survival game set in a post-apocalyptic world. Struggle to survive in a harsh, persistent, procedurally generated world. Scavenge the remnants of a dead civilization for food, equipment, or, if you are lucky, a vehicle with a full tank of gas to get you the hell out of Dodge. Fight to defeat or escape from a wide variety of powerful monstrosities, from zombies to giant insects to killer robots and things far stranger and deadlier, and against the others like yourself, that want what you have&amp;#8230;&lt;/p&gt;
-	&lt;/blockquote&gt;
-	&lt;figcaption&gt;&amp;#8212;&lt;cite&gt;&lt;a href=&quot;https://cataclysmdda.org&quot;&gt;https://cataclysmdda.org&lt;/a&gt;&lt;/cite&gt;&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;Even without mods, CDDA has an incredible world and set of experiences, but I want to spice things up even more with some &lt;em&gt;magic&lt;/em&gt;! I&#x27;ll be using two of the most popular mods: &lt;a href=&quot;https://github.com/chaosvolt/cdda-arcana-mod&quot;&gt;Arcana and Magic Items&lt;/a&gt; by chaosvolt, which is not included with the game, and &lt;a href=&quot;https://cddawiki.chezzo.com/cdda_wiki/index.php/Magiclysm&quot;&gt;Magiclysm&lt;/a&gt; which is included with the game, so you don&#x27;t need to download anything extra, just enable it.&lt;/p&gt;
-
-&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
-
-&lt;h2 id=&quot;raymon_start&quot;&gt;Character creation&lt;/h2&gt;
-
-&lt;p&gt;
-	Our guy is Raymon Ortega, Would-be Wizard. He&#x27;s extremely smart&amp;#8212;which will be important for using magic&amp;#8212;but is lacking in physical capability and is a bit flimsy. He&#x27;s also pretty short.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/character.png&quot; alt=&quot;Raymon Ortega&#x27;s stats&quot;&gt;
-
-&lt;p&gt;
-	As you can see from the character creation screen, there&#x27;s quite a bit going on. I&#x27;ll run through the important stuff.
-&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;&lt;strong&gt;Strength&lt;/strong&gt;: How tough you are and how much stuff you can carry. Raymon&#x27;s got 8, so he&#x27;s completely average. This might cause us problems later.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Dexterity&lt;/strong&gt;: Helps with dodging, ranged weapons, etc. 7 is below average but ok.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Intelligence&lt;/strong&gt;: Helps with reading books to learn stuff and with magic. We&#x27;ve got 14, which is extremely good.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Perception&lt;/strong&gt;: Helps with critical hits, ranged weapons, avoiding traps, etc. Like dexterity, we&#x27;ve got 7, which is ok but not great.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;&lt;strong&gt;Bookworm&lt;/strong&gt;: Raymon loves reading! Reading makes him happy, and he gets much less upset than most people if he has to read dry textbooks or technical manuals.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Fast Reader&lt;/strong&gt;: Raymon gets through books really quickly. This, plus his high intelligence, means books will be a breeze to read.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Light Step&lt;/strong&gt;: We&#x27;ll be a little better at sneaking around.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Mana Efficiency, Regeneration, Sensitivity&lt;/strong&gt;: Raymon has a &lt;em&gt;lot&lt;/em&gt; of mana, used for casting magic, and it regenerates quickly.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Far-Sighted &amp;amp; Near-Sighted&lt;/strong&gt;: Raymon needs bifocal glasses or he&#x27;ll suffer vision penalties. Fortunantely, we start with a pair.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Flims&lt;/strong&gt;y: Raymon has 25% less hitpoints than usual. This is bad.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Poor Hearing&lt;/strong&gt;: Noises are less noticable. This might be a problem if we can&#x27;t hear the zombie shuffling around in the next room.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Squeamish&lt;/strong&gt;: Raymon can&#x27;t put on filthy clothes. This is hardly even a penalty, just free points for character creation.&lt;/li&gt;
-	&lt;li&gt;&lt;strong&gt;Truth Teller&lt;/strong&gt;: It&#x27;s hard to tell lies to NPCs, but we probably won&#x27;t need to tell any anyway.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Raymon&#x27;s initial skills are all in the crafting skills: fabrication, tailoring, etc. which will give us a bit of a leg up as we start to craft before we get books.&lt;/p&gt;
-
-&lt;h2 id=&quot;raymon_evac&quot;&gt;The evac shelter&lt;/h2&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start.png&quot; alt=&quot;The start of the game&quot;&gt;
-
-&lt;blockquote&gt;
-	&lt;p&gt;You&#x27;ve managed to get to a shelter, but reality has grown weaker than normal, and portal storms will be quite strong.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Here we are in the evacuation shelter set up by the Department of Emergency Management before the apocalpyse. We&#x27;re safe, for now, but the rest of the world has gone down the drain faster than a wedding ring. It is morning, Spring, day 61.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_closeup.png&quot; alt=&quot;The start of the game: close up&quot;&gt;
-
-&lt;p&gt;Can&#x27;t see much in the dark, but there&#x27;s a computer over in the corner there.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_map.png&quot; alt=&quot;The start of the game: map view&quot;&gt;
-
-&lt;p&gt;We also know a bit about the area where we are. The map can be a bit hard to read, but in the middle is our evacuation shelter. There&#x27;s a big dump a little ways to the west, and some roads, forest (green F), swamp (cyan F), and a river (blue R), but no other civilization.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_inventory.png&quot; alt=&quot;The start of the game: inventory view&quot;&gt;
-
-&lt;p&gt;We start out with some basic clothes, a hoodie (this is nice!), jeans, boots (these are also nice!), and &lt;em&gt;A Beginner&#x27;s Guide to Magic&lt;/em&gt; in our jeans pocket.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_magic_book.png&quot; alt=&quot;Magic pamphlet&quot;&gt;
-
-&lt;p&gt;&lt;em&gt;A Beginner&#x27;s Guide to Magic&lt;/em&gt; is a spell book, and it provides some really basic but also really useful spells. This will be our introduction to wizardry.&lt;/p&gt;
-
-&lt;p&gt;Now let&#x27;s go check out the computer, and see what it&#x27;s got for us.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_computer.png&quot; alt=&quot;Evac shelter computer&quot;&gt;
-
-&lt;p&gt;There&#x27;s some instructions for all the panicked evacuees:&lt;/p&gt;
-
-&lt;blockquote&gt;
-	&lt;ol&gt;
-		&lt;li&gt;DO NOT PANIC.&lt;/li&gt;
-		&lt;li&gt;REMAIN INSIDE THE BUILDING.&lt;/li&gt;
-		&lt;li&gt;SEEK SHELTER IN THE BASEMENT.&lt;/li&gt;
-		&lt;li&gt;USE PROVIDED GAS MASKS.&lt;/li&gt;
-		&lt;li&gt;AWAIT FURTHER INSTRUCTIONS.&lt;/li&gt;
-	&lt;/ol&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;A decent set of instructions, but only if the government was still coming to help. They&#x27;re not. There is no government now. I&#x27;ll try contacting them anyway.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_computer_contact.png&quot; alt=&quot;Evac shelter computer: contact us&quot;&gt;
-
-&lt;p&gt;Trying to contact the Department of Emergency Management gives us directions to the nearest Refugee Center, a much bigger place than this little evaucation shelter. We make a note of the location so it will be visible on our map.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_refugee_map.png&quot; alt=&quot;Refugee center map&quot;&gt;
-
-&lt;p&gt;It&#x27;s really far away, over 250 map tiles to the northwest. There&#x27;s a long winding road leading there, but it leads all over the place and through cities. We do get a peek at the rest of the map though.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_map_more.png&quot; alt=&quot;Nearby map&quot;&gt;
-
-&lt;p&gt;There&#x27;s a big city nearby, Weld, and a some dirt roads in the nearby forest to the east that could be interesting to check out. But first, let&#x27;s explore the rest of the evac shelter and see what we can scavenge.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_evac_explored.png&quot; alt=&quot;The explored evac shelter&quot;&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_evac_explored_basement.png&quot; alt=&quot;The explored evac shelter: basement&quot;&gt;
-
-&lt;p&gt;Raymon took a walk outside and slipped down into the basement too. The evac shelter is pretty small. There&#x27;s a few bottles of water and some protein rations in the lockers and cupboards, some empty flashlights, soap, vinegar, bleach. There aren&#x27;t any of the promised gas masks, and there&#x27;s nobody else here.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_evac_explored_inventory.png&quot; alt=&quot;Raymon&#x27;s inventory&quot;&gt;
-
-&lt;p&gt;Raymon grabs some of the most useful things from around the shelter and stuffed them into my hoodie pockets and jeans. Some food and water, for starters, then a flashlight, a lighter, and a pair of pliers. The multivitamins and first aid kit will be helpful to keep me alive in the future. Raymon can always come back for the rest of the food and water, but if he gets stuck somewhere he needs to have a bit with him. There&#x27;s not a lot else in the shelter.&lt;/p&gt;
-
-&lt;p&gt;Raymon needs some goals now, both in the short term, and in the long term. So, in the short term, Raymon wants to get a reliable water supply, a stock of food, and a decent shelter. In the long term, Raymon wants to reach the refugee center and see if there&#x27;s any safety there. The world has become an extremely hostile place, so it will take all his ingenuity and newfound arcane knowledge, but he just might make it.&lt;/p&gt;
-
-&lt;h2 id=&quot;raymon_out&quot;&gt;Adventure begins&lt;/h2&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_walking_toward_forest.png&quot; alt=&quot;Raymon walking toward the forest&quot;&gt;
-
-&lt;p&gt;
-	We leave the evac shelter and head east along the road. Those dirt roads on our map could mean houses, and we&#x27;ll either find someone to help us or maybe some useful stuff if they&#x27;ve abandoned their home like we have.
-&lt;/p&gt;
-
-&lt;p&gt;
-	&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_leather_seat.png&quot; alt=&quot;A leather seat on the road&quot;&gt;
-	There&#x27;s a random leather car seat sitting here on the road, on the corner before the house. It&#x27;s just so strange, walking toward the corner and finding a pristine car seat just sitting there. What could have caused that? Who just abandons a car seat? Raymon ignores it and we move on.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_spotted_house.png&quot; alt=&quot;Spotted a house in the distance&quot;&gt;
-
-&lt;p&gt;
-	There&#x27;s the house. A long dirt driveway leads up to a house that looks quite empty. We march right up to the mailbox and take a peek. Maybe we&#x27;ll get a clue as to how long they&#x27;ve been out. There&#x27;s a slightly damp brochure in the mailbox.
-&lt;/p&gt;
-
-&lt;blockquote&gt;
-	&lt;p&gt;This is a small brochure advertising for local restaurants with an address below each entry. Using it will add roads an local restaurants, diners and bars to your map.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_food_map.png&quot; alt=&quot;Expanded map&quot;&gt;
-
-&lt;p&gt;
-	We learn a little more about our surroundings from this map. Why don&#x27;t we remember where we are? Why do we have to learn this from a map? Something&#x27;s really wrong, but Raymon can&#x27;t quite figure it out. He stuffs the brochure into his pocket and heads into the house. The door is unlocked, and nobody&#x27;s home.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_house.png&quot; alt=&quot;Explored a rural house&quot;&gt;
-
-&lt;p&gt;
-	It&#x27;s a nice place. The kitchen storeroom was locked, but Raymon explored everywhere else inside. He grabbed a screwdriver, a hammer, and a pair of scissors just in case he&#x27;ll need them later, and stole a belt from the bedroom dresser. Whoever lived here won&#x27;t mind now. There&#x27;s some medicine in the bathroom, and some books on the shelves, and some food and water in the fridge. The smell made Raymon remember he hadn&#x27;t eaten breakfast that morning. There&#x27;s a nice pack of hot dogs in the fridge, and with the power out they won&#x27;t last long...
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_ate_hot_dog.png&quot; alt=&quot;Ate a hot dog&quot;&gt;
-
-&lt;p&gt;
-	Hot dogs are good, filling food, and they taste great. Feeling satisfied, Raymon sits down in an armchair facing the south window and pulls out his magic pamphlet. Might as well figure out if the crazy man passing these out in the streets just before the end really had something after all.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_magic_missile.png&quot; alt=&quot;Magic missile in spell book&quot;&gt;
-
-&lt;p&gt;
-	Magic missile is a basic damaging spell with two key features: it deals pure damage&amp;#8212;nothing can resist it&amp;#8212;, and it&#x27;s castable through walls. This will be the first spell we learn, it gets up to 20 damage at max level and only costs 50 mana.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_learning_magic_missile.png&quot; alt=&quot;Learning magic missile&quot;&gt;
-
-&lt;p&gt;It takes Raymon an hour or two to learn it, but eventually he gasps as understanding floods his brain. Learning magic missile will lock us into the Magus class and out of the Animist class, but as we don&#x27;t have any Animist spells and Raymon needs every tool he can get, he chooses to embrace the Magus tradition. Raymon is now a wizard.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/castable_magic_missile.png&quot; alt=&quot;Ready to cast magic missile&quot;&gt;
-
-&lt;p&gt;
-	We&#x27;ve got a long way to go, but magic missile is now castable. With this weapon, Raymon moves on to explore the other house just a little way down the road.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_other_house_yard.png&quot; alt=&quot;Moving up to the other house, with a small garden and a car near the road&quot;&gt;
-
-&lt;p&gt;
-	The first thing Raymon sees is the car sitting at the end of the driveway. If that car works, it could be his ticket out of the middle of nowhere. If it doesn&#x27;t work, he could be in for a long hike to the refugee center. But first, Raymon walks past the little fenced-in vegetable garden to explore the house.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_other_house_couldnt_get_in.png&quot; alt=&quot;Front doors locked to the house&quot;&gt;
-
-&lt;p&gt;
-	The front doors are locked, so Raymon goes around to the other side.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_other_house_got_in.png&quot; alt=&quot;The back door wasn&#x27;t locked&quot;&gt;
-
-&lt;p&gt;
-	Fortunantely, whoever lived here left the back door unlocked. Raymon slips inside and takes a look around. There isn&#x27;t anything spectacular in here, but there&#x27;s food and drink, and some spare clothes. After exploring the house, Raymon heads up the driveway toward the car.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_vehicle.png&quot; alt=&quot;The car doesn&#x27;t look too good&quot;&gt;
-
-&lt;p&gt;
-	The car doesn&#x27;t look so good, and it smells of gasoline. Raymon pops the hood anyway.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_vehicle_wrecked.png&quot; alt=&quot;The car is wrecked&quot;&gt;
-
-&lt;p&gt;
-	It&#x27;s completely wrecked, and hasn&#x27;t got any wheels. Well, that&#x27;s a disappointment. Raymon decides to scout the road toward the city on foot.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_heading_toward_city.png&quot; alt=&quot;Taking a hike toward the city, spotted a zombie soldier&quot;&gt;
-
-&lt;p&gt;
-	It&#x27;s a pleasant hike most of the way, but as he gets to the last bend before the city limits he sees something in the distance, something stumbling, shambling around a spun-out sports car.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_saw_soldier.png&quot; alt=&quot;Detailed view of soldier&quot;&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Once a soldier, it is dressed head to toe in combat gear and carries itself rather steadily for a zombie.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;Nope. Nope. No way. Raymon isn&#x27;t about to get close to that. He turns around and legs it back to the house.&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_returned_to_house.png&quot; alt=&quot;Returned to the house with a yard&quot;&gt;
-
-&lt;p&gt;Raymon is safe again inside the house with the yard garden, but this isn&#x27;t going to work long term. There&#x27;s no food, no water, and he doesn&#x27;t even have a weapon. What to do? He needs to find someone else, anyone else, and the best place to try would be the refugee center. But that&#x27;s a long way off, and it&#x27;ll be a hike through forest, bridges, rivers, and&amp;#8212;he&#x27;s certain&amp;#8212;zombies. He&#x27;ll need a weapon, a pack of supplies, and a lot of courage.&lt;/p&gt;
-
-&lt;h2 id=&quot;raymon_montage&quot;&gt;Gearing-up montage&lt;/h2&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_kiddie.png&quot; alt=&quot;Sitting at the dining table&quot;&gt;
-&lt;p&gt;Raymon sits at someone else&#x27;s kitchen table, set with a kid&#x27;s bowl and a kid&#x27;s spoon for a child who will never eat here again. He scrawls a simple plan, just drafting out his thoughts:&lt;/p&gt;
-&lt;ol&gt;
-	&lt;li&gt;Get a weapon&lt;/li&gt;
-	&lt;li&gt;Get a blanket&lt;/li&gt;
-	&lt;li&gt;Fill a sack with food, water, and medicine&lt;/li&gt;
-	&lt;li&gt;Hike to the refugee center&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_stick_fire.png&quot; alt=&quot;Starting a stick fire&quot;&gt;
-
-&lt;p&gt;
-	First things first, Raymon snaps a young tree into a few sturdy sticks and selects the best. Then he lights a fire with the rest of the sticks and starts carving his chosen stick into a fire-hardened wooden spear.
-&lt;/p&gt;
-
-&lt;p&gt;
-	&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_spear_stats.png&quot; alt=&quot;Fire-hardened wooden spear stats&quot;&gt;
-	This is a good weapon, and it means he can poke at zombies or other unknown threats without getting too close. Nothing&#x27;s better in your hand than a good spear. At least, maybe nothing except a gun.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_sling.png&quot; alt=&quot;Made a makeshift sling&quot;&gt;
-
-&lt;p&gt;
-	Spear in hand, Raymon goes into the bedroom and ties one of the blankets up into a makeshift sling. If he has to, he can bring it out again and use it as a blanket, but hopefully it won&#x27;t come to that. His food, water, and medicine can go in this sling for the hike. If only he had a backpack... but this will have to do.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_looting_kitchen.png&quot; alt=&quot;Looting the kitchen&quot;&gt;
-
-&lt;p&gt;
-	Raymon grabs essentials from the bathroom and kitchen. Duct tape, batteries, plastic bags. Anything light and useful goes into the bag. Who knows what he&#x27;ll have to cook up on his long hike to the refugee center?
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_leaving_yard_house.png&quot; alt=&quot;Leaving the house&quot;&gt;
-&lt;p&gt;
-	He slips out the front door of the house and leaves. He probably won&#x27;t ever come back here. He might not even be alive in a few days.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_back_at_first_house.png&quot; alt=&quot;Back at the first house&quot;&gt;
-&lt;p&gt;
-	Raymon returns to the first house and loots this one too. He gets some more water bottles, and takes the rest of the hot dogs.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_rain_coat.png&quot; alt=&quot;Got a rain coat&quot;&gt;
-&lt;p&gt;
-	Raymon finds a rain coat in one of the dressers; this is a good find with a waterproof hood. If it starts raining, he doesn&#x27;t want to be stuck in just his hoodie. He slips it on over the rest of his clothes.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_crispy_cranberry.png&quot; alt=&quot;Drinking a crispy cranberry&quot;&gt;
-&lt;p&gt;
-	A fresh crispy cranberry sitting on a desk in the bedroom calls his name. Raymon downs the can, sets it back on the desk, and heads out of the house to the evac shelter. It&#x27;s an easy walk.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_inventory_2.png&quot; alt=&quot;Raymon&#x27;s inventory&quot;&gt;
-&lt;p&gt;
-	Before leaving the evac shelter, Raymon takes inventory again. He&#x27;s pretty well stocked, with tools, food, water, medicine, and spare materials. It&#x27;s time to hike.
-&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../cdda_images/raymon/1/start_leaving_evac.png&quot; alt=&quot;Leaving the evac shelter&quot;&gt;
-&lt;p&gt;
-	Raymon steps out the back door of the shelter to head west toward across the field toward the dump. He&#x27;ll hit the road there and just keep walking northwest until something gets in his way or he reaches safety. If there is any safety left. Raymon doubts it. He grips his spear tight like a walking stick and puts another foot forward. It is nearly noon.
-&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_1</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_1</guid>
-	<pubDate>Sun, 29 Jan 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

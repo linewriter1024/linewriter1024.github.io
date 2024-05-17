@@ -6,11 +6,26 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2024 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 14 Feb 2024 02:54:09 +0000</lastBuildDate>
-		<pubDate>Wed, 14 Feb 2024 02:54:09 +0000</pubDate>
+		<lastBuildDate>Fri, 17 May 2024 14:39:17 +0000</lastBuildDate>
+		<pubDate>Fri, 17 May 2024 14:39:17 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Arcana Technoclysm update: Magical UPS, whistle crafting, and bionic installation</title>
+	<description>&lt;div&gt;&lt;p&gt;I&#x27;ve updated my mod &lt;a href=&quot;https://benleskey.com/blog/../aka/cdda-arcana-technoclysm&quot;&gt;Arcana Technoclysm&lt;/a&gt; for &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt; with some more new features.&lt;/p&gt;
+
+&lt;p&gt;First the changes. The vehicle whistles can now be crafted from each other, so if you find the boat whistle and really wanted the motorcycle whistle you can still craft it. The recipes are written in the Cleansing Flame book and the arcana lab journal. Also, there are some more Technoclysm item spawns in the strange warehouse, so poke around! Technoclysm items can also spawn rarely with other Arcana items in labs or magic locations.&lt;/p&gt;
+
+&lt;p&gt;The first new feature is an eternal UPS (power supply) which uses magical energy to constantly provide power to UPS-enabled tools. It has a recharge rate of about 2 kJ per minute and is fairly small, and can be either crafted or found.&lt;/p&gt;
+
+&lt;p&gt;The second, and more important, new feature is a magical means of installing bionics. &lt;i&gt;Bionic talismans&lt;/i&gt; can be crafted from any power storage or power generation CBM. Using the bionic talisman will temporarily summon a magical avatar of the bionic, who will install any bionic for you before disappearing. This provides a means of installing bionics outside of the Exodii using another otherworldly force who may be more or less friendly.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>cdda</category>
+	<link>https://benleskey.com/blog/cdda_arcana_technoclysm_2</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_arcana_technoclysm_2</guid>
+	<pubDate>Fri, 17 May 2024 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>Arcana Technoclysm: A small mod for Cataclysm: DDA</title>
 	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt;&#x27;s premier magic mod is &lt;a href=&quot;http://www.cddawiki.chezzo.com/cdda_wiki/index.php?title=Magiclysm&quot;&gt;&lt;/a&gt;Magiclysm, which not only adds an entire magic system and slew of useful spells, items, and locations but also alters the lore of the game to imply that magic has existed throughout history. This lore breaks significantly from real world history, so I prefer mods that keep magic as something esoteric and hidden, such as the newly added mod &lt;i&gt;Mind Over Matter&lt;/i&gt; or the mature &lt;a href=&quot;https://github.com/chaosvolt/cdda-arcana-mod&quot;&gt;Arcana&lt;/a&gt; mod.&lt;/p&gt;
 
@@ -503,17 +518,6 @@ Here&#x27;s the final GIF:
 	<link>https://benleskey.com/blog/cdda_no_hole</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_no_hole</guid>
 	<pubDate>Wed, 08 Feb 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>More RSS feeds!</title>
-	<description>&lt;div&gt;&lt;p&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mappingtool_tag.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;mappingtool tag page&quot; src=&quot;https://benleskey.com/blog/../thumbs/mappingtool_tag.50.png&quot;&gt;&lt;/a&gt;I&#x27;ve added more RSS feeds, one for each blog tag. This allows people to subscribe to only, say, &lt;a href=&quot;https://benleskey.com/blog/tags/mappingtool&quot;&gt;the mappingtool tag&lt;/a&gt;. I can, in this way, use my blog easily as a set of smaller blogs for each category.&lt;/p&gt;
-
-&lt;p&gt;This took just a bit of work in the website build script; and I cleaned it up a bit so it doesn&#x27;t commit temporary files and doesn&#x27;t need to work so hard to find the root of the website when I&#x27;m already passing that information in the script. I do need to refactor it more, it&#x27;s getting rather unwieldy, though still pretty simple to work with.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>software</category><category>website</category>
-	<link>https://benleskey.com/blog/more_rss_feeds</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/more_rss_feeds</guid>
-	<pubDate>Fri, 27 Jan 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

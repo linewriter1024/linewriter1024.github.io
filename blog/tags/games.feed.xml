@@ -6,11 +6,26 @@
 		<link>https://benleskey.com/blog/tags/games</link>
 		<language>en-us</language>
 		<copyright>2024 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 14 Feb 2024 02:54:09 +0000</lastBuildDate>
-		<pubDate>Wed, 14 Feb 2024 02:54:09 +0000</pubDate>
+		<lastBuildDate>Fri, 17 May 2024 14:39:16 +0000</lastBuildDate>
+		<pubDate>Fri, 17 May 2024 14:39:16 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/games.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Arcana Technoclysm update: Magical UPS, whistle crafting, and bionic installation</title>
+	<description>&lt;div&gt;&lt;p&gt;I&#x27;ve updated my mod &lt;a href=&quot;https://benleskey.com/blog/../aka/cdda-arcana-technoclysm&quot;&gt;Arcana Technoclysm&lt;/a&gt; for &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt; with some more new features.&lt;/p&gt;
+
+&lt;p&gt;First the changes. The vehicle whistles can now be crafted from each other, so if you find the boat whistle and really wanted the motorcycle whistle you can still craft it. The recipes are written in the Cleansing Flame book and the arcana lab journal. Also, there are some more Technoclysm item spawns in the strange warehouse, so poke around! Technoclysm items can also spawn rarely with other Arcana items in labs or magic locations.&lt;/p&gt;
+
+&lt;p&gt;The first new feature is an eternal UPS (power supply) which uses magical energy to constantly provide power to UPS-enabled tools. It has a recharge rate of about 2 kJ per minute and is fairly small, and can be either crafted or found.&lt;/p&gt;
+
+&lt;p&gt;The second, and more important, new feature is a magical means of installing bionics. &lt;i&gt;Bionic talismans&lt;/i&gt; can be crafted from any power storage or power generation CBM. Using the bionic talisman will temporarily summon a magical avatar of the bionic, who will install any bionic for you before disappearing. This provides a means of installing bionics outside of the Exodii using another otherworldly force who may be more or less friendly.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>cdda</category>
+	<link>https://benleskey.com/blog/cdda_arcana_technoclysm_2</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_arcana_technoclysm_2</guid>
+	<pubDate>Fri, 17 May 2024 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>First Version of an Amethyst Farm</title>
 	<description>&lt;div&gt;&lt;p&gt;Through trial and error I have developed a kind of amethyst farm in Minecraft. It is neither pretty nor efficient, but it can be improved and it is easy to build. There are four parts to the system: the collection timer system, the piston matrix system, the allay collection system, and the transfer system. Each geode recieves its own copy of these systems, and the amethyst shards are transported to a central location.&lt;/p&gt;
 
@@ -3990,23 +4005,6 @@ Depths:2: 1572 daAuts
 	<link>https://benleskey.com/blog/cdda_erik_1</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/cdda_erik_1</guid>
 	<pubDate>Sun, 05 Feb 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>CDDA let&#x27;s play: Post-mortem</title>
-	<description>&lt;div&gt;&lt;p&gt;I tried my hand at a &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; screenshot and text let&#x27;s play, featuring &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_raymon&quot;&gt;Raymon Ortega: Would-be Wizard&lt;/a&gt;. It was really fun to write, but there&#x27;s a few points I&#x27;ll remember for next time:&lt;/p&gt;
-
-&lt;ul&gt;
-	&lt;li&gt;Choose a more active start. Most of this let&#x27;s play wasn&#x27;t very exciting, just trying to get to the refugee center. There wasn&#x27;t much action. Maybe a megacity playthrough?&lt;/li&gt;
-	&lt;li&gt;Build more story. Getting missions and/or goals sooner will give drive to the character and make the story interesting.&lt;/li&gt;
-	&lt;li&gt;Play patiently. The LP can be built slowly; no need to rush objectives. Raymon probably didn&#x27;t have to 100% get to the refugee center, I could have built up gear and spells where I was before I reached the refugee center.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;I do want to try another. C:DDA is a great game for text-based let&#x27;s plays, and if I keep in my what I learned here, I&#x27;ll be able to have even more fun and put out an even better let&#x27;s play.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>games</category><category>letsplay</category><category>cdda</category><category>cdda_raymon</category>
-	<link>https://benleskey.com/blog/cdda_raymon_postmortem</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_raymon_postmortem</guid>
-	<pubDate>Thu, 02 Feb 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>

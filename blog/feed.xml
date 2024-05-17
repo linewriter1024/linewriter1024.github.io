@@ -6,11 +6,26 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2024 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 14 Feb 2024 02:54:11 +0000</lastBuildDate>
-		<pubDate>Wed, 14 Feb 2024 02:54:11 +0000</pubDate>
+		<lastBuildDate>Fri, 17 May 2024 14:39:19 +0000</lastBuildDate>
+		<pubDate>Fri, 17 May 2024 14:39:19 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Arcana Technoclysm update: Magical UPS, whistle crafting, and bionic installation</title>
+	<description>&lt;div&gt;&lt;p&gt;I&#x27;ve updated my mod &lt;a href=&quot;https://benleskey.com/blog/../aka/cdda-arcana-technoclysm&quot;&gt;Arcana Technoclysm&lt;/a&gt; for &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt; with some more new features.&lt;/p&gt;
+
+&lt;p&gt;First the changes. The vehicle whistles can now be crafted from each other, so if you find the boat whistle and really wanted the motorcycle whistle you can still craft it. The recipes are written in the Cleansing Flame book and the arcana lab journal. Also, there are some more Technoclysm item spawns in the strange warehouse, so poke around! Technoclysm items can also spawn rarely with other Arcana items in labs or magic locations.&lt;/p&gt;
+
+&lt;p&gt;The first new feature is an eternal UPS (power supply) which uses magical energy to constantly provide power to UPS-enabled tools. It has a recharge rate of about 2 kJ per minute and is fairly small, and can be either crafted or found.&lt;/p&gt;
+
+&lt;p&gt;The second, and more important, new feature is a magical means of installing bionics. &lt;i&gt;Bionic talismans&lt;/i&gt; can be crafted from any power storage or power generation CBM. Using the bionic talisman will temporarily summon a magical avatar of the bionic, who will install any bionic for you before disappearing. This provides a means of installing bionics outside of the Exodii using another otherworldly force who may be more or less friendly.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>cdda</category>
+	<link>https://benleskey.com/blog/cdda_arcana_technoclysm_2</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cdda_arcana_technoclysm_2</guid>
+	<pubDate>Fri, 17 May 2024 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>First Version of an Amethyst Farm</title>
 	<description>&lt;div&gt;&lt;p&gt;Through trial and error I have developed a kind of amethyst farm in Minecraft. It is neither pretty nor efficient, but it can be improved and it is easy to build. There are four parts to the system: the collection timer system, the piston matrix system, the allay collection system, and the transfer system. Each geode recieves its own copy of these systems, and the amethyst shards are transported to a central location.&lt;/p&gt;
@@ -1734,27 +1749,6 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 	<link>https://benleskey.com/blog/roadtrip_intro</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/roadtrip_intro</guid>
 	<pubDate>Sun, 23 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>First place prize for my mapping tool presentation at MVNU&#x27;s sURC</title>
-	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif.gif&quot;&gt;&lt;img class=&quot;right&quot; src=&quot;https://benleskey.com/blog/../images/mapper_gifs_gif_small.gif&quot; alt=&quot;A map being drawn in the mapping tool&quot;&gt;&lt;/a&gt;
-
-&lt;p&gt;Update 2023-04-25: &lt;a href=&quot;https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works&quot;&gt;MVNU sURC press release featuring my mapping tool&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;I presented my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;Mapping Tool&lt;/a&gt; for fifteen minutes at &lt;a href=&quot;https://www.mvnu.edu/undergraduate/academics/honorsprogram/surc&quot;&gt;MVNU&#x27;s &lt;abbr title=&quot;Symposium for Undergraduate Research and Creative Work&quot;&gt;sURC&lt;/abbr&gt;&lt;/a&gt; on April 5th, taking home the first place prize of the Symposium. My friends and faculty showed up en masse at my presentation, making for a lively Q&amp;amp;A and a really fun time.&lt;/p&gt;
-
-&lt;p&gt;sURC itself was interesting. There were around twenty presenters in total. The Honors students presented their senior projects and other students presented their summer research projects in a conference format. In my room we had a wide variety of presentations: an analysis of continuous glucose monitors in diabetic patients, a presentation of a concussion-detecting device for athletes, an examination of religion and spirituality in occupational therapy, and my own software project.&lt;/p&gt;
-
-&lt;p&gt;This sURC presentation was my presentation for the Honors program portion of my project, so in it I focused on how user feedback shaped the development of the mapping tool with an overview of project features and the development process. Later I&#x27;ll have a twenty-five minute presentation on the details of programming and engineering the project.&lt;/p&gt;
-
-&lt;p&gt;For more information on the mapping tool, including download links and a quick-start guide, see &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;the mapping tool website&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;(&lt;a href=&quot;https://benleskey.com/blog/mapper_gifs&quot;&gt;More about how I made the GIFs&lt;/a&gt; used in the presentation.)&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>academics</category><category>mappingtool</category><category>software</category>
-	<link>https://benleskey.com/blog/mvnu_surc</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/mvnu_surc</guid>
-	<pubDate>Tue, 25 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>
