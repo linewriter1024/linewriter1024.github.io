@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="Ben Leskey">
+		<meta charset="utf-8">
+		<title>Ben Leskey | Switching to openSUSE Tumbleweed</title>
+		<link rel="stylesheet" type="text/css" href="../style.css">
+		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+		
+
+		<!-- Syntax highlighting with highlight.js -->
+		<link rel="stylesheet" href="../deps/highlight.js.css">
+		<script src="../deps/highlight.js.js"></script>
+		<script>hljs.highlightAll();</script>
+
+		<script>
+			window.addEventListener("load", function() {
+				for(const img of document.getElementsByTagName("img")) {
+					// Make img title equal img alt if the title isn't set
+					if(!img.hasAttribute("title")) {
+						img.setAttribute("title", img.getAttribute("alt"));
+					}
+
+					// If the img isn't part of a link, make it link to itself.
+					if(img.parentNode.tagName.toLowerCase() !== "a") {
+						const a = document.createElement("a");
+						a.setAttribute("href", img.getAttribute("src"));
+						img.replaceWith(a);
+						a.appendChild(img);
+					}
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+		<hr>
+		<header>
+		<h1>Switching to openSUSE Tumbleweed</h1>
+		<span class="subtitle">2024-08-06</span>
+		<span class="tags"> <a class="tag" href="../blog/tags/software">#software</a></span>
+		
+		</header>
+		<hr>
+		<main class="post">
+			<ol class="toc"><li><a href="#hardware">The Hardware</a></li><li><a href="#software">KDE + Software</a></li><li><a href="#support">Decent hardware support</a><ol><li><span>Setting up NVIDIA</span></li></ol></li><li><a href="#nvidia">NVIDIA + Secure Boot</a></li><li><a href="#codecs">Codecs</a></li></ol>
+
+After over ten years of Ubuntu with the i3 window manager and a host of custom scripts as my desktop OS, I've switched to using <a href="https://get.opensuse.org/tumbleweed/">openSUSE Tumbleweed</a> with KDE Plasma.
+
+<h2 id="hardware">The Hardware</h2>
+
+<p>I took two identical Dell Inspiron 5577 laptops and cobbled them together into something slightly better. I chose one unit as the base for the new machine and the other as a donor unit since it had a random power off issue when using the graphics card. I swapped out the slow-as-sin hard drive in my chosen unit with a new SSD, then took the 8 GB RAM stick from the donor unit and stuck it into the chosen unit for a comfortable 16 GB RAM. I also had to steal the keyboard from the donor unit as the chosen unit's keyboard had a lot of dead keys from some damage. After the dust settled, I was left with a nice recycled build, as reported by KDE system information:</p>
+
+<pre>
+Operating System: openSUSE Tumbleweed 20240803
+KDE Plasma Version: 6.1.3
+KDE Frameworks Version: 6.4.0
+Qt Version: 6.7.2
+Kernel Version: 6.10.2-1-default (64-bit)
+Graphics Platform: X11
+Processors: 4 &#215; Intel&#174; Core&#8482; i5-7300HQ CPU @ 2.50GHz
+Memory: 15.4 GiB of RAM
+Graphics Processor: NVIDIA GeForce GTX 1050/PCIe/SSE2
+Manufacturer: Dell Inc.
+Product Name: Inspiron 5577
+System Version: 1.1.3
+</pre>
+
+<h2 id="software">KDE + Software</h2>
+
+<p>KDE is an excellent desktop environment. Coming from i3, I find it very user-friendly, and entirely as powerful if more mouse-focused. The integration with the wide array of programs is refreshing.</p>
+
+<p>The best part of openSUSE Tumbleweed is, of course, the software selection. New versions of everything, and a host of package repositories, all with frequent updates.</p>
+
+<h2 id="support">Decent hardware support</h2>
+
+<p>All the hardware is supported, including the NVIDIA graphics card. The only issue is (a classic Linux problem) with suspend and hibernate - the graphics card sometimes does not power back on. I don't need either state, so I just diabled them by masking their targets: <code>sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+</code>.</p>
+
+<h3>Setting up NVIDIA</h3>
+
+<p>The yast software installer automatically prompted me to install the NVIDIA drivers, and after they were installed I made them default with <code>sudo prime-select boot nvidia</code>. Fairly easy!</p>
+
+<h2 id="nvidia">NVIDIA + Secure Boot</h2>
+
+<p>
+	The biggest problem with the NVIDIA drivers is updating them. With UEFI secure boot enabled, each time the drivers were upgraded I had to enroll their keys at boot time. If I missed the 10 second window (and you only get one chance, even after rebooting), the graphical environment couldn't come up and I had to recover manually by running <code>sudo mokutil --import /usr/share/nvidia-pubkeys/whatever-nvidia-pubkey.der</code> from the recovery environment. You can also disable kernel module verification by running <code>sudo mokutil --disable-validation</code>. This will ask you to set up a small password and then disable the verification at next boot time (assuming you can remember the small password you set up).
+</p>
+
+<h2 id="codecs">Codecs</h2>
+
+<p>By default, openSUSE does not provide some codecs, e.g. for some internet video formats or for Discord live video streaming. The fix is simple but not prompted at all: <code>sudo zypper install opi &amp;&amp; sudo opi codecs</code> will add the correct repositories and install the needed codecs.</p>
+		</main>
+		<hr>
+		<footer>
+			
+			<div class="footerinfo">
+				<span>Post dated 2024-08-06</span>
+				 <a class="tag" href="../blog/tags/software">#software</a>
+				<div class="footericons">
+	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
+
+	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
+
+	<a class="icon" href="https://www.linkedin.com/in/benleskey"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn profile"></a>
+
+	<a class="icon" href="../blog/feed.xml" title="RSS feed"><img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed"></a>
+
+	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
+</div>
+			</div>
+		</footer>
+		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+		<script>
+				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+					if(window.location.hostname === "benleskey.com") {
+						DiffBlog(
+							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
+						);
+					}
+				});
+		</script>
+	</body>
+</html>

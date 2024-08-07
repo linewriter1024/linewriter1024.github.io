@@ -6,11 +6,66 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2024 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 17 May 2024 14:39:19 +0000</lastBuildDate>
-		<pubDate>Fri, 17 May 2024 14:39:19 +0000</pubDate>
+		<lastBuildDate>Wed, 07 Aug 2024 01:27:10 +0000</lastBuildDate>
+		<pubDate>Wed, 07 Aug 2024 01:27:10 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Switching to openSUSE Tumbleweed</title>
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+
+After over ten years of Ubuntu with the i3 window manager and a host of custom scripts as my desktop OS, I&#x27;ve switched to using &lt;a href=&quot;https://get.opensuse.org/tumbleweed/&quot;&gt;openSUSE Tumbleweed&lt;/a&gt; with KDE Plasma.
+
+&lt;h2 id=&quot;hardware&quot;&gt;The Hardware&lt;/h2&gt;
+
+&lt;p&gt;I took two identical Dell Inspiron 5577 laptops and cobbled them together into something slightly better. I chose one unit as the base for the new machine and the other as a donor unit since it had a random power off issue when using the graphics card. I swapped out the slow-as-sin hard drive in my chosen unit with a new SSD, then took the 8 GB RAM stick from the donor unit and stuck it into the chosen unit for a comfortable 16 GB RAM. I also had to steal the keyboard from the donor unit as the chosen unit&#x27;s keyboard had a lot of dead keys from some damage. After the dust settled, I was left with a nice recycled build, as reported by KDE system information:&lt;/p&gt;
+
+&lt;pre&gt;
+Operating System: openSUSE Tumbleweed 20240803
+KDE Plasma Version: 6.1.3
+KDE Frameworks Version: 6.4.0
+Qt Version: 6.7.2
+Kernel Version: 6.10.2-1-default (64-bit)
+Graphics Platform: X11
+Processors: 4 &amp;#215; Intel&amp;#174; Core&amp;#8482; i5-7300HQ CPU @ 2.50GHz
+Memory: 15.4 GiB of RAM
+Graphics Processor: NVIDIA GeForce GTX 1050/PCIe/SSE2
+Manufacturer: Dell Inc.
+Product Name: Inspiron 5577
+System Version: 1.1.3
+&lt;/pre&gt;
+
+&lt;h2 id=&quot;software&quot;&gt;KDE + Software&lt;/h2&gt;
+
+&lt;p&gt;KDE is an excellent desktop environment. Coming from i3, I find it very user-friendly, and entirely as powerful if more mouse-focused. The integration with the wide array of programs is refreshing.&lt;/p&gt;
+
+&lt;p&gt;The best part of openSUSE Tumbleweed is, of course, the software selection. New versions of everything, and a host of package repositories, all with frequent updates.&lt;/p&gt;
+
+&lt;h2 id=&quot;support&quot;&gt;Decent hardware support&lt;/h2&gt;
+
+&lt;p&gt;All the hardware is supported, including the NVIDIA graphics card. The only issue is (a classic Linux problem) with suspend and hibernate - the graphics card sometimes does not power back on. I don&#x27;t need either state, so I just diabled them by masking their targets: &lt;code&gt;sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Setting up NVIDIA&lt;/h3&gt;
+
+&lt;p&gt;The yast software installer automatically prompted me to install the NVIDIA drivers, and after they were installed I made them default with &lt;code&gt;sudo prime-select boot nvidia&lt;/code&gt;. Fairly easy!&lt;/p&gt;
+
+&lt;h2 id=&quot;nvidia&quot;&gt;NVIDIA + Secure Boot&lt;/h2&gt;
+
+&lt;p&gt;
+	The biggest problem with the NVIDIA drivers is updating them. With UEFI secure boot enabled, each time the drivers were upgraded I had to enroll their keys at boot time. If I missed the 10 second window (and you only get one chance, even after rebooting), the graphical environment couldn&#x27;t come up and I had to recover manually by running &lt;code&gt;sudo mokutil --import /usr/share/nvidia-pubkeys/whatever-nvidia-pubkey.der&lt;/code&gt; from the recovery environment. You can also disable kernel module verification by running &lt;code&gt;sudo mokutil --disable-validation&lt;/code&gt;. This will ask you to set up a small password and then disable the verification at next boot time (assuming you can remember the small password you set up).
+&lt;/p&gt;
+
+&lt;h2 id=&quot;codecs&quot;&gt;Codecs&lt;/h2&gt;
+
+&lt;p&gt;By default, openSUSE does not provide some codecs, e.g. for some internet video formats or for Discord live video streaming. The fix is simple but not prompted at all: &lt;code&gt;sudo zypper install opi &amp;amp;&amp;amp; sudo opi codecs&lt;/code&gt; will add the correct repositories and install the needed codecs.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category>
+	<link>https://benleskey.com/blog/opensuse</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/opensuse</guid>
+	<pubDate>Tue, 06 Aug 2024 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Arcana Technoclysm update: Magical UPS, whistle crafting, and bionic installation</title>
 	<description>&lt;div&gt;&lt;p&gt;I&#x27;ve updated my mod &lt;a href=&quot;https://benleskey.com/blog/../aka/cdda-arcana-technoclysm&quot;&gt;Arcana Technoclysm&lt;/a&gt; for &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt; with some more new features.&lt;/p&gt;
@@ -1688,67 +1743,6 @@ See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-05-08&quot;&gt
 	<link>https://www.mvnu.edu/news/mvnu-students-shine-during-symposium-for-undergraduate-research-and-creative-works</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mvnu_surc_announcement</guid>
 	<pubDate>Tue, 25 Apr 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Prototype post-apocalyptic roadtrip simulator for the Minetest engine</title>
-	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
-&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Github repository: &lt;a href=&quot;https://github.com/tigris-mt/roadtrip&quot;&gt;https://github.com/tigris-mt/roadtrip&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;
-	I&#x27;ve begun work on a game project, smaller in scope and more relaxing than the &lt;a href=&quot;https://benleskey.com/blog/textengine_intro&quot;&gt;text engine project&lt;/a&gt;. This new project uses the &lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; engine for voxel graphics, entities, and physics. This game, Roadtrip, is designed along the lines of &lt;a href=&quot;https://store.steampowered.com/app/1017180/The_Long_Drive/&quot;&gt;The Long Drive&lt;/a&gt; as a post-apocalyptic roadtrip simulator and also takes inspiration from &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt;. It&#x27;s written in Lua.
-&lt;/p&gt;
-&lt;a href=&quot;https://benleskey.com/blog/../images/roadtrip.png&quot;&gt;&lt;img class=&quot;left&quot; src=&quot;https://benleskey.com/blog/../thumbs/roadtrip.25.png&quot; alt=&quot;roadtrip game prototype&quot;&gt;&lt;/a&gt;
-
-&lt;h2 id=&quot;minetest&quot;&gt;&lt;a href=&quot;https://minetest.net&quot;&gt;Minetest&lt;/a&gt; &amp;amp; Voxels&lt;/h2&gt;
-
-&lt;p&gt;The Minetest engine provides a solid base for this type of game: procedural generation, low-poly graphics, built-in multiplayer, etc. I have quite a bit of experience with Minetest and Lua, so it&#x27;s a good choice for game engine since I don&#x27;t want to put too much development effort into this game. The world will consist of &quot;voxels&quot;, blocks like in Minecraft that form the terrain, along with moveable &quot;entities&quot; such as the vehicles and the player.&lt;/p&gt;
-
-&lt;h2 id=&quot;design&quot;&gt;Design&lt;/h2&gt;
-
-&lt;p&gt;The basic design of the game is the player driving down a road in a procedurally generated environment. The player must survive (food, water, gasoline/electricity, shelter, etc.) as long as possible while enjoying the view and trip.&lt;/p&gt;
-
-&lt;p&gt;Like The Long Drive, Roadtrip will have a long highway extending indefinitely into the distance with a randomly generated environment surrounding it, maybe including side roads or broader road networks. The prototype environment will be a desert, but it will be easy to add new biomes.&lt;/p&gt;
-
-&lt;p&gt;In the prototype, the road runs from the south toward the north, with turns and corners defined by an equation that returns the X (east-west) coordinate of the road based on the Z (north-south) coordinate. The current equation is defined as &lt;/p&gt;&lt;pre&gt;&lt;code language=&quot;lua&quot;&gt;local z_factor = 60 + 60 * seed_random()
-local z_factor_2 = 160 + 160 * seed_random()
-local x_factor = 60 + 60 * seed_random()
-
-local function road_x(z)
-	return math.floor(math.sin(z / z_factor) * (math.sin(z / z_factor_2) ^ 4) * x_factor + 0.5)
-end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a random generator returning a random number between 0 and 1 according to the world seed. All other properties of the world, like the width of the road at any point, will be defined by similar procedural generation to ensure continuity as each chunk of the map is generated separately.
-
-&lt;h3 id=&quot;vehicles&quot;&gt;Vehicles&lt;/h3&gt;
-
-&lt;p&gt;Vehicles are the focus of Roadtrip, so they will be very customizable. Vehicles will be individual components internally, such as the chassis, the wheels, the doors, etc., which can then be installed together and the models attached to display an entire car, truck, or other vehicle.&lt;/p&gt;
-
-&lt;h3 id=&quot;survival&quot;&gt;Survival&lt;/h3&gt;
-
-&lt;p&gt;Survival elements including hunger, thirst, weather, and fuel will drive further exploration and resource gathering. There may be enemies as well, or some other active threat.&lt;/p&gt;
-
-&lt;h3 id=&quot;exploration&quot;&gt;Exploration&lt;/h3&gt;
-
-&lt;p&gt;Resources will be available in structures off the road, in abandoned cars, or from natural resources like lakes or trees. This will encourage exploration off road, both with and without a vehicle. Terrain generation can be improved to have hills, valleys, caves, etc. to spice up the landscape.&lt;/p&gt;
-
-&lt;h2 id=&quot;challenges&quot;&gt;Development Challenges&lt;/h2&gt;
-
-&lt;p&gt;The Minetest engine is limited in a number of ways that will make development more challenging. I do think my familiarity with the engine along the engine&#x27;s simplicity will make it worth it, however.&lt;/p&gt;
-
-&lt;h3 id=&quot;rotation&quot;&gt;Rotation&lt;/h3&gt;
-
-&lt;p&gt;Most noticably, if the player is attached to an object and the object rotates, the player&#x27;s viewport does not rotate with the object. My workaround, rotating both at the same time, suffers from network lag causing noticable drift that the player must manually correct. I may need to contribute a feature to the engine to support this for more realistic driving.&lt;/p&gt;
-
-&lt;h3 id=&quot;collision&quot;&gt;Collision&lt;/h3&gt;
-
-&lt;p&gt;For performance reasons, an object&#x27;s collisionbox cannot extend much beyond ~3 nodes in any direction before it starts to break. This means that entities like vehicles can&#x27;t be too big or their physics won&#x27;t work. Again, I may need to improve the engine here, or just live with innacurate collision on large vehicles.&lt;/p&gt;
-
-&lt;h3 id=&quot;hud&quot;&gt;Hud &amp;amp; Controls&lt;/h3&gt;
-
-&lt;p&gt;Implementing the HUD and controls is a bit of a challenge as the Minetest engine is geared toward a Minecraft-like game. Nevertheless, I should be able to represent the dashboard on the HUD nearly as easily as the player&#x27;s own stats. Controls are also a little harder, with a limited number of keybinds available to the game. I can use movement keys for driving, and I may be able to use hotbar items for actions like shifting gears or quick access of weapons or tools.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>roadtrip</category><category>minetest</category><category>games</category><category>software</category>
-	<link>https://benleskey.com/blog/roadtrip_intro</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/roadtrip_intro</guid>
-	<pubDate>Sun, 23 Apr 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>

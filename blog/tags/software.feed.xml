@@ -6,11 +6,66 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2024 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 17 May 2024 14:39:17 +0000</lastBuildDate>
-		<pubDate>Fri, 17 May 2024 14:39:17 +0000</pubDate>
+		<lastBuildDate>Wed, 07 Aug 2024 01:27:09 +0000</lastBuildDate>
+		<pubDate>Wed, 07 Aug 2024 01:27:09 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Switching to openSUSE Tumbleweed</title>
+	<description>&lt;div&gt;&lt;ol class=&quot;toc&quot;&gt;&lt;/ol&gt;
+
+After over ten years of Ubuntu with the i3 window manager and a host of custom scripts as my desktop OS, I&#x27;ve switched to using &lt;a href=&quot;https://get.opensuse.org/tumbleweed/&quot;&gt;openSUSE Tumbleweed&lt;/a&gt; with KDE Plasma.
+
+&lt;h2 id=&quot;hardware&quot;&gt;The Hardware&lt;/h2&gt;
+
+&lt;p&gt;I took two identical Dell Inspiron 5577 laptops and cobbled them together into something slightly better. I chose one unit as the base for the new machine and the other as a donor unit since it had a random power off issue when using the graphics card. I swapped out the slow-as-sin hard drive in my chosen unit with a new SSD, then took the 8 GB RAM stick from the donor unit and stuck it into the chosen unit for a comfortable 16 GB RAM. I also had to steal the keyboard from the donor unit as the chosen unit&#x27;s keyboard had a lot of dead keys from some damage. After the dust settled, I was left with a nice recycled build, as reported by KDE system information:&lt;/p&gt;
+
+&lt;pre&gt;
+Operating System: openSUSE Tumbleweed 20240803
+KDE Plasma Version: 6.1.3
+KDE Frameworks Version: 6.4.0
+Qt Version: 6.7.2
+Kernel Version: 6.10.2-1-default (64-bit)
+Graphics Platform: X11
+Processors: 4 &amp;#215; Intel&amp;#174; Core&amp;#8482; i5-7300HQ CPU @ 2.50GHz
+Memory: 15.4 GiB of RAM
+Graphics Processor: NVIDIA GeForce GTX 1050/PCIe/SSE2
+Manufacturer: Dell Inc.
+Product Name: Inspiron 5577
+System Version: 1.1.3
+&lt;/pre&gt;
+
+&lt;h2 id=&quot;software&quot;&gt;KDE + Software&lt;/h2&gt;
+
+&lt;p&gt;KDE is an excellent desktop environment. Coming from i3, I find it very user-friendly, and entirely as powerful if more mouse-focused. The integration with the wide array of programs is refreshing.&lt;/p&gt;
+
+&lt;p&gt;The best part of openSUSE Tumbleweed is, of course, the software selection. New versions of everything, and a host of package repositories, all with frequent updates.&lt;/p&gt;
+
+&lt;h2 id=&quot;support&quot;&gt;Decent hardware support&lt;/h2&gt;
+
+&lt;p&gt;All the hardware is supported, including the NVIDIA graphics card. The only issue is (a classic Linux problem) with suspend and hibernate - the graphics card sometimes does not power back on. I don&#x27;t need either state, so I just diabled them by masking their targets: &lt;code&gt;sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Setting up NVIDIA&lt;/h3&gt;
+
+&lt;p&gt;The yast software installer automatically prompted me to install the NVIDIA drivers, and after they were installed I made them default with &lt;code&gt;sudo prime-select boot nvidia&lt;/code&gt;. Fairly easy!&lt;/p&gt;
+
+&lt;h2 id=&quot;nvidia&quot;&gt;NVIDIA + Secure Boot&lt;/h2&gt;
+
+&lt;p&gt;
+	The biggest problem with the NVIDIA drivers is updating them. With UEFI secure boot enabled, each time the drivers were upgraded I had to enroll their keys at boot time. If I missed the 10 second window (and you only get one chance, even after rebooting), the graphical environment couldn&#x27;t come up and I had to recover manually by running &lt;code&gt;sudo mokutil --import /usr/share/nvidia-pubkeys/whatever-nvidia-pubkey.der&lt;/code&gt; from the recovery environment. You can also disable kernel module verification by running &lt;code&gt;sudo mokutil --disable-validation&lt;/code&gt;. This will ask you to set up a small password and then disable the verification at next boot time (assuming you can remember the small password you set up).
+&lt;/p&gt;
+
+&lt;h2 id=&quot;codecs&quot;&gt;Codecs&lt;/h2&gt;
+
+&lt;p&gt;By default, openSUSE does not provide some codecs, e.g. for some internet video formats or for Discord live video streaming. The fix is simple but not prompted at all: &lt;code&gt;sudo zypper install opi &amp;amp;&amp;amp; sudo opi codecs&lt;/code&gt; will add the correct repositories and install the needed codecs.&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category>
+	<link>https://benleskey.com/blog/opensuse</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/opensuse</guid>
+	<pubDate>Tue, 06 Aug 2024 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>Arcana Technoclysm update: Magical UPS, whistle crafting, and bionic installation</title>
 	<description>&lt;div&gt;&lt;p&gt;I&#x27;ve updated my mod &lt;a href=&quot;https://benleskey.com/blog/../aka/cdda-arcana-technoclysm&quot;&gt;Arcana Technoclysm&lt;/a&gt; for &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt; with some more new features.&lt;/p&gt;
 
@@ -499,25 +554,6 @@ Here&#x27;s the final GIF:
 	<link>https://benleskey.com/blog/mapper0_6</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_6</guid>
 	<pubDate>Thu, 16 Feb 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Autodrive into a crater fix</title>
-	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/cdda_truck_in_hole.png&quot;&gt;&lt;img src=&quot;https://benleskey.com/blog/../thumbs/cdda_truck_in_hole.50.png&quot; alt=&quot;A pickup truck fallen into a crater in Cataclysm: Dark Days Ahead&quot; class=&quot;right&quot;&gt;&lt;/a&gt;
-
-&lt;p&gt;
-	In my current &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: Dark Days Ahead&lt;/a&gt; &lt;a href=&quot;https://benleskey.com/blog/tags/cdda_erik&quot;&gt;playthrough&lt;/a&gt;, I ran into a problem with the autodrive feature: it&#x27;d drive me straight into a crater and crash the vehicle.
-&lt;/p&gt;
-
-&lt;p&gt;This seemed like a straightforward fix, so I checked out the master branch and set about debugging. Autodrive definitely has the capability to avoid certain terrain, so I guessed it was just a mistake in how it was calculating ledge traps or open air terrain.&lt;/p&gt;
-
-&lt;p&gt;Sure enough, it was just an error in how the vehicle was being considered as &quot;able to drive over air&quot;. With the existing logic, autodrive thought every vehicle could fly. The fix was simple: only consider helicopters (the only flying vehicle) that have enough rotor power as flyable.&lt;/p&gt;
-
-&lt;p&gt;I have &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/63487&quot;&gt;a pull request fixing this issue&lt;/a&gt; ready to be merged.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>cdda</category><category>debugging</category><category>software</category>
-	<link>https://benleskey.com/blog/cdda_no_hole</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/cdda_no_hole</guid>
-	<pubDate>Wed, 08 Feb 2023 12:00:00 +0000</pubDate>
 </item>_
 	</channel>
 </rss>
