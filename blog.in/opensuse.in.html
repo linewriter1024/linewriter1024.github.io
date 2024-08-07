@@ -1,0 +1,47 @@
+<ol class="toc"></ol>
+
+After over ten years of Ubuntu with the i3 window manager and a host of custom scripts as my desktop OS, I've switched to using <a href="https://get.opensuse.org/tumbleweed/">openSUSE Tumbleweed</a> with KDE Plasma.
+
+<h2 id="hardware">The Hardware</h2>
+
+<p>I took two identical Dell Inspiron 5577 laptops and cobbled them together into something slightly better. I chose one unit as the base for the new machine and the other as a donor unit since it had a random power off issue when using the graphics card. I swapped out the slow-as-sin hard drive in my chosen unit with a new SSD, then took the 8 GB RAM stick from the donor unit and stuck it into the chosen unit for a comfortable 16 GB RAM. I also had to steal the keyboard from the donor unit as the chosen unit's keyboard had a lot of dead keys from some damage. After the dust settled, I was left with a nice recycled build, as reported by KDE system information:</p>
+
+<pre>
+Operating System: openSUSE Tumbleweed 20240803
+KDE Plasma Version: 6.1.3
+KDE Frameworks Version: 6.4.0
+Qt Version: 6.7.2
+Kernel Version: 6.10.2-1-default (64-bit)
+Graphics Platform: X11
+Processors: 4 × Intel® Core™ i5-7300HQ CPU @ 2.50GHz
+Memory: 15.4 GiB of RAM
+Graphics Processor: NVIDIA GeForce GTX 1050/PCIe/SSE2
+Manufacturer: Dell Inc.
+Product Name: Inspiron 5577
+System Version: 1.1.3
+</pre>
+
+<h2 id="software">KDE + Software</h2>
+
+<p>KDE is an excellent desktop environment. Coming from i3, I find it very user-friendly, and entirely as powerful if more mouse-focused. The integration with the wide array of programs is refreshing.</p>
+
+<p>The best part of openSUSE Tumbleweed is, of course, the software selection. New versions of everything, and a host of package repositories, all with frequent updates.</p>
+
+<h2 id="support">Decent hardware support</h2>
+
+<p>All the hardware is supported, including the NVIDIA graphics card. The only issue is (a classic Linux problem) with suspend and hibernate - the graphics card sometimes does not power back on. I don't need either state, so I just diabled them by masking their targets: <code>sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+</code>.</p>
+
+<h3>Setting up NVIDIA</h3>
+
+<p>The yast software installer automatically prompted me to install the NVIDIA drivers, and after they were installed I made them default with <code>sudo prime-select boot nvidia</code>. Fairly easy!</p>
+
+<h2 id="nvidia">NVIDIA + Secure Boot</h2>
+
+<p>
+	The biggest problem with the NVIDIA drivers is updating them. With UEFI secure boot enabled, each time the drivers were upgraded I had to enroll their keys at boot time. If I missed the 10 second window (and you only get one chance, even after rebooting), the graphical environment couldn't come up and I had to recover manually by running <code>sudo mokutil --import /usr/share/nvidia-pubkeys/whatever-nvidia-pubkey.der</code> from the recovery environment. You can also disable kernel module verification by running <code>sudo mokutil --disable-validation</code>. This will ask you to set up a small password and then disable the verification at next boot time (assuming you can remember the small password you set up).
+</p>
+
+<h2 id="codecs">Codecs</h2>
+
+<p>By default, openSUSE does not provide some codecs, e.g. for some internet video formats or for Discord live video streaming. The fix is simple but not prompted at all: <code>sudo zypper install opi &amp;&amp; sudo opi codecs</code> will add the correct repositories and install the needed codecs.</p>
