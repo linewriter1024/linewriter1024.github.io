@@ -1,0 +1,183 @@
+<p>
+	I've recently moved to a new laptop. OpenSUSE tumbleweed is still my OS of choice, and my recent experience cemented its position as my favorite Linux distro. My new device is an HP Victus 15, specs below:
+</p>
+
+<pre>
+	Operating System: openSUSE Tumbleweed 20241222
+	KDE Plasma Version: 6.2.4
+	KDE Frameworks Version: 6.9.0
+	Qt Version: 6.8.1
+	Kernel Version: 6.12.6-5.gfb072de-default (64-bit)
+	Graphics Platform: X11
+	Processors: 12 × AMD Ryzen 5 7535HS with Radeon Graphics
+	Memory: 14.8 GiB of RAM
+	Graphics Processor: AMD Radeon 660M
+	Manufacturer: HP
+	Product Name: Victus by HP Gaming Laptop 15-fb2xxx
+</pre>
+
+<p>
+	The only hardware issue encountered on this device was that the internal microphone was not recognized. For example, using <code>arecord -l</code> to list my sound devices, I only saw the unplugged microphone device, even though my devices were shown in <code>inxi -A</code>:
+</p>
+
+<pre>
+$ arecord -l
+**** List of CAPTURE Hardware Devices ****
+card 2: Generic_1 [HD-Audio Generic], device 0: ALC245 Analog [ALC245 Analog]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+</pre>
+
+<pre>
+$ inxi -A
+Audio:
+  Device-1: Advanced Micro Devices [AMD/ATI] Navi 21/23 HDMI/DP Audio
+    driver: snd_hda_intel
+  Device-2: Advanced Micro Devices [AMD/ATI] Rembrandt Radeon High
+    Definition Audio driver: snd_hda_intel
+  Device-3: Advanced Micro Devices [AMD] ACP/ACP3X/ACP6x Audio Coprocessor
+    driver: snd_pci_acp6x
+  Device-4: Advanced Micro Devices [AMD] Family 17h/19h/1ah HD Audio
+    driver: snd_hda_intel
+  API: ALSA v: k6.12.6-5.gfb072de-default status: kernel-api
+  Server-1: PipeWire v: 1.2.7 status: active
+</pre>
+
+</p>After much research I found the fix. I needed to add a linux kernel quirk patch for my specific model in the ACP6X sound driver for the internal microphone. The patch to the kernel itself is extremely simple, just adding my hardware to the quirk list so that even though Linux does not autodetect the correct driver, it will load it anyway:
+</p>
+
+<pre>
+<code language="diff">
+diff --git a/sound/soc/amd/yc/acp6x-mach.c b/sound/soc/amd/yc/acp6x-mach.c
+index ecf57a6..c95198c 100644
+--- a/sound/soc/amd/yc/acp6x-mach.c
++++ b/sound/soc/amd/yc/acp6x-mach.c
+@@ -458,6 +458,13 @@ static const struct dmi_system_id yc_acp_quirk_table[] = {
+ 			DMI_MATCH(DMI_PRODUCT_NAME, &quot;OMEN by HP Gaming Laptop 16z-n000&quot;),
+ 		}
+ 	},
++	{
++		.driver_data = &amp;acp6x_card,
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, &quot;HP&quot;),
++			DMI_MATCH(DMI_PRODUCT_NAME, &quot;Victus by HP Gaming Laptop 15-fb2xxx&quot;),
++		}
++	},
+ 	{
+ 		.driver_data = &amp;acp6x_card,
+ 		.matches = {
+</code>
+</pre>
+
+<p>
+	So far, so good. But here's where OpenSUSE shines: using the Open Build Service, I was able to create a new set of kernel packages with my patch that <i>automatically keep up</i> with the latest tumbleweed kernel. <a href="https://www.reddit.com/r/openSUSE/comments/72wz1l/comment/dnm87nj/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button">This reddit comment</a> was very helpful, reproduced below:
+</p>
+
+<blockquote>
+	<ol>
+		<li>Go to https://build.opensuse.org/package/show/openSUSE:Factory/kernel-source</li>
+
+		<li>sign in</li>
+
+		<li>click branch</li>
+
+		<li>optional step - use the command line tool osc to download, edit and test the build locally.</li>
+
+		<li>overwrite the config.tar.bz2 with your .config tar bzipped</li>
+
+		<li>Make package links to kernel-source and call them kernel-default, kernel-devel and kernel-syms</li>
+
+		<li><strike>Draw the rest of the owl</strike></li>
+
+		<li>Wait for it to build successfully</li>
+
+		<li>Add the repo to your TW installation (links are on the webpage) and switch the kernel packages over</li>
+    </ol>
+</blockquote>
+
+<p>
+	I more or less followed these steps, with some details below:
+</p>
+
+<p>
+	First, I installed the kernel-source package so I could test and install my fix locally, using the following:
+</p>
+
+<pre>
+<code language="bash">
+$ cd linux-build-directory
+
+$ make -C /usr/src/linux O=$PWD oldconfig # Create a kernel config based on my running kernel config
+[...]
+
+# In the .config file, I updated CONFIG_LOCALVERSION to differentiate my compiled kernel,
+# and removed the reference to the OpenSUSE keys in CONFIG_MODULE_SIG_KEYS
+
+# I also added a modprobe configuration file:
+$ cat /etc/modprobe.d/10-unsupported-modules.conf
+allow_unsupported_modules 1
+
+$ make -j12 # It builds.
+
+$ sudo make modules_install -j12 # Adds the kernel modules to /usr/lib/modules
+
+$ sudo make install -j12 # Installs the kernel to /boot and updates the bootloader
+</code>
+</pre>
+
+<p>At this point I created the patch diff of my changes using the original file and my new file:</p>
+
+<pre>
+<code language="bash">
+$ git diff /tmp/old-acp6x-mach.c ./sound/soc/amd/yc/acp6x-mach.c > /tmp/my-new-patch.patch
+</code>
+</pre>
+
+<p>
+	After this, I rebooted into my custom kernel to verify the fix. To remove the custom compiled kernel from the bootloader list, I just removed the files and updated the bootloader:
+
+<pre>
+<code language="bash">
+$ cd /boot
+$ mkdir /home/user/old-linux
+$ find | grep my-custom-kernel | sudo xargs -O{} -n1 mv {} /home/user/old-linux # Replace my-custom-kernel with what you put in CONFIG_LOCALVERSION
+$ sudo update-bootloader # Get the removed custom kernel off the bootloader menu
+</code>
+</pre>
+</p>
+
+<p>
+	I then:
+	<ul>
+		<li>
+			"Branched" a new package from the openSUSE tumbleweed kernel-source package. This created my own kernel-source package that I could modify as needed. Importantly, it is linked to the upstream openSUSE kernel, so it will stay up to date while applying my patches.
+		</li>
+		<li>
+			Checked out my new package locally, using osc: <code>$ osc -A https://api.opensuse.org checkout home:linewriter1024:branches:Kernel:stable/kernel-source</code>
+		</li>
+		<li>
+			Added my patch to patches.addon.tar.bz2 inside my checked out directory, which has an empty directory <code>patches.addon</code>, into which directory I added my patch file <code>6.12.6-9999-local.patch</code> and a text file named <code>series</code> with one line: <code>6.12.6-9999-local.patch</code>, the name of the patch file.
+		</li>
+		<li>
+			Ran <code>osc build</code> and verified that my patch was being used:
+<pre>
+<code language="bash">
+$ cat /var/tmp/build-root/standard-x86_64/.build.log | grep addon
+[   10s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/config.addon.tar.bz2
+[   10s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/patches.addon.tar.bz2
+[   22s] + patch -s -F0 -E -p1 --no-backup-if-mismatch -i /home/abuild/rpmbuild/BUILD/kernel-source-6.12.6/patches.addon/6.12.6-9999-local.patch
+</code>
+</pre>
+		</li>
+		<li>
+			Ran <code>osc commit</code> and uploaded my changes. The open build service built my new kernel and after it was finished I added the repository to my package repositories and ran <code>sudo zypper dup --from=https://download.opensuse.org/repositories/home:/linewriter1024:/branches:/Kernel:/stable/standard/ --allow-vendor-change</code> to upgrade my kernel to my new patched version.
+		</li>
+		<li>
+			Rebooted and profited!
+		</li>
+	</ul>
+</p>
+
+<p>
+	This OpenSUSE infrastructure is incredibly useful, and I am very pleased with my choice of distro and the (relative!) ease of fixing this internal microphone issue without sacrificing update flow. Next step, getting this patch into the upstream Linux kernel!
+</p>

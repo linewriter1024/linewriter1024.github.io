@@ -6,11 +6,202 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2024 Ben Leskey</copyright>
-		<lastBuildDate>Sun, 29 Sep 2024 18:19:12 +0000</lastBuildDate>
-		<pubDate>Sun, 29 Sep 2024 18:19:12 +0000</pubDate>
+		<lastBuildDate>Wed, 25 Dec 2024 21:00:17 +0000</lastBuildDate>
+		<pubDate>Wed, 25 Dec 2024 21:00:17 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Fixing HP Victus 15 internal microphone drivers by compiling patched auto-updating kernel with openSUSE Tumbleweed Open Build Service</title>
+	<description>&lt;div&gt;&lt;p&gt;
+	I&#x27;ve recently moved to a new laptop. OpenSUSE tumbleweed is still my OS of choice, and my recent experience cemented its position as my favorite Linux distro. My new device is an HP Victus 15, specs below:
+&lt;/p&gt;
+
+&lt;pre&gt;
+	Operating System: openSUSE Tumbleweed 20241222
+	KDE Plasma Version: 6.2.4
+	KDE Frameworks Version: 6.9.0
+	Qt Version: 6.8.1
+	Kernel Version: 6.12.6-5.gfb072de-default (64-bit)
+	Graphics Platform: X11
+	Processors: 12 &amp;#215; AMD Ryzen 5 7535HS with Radeon Graphics
+	Memory: 14.8 GiB of RAM
+	Graphics Processor: AMD Radeon 660M
+	Manufacturer: HP
+	Product Name: Victus by HP Gaming Laptop 15-fb2xxx
+&lt;/pre&gt;
+
+&lt;p&gt;
+	The only hardware issue encountered on this device was that the internal microphone was not recognized. For example, using &lt;code&gt;arecord -l&lt;/code&gt; to list my sound devices, I only saw the unplugged microphone device, even though my devices were shown in &lt;code&gt;inxi -A&lt;/code&gt;:
+&lt;/p&gt;
+
+&lt;pre&gt;
+$ arecord -l
+**** List of CAPTURE Hardware Devices ****
+card 2: Generic_1 [HD-Audio Generic], device 0: ALC245 Analog [ALC245 Analog]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+&lt;/pre&gt;
+
+&lt;pre&gt;
+$ inxi -A
+Audio:
+  Device-1: Advanced Micro Devices [AMD/ATI] Navi 21/23 HDMI/DP Audio
+    driver: snd_hda_intel
+  Device-2: Advanced Micro Devices [AMD/ATI] Rembrandt Radeon High
+    Definition Audio driver: snd_hda_intel
+  Device-3: Advanced Micro Devices [AMD] ACP/ACP3X/ACP6x Audio Coprocessor
+    driver: snd_pci_acp6x
+  Device-4: Advanced Micro Devices [AMD] Family 17h/19h/1ah HD Audio
+    driver: snd_hda_intel
+  API: ALSA v: k6.12.6-5.gfb072de-default status: kernel-api
+  Server-1: PipeWire v: 1.2.7 status: active
+&lt;/pre&gt;
+
+After much research I found the fix. I needed to add a linux kernel quirk patch for my specific model in the ACP6X sound driver for the internal microphone. The patch to the kernel itself is extremely simple, just adding my hardware to the quirk list so that even though Linux does not autodetect the correct driver, it will load it anyway:
+
+
+&lt;pre&gt;
+&lt;code language=&quot;diff&quot;&gt;
+diff --git a/sound/soc/amd/yc/acp6x-mach.c b/sound/soc/amd/yc/acp6x-mach.c
+index ecf57a6..c95198c 100644
+--- a/sound/soc/amd/yc/acp6x-mach.c
++++ b/sound/soc/amd/yc/acp6x-mach.c
+@@ -458,6 +458,13 @@ static const struct dmi_system_id yc_acp_quirk_table[] = {
+ 			DMI_MATCH(DMI_PRODUCT_NAME, &quot;OMEN by HP Gaming Laptop 16z-n000&quot;),
+ 		}
+ 	},
++	{
++		.driver_data = &amp;amp;acp6x_card,
++		.matches = {
++			DMI_MATCH(DMI_BOARD_VENDOR, &quot;HP&quot;),
++			DMI_MATCH(DMI_PRODUCT_NAME, &quot;Victus by HP Gaming Laptop 15-fb2xxx&quot;),
++		}
++	},
+ 	{
+ 		.driver_data = &amp;amp;acp6x_card,
+ 		.matches = {
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;
+	So far, so good. But here&#x27;s where OpenSUSE shines: using the Open Build Service, I was able to create a new set of kernel packages with my patch that &lt;i&gt;automatically keep up&lt;/i&gt; with the latest tumbleweed kernel. &lt;a href=&quot;https://www.reddit.com/r/openSUSE/comments/72wz1l/comment/dnm87nj/?utm_source=share&amp;amp;utm_medium=web3x&amp;amp;utm_name=web3xcss&amp;amp;utm_term=1&amp;amp;utm_content=share_button&quot;&gt;This reddit comment&lt;/a&gt; was very helpful, reproduced below:
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+	&lt;ol&gt;
+		&lt;li&gt;Go to https://build.opensuse.org/package/show/openSUSE:Factory/kernel-source&lt;/li&gt;
+
+		&lt;li&gt;sign in&lt;/li&gt;
+
+		&lt;li&gt;click branch&lt;/li&gt;
+
+		&lt;li&gt;optional step - use the command line tool osc to download, edit and test the build locally.&lt;/li&gt;
+
+		&lt;li&gt;overwrite the config.tar.bz2 with your .config tar bzipped&lt;/li&gt;
+
+		&lt;li&gt;Make package links to kernel-source and call them kernel-default, kernel-devel and kernel-syms&lt;/li&gt;
+
+		&lt;li&gt;&lt;strike&gt;Draw the rest of the owl&lt;/strike&gt;&lt;/li&gt;
+
+		&lt;li&gt;Wait for it to build successfully&lt;/li&gt;
+
+		&lt;li&gt;Add the repo to your TW installation (links are on the webpage) and switch the kernel packages over&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;
+	I more or less followed these steps, with some details below:
+&lt;/p&gt;
+
+&lt;p&gt;
+	First, I installed the kernel-source package so I could test and install my fix locally, using the following:
+&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code language=&quot;bash&quot;&gt;
+$ cd linux-build-directory
+
+$ make -C /usr/src/linux O=$PWD oldconfig # Create a kernel config based on my running kernel config
+[...]
+
+# In the .config file, I updated CONFIG_LOCALVERSION to differentiate my compiled kernel,
+# and removed the reference to the OpenSUSE keys in CONFIG_MODULE_SIG_KEYS
+
+# I also added a modprobe configuration file:
+$ cat /etc/modprobe.d/10-unsupported-modules.conf
+allow_unsupported_modules 1
+
+$ make -j12 # It builds.
+
+$ sudo make modules_install -j12 # Adds the kernel modules to /usr/lib/modules
+
+$ sudo make install -j12 # Installs the kernel to /boot and updates the bootloader
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;At this point I created the patch diff of my changes using the original file and my new file:&lt;/p&gt;
+
+&lt;pre&gt;
+&lt;code language=&quot;bash&quot;&gt;
+$ git diff /tmp/old-acp6x-mach.c ./sound/soc/amd/yc/acp6x-mach.c &amp;gt; /tmp/my-new-patch.patch
+&lt;/code&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;
+	After this, I rebooted into my custom kernel to verify the fix. To remove the custom compiled kernel from the bootloader list, I just removed the files and updated the bootloader:
+
+&lt;/p&gt;&lt;pre&gt;
+&lt;code language=&quot;bash&quot;&gt;
+$ cd /boot
+$ mkdir /home/user/old-linux
+$ find | grep my-custom-kernel | sudo xargs -O{} -n1 mv {} /home/user/old-linux # Replace my-custom-kernel with what you put in CONFIG_LOCALVERSION
+$ sudo update-bootloader # Get the removed custom kernel off the bootloader menu
+&lt;/code&gt;
+&lt;/pre&gt;
+
+
+&lt;p&gt;
+	I then:
+	&lt;/p&gt;&lt;ul&gt;
+		&lt;li&gt;
+			&quot;Branched&quot; a new package from the openSUSE tumbleweed kernel-source package. This created my own kernel-source package that I could modify as needed. Importantly, it is linked to the upstream openSUSE kernel, so it will stay up to date while applying my patches.
+		&lt;/li&gt;
+		&lt;li&gt;
+			Checked out my new package locally, using osc: &lt;code&gt;$ osc -A https://api.opensuse.org checkout home:linewriter1024:branches:Kernel:stable/kernel-source&lt;/code&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			Added my patch to patches.addon.tar.bz2 inside my checked out directory, which has an empty directory &lt;code&gt;patches.addon&lt;/code&gt;, into which directory I added my patch file &lt;code&gt;6.12.6-9999-local.patch&lt;/code&gt; and a text file named &lt;code&gt;series&lt;/code&gt; with one line: &lt;code&gt;6.12.6-9999-local.patch&lt;/code&gt;, the name of the patch file.
+		&lt;/li&gt;
+		&lt;li&gt;
+			Ran &lt;code&gt;osc build&lt;/code&gt; and verified that my patch was being used:
+&lt;pre&gt;
+&lt;code language=&quot;bash&quot;&gt;
+$ cat /var/tmp/build-root/standard-x86_64/.build.log | grep addon
+[   10s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/config.addon.tar.bz2
+[   10s] + /usr/lib/rpm/rpmuncompress -x /home/abuild/rpmbuild/SOURCES/patches.addon.tar.bz2
+[   22s] + patch -s -F0 -E -p1 --no-backup-if-mismatch -i /home/abuild/rpmbuild/BUILD/kernel-source-6.12.6/patches.addon/6.12.6-9999-local.patch
+&lt;/code&gt;
+&lt;/pre&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			Ran &lt;code&gt;osc commit&lt;/code&gt; and uploaded my changes. The open build service built my new kernel and after it was finished I added the repository to my package repositories and ran &lt;code&gt;sudo zypper dup --from=https://download.opensuse.org/repositories/home:/linewriter1024:/branches:/Kernel:/stable/standard/ --allow-vendor-change&lt;/code&gt; to upgrade my kernel to my new patched version.
+		&lt;/li&gt;
+		&lt;li&gt;
+			Rebooted and profited!
+		&lt;/li&gt;
+	&lt;/ul&gt;
+
+
+&lt;p&gt;
+	This OpenSUSE infrastructure is incredibly useful, and I am very pleased with my choice of distro and the (relative!) ease of fixing this internal microphone issue without sacrificing update flow. Next step, getting this patch into the upstream Linux kernel!
+&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>debugging</category><category>software</category>
+	<link>https://benleskey.com/blog/opensuse_mic</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/opensuse_mic</guid>
+	<pubDate>Wed, 25 Dec 2024 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>DCSS win: Powerfully lucky DsCj</title>
 	<description>&lt;div&gt;&lt;p&gt;I had an amazing &lt;a href=&quot;https://crawl.develz.org/&quot;&gt;Dungeon Crawl: Stone Soup&lt;/a&gt; win with a great heap of luck. I played a Demonspawn Conjurer with a heap of lucky mutations and incidents, including:&lt;/p&gt;
@@ -3206,18 +3397,6 @@ See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-05-08&quot;&gt
 	<link>https://benleskey.com/blog/mapper0_6_2</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper0_6_2</guid>
 	<pubDate>Mon, 08 May 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>I graduated from MVNU!</title>
-	<description>&lt;div&gt;&lt;img src=&quot;https://benleskey.com/blog/../images/mvnu_grad_ribbon.png&quot; alt=&quot;ribbon cut just before the baccalaureate service&quot;&gt;
-&lt;p&gt;I graduated from MVNU yesterday, &lt;i&gt;summa cum laude&lt;/i&gt; &amp;amp; Honors scholar! &lt;small&gt;I did it, an A in every class!&lt;/small&gt;&lt;/p&gt;
-&lt;p&gt;&lt;i&gt;I&#x27;m really done&lt;/i&gt; hit me in a small way now that I can clean up all the academic files and folders and apps I have hanging around my computers. I don&#x27;t need my LMS anymore. Most of my hundreds of old assignments are worth as much as the paragraphs I wrote in 3rd grade. Notebooks filled with doodles and math homework are useless.&lt;/p&gt;
-&lt;p&gt;Of course, the important things I started during my time at MVNU won&#x27;t stop just because I graduated. Projects like my &lt;a href=&quot;https://benleskey.com/blog/../aka/mappingtool&quot;&gt;mapping tool&lt;/a&gt; and the creative writing work that I&#x27;ve done will continue, the dozens of good friends I&#x27;ve made are still my friends even now that we&#x27;ve gone our separate ways, and all the social and academic knowledge pounded into my head is solidly &lt;b&gt;there&lt;/b&gt;, ready for the rest of my life.&lt;/p&gt;
-&lt;/div&gt;</description>
-	<category>academics</category><category>life</category>
-	<link>https://benleskey.com/blog/graduation</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/graduation</guid>
-	<pubDate>Sun, 07 May 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>
