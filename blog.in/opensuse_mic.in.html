@@ -156,6 +156,17 @@ $ sudo update-bootloader # Get the removed custom kernel off the bootloader menu
 			Checked out my new package locally, using osc: <code>$ osc -A https://api.opensuse.org checkout home:linewriter1024:branches:Kernel:stable/kernel-source</code>
 		</li>
 		<li>
+			Linked repos as mentioned in the reddit comment. I'm not sure if this is necessary:
+<pre>
+<code language="bash">
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-default
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-devel
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-docs
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-syms
+</code>
+</pre>
+		</li>
+		<li>
 			Added my patch to patches.addon.tar.bz2 inside my checked out directory, which has an empty directory <code>patches.addon</code>, into which directory I added my patch file <code>6.12.6-9999-local.patch</code> and a text file named <code>series</code> with one line: <code>6.12.6-9999-local.patch</code>, the name of the patch file.
 		</li>
 		<li>
