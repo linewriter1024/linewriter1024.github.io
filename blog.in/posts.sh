@@ -1,3 +1,4 @@
+post opensuse_mic "Fixing HP Victus 15 internal microphone drivers by compiling patched auto-updating kernel with openSUSE Tumbleweed Open Build Service" 2024-12-25 "debugging software"
 post dcss_dscj "DCSS win: Powerfully lucky DsCj" 2024-09-29 "dcss games"
 post opensuse "Switching to openSUSE Tumbleweed" 2024-08-06 "software"
 post cdda_arcana_technoclysm_2 "Arcana Technoclysm update: Magical UPS, whistle crafting, and bionic installation" 2024-05-17 "software games cdda"
