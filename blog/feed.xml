@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2024 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 25 Dec 2024 21:00:17 +0000</lastBuildDate>
-		<pubDate>Wed, 25 Dec 2024 21:00:17 +0000</pubDate>
+		<lastBuildDate>Wed, 25 Dec 2024 21:06:45 +0000</lastBuildDate>
+		<pubDate>Wed, 25 Dec 2024 21:06:45 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
@@ -169,6 +169,17 @@ $ sudo update-bootloader # Get the removed custom kernel off the bootloader menu
 		&lt;/li&gt;
 		&lt;li&gt;
 			Checked out my new package locally, using osc: &lt;code&gt;$ osc -A https://api.opensuse.org checkout home:linewriter1024:branches:Kernel:stable/kernel-source&lt;/code&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			Linked repos as mentioned in the reddit comment. I&#x27;m not sure if this is necessary:
+&lt;pre&gt;
+&lt;code language=&quot;bash&quot;&gt;
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-default
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-devel
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-docs
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-syms
+&lt;/code&gt;
+&lt;/pre&gt;
 		&lt;/li&gt;
 		&lt;li&gt;
 			Added my patch to patches.addon.tar.bz2 inside my checked out directory, which has an empty directory &lt;code&gt;patches.addon&lt;/code&gt;, into which directory I added my patch file &lt;code&gt;6.12.6-9999-local.patch&lt;/code&gt; and a text file named &lt;code&gt;series&lt;/code&gt; with one line: &lt;code&gt;6.12.6-9999-local.patch&lt;/code&gt;, the name of the patch file.
