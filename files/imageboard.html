@@ -19,7 +19,7 @@
 			img {
 				min-width: 0;
 				min-height: 0;
-				max-width: 33vw;
+				max-width: 24vw;
 				object-fit: scale-down;
 			}
 
@@ -64,6 +64,8 @@
 				display: flex;
 				justify-content: space-between;
 				background-color: #eee;
+				max-width: 24vw;
+				flex-wrap: wrap;
 			}
 
 			.focused > .toolbar {
@@ -115,10 +117,12 @@
 						});
 					};
 					container.addEventListener("click", (event) => {
-						if (event.ctrlKey) {
-							removeItem();
-						} else {
-							toggleFocus();
+						if(event.target === img || event.target === container) {
+							if (event.ctrlKey) {
+								removeItem();
+							} else {
+								toggleFocus();
+							}
 						}
 					});
 					const toolbar = document.createElement("div");
@@ -129,7 +133,8 @@
 					{
 						const tool = document.createElement("button");
 						tool.innerText = "Delete";
-						tool.addEventListener("click", () => {
+						tool.addEventListener("click", (e) => {
+							e.preventDefault();
 							removeItem();
 						});
 						tool.classList.toggle("tool");
@@ -137,8 +142,19 @@
 					}
 					{
 						const tool = document.createElement("button");
+						tool.innerText = "Reload";
+						tool.addEventListener("click", (e) => {
+							e.preventDefault();
+							reload();
+						});
+						tool.classList.toggle("tool");
+						toolbar.appendChild(tool);
+					}
+					{
+						const tool = document.createElement("button");
 						tool.innerText = "Delete All";
-						tool.addEventListener("click", () => {
+						tool.addEventListener("click", (e) => {
+							e.preventDefault();
 							if(confirm("Really delete all items that are not pinned")) {
 								withStorage(db => {
 									db.items = db.items.filter(o => !!o.pinned);
@@ -152,7 +168,8 @@
 					{
 						const tool = document.createElement("button");
 						tool.innerText = item.pinned ? "Unpin" : "Pin";
-						tool.addEventListener("click", () => {
+						tool.addEventListener("click", (e) => {
+							e.preventDefault();
 							item.pinned = !item.pinned;
 							withStorage(db => {
 								for(const o of db.items) {
@@ -174,6 +191,17 @@
 						element.remove();
 					})
 					withStorage(db => {
+						db.items = db.items.sort((a, b) => {
+							if(a.pinned && !b.pinned) {
+								return -1;
+							}
+							else if(b.pinned && !a.pinned) {
+								return 1;
+							}
+							else {
+								return a.label.localeCompare(b.label);
+							}
+						});
 						for(const item of db.items) {
 							add(item);
 						}
@@ -205,7 +233,7 @@
 						withStorage(db => {
 							db.items.push(item);
 						});
-						add(item);
+						reload();
 					}
 				});
 			}
