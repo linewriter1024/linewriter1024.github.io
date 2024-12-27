@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Imageboard</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="utf-8">
+
+		<style>
+			body {
+				max-height: 100vh;
+				max-width: 100vw;
+				margin: 0;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+
+			img {
+				min-width: 0;
+				min-height: 0;
+				max-width: 33vw;
+				object-fit: scale-down;
+			}
+
+			img:hover {
+				cursor: pointer;
+			}
+
+			.focused {
+				background-color: rgba(0, 0, 0, 0.5);
+				z-index: 2;
+				max-width: 100%;
+				max-height: 100%;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				overflow: auto;
+				position: fixed;
+				right: 0;
+				top: 0;
+				object-fit: contain;
+
+			}
+
+			.focused > img {
+				max-width: 100%;
+				max-height: 100%;
+				bottom: 0;
+				left: 0;
+				margin: auto;
+				overflow: auto;
+				position: fixed;
+				right: 0;
+				top: 0;
+				object-fit: contain;
+				z-index: 1;
+			}
+
+			.toolbar {
+				position: relative;
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.focused > .toolbar {
+				z-index: 3;
+			}
+		</style>
+	</head>
+	<body id="main">
+		<script>
+			{
+				function createElementFromHTML(htmlString) {
+					var div = document.createElement('div');
+					div.innerHTML = htmlString.trim();
+					return div.firstChild;
+				}
+				function withStorage(callback) {
+					const urlParams = new URLSearchParams(window.location.search);
+					const nameParam = urlParams.get('name');
+					const name = "imageboard_db" + (nameParam ? ("_" + nameParam) : "");
+					const dbString = window.localStorage.getItem(name);
+					const db = dbString ? JSON.parse(dbString) : {
+						items: [],
+					};
+					const ret = callback(db);
+					window.localStorage.setItem(name, JSON.stringify(db));
+					return ret;
+				}
+				let reload;
+				function add(item) {
+					const container = document.createElement("div");
+					container.classList.toggle("item");
+					const img = document.createElement("img");
+					img.classList.toggle("item");
+					img.src = item.link;
+					img.title = item.label;
+					const toggleFocus = () => {
+						for(const element of document.querySelectorAll(".focused")) {
+							if(element !== container) {
+								element.classList.toggle("focused");
+							}
+						}
+						container.classList.toggle("focused");
+					};
+					const removeItem = () => {
+						container.remove();
+						withStorage(db => {
+							db.items = db.items.filter(o => o.link !== item.link);
+						});
+					};
+					img.addEventListener("click", (event) => {
+						if (event.ctrlKey) {
+							removeItem();
+						} else {
+							toggleFocus();
+						}
+					});
+					const toolbar = document.createElement("div");
+					toolbar.classList.toggle("toolbar");
+					container.appendChild(toolbar);
+					container.appendChild(img);
+					{
+						const tool = document.createElement("button");
+						tool.innerText = "Delete";
+						tool.addEventListener("click", () => {
+							removeItem();
+						});
+						tool.classList.toggle("tool");
+						toolbar.appendChild(tool);
+					}
+					{
+						const tool = document.createElement("button");
+						tool.innerText = "Delete All";
+						tool.addEventListener("click", () => {
+							if(confirm("Really delete all items that are not pinned")) {
+								withStorage(db => {
+									db.items = db.items.filter(o => !!o.pinned);
+								});
+								reload();
+							}
+						});
+						tool.classList.toggle("tool");
+						toolbar.appendChild(tool);
+					}
+					{
+						const tool = document.createElement("button");
+						tool.innerText = item.pinned ? "Unpin" : "Pin";
+						tool.addEventListener("click", () => {
+							item.pinned = !item.pinned;
+							withStorage(db => {
+								for(const o of db.items) {
+									if(o.link === item.link) {
+										o.pinned = item.pinned;
+									}
+								}
+							});
+							tool.innerText = item.pinned ? "Unpin" : "Pin";
+						});
+						tool.classList.toggle("tool");
+						toolbar.appendChild(tool);
+					}
+					document.getElementById("main").appendChild(container);
+					return img;
+				}
+				reload = () => {
+					document.querySelectorAll(".item").forEach(element => {
+						element.remove();
+					})
+					withStorage(db => {
+						for(const item of db.items) {
+							add(item);
+						}
+					});
+				}
+				reload();
+				window.addEventListener("dragover", (event) => {
+					event.preventDefault();
+				});
+				window.addEventListener("dragenter", (event) => {
+					event.preventDefault();
+				});
+				window.addEventListener("dragleave", (event) => {
+					event.preventDefault();
+				});
+				window.addEventListener("drop", (event) => {
+					event.preventDefault();
+					const link = event.dataTransfer.getData('text/html');
+					const a = createElementFromHTML(link);
+					if(a && a.href && a.innerText && withStorage((db) => {
+						for(const item of db.items) {
+							if(item.link === a.href) {
+								return false;
+							}
+						}
+						return true;
+					})) {
+						const item = {link: a.href, label: a.innerText};
+						withStorage(db => {
+							db.items.push(item);
+						});
+						add(item);
+					}
+				});
+			}
+		</script>
+	</body>
+</html>
