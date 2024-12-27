@@ -63,10 +63,12 @@
 				padding: 0;
 				display: flex;
 				justify-content: space-between;
+				background-color: #eee;
 			}
 
 			.focused > .toolbar {
 				z-index: 3;
+				background-color: #ccc;
 			}
 		</style>
 	</head>
@@ -120,6 +122,7 @@
 						}
 					});
 					const toolbar = document.createElement("div");
+					toolbar.innerText = item.label;
 					toolbar.classList.toggle("toolbar");
 					container.appendChild(toolbar);
 					container.appendChild(img);
