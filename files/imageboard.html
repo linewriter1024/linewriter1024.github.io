@@ -114,7 +114,7 @@
 							db.items = db.items.filter(o => o.link !== item.link);
 						});
 					};
-					img.addEventListener("click", (event) => {
+					container.addEventListener("click", (event) => {
 						if (event.ctrlKey) {
 							removeItem();
 						} else {
