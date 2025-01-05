@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Sun, 05 Jan 2025 05:14:27 +0000</lastBuildDate>
-		<pubDate>Sun, 05 Jan 2025 05:14:27 +0000</pubDate>
+		<lastBuildDate>Sun, 05 Jan 2025 05:18:16 +0000</lastBuildDate>
+		<pubDate>Sun, 05 Jan 2025 05:18:16 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
@@ -3359,7 +3359,9 @@ See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-06-06&quot;&gt
 </item>
 <item>
 	<title>The Dillo Test</title>
-	<description>&lt;div&gt;&lt;p&gt;You may not know what Dillo is.&lt;/p&gt;
+	<description>&lt;div&gt;&lt;i&gt;(Post updated on 2025-01-05 to correct the link to Dillo.)&lt;/i&gt;
+
+&lt;p&gt;You may not know what Dillo is.&lt;/p&gt;
 &lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test.png&quot; alt=&quot;benleskey.com in dillo&quot;&gt;
 
 &lt;p&gt;That&#x27;s &lt;a href=&quot;https://dillo-browser.github.io&quot;&gt;Dillo&lt;/a&gt;. It&#x27;s a plain graphical web browser with minimal feature set beyond being able to draw text and, sometimes, images. Why would anyone want that? Well, there&#x27;s not much practical reason now&amp;#8212;every modern browser supports a truckload of features beyond simple HTML&amp;#8212;but it does indicate a simplicity and graceful degradation that is aesthetically desirable. This website, for instance, is entirely usable in Dillo. Javascript doesn&#x27;t work, but everything has a fallback. If your site works in Dillo, then it is &lt;i&gt;simple enough&lt;/i&gt;.&lt;/p&gt;
@@ -3373,7 +3375,7 @@ See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-06-06&quot;&gt
 	<category>dev</category><category>software</category><category>website</category>
 	<link>https://benleskey.com/blog/dillo_test</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/dillo_test</guid>
-	<pubDate>Thu, 11 May 2023 12:00:00 +0000</pubDate>
+	<pubDate>Sun, 05 Jan 2025 12:00:00 +0000</pubDate>
 </item>
 <item>
 	<title>Reading list update #1</title>
