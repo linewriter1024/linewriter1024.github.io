@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog/tags/website</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Sat, 04 Jan 2025 00:06:16 +0000</lastBuildDate>
-		<pubDate>Sat, 04 Jan 2025 00:06:16 +0000</pubDate>
+		<lastBuildDate>Sun, 05 Jan 2025 05:14:25 +0000</lastBuildDate>
+		<pubDate>Sun, 05 Jan 2025 05:14:25 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/website.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
@@ -15,7 +15,7 @@
 	<description>&lt;div&gt;&lt;p&gt;You may not know what Dillo is.&lt;/p&gt;
 &lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test.png&quot; alt=&quot;benleskey.com in dillo&quot;&gt;
 
-&lt;p&gt;That&#x27;s &lt;a href=&quot;https://www.dillo.org/&quot;&gt;Dillo&lt;/a&gt;. It&#x27;s a plain graphical web browser with minimal feature set beyond being able to draw text and, sometimes, images. Why would anyone want that? Well, there&#x27;s not much practical reason now&amp;#8212;every modern browser supports a truckload of features beyond simple HTML&amp;#8212;but it does indicate a simplicity and graceful degradation that is aesthetically desirable. This website, for instance, is entirely usable in Dillo. Javascript doesn&#x27;t work, but everything has a fallback. If your site works in Dillo, then it is &lt;i&gt;simple enough&lt;/i&gt;.&lt;/p&gt;
+&lt;p&gt;That&#x27;s &lt;a href=&quot;https://dillo-browser.github.io&quot;&gt;Dillo&lt;/a&gt;. It&#x27;s a plain graphical web browser with minimal feature set beyond being able to draw text and, sometimes, images. Why would anyone want that? Well, there&#x27;s not much practical reason now&amp;#8212;every modern browser supports a truckload of features beyond simple HTML&amp;#8212;but it does indicate a simplicity and graceful degradation that is aesthetically desirable. This website, for instance, is entirely usable in Dillo. Javascript doesn&#x27;t work, but everything has a fallback. If your site works in Dillo, then it is &lt;i&gt;simple enough&lt;/i&gt;.&lt;/p&gt;
 
 &lt;p&gt;It&#x27;s not even difficult to make this site work in Dillo. In fact, it avoids any kind of bloat. This site can&#x27;t rely on Javascript, or on complicated styling, or on anything but simple text to get its message across. Functionality beyond that is, as is traditional, just window dressing on top of a simple HTML structure. Common? No. But if your site works in Dillo it will probably satisfy the hacker hipsters.&lt;/p&gt;
 
@@ -206,7 +206,7 @@ post() {
 	echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $smalltaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2025-01-04&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2025-01-05&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
 }
 
 echo &quot;Blog...&quot;
@@ -231,7 +231,7 @@ echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 (
 	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
 	# The date of generation is included on the main page.
-	replacetext &quot;2025-01-04&quot; &quot;$(TZ=UTC date -I)&quot;
+	replacetext &quot;2025-01-05&quot; &quot;$(TZ=UTC date -I)&quot;
 ) &amp;lt; templates/index.in.html &amp;gt; index.html
 
 # Build the dedicated blog index page.
