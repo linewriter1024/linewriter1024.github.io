@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Sun, 05 Jan 2025 05:18:16 +0000</lastBuildDate>
-		<pubDate>Sun, 05 Jan 2025 05:18:16 +0000</pubDate>
+		<lastBuildDate>Mon, 06 Jan 2025 02:25:26 +0000</lastBuildDate>
+		<pubDate>Mon, 06 Jan 2025 02:25:26 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
@@ -171,13 +171,14 @@ $ sudo update-bootloader # Get the removed custom kernel off the bootloader menu
 			Checked out my new package locally, using osc: &lt;code&gt;$ osc -A https://api.opensuse.org checkout home:linewriter1024:branches:Kernel:stable/kernel-source&lt;/code&gt;
 		&lt;/li&gt;
 		&lt;li&gt;
-			Linked repos as mentioned in the reddit comment. I&#x27;m not sure if this is necessary:
+			Linked repos as mentioned in the reddit comment + some additional.
 &lt;pre&gt;
 &lt;code language=&quot;bash&quot;&gt;
 $ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-default
 $ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-devel
 $ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-docs
 $ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-syms
+$ osc linkpac home:linewriter1024:branches:Kernel:stable/kernel-source home:linewriter1024:branches:Kernel:stable/kernel-macros
 &lt;/code&gt;
 &lt;/pre&gt;
 		&lt;/li&gt;
