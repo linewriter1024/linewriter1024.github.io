@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog/tags/website</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Mon, 06 Jan 2025 02:25:24 +0000</lastBuildDate>
-		<pubDate>Mon, 06 Jan 2025 02:25:24 +0000</pubDate>
+		<lastBuildDate>Mon, 17 Feb 2025 01:25:10 +0000</lastBuildDate>
+		<pubDate>Mon, 17 Feb 2025 01:25:10 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/website.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
@@ -208,7 +208,7 @@ post() {
 	echo &quot;&amp;lt;li class=&#x27;postlisting&#x27;&amp;gt;&amp;lt;a href=&#x27;$name&#x27;&amp;gt;$title&amp;lt;/a&amp;gt; [$date] $smalltaghtml&amp;lt;/li&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 
 	# Build the blog post HTML.
-	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2025-01-06&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
+	(replacetext &quot;__TITLE__&quot; &quot;$title&quot; | replacetext &quot;2025-02-17&quot; &quot;$date&quot; | replacetext &quot;__TAGS__&quot; &quot;$taghtml&quot; | replacefile &quot;__POST__&quot; &quot;$infile&quot;) &amp;lt; templates/post.in.html &amp;gt; &quot;$outfile&quot;
 }
 
 echo &quot;Blog...&quot;
@@ -233,7 +233,7 @@ echo &quot;&amp;lt;/ul&amp;gt;&quot; &amp;gt;&amp;gt; blog/_major.in.html
 (
 	replacefile &quot;__BLOGMINOR__&quot; &quot;blog/_minor.in.html&quot; |
 	# The date of generation is included on the main page.
-	replacetext &quot;2025-01-06&quot; &quot;$(TZ=UTC date -I)&quot;
+	replacetext &quot;2025-02-17&quot; &quot;$(TZ=UTC date -I)&quot;
 ) &amp;lt; templates/index.in.html &amp;gt; index.html
 
 # Build the dedicated blog index page.
