@@ -329,6 +329,10 @@ p.meta {
     clear: both;
 }
 
+.subcontact {
+    font-size: 0.75em;
+}
+
 @media (min-width: 800px) {
     #contactlinks {
         float: right;
