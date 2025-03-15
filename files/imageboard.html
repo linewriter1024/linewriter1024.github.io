@@ -287,7 +287,7 @@
 						flashAlert("Dropped " + item.label);
 					}
 					else {
-						flashAlert("Unable to drop " + item.label);
+						flashAlert("Unable to drop " + (a ? a.innerText : "[unknown]"));
 						console.log("Unable to drop: " + link, event);
 					}
 				});
