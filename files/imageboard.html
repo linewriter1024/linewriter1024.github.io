@@ -101,6 +101,8 @@
 				background: none;
 				background-color: #f0f0f0;
 				border: none;
+				overflow-y: auto;
+				overflow-x: wrap;
 			}
 
 			div.alert {
@@ -112,6 +114,10 @@
 				border: 2px solid black;
 				background-color: #fff;
 				font-size: 2em;
+			}
+
+			div.closed > * {
+				display: none;
 			}
 		</style>
 	</head>
@@ -293,26 +299,46 @@
 				});
 
 
-				{
+				(async () => {
 					const urlParams = new URLSearchParams(window.location.search);
 					const sidebarParam = urlParams.get('sidebar');
 					const div = document.createElement('div');
 					div.classList.toggle("sidebar");
-					const iframe = document.createElement('iframe');
-					iframe.setAttribute("src", sidebarParam);
-					iframe.classList.toggle("sidebar");
 					document.getElementById("main").appendChild(div);
 
-					div.addEventListener("mouseenter", () => {
-						div.appendChild(iframe);
-						div.classList.add("expanded");
-					});
+					if(sidebarParam) {
+						const response = await fetch(sidebarParam);
+						const text = await response.text();
+						const tempDiv = document.createElement('div');
+						tempDiv.innerHTML = text;
 
-					div.addEventListener("mouseleave", () => {
-						div.removeChild(iframe);
-						div.classList.remove("expanded");
-					});
-				}
+						// Convert relative URLs to absolute URLs
+						const baseUrl = new URL(sidebarParam, window.location.origin);
+
+						tempDiv.querySelectorAll('a, img').forEach(element => {
+							if (element.hasAttribute('href')) {
+								element.href = new URL(element.getAttribute('href'), baseUrl).href;
+							}
+							if (element.hasAttribute('src')) {
+								element.src = new URL(element.getAttribute('src'), baseUrl).href;
+							}
+						});
+
+						div.innerHTML = tempDiv.innerHTML;
+
+						div.classList.add("closed");
+
+						div.addEventListener("mouseenter", () => {
+							div.classList.add("expanded");
+							div.classList.remove("closed");
+						});
+
+						div.addEventListener("mouseleave", () => {
+							div.classList.remove("expanded");
+							div.classList.add("closed");
+						});
+					}
+				})()
 			}
 		</script>
 	</body>
