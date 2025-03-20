@@ -11,6 +11,7 @@
 				max-height: 100vh;
 				max-width: 100vw;
 				margin: 0;
+				margin-left: 1.5vw;
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
@@ -71,6 +72,46 @@
 			.focused > .toolbar {
 				z-index: 3;
 				background-color: #ccc;
+			}
+
+			div.sidebar {
+				z-index: 100;
+				width: 1vw;
+				height: 100vh;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background: repeating-linear-gradient(
+					45deg,
+					#606dbc,
+					#606dbc 10px,
+					#465298 10px,
+					#465298 20px
+				);
+			}
+
+			iframe.sidebar {
+				width: 100%;
+				height: 100%;
+				border: none;
+			}
+
+			div.sidebar.expanded {
+				width: 15vw;
+				background: none;
+				background-color: #f0f0f0;
+				border: none;
+			}
+
+			div.alert {
+				z-index: 101;
+				position: fixed;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				border: 2px solid black;
+				background-color: #fff;
+				font-size: 2em;
 			}
 		</style>
 	</head>
@@ -207,6 +248,15 @@
 						}
 					});
 				}
+				flashAlert = (text) => {
+					const alert = document.createElement("div");
+					alert.innerText = text;
+					alert.classList.toggle("alert");
+					document.getElementById("main").appendChild(alert);
+					setTimeout(() => {
+						alert.remove();
+					}, 2000);
+				};
 				reload();
 				window.addEventListener("dragover", (event) => {
 					event.preventDefault();
@@ -234,8 +284,35 @@
 							db.items.push(item);
 						});
 						reload();
+						flashAlert("Dropped " + item.label);
+					}
+					else {
+						flashAlert("Unable to drop " + item.label);
+						console.log("Unable to drop: " + link, event);
 					}
 				});
+
+
+				{
+					const urlParams = new URLSearchParams(window.location.search);
+					const sidebarParam = urlParams.get('sidebar');
+					const div = document.createElement('div');
+					div.classList.toggle("sidebar");
+					const iframe = document.createElement('iframe');
+					iframe.setAttribute("src", sidebarParam);
+					iframe.classList.toggle("sidebar");
+					document.getElementById("main").appendChild(div);
+
+					div.addEventListener("mouseenter", () => {
+						div.appendChild(iframe);
+						div.classList.add("expanded");
+					});
+
+					div.addEventListener("mouseleave", () => {
+						div.removeChild(iframe);
+						div.classList.remove("expanded");
+					});
+				}
 			}
 		</script>
 	</body>
