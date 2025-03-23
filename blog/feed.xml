@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Sun, 23 Mar 2025 17:31:55 +0000</lastBuildDate>
-		<pubDate>Sun, 23 Mar 2025 17:31:55 +0000</pubDate>
+		<lastBuildDate>Sun, 23 Mar 2025 20:21:33 +0000</lastBuildDate>
+		<pubDate>Sun, 23 Mar 2025 20:21:33 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
@@ -379,7 +379,7 @@ $ cat /var/tmp/build-root/standard-x86_64/.build.log | grep addon
 
 &lt;ul&gt;
 	&lt;li&gt;Three early acquirement scrolls and a potion of experience&lt;/li&gt;
-	&lt;li&gt;Worshipping Vehumet from a faded altar - the perfect conjurer God&lt;/li&gt;
+	&lt;li&gt;Worshipping Vehumet from a faded altar - the perfect conjurer god&lt;/li&gt;
 	&lt;li&gt;Mutating magic regeneration early&lt;/li&gt;
 	&lt;li&gt;Mutating paralyzing spells&lt;/li&gt;
 	&lt;li&gt;Mutating spirit shield, which 2nd level comes with HP regen converted to MP regen when low on MP&lt;/li&gt;
