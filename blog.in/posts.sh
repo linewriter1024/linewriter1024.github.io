@@ -1,3 +1,4 @@
+post intellj_kde_lag_spike_workaround "Fixing Intellj IDEA lag spikes on OpenSUSE KDE Plasma 6" 2025-04-17 "software"
 post dcss_gods_surface "DCSS deities on the surface" 2025-03-20 "dcss games dnd"
 post opensuse_mic "Fixing HP Victus 15 internal microphone drivers by compiling patched auto-updating kernel with openSUSE Tumbleweed Open Build Service" 2024-12-25 "debugging software"
 post dcss_dscj "DCSS win: Powerfully lucky DsCj" 2024-09-29 "dcss games"
