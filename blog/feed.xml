@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 18 Apr 2025 01:19:39 +0000</lastBuildDate>
-		<pubDate>Fri, 18 Apr 2025 01:19:39 +0000</pubDate>
+		<lastBuildDate>Fri, 18 Apr 2025 19:32:17 +0000</lastBuildDate>
+		<pubDate>Fri, 18 Apr 2025 19:32:17 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
@@ -19,7 +19,7 @@
 
     No more lag spikes!
 &lt;/div&gt;</description>
-	<category>software</category>
+	<category>debugging</category><category>software</category>
 	<link>https://benleskey.com/blog/intellj_kde_lag_spike_workaround</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/intellj_kde_lag_spike_workaround</guid>
 	<pubDate>Thu, 17 Apr 2025 12:00:00 +0000</pubDate>

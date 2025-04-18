@@ -6,11 +6,24 @@
 		<link>https://benleskey.com/blog/tags/debugging</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 18 Apr 2025 01:19:37 +0000</lastBuildDate>
-		<pubDate>Fri, 18 Apr 2025 01:19:37 +0000</pubDate>
+		<lastBuildDate>Fri, 18 Apr 2025 19:32:15 +0000</lastBuildDate>
+		<pubDate>Fri, 18 Apr 2025 19:32:15 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/debugging.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
+	<title>Fixing Intellj IDEA lag spikes on OpenSUSE KDE Plasma 6</title>
+	<description>&lt;div&gt;&lt;p&gt;
+    I ran into &lt;a href=&quot;https://youtrack.jetbrains.com/issue/JBR-6830&quot;&gt;JBR-6830&lt;/a&gt;. When using Intellij IDEA on KDE Plasma 6 (OpenSUSE Tumbleweed), I was getting random very noticeable lag spikes.
+    The solution was to add &lt;/p&gt;&lt;pre&gt;&lt;code&gt;-Dwatch.desktop.geometry=false&lt;/code&gt;&lt;/pre&gt; to the Intellij IDEA custom VM options.
+
+    No more lag spikes!
+&lt;/div&gt;</description>
+	<category>debugging</category><category>software</category>
+	<link>https://benleskey.com/blog/intellj_kde_lag_spike_workaround</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/intellj_kde_lag_spike_workaround</guid>
+	<pubDate>Thu, 17 Apr 2025 12:00:00 +0000</pubDate>
+</item>
+<item>
 	<title>Fixing HP Victus 15 internal microphone drivers by compiling patched auto-updating kernel with openSUSE Tumbleweed Open Build Service</title>
 	<description>&lt;div&gt;&lt;p&gt;
 	I&#x27;ve recently moved to a new laptop. OpenSUSE tumbleweed is still my OS of choice, and my recent experience cemented its position as my favorite Linux distro. My new device is an HP Victus 15, specs below:
