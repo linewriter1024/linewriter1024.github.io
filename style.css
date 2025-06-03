@@ -475,6 +475,14 @@ table.dndtable tbody tr > td {
   padding-right: 0.5em;
 }
 
+table.dndtable tbody tr > td:first-of-type {
+  max-width: 15vw;
+}
+
+table.dndtable tbody tr > td:last-of-type {
+  max-width: 15vw;
+}
+
 table.dndtable tbody tr:nth-child(even) {
   background-color: var(--offset-background);
 }
