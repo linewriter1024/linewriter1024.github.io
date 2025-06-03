@@ -1,4 +1,4 @@
-* {
+:root {
   --text-color: #222;
   --background-color: #eee;
   --border: black;
@@ -8,17 +8,16 @@
   --border-dull: #333;
 }
 
-@media (prefers-color-scheme: dark) {
-  * {
-    --background-color: #282828;
-    --text-color: #bbb;
-    --border: #aaa;
-    --offset-background: #333;
-    --offset-background-2: #444;
-    --offset-background-3: #555;
-    --border-sharp: #aaa;
-    --border-dull: #444;
-  }
+body[data-theme="dark"] {
+  --background-color: #282828;
+  --text-color: #bbb;
+  --border: #aaa;
+  --offset-background: #333;
+  --offset-background-2: #444;
+  --offset-background-3: #555;
+  --border-sharp: #aaa;
+  --border-dull: #444;
+
   a:link {
     color: #58a6ff;
   }
@@ -52,6 +51,14 @@
   button:focus {
     outline: 2px solid var(--focus-outline-color);
     outline-offset: 2px;
+  }
+
+  select {
+    background-color: var(--offset-background-2);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
   }
 }
 
@@ -411,6 +418,10 @@ p.meta {
   font-size: 0.75em;
 }
 
+#light-selector {
+  float: right;
+}
+
 @media (min-width: 800px) {
   #contactlinks {
     float: right;
@@ -472,4 +483,8 @@ table.dndtable tbody tr.focused {
   border: 3px solid var(--border);
   background-color: var(--offset-background-2);
   font-size: 1.15em;
+}
+
+.verysmall {
+  font-size: 0.6em;
 }

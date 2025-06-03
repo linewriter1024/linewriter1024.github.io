@@ -19,6 +19,8 @@
       .filter((value) => value.length > 0);
   };
 
+  const tables = {};
+
   function isElementInView(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -33,13 +35,25 @@
   class Entry {
     constructor(table, id, text) {
       this.table = table;
-      this.tableId = table.name;
       this.id = id;
       this.text = text;
     }
 
+    forCollection(collection) {
+      const entry = new Entry(this.table, this.id, this.text);
+      entry.collection = collection;
+      entry.id = this.table.name + '.' + this.id;
+      entry.originaltable = entry.originaltable || entry.table;
+      entry.table = collection;
+      return entry;
+    }
+
     compare(other) {
       return parseInt(this.id) - parseInt(other.id);
+    }
+
+    getIdText() {
+      return this.collection ? this.id.split('.').at(-1) : this.id;
     }
 
     getTableRow() {
@@ -48,9 +62,19 @@
       const idTd = document.createElement("td");
       const a = document.createElement("a");
       a.setAttribute("id", `dndtableentry_${this.id}`);
-      a.setAttribute("href", `#${this.tableId}:${this.id}`);
-      a.innerText = this.id;
+      a.setAttribute("href", `#${this.table.name}:${this.id}`);
+      a.innerText = this.getIdText();
       idTd.appendChild(a);
+      if(this.collection) {
+        const space = document.createElement("br");
+        idTd.appendChild(space);
+
+        const star = document.createElement("a");
+        star.classList.toggle("verysmall");
+        star.innerText = this.originaltable.getDescription();
+        star.setAttribute("href", `#${this.originaltable.name}`);
+        idTd.appendChild(star);
+      }
       tr.appendChild(idTd);
 
       const textTd = document.createElement("td");
@@ -63,7 +87,7 @@
       random.innerText = "Random";
       random.onclick = () => {
         const entry = this.table.getRandomEntry();
-        window.location.hash = `#${this.tableId}:${entry.id}`;
+        window.location.hash = `#${this.table.name}:${entry.id}`;
         document.getElementById(`dndtableentry_${entry.id}`).scrollIntoView();
       };
       controlColumn.appendChild(random);
@@ -76,7 +100,7 @@
       controlColumn.appendChild(top);
 
       const back = document.createElement("button");
-      back.innerText = "Back";
+      back.innerText = "Home";
       back.onclick = () => {
         window.location.hash = `#`;
       };
@@ -103,7 +127,6 @@
           );
           break;
         default:
-          throw new Error("No such entry type: " + this.def.entrytype);
           break;
       }
     }
@@ -155,7 +178,7 @@
       const span = document.createElement("span");
       const a = document.createElement("a");
       a.setAttribute("href", `#${this.name}:${entry.id}`);
-      a.innerText = entry.id;
+      a.innerText = entry.collection ? "(*)" : entry.getIdText();
       const colon = document.createElement("span");
       colon.innerText = ": ";
       const text = document.createElement("span");
@@ -168,23 +191,66 @@
       return span;
     }
 
-    getAllEntries() {
-      return this.entries;
+    getAllEntries(seen) {
+      seen = seen || {};
+      if(seen[this.name]) {
+        return [];
+      }
+      seen[this.name] = true;
+
+      switch (this.def.entrytype) {
+        case "collection":
+          const entries = [];
+          for(const tableKey of this.def.tables) {
+            const table = tables[tableKey];
+            entries.push(...table.getAllEntries(seen));
+          }
+          return entries.map(entry => entry.forCollection(this));
+        default:
+          return this.entries;
+      }
     }
 
     getEntryById(id) {
-      return this.entries[parseInt(id) - 1];
+      switch (this.def.entrytype) {
+        case "collection":
+          const [tableId, entryId] = id.split(/\.(.*)/s).filter(s => s.trim());
+          return tables[tableId].getEntryById(entryId);
+        default:
+          return this.entries[parseInt(id) - 1];
+      }
+      
     }
 
     getRandomEntry() {
       const entries = this.getAllEntries();
       return entries[Math.floor(Math.random() * entries.length)];
     }
+
+    getSourceLabel() {
+      const sourceLinks = this.def.sourcelinks || (this.def.sourcelink ? [this.def.sourcelink] : null);
+      if(sourceLinks) {
+        const span = document.createElement("span");
+        span.innerText = "Source: ";
+        for(const sourcelink of sourceLinks) {
+          const a = document.createElement("a");
+          a.setAttribute("href", sourcelink);
+          a.innerText = sourcelink;
+          span.appendChild(a);
+          const sep = document.createElement("span");
+          sep.innerText = " ";
+          span.appendChild(sep);
+        }
+        return span;
+      }
+      else {
+        return document.createElement("span");
+      }
+    }
   }
 
   (async () => {
     const index = await fetchYAML("index.yaml");
-    const tables = {};
     const fetches = [];
     for (const name of index.dndtables) {
       fetches.push(
@@ -201,7 +267,15 @@
     const mainTableBody = document.getElementById("maintablebody");
 
     const sortedTables = Object.values(tables).sort((table1, table2) => {
-      return table1.getDescription().localeCompare(table2.getDescription());
+      if(table1.def.entrytype === "collection" && table2.def.entrytype !== "collection") {
+        return -1;
+      }
+      else if(table2.def.entrytype === "collection" && table1.def.entrytype !== "collection") {
+        return 1;
+      }
+      else {
+        return table1.getDescription().localeCompare(table2.getDescription());
+      }
     });
 
     mainTableBody.innerHTML = "";
@@ -225,6 +299,10 @@
 
           document.getElementById("tabletitle").innerText =
             focusedTable.getDescription();
+
+          document.getElementById("tablesource").innerHTML = "";
+
+          document.getElementById("tablesource").appendChild(focusedTable.getSourceLabel());
 
           const focusTableBody = document.getElementById("focustablebody");
 
@@ -279,6 +357,7 @@
 
 <div id="focustable">
   <h2 id="tabletitle"></h2>
+  <span id="tablesource"></span>
   <table class="dndtablefocus dndtable">
     <thead>
       <tr>
