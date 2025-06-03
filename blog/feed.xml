@@ -6,11 +6,21 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Fri, 18 Apr 2025 19:32:17 +0000</lastBuildDate>
-		<pubDate>Fri, 18 Apr 2025 19:32:17 +0000</pubDate>
+		<lastBuildDate>Tue, 03 Jun 2025 02:00:25 +0000</lastBuildDate>
+		<pubDate>Tue, 03 Jun 2025 02:00:25 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>D&amp;D random tables</title>
+	<description>&lt;div&gt;&lt;p&gt;A collection of random tables&lt;/p&gt;
+See &lt;a href=&quot;https://benleskey.com/page/dndtables&quot;&gt;dndtables&lt;/a&gt;
+&lt;/div&gt;</description>
+	<category>games</category><category>dnd</category>
+	<link>https://benleskey.com/page/dndtables</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/dndtables</guid>
+	<pubDate>Sun, 01 Jun 2025 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>Fixing Intellj IDEA lag spikes on OpenSUSE KDE Plasma 6</title>
 	<description>&lt;div&gt;&lt;p&gt;
@@ -3529,26 +3539,6 @@ See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-06-06&quot;&gt
 	<link>https://benleskey.com/page/reading_list#2023-06-06</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/reading_list_2</guid>
 	<pubDate>Tue, 06 Jun 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>The Dillo Test</title>
-	<description>&lt;div&gt;&lt;i&gt;(Post updated on 2025-01-05 to correct the link to Dillo.)&lt;/i&gt;
-
-&lt;p&gt;You may not know what Dillo is.&lt;/p&gt;
-&lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test.png&quot; alt=&quot;benleskey.com in dillo&quot;&gt;
-
-&lt;p&gt;That&#x27;s &lt;a href=&quot;https://dillo-browser.github.io&quot;&gt;Dillo&lt;/a&gt;. It&#x27;s a plain graphical web browser with minimal feature set beyond being able to draw text and, sometimes, images. Why would anyone want that? Well, there&#x27;s not much practical reason now&amp;#8212;every modern browser supports a truckload of features beyond simple HTML&amp;#8212;but it does indicate a simplicity and graceful degradation that is aesthetically desirable. This website, for instance, is entirely usable in Dillo. Javascript doesn&#x27;t work, but everything has a fallback. If your site works in Dillo, then it is &lt;i&gt;simple enough&lt;/i&gt;.&lt;/p&gt;
-
-&lt;p&gt;It&#x27;s not even difficult to make this site work in Dillo. In fact, it avoids any kind of bloat. This site can&#x27;t rely on Javascript, or on complicated styling, or on anything but simple text to get its message across. Functionality beyond that is, as is traditional, just window dressing on top of a simple HTML structure. Common? No. But if your site works in Dillo it will probably satisfy the hacker hipsters.&lt;/p&gt;
-
-&lt;p&gt;You can, of course, take it further and make the &lt;a href=&quot;https://lynx.invisible-island.net/&quot;&gt;Lynx&lt;/a&gt; test &lt;b&gt;;)&lt;/b&gt;. You&#x27;d better hope you&#x27;ve got alt text on your &lt;i&gt;img&lt;/i&gt; elements!&lt;/p&gt;
-
-&lt;img src=&quot;https://benleskey.com/blog/../images/dillo_test_lynx.png&quot; alt=&quot;benleskey.com in lynx&quot;&gt;
-&lt;/div&gt;</description>
-	<category>dev</category><category>software</category><category>website</category>
-	<link>https://benleskey.com/blog/dillo_test</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/dillo_test</guid>
-	<pubDate>Sun, 05 Jan 2025 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>

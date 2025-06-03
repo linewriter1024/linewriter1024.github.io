@@ -1,0 +1,371 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+<script>
+  const root = "../files/dndtables";
+
+  const fetchText = async (name) => {
+    return (
+      await fetch(`${root}/${name}?cacheBuster=${new Date().getTime()}`)
+    ).text();
+  };
+
+  const fetchYAML = async (name) => {
+    return jsyaml.load(await fetchText(name));
+  };
+
+  const fetchLineSplit = async (name) => {
+    return (await fetchText(name))
+      .split("\n")
+      .map((value) => value.trim())
+      .filter((value) => value.length > 0);
+  };
+
+  const tables = {};
+
+  function isElementInView(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
+
+  class Entry {
+    constructor(table, id, text) {
+      this.table = table;
+      this.id = id;
+      this.text = text;
+    }
+
+    forCollection(collection) {
+      const entry = new Entry(this.table, this.id, this.text);
+      entry.collection = collection;
+      entry.id = this.table.name + '.' + this.id;
+      entry.originaltable = entry.originaltable || entry.table;
+      entry.table = collection;
+      return entry;
+    }
+
+    compare(other) {
+      return parseInt(this.id) - parseInt(other.id);
+    }
+
+    getIdText() {
+      return this.collection ? this.id.split('.').at(-1) : this.id;
+    }
+
+    getTableRow() {
+      const tr = document.createElement("tr");
+
+      const idTd = document.createElement("td");
+      const a = document.createElement("a");
+      a.setAttribute("id", `dndtableentry_${this.id}`);
+      a.setAttribute("href", `#${this.table.name}:${this.id}`);
+      a.innerText = this.getIdText();
+      idTd.appendChild(a);
+      if(this.collection) {
+        const space = document.createElement("br");
+        idTd.appendChild(space);
+
+        const star = document.createElement("a");
+        star.classList.toggle("verysmall");
+        star.innerText = this.originaltable.getDescription();
+        star.setAttribute("href", `#${this.originaltable.name}`);
+        idTd.appendChild(star);
+      }
+      tr.appendChild(idTd);
+
+      const textTd = document.createElement("td");
+      textTd.innerText = this.text;
+      tr.appendChild(textTd);
+
+      const controlColumn = document.createElement("td");
+
+      const random = document.createElement("button");
+      random.innerText = "Random";
+      random.onclick = () => {
+        const entry = this.table.getRandomEntry();
+        window.location.hash = `#${this.table.name}:${entry.id}`;
+        document.getElementById(`dndtableentry_${entry.id}`).scrollIntoView();
+      };
+      controlColumn.appendChild(random);
+
+      const top = document.createElement("button");
+      top.innerText = "Top";
+      top.onclick = () => {
+        document.getElementById("top").scrollIntoView();
+      };
+      controlColumn.appendChild(top);
+
+      const back = document.createElement("button");
+      back.innerText = "Home";
+      back.onclick = () => {
+        window.location.hash = `#`;
+      };
+      controlColumn.appendChild(back);
+
+      tr.appendChild(controlColumn);
+
+      return tr;
+    }
+  }
+
+  class Table {
+    constructor(name, def) {
+      this.name = name;
+      this.def = def;
+      this.entries = [];
+    }
+
+    async load() {
+      switch (this.def.entrytype) {
+        case "file":
+          this.entries = (await fetchLineSplit(this.def.entryfile)).map(
+            (value, index) => new Entry(this, (index + 1).toString(), value)
+          );
+          break;
+        default:
+          break;
+      }
+    }
+
+    getDescription() {
+      return this.def.description;
+    }
+
+    getTableRow() {
+      const tr = document.createElement("tr");
+
+      const description = document.createElement("td");
+      const link = document.createElement("a");
+      link.href = `#${this.name}`;
+      link.innerText = this.getDescription();
+      description.appendChild(link);
+      tr.appendChild(description);
+
+      const entry = document.createElement("td");
+      const span = document.createElement("span");
+      span.appendChild(this.createEntry(this.getRandomEntry(), true));
+      entry.appendChild(span);
+      tr.appendChild(entry);
+
+      const controlColumn = document.createElement("td");
+      controlColumn.setAttribute("align", "right");
+
+      const refresh = document.createElement("button");
+      refresh.innerText = "Refresh";
+      refresh.onclick = () => {
+        span.innerHTML = "";
+        span.appendChild(this.createEntry(this.getRandomEntry(), true));
+      };
+      controlColumn.appendChild(refresh);
+
+      const top = document.createElement("button");
+      top.innerText = "Top";
+      top.onclick = () => {
+        document.getElementById("top").scrollIntoView();
+      };
+      controlColumn.appendChild(top);
+
+      tr.appendChild(controlColumn);
+
+      return tr;
+    }
+
+    createEntry(entry, includeId) {
+      const span = document.createElement("span");
+      const a = document.createElement("a");
+      a.setAttribute("href", `#${this.name}:${entry.id}`);
+      a.innerText = entry.collection ? "(*)" : entry.getIdText();
+      const colon = document.createElement("span");
+      colon.innerText = ": ";
+      const text = document.createElement("span");
+      text.innerText = entry.text;
+      if (includeId) {
+        span.appendChild(a);
+        span.appendChild(colon);
+      }
+      span.appendChild(text);
+      return span;
+    }
+
+    getAllEntries(seen) {
+      seen = seen || {};
+      if(seen[this.name]) {
+        return [];
+      }
+      seen[this.name] = true;
+
+      switch (this.def.entrytype) {
+        case "collection":
+          const entries = [];
+          for(const tableKey of this.def.tables) {
+            const table = tables[tableKey];
+            entries.push(...table.getAllEntries(seen));
+          }
+          return entries.map(entry => entry.forCollection(this));
+        default:
+          return this.entries;
+      }
+    }
+
+    getEntryById(id) {
+      switch (this.def.entrytype) {
+        case "collection":
+          const [tableId, entryId] = id.split(/\.(.*)/s).filter(s => s.trim());
+          return tables[tableId].getEntryById(entryId);
+        default:
+          return this.entries[parseInt(id) - 1];
+      }
+      
+    }
+
+    getRandomEntry() {
+      const entries = this.getAllEntries();
+      return entries[Math.floor(Math.random() * entries.length)];
+    }
+
+    getSourceLabel() {
+      const sourceLinks = this.def.sourcelinks || (this.def.sourcelink ? [this.def.sourcelink] : null);
+      if(sourceLinks) {
+        const span = document.createElement("span");
+        span.innerText = "Source: ";
+        for(const sourcelink of sourceLinks) {
+          const a = document.createElement("a");
+          a.setAttribute("href", sourcelink);
+          a.innerText = sourcelink;
+          span.appendChild(a);
+          const sep = document.createElement("span");
+          sep.innerText = " ";
+          span.appendChild(sep);
+        }
+        return span;
+      }
+      else {
+        return document.createElement("span");
+      }
+    }
+  }
+
+  (async () => {
+    const index = await fetchYAML("index.yaml");
+    const fetches = [];
+    for (const name of index.dndtables) {
+      fetches.push(
+        fetchYAML(`${name}.yaml`)
+          .then((tableDef) => {
+            tables[name] = new Table(name, tableDef);
+            return tables[name];
+          })
+          .then((table) => tables[name].load())
+      );
+    }
+    await Promise.all(fetches);
+
+    const mainTableBody = document.getElementById("maintablebody");
+
+    const sortedTables = Object.values(tables).sort((table1, table2) => {
+      if(table1.def.entrytype === "collection" && table2.def.entrytype !== "collection") {
+        return -1;
+      }
+      else if(table2.def.entrytype === "collection" && table1.def.entrytype !== "collection") {
+        return 1;
+      }
+      else {
+        return table1.getDescription().localeCompare(table2.getDescription());
+      }
+    });
+
+    mainTableBody.innerHTML = "";
+
+    for (const table of sortedTables) {
+      mainTableBody.appendChild(table.getTableRow());
+    }
+
+    const navigate = async () => {
+      document.getElementById("maintable").style.display = "";
+      document.getElementById("focustable").style.display = "none";
+
+      const [hash, navigation] = window.location.hash.split("#");
+      if (navigation) {
+        const [tableId, entryId] = navigation.split(":");
+        if (tableId) {
+          document.getElementById("maintable").style.display = "none";
+          document.getElementById("focustable").style.display = "";
+
+          const focusedTable = tables[tableId];
+
+          document.getElementById("tabletitle").innerText =
+            focusedTable.getDescription();
+
+          document.getElementById("tablesource").innerHTML = "";
+
+          document.getElementById("tablesource").appendChild(focusedTable.getSourceLabel());
+
+          const focusTableBody = document.getElementById("focustablebody");
+
+          const sortedEntries = Object.values(
+            focusedTable.getAllEntries()
+          ).sort((entry1, entry2) => {
+            return entry1.compare(entry2);
+          });
+
+          focusTableBody.innerHTML = "";
+
+          for (const entry of sortedEntries) {
+            const tr = entry.getTableRow();
+            if (entry.id === entryId) {
+              tr.classList.toggle("focused");
+            }
+            focusTableBody.appendChild(tr);
+          }
+
+          if (entryId) {
+            const e = document.getElementById(`dndtableentry_${entryId}`);
+            if (!isElementInView(e)) {
+              e.scrollIntoView();
+            }
+          }
+        }
+      }
+    };
+
+    await navigate();
+
+    window.addEventListener("hashchange", function () {
+      navigate();
+    });
+  })();
+</script>
+
+<a id="top"></a>
+
+<div id="maintable">
+  <table class="dndtablemain dndtable">
+    <thead>
+      <tr>
+        <th>Table</th>
+        <th>Entry</th>
+        <th>Controls</th>
+      </tr>
+    </thead>
+    <tbody id="maintablebody"></tbody>
+  </table>
+</div>
+
+<div id="focustable">
+  <h2 id="tabletitle"></h2>
+  <span id="tablesource"></span>
+  <table class="dndtablefocus dndtable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Entry</th>
+        <th>Controls</th>
+      </tr>
+    </thead>
+    <tbody id="focustablebody"></tbody>
+  </table>
+</div>

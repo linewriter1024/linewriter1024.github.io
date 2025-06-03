@@ -1,0 +1,149 @@
+
+
+A roll of silver silk that is slightly sticky and can mend objects.
+
+A pair of glasses that when worn turns bright light into dim light within a 10ft radius sphere.
+
+A dagger that returns to the user when thrown.
+
+A paintbrush that can change the color of fabrics.
+
+A small rectangular stone that can play music.
+
+A scroll that can take pictures.
+
+A coin purse that displays the amount of money on the outside, can also determine the value of gems.
+
+A wagon that moves on its own.
+
+Everfull pipe
+
+Broom of sweeping
+
+A piece of parchment that, when the command word is spoken, can erase portions of writing. The portions erased are determined by the creature who spoke the command word.
+
+A wooden ring carved to resemble many small forest creatures. This ring allows the user to speak with Small or Tiny beasts.
+
+A pendant that can predict the weather a day in advance. If precipitation will fall 24 hours from the present time, the clear stone will become a dark and murky grey color.
+
+A bag of chalkdust that never empties. (Bonuses to Climb or find traps)
+
+A square sheet of flat metal with a magic rune on top that heats up when the command word is spoken. (A hotplate)
+
+A magnifying glass that translates any written language into 1 specific language when looked through.
+
+A glove that has a magnet on it. The owner can't wear/wield metal and gets a +1 deflection vs Metal Weapons.
+
+A pair of shoes with springs in the heels.
+
+A crazy magic map that's folded 1,000 times. It maps out the area in 100 miles but takes a Use Magic Device check to open and a Survival to use.
+
+A half black half white horseshoe that gives players a +1 Luck bonus to skills.
+
+A cup that never tips over if liquid is in it.
+
+A grappling hook that pulls you up.
+
+A belt that makes your pants fall down whenever you roll a 1.
+
+A pair of shoes that force you to dance if you crit.
+
+A necklace that makes you smell bad and cause people around you to be nauseated .
+
+Grasping Dagger: A dagger (with sheath): When you pull the dagger out of it's sheath, you cannot let it go. Even if you fully open your hand, it will stick to your palm. This effect ends when it is in the sheath, and starts again when drawn.
+
+A perfume bottle that can copy any smell, but can only have one smell at a time.
+
+A book that copies the text of any book or document it touches.
+
+A wand that doubles the size of any fruit or vegetable it touches.
+
+An empty vial that is enchanted in such a way that it seems familiar and trusted to whomever touches it.
+
+Two identical mugs. Anything placed into a single mug will disappear and reappear in the other.
+
+A napkin that never gets dirty.
+
+Rings and collars that makes the user exude an necrotic aura. This aura is so faint it can only kill bugs (so it's regularly used as a way to kill fleas and other parasites) and plants you touch (also used for weeding).
+
+a potted mushroom about 6 inches tall, and a vial labeled of "Moonspring Water". If the water is put onto the mushroom, it instantly becomes gargantuan sized in 1 turn, big enough to make a small home out of it.
+
+A clockwork turtle. Wind it up, and it walks very slowly down a path for up to 60 feet. Weighs about 50 pounds, and is nearly indestructible. Great for testing traps, but is somewhat noisy and can alert nearby mobs.
+
+A stone with symbol of a beard on it. Speaking the words to activate it as a bonus action will summon an illusion of three tiny (cat-sized) dwarves that start causing mischief (brawling with each other, slinging insults at random people, running around in circles). They come from logical places, and require DC 16 Wisdom save or physical contact to see through it, otherwise they either avoid physical contact.
+
+A harp, that when played well, summons a harmless intangible spirit that will guide the players with advice, but will also be very judgmental of their choices. He will especially make fun of their ability to play the harp, and sarcastic whenever possible.
+
+Beer Stein that can be used as a mace, however a mace proficiency would not apply, and one cannot be proficient with this weapon. When liquid is put into it, it never spills. If an alcoholic beverage is put into it, and you hit someone with it, they make a Constitution save DC 10 (or the DC of the alcohol if higher) else become drunk (poisoned) for 1 minute or until save ends, and the drink inside vanishes. (I figure this is no different than applying poison to a dagger, just cheaper, and with no prof. bonus)
+
+Pretty Ring. The permanent effects of a Prestidigitation spell to keep the wearer clean and well groomed. Their clothes are never stained, their skin is always freshly washed, and a faint odor of lavender always surrounds them. A noble in the castle court would kill for this, but an adventurer would throw it out.
+
+Plow of Giant Strength. A large steel plow, with handles and frame built at 3-4x the normal thickness. There is no harness attachment in front - instead, the person grasping the plow gains enough strength to drive it through the earth themselves! A farming community would love one of these, but adventurers would spend 30 minutes arguing how the kobold's body is technically a kind of soil...
+
+Potion of Water Breathing. This potion is contained in a delicate spherical bottle that shimmers like mother-of-pearl and has been labeled in merfolk writing. The drinker's lungs fill with a continual source of oxygenated water that makes them immune to drowning as well as any kind of toxic gases. They are also unable to talk for the duration of the spell, as the best they can manage is a splattering gurgle. Lasts 2d4 hours. 
+
+Meat Flute. Formed from the long bone of an unknown beast, this instrument creates the strong smell of fresh roasted meat when played. Different chords can produce the smells of different varieties of meat e.g. beef, mutton, pork, orc, dragon, kobold etc
+
+Shiv of Healing. Deals 1d4 damage, then heals 2d4 health. X charges. Important to note that it deals the damage first. Leads to some funny situations where the victim takes more damage than is healed, or even sometimes killed before the healing can take effect
+
+
+
+    Matching glass beads that transmit the temperature of the one placed on a white cloth, to the other.
+
+    Vial that solidifies a liquid over the next hour.
+
+    Coin that when flipped will depict a completely new and different side every time.
+
+    Ancient encyclopedia detailing a seemingly fictitious place and culture that historians think they have heard of and may produce artifacts from despite not being sure where it is or where they got them.
+
+    Three dirty socks, none of them matching, and they do not fit whoever is holding them.
+
+    An ugly tumor that can be attached and detached from the body. If worn in a way that it can see out and be seen it can psychically deliver etiquette and courtly advice.
+
+    Teapot that produces a tea that has a smell irresistible to any one who might conceivably drink tea. The person might still be hostile to you but at least will enjoy a cup of tea with you in peace. Works on each person once per day.
+
+    Hat that allows you to stare at the sun without going blind. Anyone who sees you doing so is compelled to look briefly as well before realizing that that is a dumb idea.
+
+    Bugle that plays on its own when a valve is pressed.
+
+    A ruler slightly longer than one foot in length with a strange, unknown measurement system. If you measure something that can be fully measured with it you can cause that object to be a different length on the ruler.
+
+    Cursed curse detector. While holding the detector everyone in 50 meters is unable to see cursed items. They are not even aware they are there.
+
+    Sheet of silk attached with rope to a backpack and packed in a way that would allow someone of normal weight to increase their drag enough to safely fall from very high places.
+
+    Container that creates a vacuum whenever it is sealed with the top.
+
+    Phoenix flowers. Flowers that when they die catch on fire and then regrow into a different type of flowers from the ashes. Complete cycle is about a month.
+
+    Portable bathtub. Large, barrel sized but with a faucet that will magically pump hot and cold water.
+
+    Canteen of unlimited saltwater. Will fully refill in a day.
+
+    Yellow pyramid that when pointed down will turn red when over a cave or hollow area within 50 meters of the surface.
+
+    Field goggles that allow someone looking through to see the world without organic matter.
+
+    Clockwork bird that sings a cheerful tune before repeatedly pecking the nearest hand to it until it is fed a worm.
+
+    Sheet of cloth that creates an exact replica on its surface of what is behind it.
+
+    A ring that immediately and subtly appears on the hand that shakes the hand it is currently on.
+
+    10 ml metal syringe that doubles any liquid it pulls in. Combining this liquid with the same type of liquid reverts it to the original amount.
+
+    Four matching medium sized containers. One owned by the character and the other three in random locations. Randomizes which container the character has when they fall asleep.
+
+    A bookmark that reads a book that it is inserted into complete with wry and insightful commentary not included in the book.
+
+    A beautiful and intricate nested doll with a seemingly infinite number of slightly smaller dolls nested inside.
+
+    A hat slightly too large for anyone who wears it but allows the wearer to retrace their steps from when they put it on with unfailing accuracy.
+
+    Bright red ball that rolls uphill and stops when trying to roll downhill.
+
+    Belt that when worn allows the wearer to sit down and a fancy chair to appear behind them.
+
+    Lamp that when rubbed produces a genie like creature. Offers to grant three wishes but really the creature has no such power. Excellent conversation partner but will continue to cajole the lamp’s owner into making wishes as it gains some perverse pleasure in knowing their desires and not granting them.
+
+    Blanket with a depiction of the star of a different planet. Those underneath it will feel the warmth of a bright sunny day. Occasionally depicts an eclipse.

@@ -1,0 +1,5 @@
+description: Minor Magical Items
+entrytype: collection
+tables:
+  - 100minormagicalitems
+  - reddit_minormagicalitems
