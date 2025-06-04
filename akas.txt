@@ -5,6 +5,7 @@ mappingtoolnews ../blog/tags/mappingtool
 minetest-b https://github.com/tigris-mt/b
 resume ../files/Benjamin Leskey Resume Public.pdf
 roadtrip ../blog/roadtrip_intro
+rpg ../blog/tags/dnd
 textengine ../blog/tags/textengine
 websitenews ../blog/tags/website
 websiterepo https://github.com/linewriter1024/linewriter1024.github.io
