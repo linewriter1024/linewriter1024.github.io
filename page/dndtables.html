@@ -128,7 +128,7 @@
       const controlColumn = document.createElement("td");
 
       const random = document.createElement("button");
-      random.innerText = "Random";
+      random.innerHTML = "&#9860; Random";
       random.classList.toggle("ellipsis");
       random.onclick = () => {
         const entry = this.table.getRandomEntry();
@@ -138,7 +138,7 @@
       controlColumn.appendChild(random);
 
       const top = document.createElement("button");
-      top.innerText = "Top";
+      top.innerHTML = "&#8607; Top";
       top.classList.toggle("ellipsis");
       top.onclick = () => {
         document.getElementById("top").scrollIntoView();
@@ -146,7 +146,7 @@
       controlColumn.appendChild(top);
 
       const back = document.createElement("button");
-      back.innerText = "Home";
+      back.innerHTML = "&#8606; Home";
       back.classList.toggle("ellipsis");
       back.onclick = () => {
         window.location.hash = `#`;
@@ -202,7 +202,7 @@
       controlColumn.setAttribute("align", "right");
 
       const refresh = document.createElement("button");
-      refresh.innerText = "Refresh";
+      refresh.innerHTML = "&#10227; Refresh";
       refresh.classList.toggle("ellipsis");
       refresh.onclick = () => {
         span.innerHTML = "";
@@ -211,7 +211,7 @@
       controlColumn.appendChild(refresh);
 
       const top = document.createElement("button");
-      top.innerText = "Top";
+      top.innerHTML = "&#8607; Top";
       top.classList.toggle("ellipsis");
       top.onclick = () => {
         document.getElementById("top").scrollIntoView();
