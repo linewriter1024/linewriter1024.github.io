@@ -8,15 +8,17 @@
   --border-dull: #333;
 }
 
-body[data-theme="dark"] {
-  --background-color: #282828;
-  --text-color: #bbb;
-  --border: #aaa;
-  --offset-background: #333;
-  --offset-background-2: #444;
-  --offset-background-3: #555;
-  --border-sharp: #aaa;
-  --border-dull: #444;
+@media (prefers-color-scheme: dark) {
+  body {
+    --background-color: #282828;
+    --text-color: #bbb;
+    --border: #aaa;
+    --offset-background: #333;
+    --offset-background-2: #444;
+    --offset-background-3: #555;
+    --border-sharp: #aaa;
+    --border-dull: #444;
+  }
 
   a:link {
     color: #58a6ff;
