@@ -85,6 +85,7 @@
 
       const random = document.createElement("button");
       random.innerText = "Random";
+      random.classList.toggle("ellipsis");
       random.onclick = () => {
         const entry = this.table.getRandomEntry();
         window.location.hash = `#${this.table.name}:${entry.id}`;
@@ -94,6 +95,7 @@
 
       const top = document.createElement("button");
       top.innerText = "Top";
+      top.classList.toggle("ellipsis");
       top.onclick = () => {
         document.getElementById("top").scrollIntoView();
       };
@@ -101,6 +103,7 @@
 
       const back = document.createElement("button");
       back.innerText = "Home";
+      back.classList.toggle("ellipsis");
       back.onclick = () => {
         window.location.hash = `#`;
       };
@@ -156,6 +159,7 @@
 
       const refresh = document.createElement("button");
       refresh.innerText = "Refresh";
+      refresh.classList.toggle("ellipsis");
       refresh.onclick = () => {
         span.innerHTML = "";
         span.appendChild(this.createEntry(this.getRandomEntry(), true));
@@ -164,6 +168,7 @@
 
       const top = document.createElement("button");
       top.innerText = "Top";
+      top.classList.toggle("ellipsis");
       top.onclick = () => {
         document.getElementById("top").scrollIntoView();
       };

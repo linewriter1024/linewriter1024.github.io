@@ -498,3 +498,10 @@ table.dndtable tbody tr.focused {
 .verysmall {
   font-size: 0.6em;
 }
+
+button.ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+}
