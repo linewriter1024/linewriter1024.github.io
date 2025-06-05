@@ -1,0 +1,5 @@
+description: Urban Encounters
+entrytype: collection
+tables:
+  - litrpgreads_urbanencounters
+  - dndspeak_urbanencounters
