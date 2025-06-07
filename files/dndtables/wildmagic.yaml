@@ -1,0 +1,5 @@
+description: Wild Magic
+entrytype: collection
+tables:
+  - wildmagic_5e
+  - reddit_wildmagic
