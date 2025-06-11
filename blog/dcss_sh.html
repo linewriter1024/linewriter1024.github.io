@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="Ben Leskey">
-		<meta charset="utf-8">
-		<title>Ben Leskey | The new DCSS shapeshifter background (first win)</title>
-		<link rel="stylesheet" type="text/css" href="../style.css">
-		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
-		
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ben Leskey">
+    <meta charset="utf-8">
+    <title>Ben Leskey | The new DCSS shapeshifter background (first win)</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+    
 
-		<!-- Syntax highlighting with highlight.js -->
-		<link rel="stylesheet" href="../deps/highlight.js.css">
-		<link rel="stylesheet" href="../deps/highlight.js.dark.css" media="(prefers-color-scheme: dark)">
-		<script src="../deps/highlight.js.js"></script>
-		<script>hljs.highlightAll();</script>
+    <!-- Syntax highlighting with highlight.js -->
+    <link rel="stylesheet" href="../deps/highlight.js.css">
+    <link rel="stylesheet" href="../deps/highlight.js.dark.css" media="(prefers-color-scheme: dark)">
+    <script src="../deps/highlight.js.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
 
-		<script>
-			window.addEventListener("load", function() {
-				for(const img of document.getElementsByTagName("img")) {
-					// Make img title equal img alt if the title isn't set
-					if(!img.hasAttribute("title")) {
-						img.setAttribute("title", img.getAttribute("alt"));
-					}
+    <script>
+      window.addEventListener("load", function () {
+        for (const img of document.getElementsByTagName("img")) {
+          // Make img title equal img alt if the title isn't set
+          if (!img.hasAttribute("title")) {
+            img.setAttribute("title", img.getAttribute("alt"));
+          }
 
-					// If the img isn't part of a link, make it link to itself.
-					if(img.parentNode.tagName.toLowerCase() !== "a") {
-						const a = document.createElement("a");
-						a.setAttribute("href", img.getAttribute("src"));
-						img.replaceWith(a);
-						a.appendChild(img);
-					}
-				}
-			});
-		</script>
-	</head>
-	<body>
-		<a href="..">Ben Leskey</a> | <a href=".">Blog</a> <script src="../light-selector.js"></script>
-		<hr>
-		<header>
-		<h1>The new DCSS shapeshifter background (first win)</h1>
-		<span class="subtitle">2023-07-28</span>
-		<span class="tags"> <a class="tag" href="../blog/tags/dcss">#dcss</a> <a class="tag" href="../blog/tags/games">#games</a></span>
-		
-		</header>
-		<hr>
-		<main class="post">
-			<p>
+          // If the img isn't part of a link, make it link to itself.
+          if (img.parentNode.tagName.toLowerCase() !== "a") {
+            const a = document.createElement("a");
+            a.setAttribute("href", img.getAttribute("src"));
+            img.replaceWith(a);
+            a.appendChild(img);
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+      <script src="../light-selector.js"></script>
+    </nav>
+    <hr>
+    <header>
+      <h1>The new DCSS shapeshifter background (first win)</h1>
+      <span class="subtitle">2023-07-28</span>
+      <span class="tags"> <a class="tag" href="../blog/tags/dcss">#dcss</a> <a class="tag" href="../blog/tags/games">#games</a></span>
+      
+    </header>
+    <hr>
+    <main class="post"><p>
 	I got a win playing an Armataur Shapeshifter of Okawaru in the <a href="https://crawl.develz.org">Dungeon Crawl: Stone Soup</a> roguelike. This was my first Armataur win, as well as my first win and first real time playing the new shapeshifter background, which is replacing the old transmutations magic school. Unlike with the old transmutations school, this character didn't have to cast spells at all, and I could focus on being a melee dude. And what a melee dude I was!
 </p>
 
@@ -1350,15 +1354,13 @@ Vaults:4: 1569 daAuts
 Spider:4: 1509 daAuts
 Vaults:2: 1493 daAuts
 </pre>
-
-		</main>
-		<hr>
-		<footer>
-			
-			<div class="footerinfo">
-				<span>Post dated 2023-07-28</span>
-				 <a class="tag" href="../blog/tags/dcss">#dcss</a> <a class="tag" href="../blog/tags/games">#games</a>
-				<div class="footericons">
+</main>
+    <hr>
+    <footer>
+      
+      <div class="footerinfo">
+        <span>Post dated 2023-07-28</span>
+         <a class="tag" href="../blog/tags/dcss">#dcss</a> <a class="tag" href="../blog/tags/games">#games</a> <div class="footericons">
 	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
 
 	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
@@ -1369,17 +1371,17 @@ Vaults:2: 1493 daAuts
 
 	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
 </div>
-			</div>
-		</footer>
-		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
-		<script>
-				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
-					if(window.location.hostname === "benleskey.com") {
-						DiffBlog(
-							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
-						);
-					}
-				});
-		</script>
-	</body>
+      </div>
+    </footer>
+    <script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+    <script>
+      document
+        .getElementById("diffblog-plugin-script")
+        .addEventListener("load", function () {
+          if (window.location.hostname === "benleskey.com") {
+            DiffBlog("4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x");
+          }
+        });
+    </script>
+  </body>
 </html>

@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="Ben Leskey">
-		<meta charset="utf-8">
-		<title>Ben Leskey | Prototype post-apocalyptic roadtrip simulator for the Minetest engine</title>
-		<link rel="stylesheet" type="text/css" href="../style.css">
-		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
-		
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ben Leskey">
+    <meta charset="utf-8">
+    <title>Ben Leskey | Prototype post-apocalyptic roadtrip simulator for the Minetest engine</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+    
 
-		<!-- Syntax highlighting with highlight.js -->
-		<link rel="stylesheet" href="../deps/highlight.js.css">
-		<link rel="stylesheet" href="../deps/highlight.js.dark.css" media="(prefers-color-scheme: dark)">
-		<script src="../deps/highlight.js.js"></script>
-		<script>hljs.highlightAll();</script>
+    <!-- Syntax highlighting with highlight.js -->
+    <link rel="stylesheet" href="../deps/highlight.js.css">
+    <link rel="stylesheet" href="../deps/highlight.js.dark.css" media="(prefers-color-scheme: dark)">
+    <script src="../deps/highlight.js.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
 
-		<script>
-			window.addEventListener("load", function() {
-				for(const img of document.getElementsByTagName("img")) {
-					// Make img title equal img alt if the title isn't set
-					if(!img.hasAttribute("title")) {
-						img.setAttribute("title", img.getAttribute("alt"));
-					}
+    <script>
+      window.addEventListener("load", function () {
+        for (const img of document.getElementsByTagName("img")) {
+          // Make img title equal img alt if the title isn't set
+          if (!img.hasAttribute("title")) {
+            img.setAttribute("title", img.getAttribute("alt"));
+          }
 
-					// If the img isn't part of a link, make it link to itself.
-					if(img.parentNode.tagName.toLowerCase() !== "a") {
-						const a = document.createElement("a");
-						a.setAttribute("href", img.getAttribute("src"));
-						img.replaceWith(a);
-						a.appendChild(img);
-					}
-				}
-			});
-		</script>
-	</head>
-	<body>
-		<a href="..">Ben Leskey</a> | <a href=".">Blog</a> <script src="../light-selector.js"></script>
-		<hr>
-		<header>
-		<h1>Prototype post-apocalyptic roadtrip simulator for the Minetest engine</h1>
-		<span class="subtitle">2023-04-23</span>
-		<span class="tags"> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/minetest">#minetest</a> <a class="tag" href="../blog/tags/roadtrip">#roadtrip</a> <a class="tag" href="../blog/tags/software">#software</a></span>
-		
-		</header>
-		<hr>
-		<main class="post">
-			<ol class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#minetest">Minetest &amp; Voxels</a></li><li><a href="#design">Design</a><ol><li><a href="#vehicles">Vehicles</a></li><li><a href="#survival">Survival</a></li><li><a href="#exploration">Exploration</a></li></ol></li><li><a href="#challenges">Development Challenges</a><ol><li><a href="#rotation">Rotation</a></li><li><a href="#collision">Collision</a></li><li><a href="#hud">Hud &amp; Controls</a></li></ol></li></ol>
+          // If the img isn't part of a link, make it link to itself.
+          if (img.parentNode.tagName.toLowerCase() !== "a") {
+            const a = document.createElement("a");
+            a.setAttribute("href", img.getAttribute("src"));
+            img.replaceWith(a);
+            a.appendChild(img);
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+      <script src="../light-selector.js"></script>
+    </nav>
+    <hr>
+    <header>
+      <h1>Prototype post-apocalyptic roadtrip simulator for the Minetest engine</h1>
+      <span class="subtitle">2023-04-23</span>
+      <span class="tags"> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/minetest">#minetest</a> <a class="tag" href="../blog/tags/roadtrip">#roadtrip</a> <a class="tag" href="../blog/tags/software">#software</a></span>
+      
+    </header>
+    <hr>
+    <main class="post"><ol class="toc"><li><a href="#introduction">Introduction</a></li><li><a href="#minetest">Minetest &amp; Voxels</a></li><li><a href="#design">Design</a><ol><li><a href="#vehicles">Vehicles</a></li><li><a href="#survival">Survival</a></li><li><a href="#exploration">Exploration</a></li></ol></li><li><a href="#challenges">Development Challenges</a><ol><li><a href="#rotation">Rotation</a></li><li><a href="#collision">Collision</a></li><li><a href="#hud">Hud &amp; Controls</a></li></ol></li></ol>
 <h2 id="introduction">Introduction</h2>
 <p>Github repository: <a href="https://github.com/tigris-mt/roadtrip">https://github.com/tigris-mt/roadtrip</a></p>
 <p>
@@ -97,15 +101,13 @@ end</code></pre> where <em>seed_random()</em> is a random generator returning a 
 
 <h3 id="hud">Hud &amp; Controls</h3>
 
-<p>Implementing the HUD and controls is a bit of a challenge as the Minetest engine is geared toward a Minecraft-like game. Nevertheless, I should be able to represent the dashboard on the HUD nearly as easily as the player's own stats. Controls are also a little harder, with a limited number of keybinds available to the game. I can use movement keys for driving, and I may be able to use hotbar items for actions like shifting gears or quick access of weapons or tools.</p>
-		</main>
-		<hr>
-		<footer>
-			
-			<div class="footerinfo">
-				<span>Post dated 2023-04-23</span>
-				 <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/minetest">#minetest</a> <a class="tag" href="../blog/tags/roadtrip">#roadtrip</a> <a class="tag" href="../blog/tags/software">#software</a>
-				<div class="footericons">
+<p>Implementing the HUD and controls is a bit of a challenge as the Minetest engine is geared toward a Minecraft-like game. Nevertheless, I should be able to represent the dashboard on the HUD nearly as easily as the player's own stats. Controls are also a little harder, with a limited number of keybinds available to the game. I can use movement keys for driving, and I may be able to use hotbar items for actions like shifting gears or quick access of weapons or tools.</p></main>
+    <hr>
+    <footer>
+      
+      <div class="footerinfo">
+        <span>Post dated 2023-04-23</span>
+         <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/minetest">#minetest</a> <a class="tag" href="../blog/tags/roadtrip">#roadtrip</a> <a class="tag" href="../blog/tags/software">#software</a> <div class="footericons">
 	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
 
 	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
@@ -116,17 +118,17 @@ end</code></pre> where <em>seed_random()</em> is a random generator returning a 
 
 	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
 </div>
-			</div>
-		</footer>
-		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
-		<script>
-				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
-					if(window.location.hostname === "benleskey.com") {
-						DiffBlog(
-							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
-						);
-					}
-				});
-		</script>
-	</body>
+      </div>
+    </footer>
+    <script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+    <script>
+      document
+        .getElementById("diffblog-plugin-script")
+        .addEventListener("load", function () {
+          if (window.location.hostname === "benleskey.com") {
+            DiffBlog("4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x");
+          }
+        });
+    </script>
+  </body>
 </html>

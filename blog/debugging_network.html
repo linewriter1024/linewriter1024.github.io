@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="Ben Leskey">
-		<meta charset="utf-8">
-		<title>Ben Leskey | Debugging slow boot and a clogged router</title>
-		<link rel="stylesheet" type="text/css" href="../style.css">
-		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
-		
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ben Leskey">
+    <meta charset="utf-8">
+    <title>Ben Leskey | Debugging slow boot and a clogged router</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+    
 
-		<!-- Syntax highlighting with highlight.js -->
-		<link rel="stylesheet" href="../deps/highlight.js.css">
-		<link rel="stylesheet" href="../deps/highlight.js.dark.css" media="(prefers-color-scheme: dark)">
-		<script src="../deps/highlight.js.js"></script>
-		<script>hljs.highlightAll();</script>
+    <!-- Syntax highlighting with highlight.js -->
+    <link rel="stylesheet" href="../deps/highlight.js.css">
+    <link rel="stylesheet" href="../deps/highlight.js.dark.css" media="(prefers-color-scheme: dark)">
+    <script src="../deps/highlight.js.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
 
-		<script>
-			window.addEventListener("load", function() {
-				for(const img of document.getElementsByTagName("img")) {
-					// Make img title equal img alt if the title isn't set
-					if(!img.hasAttribute("title")) {
-						img.setAttribute("title", img.getAttribute("alt"));
-					}
+    <script>
+      window.addEventListener("load", function () {
+        for (const img of document.getElementsByTagName("img")) {
+          // Make img title equal img alt if the title isn't set
+          if (!img.hasAttribute("title")) {
+            img.setAttribute("title", img.getAttribute("alt"));
+          }
 
-					// If the img isn't part of a link, make it link to itself.
-					if(img.parentNode.tagName.toLowerCase() !== "a") {
-						const a = document.createElement("a");
-						a.setAttribute("href", img.getAttribute("src"));
-						img.replaceWith(a);
-						a.appendChild(img);
-					}
-				}
-			});
-		</script>
-	</head>
-	<body>
-		<a href="..">Ben Leskey</a> | <a href=".">Blog</a> <script src="../light-selector.js"></script>
-		<hr>
-		<header>
-		<h1>Debugging slow boot and a clogged router</h1>
-		<span class="subtitle">2023-03-08</span>
-		<span class="tags"> <a class="tag" href="../blog/tags/debugging">#debugging</a> <a class="tag" href="../blog/tags/software">#software</a></span>
-		
-		</header>
-		<hr>
-		<main class="post">
-			<p>I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends' home Wi-Fi, but the connection failed.</p>
+          // If the img isn't part of a link, make it link to itself.
+          if (img.parentNode.tagName.toLowerCase() !== "a") {
+            const a = document.createElement("a");
+            a.setAttribute("href", img.getAttribute("src"));
+            img.replaceWith(a);
+            a.appendChild(img);
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+      <script src="../light-selector.js"></script>
+    </nav>
+    <hr>
+    <header>
+      <h1>Debugging slow boot and a clogged router</h1>
+      <span class="subtitle">2023-03-08</span>
+      <span class="tags"> <a class="tag" href="../blog/tags/debugging">#debugging</a> <a class="tag" href="../blog/tags/software">#software</a></span>
+      
+    </header>
+    <hr>
+    <main class="post"><p>I powered on my laptop yesterday morning and saw the Ubuntu boot had stalled on two systemd services: trying to mount a disk by UUID, with a 90 second timeout, and waiting for the network to come up, with no timeout. Before the 90 seconds for mounting the disk was up, the boot continued and I got to the graphical login menu. Network manager tried to connect to my friends' home Wi-Fi, but the connection failed.</p>
 
 <p>This was odd:</p>
 <ul>
@@ -101,15 +105,13 @@
 
 <p>As soon as I hit apply, the problems vanished. I re-enabled using DHCP on my phone and laptop, and they connected perfectly. The Roku TV connected, as did every other device in the house.</p>
 
-<p>I still don't know exactly what went wrong, but I've got more experience for next time I run into this kind of problem. Plus, being able to fix it was kinda fun!</p>
-		</main>
-		<hr>
-		<footer>
-			
-			<div class="footerinfo">
-				<span>Post dated 2023-03-08</span>
-				 <a class="tag" href="../blog/tags/debugging">#debugging</a> <a class="tag" href="../blog/tags/software">#software</a>
-				<div class="footericons">
+<p>I still don't know exactly what went wrong, but I've got more experience for next time I run into this kind of problem. Plus, being able to fix it was kinda fun!</p></main>
+    <hr>
+    <footer>
+      
+      <div class="footerinfo">
+        <span>Post dated 2023-03-08</span>
+         <a class="tag" href="../blog/tags/debugging">#debugging</a> <a class="tag" href="../blog/tags/software">#software</a> <div class="footericons">
 	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
 
 	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
@@ -120,17 +122,17 @@
 
 	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
 </div>
-			</div>
-		</footer>
-		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
-		<script>
-				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
-					if(window.location.hostname === "benleskey.com") {
-						DiffBlog(
-							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
-						);
-					}
-				});
-		</script>
-	</body>
+      </div>
+    </footer>
+    <script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+    <script>
+      document
+        .getElementById("diffblog-plugin-script")
+        .addEventListener("load", function () {
+          if (window.location.hostname === "benleskey.com") {
+            DiffBlog("4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x");
+          }
+        });
+    </script>
+  </body>
 </html>

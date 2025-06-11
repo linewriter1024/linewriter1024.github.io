@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="Ben Leskey">
-		<meta charset="utf-8">
-		<title>Ben Leskey | World map for a Wesnoth campaign: The Paradise Trap</title>
-		<link rel="stylesheet" type="text/css" href="../style.css">
-		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
-		
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ben Leskey">
+    <meta charset="utf-8">
+    <title>Ben Leskey | World map for a Wesnoth campaign: The Paradise Trap</title>
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="feed.xml">
+    
 
-		<!-- Syntax highlighting with highlight.js -->
-		<link rel="stylesheet" href="../deps/highlight.js.css">
-		<link rel="stylesheet" href="../deps/highlight.js.dark.css" media="(prefers-color-scheme: dark)">
-		<script src="../deps/highlight.js.js"></script>
-		<script>hljs.highlightAll();</script>
+    <!-- Syntax highlighting with highlight.js -->
+    <link rel="stylesheet" href="../deps/highlight.js.css">
+    <link rel="stylesheet" href="../deps/highlight.js.dark.css" media="(prefers-color-scheme: dark)">
+    <script src="../deps/highlight.js.js"></script>
+    <script>
+      hljs.highlightAll();
+    </script>
 
-		<script>
-			window.addEventListener("load", function() {
-				for(const img of document.getElementsByTagName("img")) {
-					// Make img title equal img alt if the title isn't set
-					if(!img.hasAttribute("title")) {
-						img.setAttribute("title", img.getAttribute("alt"));
-					}
+    <script>
+      window.addEventListener("load", function () {
+        for (const img of document.getElementsByTagName("img")) {
+          // Make img title equal img alt if the title isn't set
+          if (!img.hasAttribute("title")) {
+            img.setAttribute("title", img.getAttribute("alt"));
+          }
 
-					// If the img isn't part of a link, make it link to itself.
-					if(img.parentNode.tagName.toLowerCase() !== "a") {
-						const a = document.createElement("a");
-						a.setAttribute("href", img.getAttribute("src"));
-						img.replaceWith(a);
-						a.appendChild(img);
-					}
-				}
-			});
-		</script>
-	</head>
-	<body>
-		<a href="..">Ben Leskey</a> | <a href=".">Blog</a> <script src="../light-selector.js"></script>
-		<hr>
-		<header>
-		<h1>World map for a Wesnoth campaign: The Paradise Trap</h1>
-		<span class="subtitle">2023-09-28</span>
-		<span class="tags"> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/wesnoth">#wesnoth</a></span>
-		
-		</header>
-		<hr>
-		<main class="post">
-			<img src="https://raw.githubusercontent.com/wesnoth/wesnoth/51b58ad218fc285717c7d5889fdfeda59f017ca6/data/core/images/maps/wesnoth.webp" style="max-width: 160px" class="right" alt="the wesnoth world map">
+          // If the img isn't part of a link, make it link to itself.
+          if (img.parentNode.tagName.toLowerCase() !== "a") {
+            const a = document.createElement("a");
+            a.setAttribute("href", img.getAttribute("src"));
+            img.replaceWith(a);
+            a.appendChild(img);
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <a href="..">Ben Leskey</a> | <a href=".">Blog</a>
+      <script src="../light-selector.js"></script>
+    </nav>
+    <hr>
+    <header>
+      <h1>World map for a Wesnoth campaign: The Paradise Trap</h1>
+      <span class="subtitle">2023-09-28</span>
+      <span class="tags"> <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/wesnoth">#wesnoth</a></span>
+      
+    </header>
+    <hr>
+    <main class="post"><img src="https://raw.githubusercontent.com/wesnoth/wesnoth/51b58ad218fc285717c7d5889fdfeda59f017ca6/data/core/images/maps/wesnoth.webp" style="max-width: 160px" class="right" alt="the wesnoth world map">
 
 <p>
 	I'm working on a <a href="https://wesnoth.org">Battle for Wesnoth</a> campaign, <a href="../aka/wexlfu-tpt">The Paradise Trap</a>, set in the western sea off the coast of the Great Continent in the world of Wesnoth. The world of Wesnoth has a canonical map, but working with a nice-looking map is beyond the scope of my project for now. Fortunately for me, Wesnoth's game map editor creates nice enough maps and has an automatable screenshot export function built in.
@@ -128,15 +132,13 @@ label 4344 1911 "Wesnoth" 3
 
 eval "convert $commandline ./images/worldmap.png ./images/worldmap.png"
 </code>
-</pre>
-		</main>
-		<hr>
-		<footer>
-			
-			<div class="footerinfo">
-				<span>Post dated 2023-09-28</span>
-				 <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/wesnoth">#wesnoth</a>
-				<div class="footericons">
+</pre></main>
+    <hr>
+    <footer>
+      
+      <div class="footerinfo">
+        <span>Post dated 2023-09-28</span>
+         <a class="tag" href="../blog/tags/games">#games</a> <a class="tag" href="../blog/tags/software">#software</a> <a class="tag" href="../blog/tags/wesnoth">#wesnoth</a> <div class="footericons">
 	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
 
 	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
@@ -147,17 +149,17 @@ eval "convert $commandline ./images/worldmap.png ./images/worldmap.png"
 
 	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
 </div>
-			</div>
-		</footer>
-		<script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
-		<script>
-				document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
-					if(window.location.hostname === "benleskey.com") {
-						DiffBlog(
-							"4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x"
-						);
-					}
-				});
-		</script>
-	</body>
+      </div>
+    </footer>
+    <script id="diffblog-plugin-script" defer src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script>
+    <script>
+      document
+        .getElementById("diffblog-plugin-script")
+        .addEventListener("load", function () {
+          if (window.location.hostname === "benleskey.com") {
+            DiffBlog("4ueakreaad4synt32tf40kmwalpfu5wwbrqany53viw9hka20x");
+          }
+        });
+    </script>
+  </body>
 </html>

@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="Ben Leskey">
-		<meta charset="utf-8">
-		<title>Ben Leskey</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="blog/feed.xml">
-	</head>
-	<body>
-		<a href="#contact">Contact</a> | <a href="blog">Blog</a> | <a href="#projects">Projects</a> | <a href="#experience">Experience</a> | <a href="#education">Education</a> | <a href="#skills">Skills</a> | <a href="#cool">Other Cool Stuff</a> <script src="light-selector.js"></script>
-		<hr>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Ben Leskey">
+    <meta charset="utf-8">
+    <title>Ben Leskey</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="alternate" type="application/rss+xml" title="Ben Leskey's RSS feed" href="blog/feed.xml">
+  </head>
+  <body>
+    <nav>
+      <a href="#contact">Contact</a> | <a href="blog">Blog</a> |
+      <a href="page">Pages</a> | <a href="#projects">Projects</a> |
+      <a href="#experience">Experience</a> |
+      <a href="#education">Education</a> | <a href="#skills">Skills</a> |
+      <a href="#cool">Other Cool Stuff</a>
+      <script src="light-selector.js"></script>
+    </nav>
+    <hr>
 
-		<h1 id="contact">I am Benjamin Leskey <br> <span class="subcontact">Software Engineer &amp; More</span></h1>
-		<ul id="contactlinks">
-			<li>E-mail me at <a href="mailto:ben@benleskey.com">ben@benleskey.com</a></li>
-			<li><a href="https://github.com/linewriter1024">Github (linewriter1024)</a></li>
-			<li><a href="https://www.linkedin.com/in/benleskey">LinkedIn (benleskey)</a></li>
-			<!-- <li><a href="../aka/resume">R&#233;sum&#233; PDF</a></li> -->
-			<li><a class="unimportant" href="https://gitlab.com/linewriter1024">Gitlab (linewriter1024)</a></li>
-			<li>My <a href="page/reading_list">recommended reading list</a></li>
-		</ul>
+    <h1 id="contact">
+      I am Benjamin Leskey <br>
+      <span class="subcontact">Software Engineer &amp; More</span>
+    </h1>
+    <ul id="contactlinks">
+      <li>
+        E-mail me at <a href="mailto:ben@benleskey.com">ben@benleskey.com</a>
+      </li>
+      <li>
+        <a href="https://github.com/linewriter1024">Github (linewriter1024)</a>
+      </li>
+      <li>
+        <a href="https://www.linkedin.com/in/benleskey">LinkedIn (benleskey)</a>
+      </li>
+      <!-- <li><a href="../aka/resume">R&#233;sum&#233; PDF</a></li> -->
+      <li>
+        <a class="unimportant" href="https://gitlab.com/linewriter1024">Gitlab (linewriter1024)</a>
+      </li>
+      <li>My <a href="page/reading_list">recommended reading list</a></li>
+    </ul>
 
-		<h2 id="blogpreview"><a href="blog">Blog posts</a> <a class="icon" href="blog/feed.xml" title="RSS feed">
-			<img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed">
-		</a></h2>
-		<ul>
+    <h2 id="blogpreview">
+      <a href="blog">Blog posts</a>
+      <a class="icon" href="blog/feed.xml" title="RSS feed">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS feed">
+      </a>
+    </h2>
+    <ul>
 <li class="postlisting "><a href="./page/dndtables">D&amp;D random tables</a> [2025-06-01]  <a class="smalltag" href="./blog/tags/dnd">#dnd</a> <a class="smalltag" href="./blog/tags/games">#games</a></li>
 <li class="postlisting "><a href="./blog/intellj_kde_lag_spike_workaround">Fixing Intellj IDEA lag spikes on OpenSUSE KDE Plasma 6</a> [2025-04-17]  <a class="smalltag" href="./blog/tags/debugging">#debugging</a> <a class="smalltag" href="./blog/tags/software">#software</a></li>
 <li class="postlisting "><a href="./blog/dcss_gods_surface">DCSS deities on the surface</a> [2025-03-20]  <a class="smalltag" href="./blog/tags/dcss">#dcss</a> <a class="smalltag" href="./blog/tags/dnd">#dnd</a> <a class="smalltag" href="./blog/tags/games">#games</a></li>
@@ -36,218 +57,399 @@
 <li><a href="blog">48 more...</a></li>
 </ul>
 
-		<h2 id="projects">Projects</h2>
-		<h3>My Projects</h3>
-		<h4 id="dnd"><a href="aka/rpg">RPG tools</a> (2025, Ongoing)</h4>
-		<p class="showcase">
-			<a href="aka/rpg"><img style="max-width: 48px;" class="alternate left" src="images/d20.svg" alt="a twenty-sided die"></a>
-			I've written some RPG tools and worldbuilding, including an ever-expanding <a href="page/dndtables">random tables tool</a>. My worldbuilding includes inspiration from DCSS and more. See <a href="aka/rpg">D&amp;D or RPG posts</a> to get ideas or roll for random items.
-		</p>
-		<h4 id="textengine"><a href="aka/textengine">Text engine</a> (2023, Prototype)</h4>
-		<p class="showcase">
-			<a href="images/textengine.png"><img class="alternate right" src="thumbs/textengine.25.png" alt="screenshot of the text engine"></a>
-			An experimental text-based game engine for complex text adventure games. Written in Java, this is based on a design idea and Go prototype I had for managing entire game worlds as a set of related entities for emergent, deep interactions. It's meant to be a full RPG game master. See <a href="blog/tags/textengine">textengine news</a>.
-		</p>
-		<h4 id="website"><a href="aka/websiterepo">This Website</a> (2023, Ongoing)</h4>
-		<p class="showcase">
-			This website is a simple &amp; clean structure to publish my portfolio, blog, links, and other hypertext. I built this site using an ad-hoc Bash-based HTML preprocessor to compile together blog posts, links, RSS feeds, and more. See <a href="aka/websitenews">website news</a>.
-		</p>
-		<h4 id="mappingtool"><a href="aka/mappingtool">Mapping tool</a> (2021, Ongoing)</h4>
-		<p x-copy-id="mapping-tool-info" class="showcase">
-			<a href="images/mapper_default.png"><img class="alternate left" src="thumbs/mapper_default.10.png" alt="screenshot of the mapping tool"></a>
-			I'm developing a map making application (<a href="aka/mappingtoolnews">see news</a>) for authors and storytellers and people who can't draw. It could be used by fantasy authors to plan their worlds, RPG players to keep track of their games, or just for fun! I began development as part of my Senior Honors project at MVNU. I <a href="blog/mvnu_surc">presented this project</a> at MVNU's Symposium for Undergraduate Research and Creative Work in April 2023, where it won the Symposium's top prize.
-		</p>
+    <h2 id="projects">Projects</h2>
+    <h3>My Projects</h3>
+    <h4 id="dnd"><a href="aka/rpg">RPG tools</a> (2025, Ongoing)</h4>
+    <p class="showcase">
+      <a href="aka/rpg"><img style="max-width: 48px" class="alternate left" src="images/d20.svg" alt="a twenty-sided die"></a>
+      I've written some RPG tools and worldbuilding, including an ever-expanding
+      <a href="page/dndtables">random tables tool</a>. My worldbuilding includes
+      inspiration from DCSS and more. See
+      <a href="aka/rpg">D&amp;D or RPG posts</a> to get ideas or roll for random
+      items.
+    </p>
+    <h4 id="textengine">
+      <a href="aka/textengine">Text engine</a> (2023, Prototype)
+    </h4>
+    <p class="showcase">
+      <a href="images/textengine.png"><img class="alternate right" src="thumbs/textengine.25.png" alt="screenshot of the text engine"></a>
+      An experimental text-based game engine for complex text adventure games.
+      Written in Java, this is based on a design idea and Go prototype I had for
+      managing entire game worlds as a set of related entities for emergent,
+      deep interactions. It's meant to be a full RPG game master. See
+      <a href="blog/tags/textengine">textengine news</a>.
+    </p>
+    <h4 id="website">
+      <a href="aka/websiterepo">This Website</a> (2023, Ongoing)
+    </h4>
+    <p class="showcase">
+      This website is a simple &amp; clean structure to publish my portfolio,
+      blog, links, and other hypertext. I built this site using an ad-hoc
+      Bash-based HTML preprocessor to compile together blog posts, links, RSS
+      feeds, and more. See <a href="aka/websitenews">website news</a>.
+    </p>
+    <h4 id="mappingtool">
+      <a href="aka/mappingtool">Mapping tool</a> (2021, Ongoing)
+    </h4>
+    <p x-copy-id="mapping-tool-info" class="showcase">
+      <a href="images/mapper_default.png"><img class="alternate left" src="thumbs/mapper_default.10.png" alt="screenshot of the mapping tool"></a>
+      I'm developing a map making application (<a href="aka/mappingtoolnews">see news</a>) for authors and storytellers and people who can't draw. It could be
+      used by fantasy authors to plan their worlds, RPG players to keep track of
+      their games, or just for fun! I began development as part of my Senior
+      Honors project at MVNU. I
+      <a href="blog/mvnu_surc">presented this project</a> at MVNU's Symposium
+      for Undergraduate Research and Creative Work in April 2023, where it won
+      the Symposium's top prize.
+    </p>
 
-		<h4 id="cataclysm-dda-mods"><a href="https://cataclysmdda.org">Cataclysm: DDA</a> mods</h4>
-		<h5 id="arcana-technoclysm"><a href="../aka/cdda-arcana-technoclysm">Arcana Technoclysm</a> (2023)</h5>
-		<p class="showcase">
-			A mod adding some more technical aspects to the <a href="https://github.com/chaosvolt/cdda-arcana-mod">Arcana</a> mod for <a href="https://cataclysmdda.org">Cataclysm: DDA</a>. Includes summonable vehicles, new locations, and new magical tools.
-		</p>
+    <h4 id="cataclysm-dda-mods">
+      <a href="https://cataclysmdda.org">Cataclysm: DDA</a> mods
+    </h4>
+    <h5 id="arcana-technoclysm">
+      <a href="../aka/cdda-arcana-technoclysm">Arcana Technoclysm</a> (2023)
+    </h5>
+    <p class="showcase">
+      A mod adding some more technical aspects to the
+      <a href="https://github.com/chaosvolt/cdda-arcana-mod">Arcana</a> mod for
+      <a href="https://cataclysmdda.org">Cataclysm: DDA</a>. Includes summonable
+      vehicles, new locations, and new magical tools.
+    </p>
 
-		<h4 id="wesnoth">Wesnoth add-ons: <a href="https://github.com/wexlfu">Wexlfu</a> (2018, Ongoing)</h4>
-		<p class="showcase">
-			<a href="images/zitu.png"><img class="alternate right" src="thumbs/zitu.10.png" alt="screenshot of the wesnoth campaign Zeth in the Underland"></a>
-			I've made forays into the world of <a href="https://wesnoth.org">Battle for Wesnoth</a> content development, writing some simple campaigns and&#8212;most usefully&#8212;developing the Wexlfu shared library of useful markup, code, and data to save reuse between my campaigns. See my <a href="blog/tags/wesnoth">wesnoth</a> blog posts.</p>
-		
-		<h5 id="tpt"><a href="aka/wexlfu-tpt">The Paradise Trap</a> (2023, Ongoing)</h5>
-		<p class="showcase">
-			<a href="images/tpt.png"><img class="alternate left" src="thumbs/tpt.10.png" alt="screenshot of the wesnoth campaign The Paradise Trap"></a>
-			<a href="images/tpt_map.png"><img class="alternate right" src="thumbs/tpt_map.10.png" style="max-width: 200px;" alt="world map for the wesnoth campaign The Paradise Trap"></a>
-			A long-form, character-based pirate campaign. Nobody controls the high seas. Privateers and petty navies fight over paradise; many a good man seeks his fortune in the wealth of plundered goods stolen from islands and mainlands, hidden in coves for a day of celebration that may never come. Can one band of mercenary pirates hold together long enough to find a happy ending?
-		</p>
+    <h4 id="wesnoth">
+      Wesnoth add-ons: <a href="https://github.com/wexlfu">Wexlfu</a> (2018,
+      Ongoing)
+    </h4>
+    <p class="showcase">
+      <a href="images/zitu.png"><img class="alternate right" src="thumbs/zitu.10.png" alt="screenshot of the wesnoth campaign Zeth in the Underland"></a>
+      I've made forays into the world of
+      <a href="https://wesnoth.org">Battle for Wesnoth</a> content development,
+      writing some simple campaigns and&#8212;most usefully&#8212;developing the
+      Wexlfu shared library of useful markup, code, and data to save reuse
+      between my campaigns. See my <a href="blog/tags/wesnoth">wesnoth</a> blog
+      posts.
+    </p>
+    <h5 id="tpt">
+      <a href="aka/wexlfu-tpt">The Paradise Trap</a> (2023, Ongoing)
+    </h5>
+    <p class="showcase">
+      <a href="images/tpt.png"><img class="alternate left" src="thumbs/tpt.10.png" alt="screenshot of the wesnoth campaign The Paradise Trap"></a>
+      <a href="images/tpt_map.png"><img class="alternate right" src="thumbs/tpt_map.10.png" style="max-width: 200px" alt="world map for the wesnoth campaign The Paradise Trap"></a>
+      A long-form, character-based pirate campaign. Nobody controls the high
+      seas. Privateers and petty navies fight over paradise; many a good man
+      seeks his fortune in the wealth of plundered goods stolen from islands and
+      mainlands, hidden in coves for a day of celebration that may never come.
+      Can one band of mercenary pirates hold together long enough to find a
+      happy ending?
+    </p>
 
-		<h4 id="minetest"><a href="https://minetest.net">Minetest</a> Games &amp; Mods</h4>
-		<h5 id="roadtrip"><a href="aka/roadtrip">Roadtrip</a> (2023, Prototype)
-		</h5><p class="showcase">
-			<a href="images/roadtrip.png"><img class="alternate left" src="thumbs/roadtrip.10.png" alt="screenshot of the roadtrip game"></a>
-			Roadtrip is an open-world post-apocalyptic roadtrip survival simulator, along the lines of <a href="https://store.steampowered.com/app/1017180/The_Long_Drive/">The Long Drive</a>. This game is intended to support custom vehicles, physics simulation, exploration, survival mechanics, and more. See <a href="blog/tags/roadtrip">roadtrip news</a>.
-		</p>
-		<h5 id="aurum"><a href="https://github.com/tigris-mt/aurum">Aurum Game</a> (2019--2021, Paused)</h5>
-		<p class="showcase">
-			My most complex Minetest project is the Aurum game, an experimental minecraft-style game mostly from scratch using the minetest engine.
-		</p>
-		<h5 id="elevator"><a href="https://github.com/tigris-mt/elevator">Elevator</a> (2017, Ongoing maintenance)</h5>
-		<p class="showcase">
-			<a href="images/elevator.png"><img class="alternate right" src="thumbs/elevator.10.png" alt="screenshot of the elevator mod"></a>
-			The most well-developed mod I've written is the Elevator mod, which adds a realtime elevator for pretty and fast vertical travel. Get it from <a href="https://content.minetest.net/packages/shacknetisp/elevator/">the Minetest ContentDB</a> or join the discussion on <a href="https://forum.minetest.net/viewtopic.php?t=17079">the Minetest forum</a>. This mod is what remains of a Minetest server I used to host where I would experiment with new mods and game mechanics. The Elevator mod was invented when the Minetest engine got rid of the <a href="https://wiki.minetest.net/Sneaking#The_Sneak_Glitch_was_a_bug">sneak glitch</a>.
-		</p>
-		<h5>More Mods</h5>
-		<p>
-			I've written more mods of varying levels of development, which are all contained within the <a href="https://github.com/tigris-mt">Tigris-MT project</a>.
-		</p>
+    <h4 id="minetest">
+      <a href="https://minetest.net">Minetest</a> Games &amp; Mods
+    </h4>
+    <h5 id="roadtrip"><a href="aka/roadtrip">Roadtrip</a> (2023, Prototype)</h5>
+    <p class="showcase">
+      <a href="images/roadtrip.png"><img class="alternate left" src="thumbs/roadtrip.10.png" alt="screenshot of the roadtrip game"></a>
+      Roadtrip is an open-world post-apocalyptic roadtrip survival simulator,
+      along the lines of
+      <a href="https://store.steampowered.com/app/1017180/The_Long_Drive/">The Long Drive</a>. This game is intended to support custom vehicles, physics simulation,
+      exploration, survival mechanics, and more. See
+      <a href="blog/tags/roadtrip">roadtrip news</a>.
+    </p>
+    <h5 id="aurum">
+      <a href="https://github.com/tigris-mt/aurum">Aurum Game</a> (2019--2021,
+      Paused)
+    </h5>
+    <p class="showcase">
+      My most complex Minetest project is the Aurum game, an experimental
+      minecraft-style game mostly from scratch using the minetest engine.
+    </p>
+    <h5 id="elevator">
+      <a href="https://github.com/tigris-mt/elevator">Elevator</a> (2017,
+      Ongoing maintenance)
+    </h5>
+    <p class="showcase">
+      <a href="images/elevator.png"><img class="alternate right" src="thumbs/elevator.10.png" alt="screenshot of the elevator mod"></a>
+      The most well-developed mod I've written is the Elevator mod, which adds a
+      realtime elevator for pretty and fast vertical travel. Get it from
+      <a href="https://content.minetest.net/packages/shacknetisp/elevator/">the Minetest ContentDB</a>
+      or join the discussion on
+      <a href="https://forum.minetest.net/viewtopic.php?t=17079">the Minetest forum</a>. This mod is what remains of a Minetest server I used to host where I
+      would experiment with new mods and game mechanics. The Elevator mod was
+      invented when the Minetest engine got rid of the
+      <a href="https://wiki.minetest.net/Sneaking#The_Sneak_Glitch_was_a_bug">sneak glitch</a>.
+    </p>
+    <h5>More Mods</h5>
+    <p>
+      I've written more mods of varying levels of development, which are all
+      contained within the
+      <a href="https://github.com/tigris-mt">Tigris-MT project</a>.
+    </p>
 
-		<h4 id="ifiv"><a href="aka/ifiv">Interactive Freight Infrastucture Viewer</a> (2019)</h4>
-		<p class="showcase">
-			IFIV is a toy project to illustrate the complexity of supply chains. It provides an interactive display of products, industries, and transport methods in an interconnected web. Every fact and item in the display has associated references to more information and statistics.
-		</p>
+    <h4 id="ifiv">
+      <a href="aka/ifiv">Interactive Freight Infrastucture Viewer</a> (2019)
+    </h4>
+    <p class="showcase">
+      IFIV is a toy project to illustrate the complexity of supply chains. It
+      provides an interactive display of products, industries, and transport
+      methods in an interconnected web. Every fact and item in the display has
+      associated references to more information and statistics.
+    </p>
 
-		<h4 id="crawl">Dungeon Crawl Stone Soup <a href="https://github.com/linewriter1024/crawl-rc">Configuration System</a> (2017, Ongoing maintenance)</h4>
-		<p class="showcase">
-			I wrote a <a href="https://crawl.develz.org">DCSS</a> roguelike configuration compiler system to support my own configuration file for the game, but it is easily extensible and reusable for building any DCSS rc file. I include a compilation system as well as a library of useful lua methods and workarounds.
-		</p>
+    <h4 id="crawl">
+      Dungeon Crawl Stone Soup
+      <a href="https://github.com/linewriter1024/crawl-rc">Configuration System</a>
+      (2017, Ongoing maintenance)
+    </h4>
+    <p class="showcase">
+      I wrote a <a href="https://crawl.develz.org">DCSS</a> roguelike
+      configuration compiler system to support my own configuration file for the
+      game, but it is easily extensible and reusable for building any DCSS rc
+      file. I include a compilation system as well as a library of useful lua
+      methods and workarounds.
+    </p>
 
-		<h3>My Open-source Contributions</h3>
-		<ul>
-			<li><a href="https://minetest.net">Minetest</a> is a voxel-based game engine with a ton of games and mods. I've done <a href="https://github.com/minetest/minetest/commits?author=linewriter1024">work on the engine</a> itself, as well as some <a href="#minetest">games and mods of my own</a>.</li>
-			<li><a href="https://cataclysmdda.org">Cataclysm: Dark Days Ahead</a> is a great, complex survival game; I've written some <a href="https://github.com/CleverRaven/Cataclysm-DDA/commits?author=linewriter1024">features and bugfixes</a> as I came across them.</li>
-		</ul>
+    <h3>My Open-source Contributions</h3>
+    <ul>
+      <li>
+        <a href="https://minetest.net">Minetest</a> is a voxel-based game engine
+        with a ton of games and mods. I've done
+        <a href="https://github.com/minetest/minetest/commits?author=linewriter1024">work on the engine</a>
+        itself, as well as some
+        <a href="#minetest">games and mods of my own</a>.
+      </li>
+      <li>
+        <a href="https://cataclysmdda.org">Cataclysm: Dark Days Ahead</a> is a
+        great, complex survival game; I've written some
+        <a href="https://github.com/CleverRaven/Cataclysm-DDA/commits?author=linewriter1024">features and bugfixes</a>
+        as I came across them.
+      </li>
+    </ul>
 
-		<h2 id="experience">Experience</h2>
+    <h2 id="experience">Experience</h2>
 
-		<h3 class="experience job">Full Stack Developer</h3>
-		<h4>Summer 2023 -- Present</h4>
-		<p>I work for <a href="https://www.opers.org/about/">OPERS</a>.</p>
+    <h3 class="experience job">Full Stack Developer</h3>
+    <h4>Summer 2023 -- Present</h4>
+    <p>I work for <a href="https://www.opers.org/about/">OPERS</a>.</p>
 
-		<h3 class="experience project"><a href="aka/mappingtool">Mapping tool</a></h3>
-		<h4>Fall 2021 -- Present</h4>
-		<p x-copy-id="mapping-tool-info" class="showcase">
-			<a href="images/mapper_default.png"><img class="alternate left" src="thumbs/mapper_default.10.png" alt="screenshot of the mapping tool"></a>
-			I'm developing a map making application (<a href="aka/mappingtoolnews">see news</a>) for authors and storytellers and people who can't draw. It could be used by fantasy authors to plan their worlds, RPG players to keep track of their games, or just for fun! I began development as part of my Senior Honors project at MVNU. I <a href="blog/mvnu_surc">presented this project</a> at MVNU's Symposium for Undergraduate Research and Creative Work in April 2023, where it won the Symposium's top prize.
-		</p>
+    <h3 class="experience project">
+      <a href="aka/mappingtool">Mapping tool</a>
+    </h3>
+    <h4>Fall 2021 -- Present</h4>
+    <p x-copy-id="mapping-tool-info" class="showcase">
+      <a href="images/mapper_default.png"><img class="alternate left" src="thumbs/mapper_default.10.png" alt="screenshot of the mapping tool"></a>
+      I'm developing a map making application (<a href="aka/mappingtoolnews">see news</a>) for authors and storytellers and people who can't draw. It could be
+      used by fantasy authors to plan their worlds, RPG players to keep track of
+      their games, or just for fun! I began development as part of my Senior
+      Honors project at MVNU. I
+      <a href="blog/mvnu_surc">presented this project</a> at MVNU's Symposium
+      for Undergraduate Research and Creative Work in April 2023, where it won
+      the Symposium's top prize.
+    </p>
 
-		<h3 class="experience job">Computer Science Peer Tutor</h3>
-		<h4>Fall 2020 -- Spring 2023</h4>
-		<p>I've tutored for many computer science classes at MVNU, including Computer Science I &amp; II, Data Structures and Algorithms, Database Systems, and Computer Networks and Telecommunications. As a peer tutor, I have worked closely with students who wanted to improve their understanding of these classes and concepts. Each student learns in their own way, and I have mentored students to successfully develop their own learning habits. I have worked with students through difficult material, showing them how to read, manage, and apply knowledge. Besides Computer Science, I have tutored for a Theology course and Mathematics course. Many learning habits carry over between subjects and fields!</p>
+    <h3 class="experience job">Computer Science Peer Tutor</h3>
+    <h4>Fall 2020 -- Spring 2023</h4>
+    <p>
+      I've tutored for many computer science classes at MVNU, including Computer
+      Science I &amp; II, Data Structures and Algorithms, Database Systems, and
+      Computer Networks and Telecommunications. As a peer tutor, I have worked
+      closely with students who wanted to improve their understanding of these
+      classes and concepts. Each student learns in their own way, and I have
+      mentored students to successfully develop their own learning habits. I
+      have worked with students through difficult material, showing them how to
+      read, manage, and apply knowledge. Besides Computer Science, I have
+      tutored for a Theology course and Mathematics course. Many learning habits
+      carry over between subjects and fields!
+    </p>
 
-		<h3 class="experience job">Computer Science Lab Assistant</h3>
-		<h4>Fall 2021 -- Fall 2022</h4>
-		<p>I've worked as a Computer Science lab assistant at MVNU for three semesters. I've helped many students in both Computer Science I and II to grasp concepts and develop their programming problem solving skills. In this position, I have troubleshooted technical issues in development tools and workstations, explained concepts to students, mentored students through the learning process, debugged esoteric errors, and helped students succeed in the computer science program.</p>
+    <h3 class="experience job">Computer Science Lab Assistant</h3>
+    <h4>Fall 2021 -- Fall 2022</h4>
+    <p>
+      I've worked as a Computer Science lab assistant at MVNU for three
+      semesters. I've helped many students in both Computer Science I and II to
+      grasp concepts and develop their programming problem solving skills. In
+      this position, I have troubleshooted technical issues in development tools
+      and workstations, explained concepts to students, mentored students
+      through the learning process, debugged esoteric errors, and helped
+      students succeed in the computer science program.
+    </p>
 
-		<h3 class="experience project">Automated workflow app for the Community Emergency Response Team</h3>
-		<h4>Spring 2022</h4>
-		<p class="showcase">
-			<a href="images/serc-tool.png"><img class="alternate right" src="thumbs/serc-tool.10.png" alt="screenshot of the SERC tool"></a>
-			As part of my Introduction to Software Engineering class, my team and I developed a mobile app using <a href="https://flutter.dev">Flutter</a> to digitize part of the <a href="https://www.fema.gov/emergency-managers/individuals-communities/preparedness-activities-webinars/community-emergency-response-team">Community Emergency Response Team</a> workflow to evaluate disaster preparedness. The software was built for Dr. Hicks of the emergency management department, who provided system requirements.
-		</p><p>
+    <h3 class="experience project">
+      Automated workflow app for the Community Emergency Response Team
+    </h3>
+    <h4>Spring 2022</h4>
+    <p class="showcase">
+      <a href="images/serc-tool.png"><img class="alternate right" src="thumbs/serc-tool.10.png" alt="screenshot of the SERC tool"></a>
+      As part of my Introduction to Software Engineering class, my team and I
+      developed a mobile app using <a href="https://flutter.dev">Flutter</a> to
+      digitize part of the
+      <a href="https://www.fema.gov/emergency-managers/individuals-communities/preparedness-activities-webinars/community-emergency-response-team">Community Emergency Response Team</a>
+      workflow to evaluate disaster preparedness. The software was built for Dr.
+      Hicks of the emergency management department, who provided system
+      requirements.
+    </p>
 
-		</p><h3 class="experience project">Acts of kindness tracker for a church</h3>
-		<h4>Fall 2021</h4>
-		<p class="showcase">
-		<a href="images/kindness-scanner.png"><img class="alternate left" src="thumbs/kindness-scanner.10.png" alt="screenshot of the kindness scanner"></a>
-		For my Database Systems class I worked with a team of my fellow students to develop a "Kindness Scanner" for my team member's church. The scanner tracks acts of kindness through QR card scanning and a pay-it-forward system. We designed a PostgreSQL database and built a PHP-based web app to track the acts of kindness.</p>
+    <p></p>
 
-		<h2 id="education">Education: MVNU</h2>
-		<p class="showcase">
-		<a href="images/mvnu-photo.jpg"><img class="alternate right" src="thumbs/mvnu-photo.10.jpg" alt="a photo of the MVNU campus"></a>
-		<a href="images/mvnu_grad_ribbon.png"><img class="alternate left" src="thumbs/mvnu_grad_ribbon.10.png" alt="ribbon cut just before the baccalaureate service"></a>
-		I hold a Bachelor of Science degree in Computer Science (mathematics minor) from <a href="https://mvnu.edu">Mount Vernon Nazarene University</a>. I <a href="blog/graduation">graduated</a> Spring 2023 <i>summa cum laude</i> as an Honors scholar. During my time at MVNU, I lab assisted for the computer science department, tutored computer science students, led the creative writing club, and participated in the Honors program (where I created my <a href="aka/mappingtool">mapping tool</a>). See my <a href="blog/tags/academics">academic</a> blog posts.</p>
+    <h3 class="experience project">Acts of kindness tracker for a church</h3>
+    <h4>Fall 2021</h4>
+    <p class="showcase">
+      <a href="images/kindness-scanner.png"><img class="alternate left" src="thumbs/kindness-scanner.10.png" alt="screenshot of the kindness scanner"></a>
+      For my Database Systems class I worked with a team of my fellow students
+      to develop a "Kindness Scanner" for my team member's church. The scanner
+      tracks acts of kindness through QR card scanning and a pay-it-forward
+      system. We designed a PostgreSQL database and built a PHP-based web app to
+      track the acts of kindness.
+    </p>
 
-		<h2 id="skills"><a id="skills-toggle" href="javascript:void(0)">Skills</a></h2>
-		<div class="skills" id="skillslist">
-			<span class="skill paradigm">Full stack web development</span>
-			<span class="skill paradigm">Building Desktop programs</span>
-			<span class="skill paradigm">Writing mobile apps</span>
-			<span class="skill paradigm">Programming servers &amp; APIs</span>
-			<span class="skill paradigm">Administering systems</span>
-			<span class="skill paradigm">Multi-platform development</span>
-			<span class="skill paradigm">Network programming</span>
-			<span class="skill paradigm">Game development</span>
-			<span class="skill paradigm max">Software engineering</span>
+    <h2 id="education">Education: MVNU</h2>
+    <p class="showcase">
+      <a href="images/mvnu-photo.jpg"><img class="alternate right" src="thumbs/mvnu-photo.10.jpg" alt="a photo of the MVNU campus"></a>
+      <a href="images/mvnu_grad_ribbon.png"><img class="alternate left" src="thumbs/mvnu_grad_ribbon.10.png" alt="ribbon cut just before the baccalaureate service"></a>
+      I hold a Bachelor of Science degree in Computer Science (mathematics
+      minor) from
+      <a href="https://mvnu.edu">Mount Vernon Nazarene University</a>. I
+      <a href="blog/graduation">graduated</a> Spring 2023
+      <i>summa cum laude</i> as an Honors scholar. During my time at MVNU, I lab
+      assisted for the computer science department, tutored computer science
+      students, led the creative writing club, and participated in the Honors
+      program (where I created my <a href="aka/mappingtool">mapping tool</a>).
+      See my <a href="blog/tags/academics">academic</a> blog posts.
+    </p>
 
-			<span class="skill framework">Linux</span>
-			<span class="skill framework"><a href="https://pages.github.com">Github Pages</a></span>
-			<span class="skill max framework"><a href="https://github.com">Github</a></span>
-			<span class="skill framework"><a href="https://flask.palletsprojects.com">Flask</a></span>
-			<span class="skill framework"><a href="https://electronjs.org">Electron</a></span>
-			<span class="skill max framework">Git</span>
-			<span class="skill min framework">(<a href="https://flutter.dev">Flutter</a>)</span>
-			<span class="skill framework"><a href="https://wiki.wesnoth.org/ReferenceWML">Wesnoth WML</a></span>
+    <h2 id="skills">
+      <a id="skills-toggle" href="javascript:void(0)">Skills</a>
+    </h2>
+    <div class="skills" id="skillslist">
+      <span class="skill paradigm">Full stack web development</span>
+      <span class="skill paradigm">Building Desktop programs</span>
+      <span class="skill paradigm">Writing mobile apps</span>
+      <span class="skill paradigm">Programming servers &amp; APIs</span>
+      <span class="skill paradigm">Administering systems</span>
+      <span class="skill paradigm">Multi-platform development</span>
+      <span class="skill paradigm">Network programming</span>
+      <span class="skill paradigm">Game development</span>
+      <span class="skill paradigm max">Software engineering</span>
 
-			<span class="skill framework">Java EE</span>
+      <span class="skill framework">Linux</span>
+      <span class="skill framework"><a href="https://pages.github.com">Github Pages</a></span>
+      <span class="skill max framework"><a href="https://github.com">Github</a></span>
+      <span class="skill framework"><a href="https://flask.palletsprojects.com">Flask</a></span>
+      <span class="skill framework"><a href="https://electronjs.org">Electron</a></span>
+      <span class="skill max framework">Git</span>
+      <span class="skill min framework">(<a href="https://flutter.dev">Flutter</a>)</span>
+      <span class="skill framework"><a href="https://wiki.wesnoth.org/ReferenceWML">Wesnoth WML</a></span>
 
-			<span class="skill max framework">SQLite</span>
-			<span class="skill min framework">(PostgreSQL)</span>
+      <span class="skill framework">Java EE</span>
 
-			<span class="skill framework"><a href="https://debian.org">Debian</a></span>
-			<span class="skill framework"><a href="https://ubuntu.com">Ubuntu</a></span>
+      <span class="skill max framework">SQLite</span>
+      <span class="skill min framework">(PostgreSQL)</span>
 
-			<span class="skill framework min">(Bare metal programming)</span>
-			<span class="skill framework"><a href="https://nodejs.org">Node.js</a></span>
-			<span class="skill framework"><a href="http://vanilla-js.com">Vanilla JS</a></span>
+      <span class="skill framework"><a href="https://debian.org">Debian</a></span>
+      <span class="skill framework"><a href="https://ubuntu.com">Ubuntu</a></span>
 
-			<span class="skill min framework">(<a href="https://getcomposer.org">Composer</a>)</span>
+      <span class="skill framework min">(Bare metal programming)</span>
+      <span class="skill framework"><a href="https://nodejs.org">Node.js</a></span>
+      <span class="skill framework"><a href="http://vanilla-js.com">Vanilla JS</a></span>
 
-			<span class="skill min lang">COBOL</span>
-			<span class="skill lang">C++</span>
-			<span class="skill lang">Go</span>
-			<span class="skill lang max">C</span>
-			<span class="skill max lang">Java</span>
-			<span class="skill max lang">Python</span>
-			<span class="skill lang">Lua</span>
-			<span class="skill lang">UNIX shell</span>
-			<span class="skill max lang">HTML</span>
-			<span class="skill lang">PHP</span>
-			<span class="skill max lang">CSS</span>
-			<span class="skill max lang">Javascript</span>
-			<span class="skill max lang">Canvas API</span>
-			<span class="skill min lang">(x86 assembly)</span>
-			<span class="skill min lang">(RISC-V assembly)</span>
-			<span class="skill min lang">(Dart)</span>
+      <span class="skill min framework">(<a href="https://getcomposer.org">Composer</a>)</span>
 
-			<span class="skill max lang">SQL</span>
+      <span class="skill min lang">COBOL</span>
+      <span class="skill lang">C++</span>
+      <span class="skill lang">Go</span>
+      <span class="skill lang max">C</span>
+      <span class="skill max lang">Java</span>
+      <span class="skill max lang">Python</span>
+      <span class="skill lang">Lua</span>
+      <span class="skill lang">UNIX shell</span>
+      <span class="skill max lang">HTML</span>
+      <span class="skill lang">PHP</span>
+      <span class="skill max lang">CSS</span>
+      <span class="skill max lang">Javascript</span>
+      <span class="skill max lang">Canvas API</span>
+      <span class="skill min lang">(x86 assembly)</span>
+      <span class="skill min lang">(RISC-V assembly)</span>
+      <span class="skill min lang">(Dart)</span>
 
-			<span class="skill lang">Make</span>
-			<span class="skill min lang">(CMake)</span>
+      <span class="skill max lang">SQL</span>
 
-			<span class="skill personal">Patience</span>
-			<span class="skill personal">Adaptability</span>
-			<span class="skill personal">Attentiveness</span>
-			<span class="skill personal">Curiosity</span>
-			<span class="skill personal">Focus</span>
-			<span class="skill personal">Positivity</span>
-			<span class="skill personal">Cooperation</span>
-			<span class="skill personal">Leadership</span>
-			<span class="skill personal">Coordination</span>
-		</div>
+      <span class="skill lang">Make</span>
+      <span class="skill min lang">(CMake)</span>
 
-		<!-- Randomize and rotate skills list for variety. -->
-		<script src="scripts/rotate_skills.js"></script>
+      <span class="skill personal">Patience</span>
+      <span class="skill personal">Adaptability</span>
+      <span class="skill personal">Attentiveness</span>
+      <span class="skill personal">Curiosity</span>
+      <span class="skill personal">Focus</span>
+      <span class="skill personal">Positivity</span>
+      <span class="skill personal">Cooperation</span>
+      <span class="skill personal">Leadership</span>
+      <span class="skill personal">Coordination</span>
+    </div>
 
-		<h2 id="cool">Other Cool Stuff</h2>
-		<h3>Programming</h3>
-		<ul>
-			<li><a href="https://wiki.osdev.org">osdev.org</a> is a really fun repository and community of low-level programmers interested in the theory and implementation of operating systems and bare-metal development.</li>
-			<li><a href="https://eater.net/">Ben Eater</a>'s video series on building an 8-bit CPU <i>will</i> teach you how computers work from the ground up. You'll even be able to build your own!</li>
-		</ul>
-		<h3>Entertainment</h3>
-		<ul>
-			<li><a href="https://crawl.develz.org/">Dungeon Crawl Stone Soup</a> is a streamlined roguelike with an astounding variety of items, artefacts, gods, abilities, spells, and environments. Online and offline play are supported. I've written a <a href="#crawl">configuration system</a> for my own use. I am <a href="http://crawl.akrasiac.org/scoring/players/nornya">Nornya</a> and my home server is <a href="https://cbro.berotato.org">CBRO</a>.</li>
-			<li><a href="https://wesnoth.org">The Battle for Wesnoth</a> is a turn-based strategy game with wonderful flavor and mechanics. I've written a bit of <a href="#wesnoth">Wesnoth content</a>. See my <a href="blog/tags/wesnoth">wesnoth</a> blog posts.</li>
-			<li><a href="https://openttd.org">OpenTTD</a> is a complex transport simulation.</li>
-			<li><a href="https://lichess.org">Lichess</a> is the best online chess app &amp; community, and it's 100% free!. I am <a href="https://lichess.org/@/beha">@beha</a>.</li>
-		</ul>
-		<h3>Utilities</h3>
-		<ul>
-			<li><a href="https://hetzner.com">Hetzner</a> is a great server hosting company; easy to get, easy to use, and solid.</li>
-			<li><a href="https://porkbun.com">Porkbun</a> provides nice domain registration and services; I'm using them for this very site!</li>
-		</ul>
+    <!-- Randomize and rotate skills list for variety. -->
+    <script src="scripts/rotate_skills.js"></script>
 
-		<hr>
+    <h2 id="cool">Other Cool Stuff</h2>
+    <h3>Programming</h3>
+    <ul>
+      <li>
+        <a href="https://wiki.osdev.org">osdev.org</a> is a really fun
+        repository and community of low-level programmers interested in the
+        theory and implementation of operating systems and bare-metal
+        development.
+      </li>
+      <li>
+        <a href="https://eater.net/">Ben Eater</a>'s video series on building an
+        8-bit CPU <i>will</i> teach you how computers work from the ground up.
+        You'll even be able to build your own!
+      </li>
+    </ul>
+    <h3>Entertainment</h3>
+    <ul>
+      <li>
+        <a href="https://crawl.develz.org/">Dungeon Crawl Stone Soup</a> is a
+        streamlined roguelike with an astounding variety of items, artefacts,
+        gods, abilities, spells, and environments. Online and offline play are
+        supported. I've written a <a href="#crawl">configuration system</a> for
+        my own use. I am
+        <a href="http://crawl.akrasiac.org/scoring/players/nornya">Nornya</a>
+        and my home server is <a href="https://cbro.berotato.org">CBRO</a>.
+      </li>
+      <li>
+        <a href="https://wesnoth.org">The Battle for Wesnoth</a> is a turn-based
+        strategy game with wonderful flavor and mechanics. I've written a bit of
+        <a href="#wesnoth">Wesnoth content</a>. See my
+        <a href="blog/tags/wesnoth">wesnoth</a> blog posts.
+      </li>
+      <li>
+        <a href="https://openttd.org">OpenTTD</a> is a complex transport
+        simulation.
+      </li>
+      <li>
+        <a href="https://lichess.org">Lichess</a> is the best online chess app
+        &amp; community, and it's 100% free!. I am
+        <a href="https://lichess.org/@/beha">@beha</a>.
+      </li>
+    </ul>
+    <h3>Utilities</h3>
+    <ul>
+      <li>
+        <a href="https://hetzner.com">Hetzner</a> is a great server hosting
+        company; easy to get, easy to use, and solid.
+      </li>
+      <li>
+        <a href="https://porkbun.com">Porkbun</a> provides nice domain
+        registration and services; I'm using them for this very site!
+      </li>
+    </ul>
 
-		<footer>
-			<div class="footerinfo">
-				<a class="site-link" href="aka/websiterepo">Site last updated 2025-06-07</a> | <a class="site-link" href="aka">Redirects</a> | <a class="site-link" href="page">Pages</a>
-				<div class="footericons">
+    <hr>
+
+    <footer>
+      <div class="footerinfo">
+        <a class="site-link" href="aka/websiterepo">Site last updated 2025-06-11</a>
+        | <a class="site-link" href="aka">Redirects</a> |
+        <a class="site-link" href="page">Pages</a>
+        <div class="footericons">
 	<a class="icon" href="https://gitlab.com/linewriter1024" title="Gitlab @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/3/35/GitLab_icon.svg" alt="Gitlab account"></a>
 
 	<a class="icon" href="https://github.com/linewriter1024" title="Github @linewriter1024"><img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Github account"></a>
@@ -258,7 +460,7 @@
 
 	<a class="icon" href="https://lichess.org/@/beha" title="Lichess @beha"><img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Lichess_Logo_2019.svg" alt="Lichess"></a>
 </div>
-			</div>
-		</footer>
-	</body>
+      </div>
+    </footer>
+  </body>
 </html>
