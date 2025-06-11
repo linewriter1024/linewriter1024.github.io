@@ -90,7 +90,7 @@
     forCollection(collection) {
       const entry = new Entry(this.table, this.id, this.text);
       entry.collection = collection;
-      entry.id = this.table.name + '.' + this.id;
+      entry.id = this.table.name + "." + this.id;
       entry.originaltable = entry.originaltable || entry.table;
       entry.table = collection;
       return entry;
@@ -101,7 +101,7 @@
     }
 
     getIdText() {
-      return this.collection ? this.id.split('.').at(-1) : this.id;
+      return this.collection ? this.id.split(".").at(-1) : this.id;
     }
 
     getTableRow() {
@@ -113,7 +113,7 @@
       a.setAttribute("href", `#${this.table.name}:${this.id}`);
       a.innerText = this.getIdText();
       idTd.appendChild(a);
-      if(this.collection) {
+      if (this.collection) {
         const space = document.createElement("br");
         idTd.appendChild(space);
 
@@ -246,7 +246,7 @@
 
     getAllEntries(seen) {
       seen = seen || {};
-      if(seen[this.name]) {
+      if (seen[this.name]) {
         return [];
       }
       seen[this.name] = true;
@@ -254,11 +254,11 @@
       switch (this.def.entrytype) {
         case "collection":
           const entries = [];
-          for(const tableKey of this.def.tables) {
+          for (const tableKey of this.def.tables) {
             const table = tables[tableKey];
             entries.push(...table.getAllEntries(seen));
           }
-          return entries.map(entry => entry.forCollection(this));
+          return entries.map((entry) => entry.forCollection(this));
         default:
           return this.entries;
       }
@@ -267,12 +267,13 @@
     getEntryById(id) {
       switch (this.def.entrytype) {
         case "collection":
-          const [tableId, entryId] = id.split(/\.(.*)/s).filter(s => s.trim());
+          const [tableId, entryId] = id
+            .split(/\.(.*)/s)
+            .filter((s) => s.trim());
           return tables[tableId].getEntryById(entryId);
         default:
           return this.entries[parseInt(id) - 1];
       }
-      
     }
 
     getRandomEntry() {
@@ -281,11 +282,13 @@
     }
 
     getSourceLabel() {
-      const sourceLinks = this.def.sourcelinks || (this.def.sourcelink ? [this.def.sourcelink] : null);
-      if(sourceLinks) {
+      const sourceLinks =
+        this.def.sourcelinks ||
+        (this.def.sourcelink ? [this.def.sourcelink] : null);
+      if (sourceLinks) {
         const span = document.createElement("span");
         span.innerText = "Source: ";
-        for(const sourcelink of sourceLinks) {
+        for (const sourcelink of sourceLinks) {
           const a = document.createElement("a");
           a.setAttribute("href", sourcelink);
           a.innerText = sourcelink;
@@ -295,8 +298,7 @@
           span.appendChild(sep);
         }
         return span;
-      }
-      else {
+      } else {
         return document.createElement("span");
       }
     }
@@ -320,13 +322,17 @@
     const mainTableBody = document.getElementById("maintablebody");
 
     const sortedTables = Object.values(tables).sort((table1, table2) => {
-      if(table1.def.entrytype === "collection" && table2.def.entrytype !== "collection") {
+      if (
+        table1.def.entrytype === "collection" &&
+        table2.def.entrytype !== "collection"
+      ) {
         return -1;
-      }
-      else if(table2.def.entrytype === "collection" && table1.def.entrytype !== "collection") {
+      } else if (
+        table2.def.entrytype === "collection" &&
+        table1.def.entrytype !== "collection"
+      ) {
         return 1;
-      }
-      else {
+      } else {
         return table1.getDescription().localeCompare(table2.getDescription());
       }
     });
@@ -355,7 +361,9 @@
 
           document.getElementById("tablesource").innerHTML = "";
 
-          document.getElementById("tablesource").appendChild(focusedTable.getSourceLabel());
+          document
+            .getElementById("tablesource")
+            .appendChild(focusedTable.getSourceLabel());
 
           const focusTableBody = document.getElementById("focustablebody");
 
