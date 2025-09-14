@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog/tags/cdda</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 11 Jun 2025 21:23:59 +0000</lastBuildDate>
-		<pubDate>Wed, 11 Jun 2025 21:23:59 +0000</pubDate>
+		<lastBuildDate>Sun, 14 Sep 2025 18:34:55 +0000</lastBuildDate>
+		<pubDate>Sun, 14 Sep 2025 18:34:55 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/cdda.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
@@ -139,8 +139,8 @@ DUMP_Z=&quot;0 a b c d e f g h i k l m n o p q t u v w x y z C D E F G J I K&quo
 </item>
 <item>
 	<title>Make horses milkable</title>
-	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&quot;&gt;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&lt;/a&gt;
-&lt;/p&gt;</description>
+	<description>&lt;span&gt;See &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&quot;&gt;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&lt;/a&gt;
+&lt;/span&gt;</description>
 	<category>cdda</category><category>software</category>
 	<link>https://github.com/CleverRaven/Cataclysm-DDA/pull/66639</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/make_horses_milkable</guid>

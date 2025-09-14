@@ -6,8 +6,8 @@
 		<link>https://benleskey.com/blog/tags/software</link>
 		<language>en-us</language>
 		<copyright>2025 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 11 Jun 2025 21:24:00 +0000</lastBuildDate>
-		<pubDate>Wed, 11 Jun 2025 21:24:00 +0000</pubDate>
+		<lastBuildDate>Sun, 14 Sep 2025 18:34:55 +0000</lastBuildDate>
+		<pubDate>Sun, 14 Sep 2025 18:34:55 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/tags/software.feed.xml" rel="self" type="application/rss+xml" />
 
 		<item>
@@ -405,8 +405,8 @@ eval &quot;convert $commandline ./images/worldmap.png ./images/worldmap.png&quot
 </item>
 <item>
 	<title>Make horses milkable</title>
-	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&quot;&gt;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&lt;/a&gt;
-&lt;/p&gt;</description>
+	<description>&lt;span&gt;See &lt;a href=&quot;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&quot;&gt;https://github.com/CleverRaven/Cataclysm-DDA/pull/66639&lt;/a&gt;
+&lt;/span&gt;</description>
 	<category>cdda</category><category>software</category>
 	<link>https://github.com/CleverRaven/Cataclysm-DDA/pull/66639</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/make_horses_milkable</guid>
@@ -617,8 +617,8 @@ end&lt;/code&gt;&lt;/pre&gt; where &lt;em&gt;seed_random()&lt;/em&gt; is a rando
 </item>
 <item>
 	<title>Mapping tool quick start guide</title>
-	<description>&lt;p&gt;See &lt;a href=&quot;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&quot;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;
-&lt;/p&gt;</description>
+	<description>&lt;span&gt;See &lt;a href=&quot;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&quot;&gt;https://github.com/mapper1024/mapper1024/wiki/Quick-Start&lt;/a&gt;
+&lt;/span&gt;</description>
 	<category>mappingtool</category><category>software</category>
 	<link>https://github.com/mapper1024/mapper1024/wiki/Quick-Start</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/mapper_quick_start</guid>
