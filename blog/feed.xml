@@ -6,11 +6,31 @@
 		<link>https://benleskey.com/blog</link>
 		<language>en-us</language>
 		<copyright>2026 Ben Leskey</copyright>
-		<lastBuildDate>Wed, 05 Aug 2026 21:11:25 +0000</lastBuildDate>
-		<pubDate>Wed, 05 Aug 2026 21:11:25 +0000</pubDate>
+		<lastBuildDate>Wed, 05 Aug 2026 21:18:10 +0000</lastBuildDate>
+		<pubDate>Wed, 05 Aug 2026 21:18:10 +0000</pubDate>
 		<atom:link href="https://benleskey.com/blog/feed.xml" rel="self" type="application/rss+xml" />
 
 		
+<item>
+	<title>Arcana Technoclysm ported to Cataclysm: Bright Nights</title>
+	<description>&lt;div&gt;&lt;p&gt;
+  I have ported my Arcana Technoclysm mod from
+  &lt;a href=&quot;https://cataclysmdda.org&quot;&gt;Cataclysm: DDA&lt;/a&gt; to
+  &lt;a href=&quot;https://cataclysmbn.org/&quot;&gt;Cataclysm: Bright Nights&lt;/a&gt;. The port is
+  now available as
+  &lt;a href=&quot;https://benleskey.com/blog/../aka/cbn-arcana-technoclysm&quot;&gt;Arcana Technoclysm for Cataclysm: Bright Nights&lt;/a&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+  The parent Arcana mod is no longer developed for DDA, so I ported my mod to
+  Bright Nights where Arcana is included in the repository.
+&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>cdda</category><category>cbn</category>
+	<link>https://benleskey.com/blog/cbn_arcana_technoclysm</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cbn_arcana_technoclysm</guid>
+	<pubDate>Wed, 05 Aug 2026 12:00:00 +0000</pubDate>
+</item>
 <item>
 	<title>D&amp;D random tables</title>
 	<description>&lt;div&gt;&lt;p&gt;A collection of random tables&lt;/p&gt;
@@ -3529,16 +3549,6 @@ Vaults:2: 1493 daAuts
 	<link>https://github.com/CleverRaven/Cataclysm-DDA/pull/66639</link>
 	<guid isPermaLink="true">https://benleskey.com/blog/make_horses_milkable</guid>
 	<pubDate>Mon, 03 Jul 2023 12:00:00 +0000</pubDate>
-</item>
-<item>
-	<title>Reading list update #2</title>
-	<description>&lt;div&gt;&lt;p&gt;Culture and mystery!&lt;/p&gt;
-See &lt;a href=&quot;https://benleskey.com/page/reading_list#2023-06-06&quot;&gt;reading_list#2023-06-06&lt;/a&gt;
-&lt;/div&gt;</description>
-	<category>reading</category><category>discovery</category>
-	<link>https://benleskey.com/page/reading_list#2023-06-06</link>
-	<guid isPermaLink="true">https://benleskey.com/blog/reading_list_2</guid>
-	<pubDate>Tue, 06 Jun 2023 12:00:00 +0000</pubDate>
 </item>
 	</channel>
 </rss>

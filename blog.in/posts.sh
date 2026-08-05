@@ -1,3 +1,4 @@
+post cbn_arcana_technoclysm "Arcana Technoclysm ported to Cataclysm: Bright Nights" 2026-08-05 "software games cdda cbn"
 POST_BLURB="A collection of random tables" POST_INTERNAL="dndtables" post dndtables "D&D random tables" 2025-06-01 "games dnd"
 post intellj_kde_lag_spike_workaround "Fixing Intellj IDEA lag spikes on OpenSUSE KDE Plasma 6" 2025-04-17 "debugging software"
 post dcss_gods_surface "DCSS deities on the surface" 2025-03-20 "dcss games dnd"
