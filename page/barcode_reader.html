@@ -141,16 +141,11 @@
     background: var(--offset-background);
   }
 
-  #barcode-reader .preview canvas,
-  #barcode-reader .preview video {
+  #barcode-reader .preview canvas {
     display: block;
     max-width: 100%;
     max-height: 60vh;
     object-fit: contain;
-  }
-
-  #barcode-reader .preview video {
-    width: 100%;
   }
 
   #barcode-reader .preview-message {
@@ -237,20 +232,19 @@
       <span>Upload image</span>
       <input id="barcode-image" type="file" accept="image/*" disabled>
     </label>
-    <button id="start-camera" class="primary" type="button" disabled>
-      Start camera
+    <input id="camera-image" type="file" accept="image/*" capture="environment" hidden disabled>
+    <button id="take-photo" class="primary" type="button" disabled>
+      Take photo
     </button>
-    <button id="stop-camera" type="button" disabled>Stop camera</button>
   </div>
 
   <div class="scan-layout">
     <section aria-labelledby="scan-source-heading">
       <h2 id="scan-source-heading">Scan source</h2>
       <div class="preview">
-        <video id="camera-preview" muted playsinline hidden></video>
         <canvas id="image-preview" role="img" aria-label="Selected image" hidden></canvas>
         <p id="preview-message" class="preview-message">
-          Upload an image or start the camera.
+          Upload an image or take a photo.
         </p>
       </div>
       <p id="scan-status" class="scan-status" role="status" aria-live="polite">
@@ -277,26 +271,19 @@
 <script>
   (() => {
     const imageInput = document.getElementById("barcode-image");
-    const startCameraButton = document.getElementById("start-camera");
-    const stopCameraButton = document.getElementById("stop-camera");
+    const cameraInput = document.getElementById("camera-image");
+    const takePhotoButton = document.getElementById("take-photo");
     const clearResultsButton = document.getElementById("clear-results");
-    const cameraPreview = document.getElementById("camera-preview");
     const imagePreview = document.getElementById("image-preview");
     const previewMessage = document.getElementById("preview-message");
     const scanStatus = document.getElementById("scan-status");
     const resultCount = document.getElementById("result-count");
     const emptyResults = document.getElementById("empty-results");
     const resultsList = document.getElementById("barcode-results");
-    const cameraAvailable =
-      window.isSecureContext &&
-      Boolean(navigator.mediaDevices && navigator.mediaDevices.getUserMedia);
 
     let detector = null;
-    let cameraStream = null;
-    let cameraTimer = null;
     let imageObjectUrl = null;
     let imageScanVersion = 0;
-    const cameraResultCounts = new Map();
 
     function setStatus(message) {
       scanStatus.textContent = message;
@@ -310,7 +297,6 @@
 
     function clearResults() {
       resultsList.replaceChildren();
-      cameraResultCounts.clear();
       updateResultCount();
     }
 
@@ -333,128 +319,16 @@
       resultsList.append(item);
     }
 
-    function appendCameraBarcodes(barcodes) {
-      const frameCounts = new Map();
-      let added = 0;
-
-      for (const barcode of barcodes) {
-        const value = String(barcode.rawValue ?? "");
-        if (!value) {
-          continue;
-        }
-
-        const key = `${barcode.format}\u0000${value}`;
-        const frameCount = frameCounts.get(key) || 0;
-        const previousCount = cameraResultCounts.get(key) || 0;
-        frameCounts.set(key, frameCount + 1);
-
-        if (frameCount < previousCount) {
-          continue;
-        }
-
-        cameraResultCounts.set(key, frameCount + 1);
-        appendBarcode(barcode);
-        added += 1;
-      }
-
-      updateResultCount();
-      return added;
-    }
-
-    function stopCamera(message = "Camera stopped.") {
-      if (cameraTimer !== null) {
-        window.clearTimeout(cameraTimer);
-        cameraTimer = null;
-      }
-
-      if (cameraStream) {
-        for (const track of cameraStream.getTracks()) {
-          track.stop();
-        }
-        cameraStream = null;
-      }
-
-      cameraPreview.pause();
-      cameraPreview.srcObject = null;
-      cameraPreview.hidden = true;
-      stopCameraButton.disabled = true;
-      startCameraButton.disabled = !detector || !cameraAvailable;
-
-      if (message) {
-        setStatus(message);
-      }
-    }
-
-    async function scanCameraFrame() {
-      if (!cameraStream) {
-        return;
-      }
-
-      if (cameraPreview.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
-        try {
-          const barcodes = await detector.detect(cameraPreview);
-          const added = appendCameraBarcodes(barcodes);
-          if (added > 0) {
-            setStatus(`${added} new barcode${added === 1 ? "" : "s"} found.`);
-          }
-        } catch (error) {
-          stopCamera("Camera scanning stopped after an error.");
-          return;
-        }
-      }
-
-      if (cameraStream) {
-        cameraTimer = window.setTimeout(scanCameraFrame, 250);
-      }
-    }
-
-    async function startCamera() {
-      if (!detector || !cameraAvailable) {
-        return;
-      }
-
-      imageScanVersion += 1;
-      stopCamera("");
-      clearResults();
-      previewMessage.hidden = true;
-      imagePreview.hidden = true;
-      startCameraButton.disabled = true;
-      setStatus("Requesting camera access...");
-
-      try {
-        cameraStream = await navigator.mediaDevices.getUserMedia({
-          audio: false,
-          video: { facingMode: { ideal: "environment" } },
-        });
-        cameraPreview.srcObject = cameraStream;
-        cameraPreview.hidden = false;
-        await cameraPreview.play();
-        stopCameraButton.disabled = false;
-        setStatus("Camera scanning.");
-        scanCameraFrame();
-      } catch (error) {
-        stopCamera("");
-        previewMessage.hidden = false;
-
-        if (
-          error.name === "NotAllowedError" ||
-          error.name === "SecurityError"
-        ) {
-          setStatus("Camera permission was denied.");
-        } else if (error.name === "NotFoundError") {
-          setStatus("No camera was found.");
-        } else {
-          setStatus("Camera could not be started.");
-        }
+    function selectCameraPhoto() {
+      if (detector) {
+        cameraInput.click();
       }
     }
 
     async function scanImage(file) {
       imageScanVersion += 1;
       const version = imageScanVersion;
-      stopCamera("");
       clearResults();
-      cameraPreview.hidden = true;
       previewMessage.hidden = true;
 
       if (imageObjectUrl) {
@@ -524,18 +398,19 @@
       }
     }
 
-    imageInput.addEventListener("change", () => {
-      const file = imageInput.files && imageInput.files[0];
-      imageInput.value = "";
+    function handleImageSelection(event) {
+      const input = event.currentTarget;
+      const file = input.files && input.files[0];
+      input.value = "";
       if (file && detector) {
         scanImage(file);
       }
-    });
+    }
 
-    startCameraButton.addEventListener("click", startCamera);
-    stopCameraButton.addEventListener("click", () => stopCamera());
+    imageInput.addEventListener("change", handleImageSelection);
+    cameraInput.addEventListener("change", handleImageSelection);
+    takePhotoButton.addEventListener("click", selectCameraPhoto);
     clearResultsButton.addEventListener("click", clearResults);
-    window.addEventListener("pagehide", () => stopCamera(""));
 
     try {
       if (typeof window.BarcodeDetector === "undefined") {
@@ -551,13 +426,9 @@
 
       detector = new window.BarcodeDetector();
       imageInput.disabled = false;
-      startCameraButton.disabled = !cameraAvailable;
-
-      if (cameraAvailable) {
-        setStatus("Ready.");
-      } else {
-        setStatus("Ready. Camera access is unavailable in this browser.");
-      }
+      cameraInput.disabled = false;
+      takePhotoButton.disabled = false;
+      setStatus("Ready.");
     } catch (error) {
       setStatus(
         "Barcode detection could not be loaded. Check the connection and reload.",
