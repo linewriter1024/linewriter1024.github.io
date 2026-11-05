@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Ben Leskey's Blog: cygnusloom</title>
+		<description>cygnusloom posts from Ben Leskey</description>
+		<link>https://benleskey.com/blog/tags/cygnusloom</link>
+		<language>en-us</language>
+		<copyright>2026 Ben Leskey</copyright>
+		<lastBuildDate>Thu, 05 Nov 2026 21:52:30 +0000</lastBuildDate>
+		<pubDate>Thu, 05 Nov 2026 21:52:30 +0000</pubDate>
+		<atom:link href="https://benleskey.com/blog/tags/cygnusloom.feed.xml" rel="self" type="application/rss+xml" />
+
+		<item>
+	<title>Cygnus Loom: An RPG with an AI game master</title>
+	<description>&lt;div&gt;&lt;a href=&quot;https://benleskey.com/blog/../images/cygnusloom.png&quot;&gt;&lt;img class=&quot;right&quot; alt=&quot;A screenshot of Cygnus Loom: the AI game master narrates a scene in the Refactory and the player replies&quot; src=&quot;https://benleskey.com/blog/../thumbs/cygnusloom.25.png&quot;&gt;&lt;/a&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Website: &lt;a href=&quot;https://cygnusloom.com&quot;&gt;cygnusloom.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;
+    Github repository:
+    &lt;a href=&quot;https://github.com/cygnusloom/cygnusloom&quot;&gt;https://github.com/cygnusloom/cygnusloom&lt;/a&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+  Much like the &lt;a href=&quot;https://benleskey.com/blog/../aka/textengine&quot;&gt;textengine prototype&lt;/a&gt;, Cygnus
+  Loom is designed to manage complex game worlds and emergent storytelling.
+  However, since my &lt;a href=&quot;https://benleskey.com/blog/../blog/textengine_intro&quot;&gt;Text Engine introduction blog
+  post&lt;/a&gt; about 3.5 years ago, AI has advanced to the point where, with the appropriate
+  harness, it can manage a game world.
+&lt;/p&gt;
+
+&lt;p&gt;Cygnus Loom has a few components:
+
+  &lt;/p&gt;&lt;ul&gt;
+    &lt;li&gt;Game engine&lt;/li&gt;
+    &lt;li&gt;AI model harness that interfaces with the game engine&lt;/li&gt;
+    &lt;li&gt;User interface presenting the game to the player&lt;/li&gt;
+    &lt;li&gt;Pluggable game rulesets and worlds feeding the AI game master and engine&lt;/li&gt;
+  &lt;/ul&gt;
+
+
+&lt;p&gt;
+  Cygnus Loom operates under a few core principles, and is intended to offer a
+  few core features:
+
+  &lt;/p&gt;&lt;ul&gt;
+    &lt;li&gt;Generic engine: Cygnus Loom can provide the harness for any set of RPG rules and game world.&lt;/li&gt;
+    &lt;li&gt;Generic AI model: Cygnus Loom can use any AI model.&lt;/li&gt;
+    &lt;li&gt;Emergent behavior: The Cygnus Loom harness will enable the AI game master to build a dynamic and evolving game world.&lt;/li&gt;
+    &lt;li&gt;Creative behavior: The Cygnus Loom harness will help AI models that aren&#x27;t by themselves creative to generate creative storylines, items, characters, and any other part of the game.&lt;/li&gt;
+    &lt;li&gt;Modular design: The Cygnus Loom engine is intended to be pluggable with many different rulesets, pre-made game worlds, content packs, creativity tables, and custom code.&lt;/li&gt;
+  &lt;/ul&gt;
+
+
+&lt;p&gt;
+  Cygnus Loom is still under heavy development and is not production-ready yet.
+&lt;/p&gt;
+&lt;/div&gt;</description>
+	<category>software</category><category>games</category><category>textengine</category><category>cygnusloom</category>
+	<link>https://benleskey.com/blog/cygnusloom_intro</link>
+	<guid isPermaLink="true">https://benleskey.com/blog/cygnusloom_intro</guid>
+	<pubDate>Thu, 05 Nov 2026 12:00:00 +0000</pubDate>
+</item>_
+	</channel>
+</rss>
